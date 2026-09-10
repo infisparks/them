@@ -56,6 +56,48 @@
       box-shadow: 0 4px 25px rgba(245, 166, 35, 0.2);
     }
 
+    /* Walking Glow Border Beam Effect */
+    @property --beam-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes beamRotate {
+      0% { --beam-angle: 0deg; }
+      100% { --beam-angle: 360deg; }
+    }
+
+    .glow-walking-border {
+      position: relative;
+    }
+
+    .glow-walking-border::before {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: conic-gradient(
+        from var(--beam-angle, 0deg),
+        transparent 0deg,
+        transparent 60deg,
+        rgba(245, 166, 35, 0.35) 90deg,
+        #f5a623 120deg,
+        #fef08a 135deg,
+        #f5a623 150deg,
+        rgba(245, 166, 35, 0.35) 180deg,
+        transparent 210deg,
+        transparent 360deg
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: beamRotate 5s linear infinite;
+      z-index: 10;
+    }
+
     .dark-gold-card {
       border: 1px solid rgba(245, 166, 35, 0.35);
       background: linear-gradient(145deg, #141418 0%, #0d0d10 100%);
@@ -268,7 +310,7 @@
     <main class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 space-y-8 sm:space-y-12 mx-auto mt-2">
       
       <!-- 1. Hero Card Section (Compact, Screen-Height Friendly) -->
-      <section id="hero" class="hero-border-card rounded-3xl p-3.5 sm:p-6 md:p-8 text-center relative overflow-hidden flex flex-col items-center justify-center">
+      <section id="hero" class="hero-border-card glow-walking-border rounded-3xl p-3.5 sm:p-6 md:p-8 text-center relative overflow-hidden flex flex-col items-center justify-center">
         
         <!-- Profile Portrait on Top with Gold Glow (Extra Large & Prominent) -->
         <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-3.5 flex-shrink-0">
@@ -348,7 +390,7 @@
 
       <!-- 2. Key Highlights & Stats Matrix (Executive Luxury Bento Grid) -->
       <section class="max-w-4xl mx-auto w-full">
-        <div class="relative rounded-3xl bg-gradient-to-b from-[#121218] via-[#0d0d12] to-[#08080a] border border-amber-500/30 p-2 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(245,166,35,0.08)] overflow-hidden">
+        <div class="relative rounded-3xl glow-walking-border bg-gradient-to-b from-[#121218] via-[#0d0d12] to-[#08080a] border border-amber-500/30 p-2 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(245,166,35,0.08)] overflow-hidden">
           
           <!-- Top Ambient Glow Line -->
           <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
@@ -439,7 +481,7 @@
           <p class="text-xs text-slate-400 max-w-xl mx-auto">Engineering scalable digital systems, automating complex business logic &amp; driving healthcare transformation</p>
         </div>
 
-        <div class="bg-gradient-to-b from-zinc-950 via-[#101016] to-zinc-950 border border-amber-500/35 rounded-3xl p-4 sm:p-7 space-y-5 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,166,35,0.08)] text-left relative overflow-hidden">
+        <div class="bg-gradient-to-b from-zinc-950 via-[#101016] to-zinc-950 border border-amber-500/35 glow-walking-border rounded-3xl p-4 sm:p-7 space-y-5 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,166,35,0.08)] text-left relative overflow-hidden">
           
           <!-- Subtle Top Ambient Glow -->
           <div class="absolute -top-24 -right-24 w-64 h-64 bg-amber-500/10 blur-[80px] rounded-full pointer-events-none"></div>
@@ -596,10 +638,13 @@
           <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
             Infiplus Healthcare Software Suite
           </h2>
-          <p class="text-xs text-slate-400">Complete Hospital &amp; Clinic        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <p class="text-xs text-slate-400">Complete Hospital &amp; Clinic Paperless Management Solutions</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           
           <!-- Product 1: Infiplus HMS -->
-          <div class="rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between shadow-xl text-left bg-gradient-to-b from-[#14141c] via-[#0d0d14] to-zinc-950 border border-amber-500/40 hover:border-amber-400 transition-all duration-300">
+          <div class="rounded-3xl glow-walking-border p-4 sm:p-5 space-y-3.5 flex flex-col justify-between shadow-xl text-left bg-gradient-to-b from-[#14141c] via-[#0d0d14] to-zinc-950 border border-amber-500/40 hover:border-amber-400 transition-all duration-300">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
                 <span class="bg-amber-500/15 text-amber-400 border border-amber-500/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
@@ -847,7 +892,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           <!-- Award 1: Taj Mumbai -->
-          <div class="bg-zinc-950/90 border border-amber-500/40 p-4 sm:p-5 rounded-3xl space-y-3.5 text-left shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between">
+          <div class="bg-zinc-950/90 border border-amber-500/40 glow-walking-border p-4 sm:p-5 rounded-3xl space-y-3.5 text-left shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between">
             <div class="space-y-3">
               <!-- Achievement Photo Gallery (Uncropped Full View) -->
               <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center group cursor-pointer" onclick="openLightbox('./image/achivement_isrc_1.jpeg', 'Bharat ka Best Brand Award - The Taj Hotel, Mumbai')">
@@ -893,7 +938,7 @@
           </div>
 
           <!-- Award 2: Taj Dubai -->
-          <div class="bg-zinc-950/90 border border-amber-500/40 p-4 sm:p-5 rounded-3xl space-y-3.5 text-left shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between">
+          <div class="bg-zinc-950/90 border border-amber-500/40 glow-walking-border p-4 sm:p-5 rounded-3xl space-y-3.5 text-left shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between">
             <div class="space-y-3">
               <!-- Achievement Photo Gallery (Uncropped Full View) -->
               <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center group cursor-pointer" onclick="openLightbox('./image/achivement_investarise_1.jpeg', 'Technology Partner Award - Taj Exotica Resort, Dubai')">
@@ -1832,7 +1877,7 @@
       </section>
 
       <!-- 9. Contact / Direct Consultation Section -->
-      <section id="contact" class="hero-border-card rounded-3xl p-5 sm:p-8 text-center space-y-5 relative overflow-hidden max-w-3xl mx-auto">
+      <section id="contact" class="hero-border-card glow-walking-border rounded-3xl p-5 sm:p-8 text-center space-y-5 relative overflow-hidden max-w-3xl mx-auto">
         <div class="space-y-2">
           <div class="inline-flex items-center space-x-1.5 bg-amber-500/20 border border-amber-500/40 px-3 py-1 rounded-full text-amber-400 text-[10px] sm:text-xs font-bold">
             <i class="fa-solid fa-handshake"></i>
