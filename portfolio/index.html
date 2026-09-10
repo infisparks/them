@@ -117,6 +117,36 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(245, 166, 35, 0.12);
     }
 
+    /* Animated Glowing Golden Accent Line */
+    .heading-gold-line {
+      display: inline-block;
+      height: 3.5px;
+      width: 52px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(245, 166, 35, 0.1) 0%, #f5a623 25%, #fef08a 50%, #f5a623 75%, rgba(245, 166, 35, 0.1) 100%);
+      background-size: 200% 100%;
+      box-shadow: 0 0 12px rgba(245, 166, 35, 0.75), 0 0 25px rgba(251, 191, 36, 0.4);
+      animation: goldLinePulse 3s ease-in-out infinite, goldLineMove 2.5s linear infinite;
+    }
+
+    @keyframes goldLinePulse {
+      0%, 100% {
+        width: 44px;
+        opacity: 0.85;
+        box-shadow: 0 0 10px rgba(245, 166, 35, 0.5), 0 0 20px rgba(245, 166, 35, 0.25);
+      }
+      50% {
+        width: 76px;
+        opacity: 1;
+        box-shadow: 0 0 18px rgba(245, 166, 35, 0.95), 0 0 35px rgba(251, 191, 36, 0.5);
+      }
+    }
+
+    @keyframes goldLineMove {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
     /* Gold gradient CTA button */
     .cta-gold-btn {
       background: linear-gradient(180deg, #ffce54 0%, #f5a623 100%);
@@ -206,144 +236,6 @@
     }
     .marquee-track:hover {
       animation-play-state: paused;
-    }
-
-    /* ============================================================
-       SCROLL REVEAL ANIMATION SYSTEM
-       Elements start hidden and animate in on scroll entry
-    ============================================================ */
-
-    /* Base state — hidden before entering viewport */
-    .sr-reveal {
-      opacity: 0;
-      transform: translateY(44px);
-      transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    /* Slide from left variant */
-    .sr-reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    /* Slide from right variant */
-    .sr-reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    /* Scale-up variant */
-    .sr-reveal-scale {
-      opacity: 0;
-      transform: scale(0.88) translateY(24px);
-      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    /* Triggered (visible) state */
-    .sr-visible {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-
-    /* Staggered children delay utilities */
-    .sr-delay-1 { transition-delay: 0.08s; }
-    .sr-delay-2 { transition-delay: 0.18s; }
-    .sr-delay-3 { transition-delay: 0.28s; }
-    .sr-delay-4 { transition-delay: 0.38s; }
-    .sr-delay-5 { transition-delay: 0.48s; }
-
-    /* ============================================================
-       HERO HEADING — Cinematic entrance on page load
-    ============================================================ */
-    @keyframes heroTitleEnter {
-      0%   { opacity: 0; transform: translateY(32px) scale(0.97); letter-spacing: -0.04em; }
-      60%  { opacity: 1; transform: translateY(-4px) scale(1.005); }
-      100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: inherit; }
-    }
-    @keyframes heroSubEnter {
-      0%   { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-title-animate {
-      animation: heroTitleEnter 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
-    }
-    .hero-sub-animate {
-      animation: heroSubEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
-    }
-
-    /* ============================================================
-       ABOUT SECTION HEADING — Text reveal with clip + slide
-       Mimics hero heading energy when scrolled into view
-    ============================================================ */
-    .about-heading-wrap {
-      overflow: hidden;
-    }
-    .about-heading-text {
-      display: block;
-      opacity: 0;
-      transform: translateY(100%) skewY(6deg);
-      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-      transform-origin: left bottom;
-      will-change: opacity, transform;
-    }
-    .about-heading-text.sr-visible {
-      opacity: 1;
-      transform: translateY(0) skewY(0deg);
-    }
-
-    /* About label pill reveal */
-    .about-pill-reveal {
-      opacity: 0;
-      transform: translateY(12px) scale(0.92);
-      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0s,
-                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0s;
-      will-change: opacity, transform;
-    }
-    .about-pill-reveal.sr-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* About description text reveal */
-    .about-desc-reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
-                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
-    }
-    .about-desc-reveal.sr-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Gold underline line that draws itself in */
-    @keyframes lineDrawIn {
-      0%   { width: 0; opacity: 0; }
-      20%  { opacity: 1; }
-      100% { width: 60px; opacity: 1; }
-    }
-    .about-heading-line {
-      display: inline-block;
-      height: 3px;
-      width: 0;
-      background: linear-gradient(90deg, #f5a623, #fffbeb, #f5a623);
-      border-radius: 99px;
-      opacity: 0;
-    }
-    .about-heading-line.sr-visible {
-      animation: lineDrawIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
     }
   </style>
 </head>
@@ -483,12 +375,12 @@
         </div>
 
         <!-- Main Title -->
-        <h1 class="hero-title-animate text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-2">
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-2">
           Building Robust Applications Inspire — <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">Innovating Digital Landscapes</span>
         </h1>
 
         <!-- Subtitle Description -->
-        <p class="hero-sub-animate text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3.5 font-medium max-w-2xl mx-auto">
+        <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3.5 font-medium max-w-2xl mx-auto">
           Hi, I’m Mudassir, the CTO of Infispark. Expert in full-stack web development, web automation, and reverse engineering. Turning complex challenges into seamless solutions with ultra-fast speed using <span class="text-amber-400 font-extrabold underline decoration-amber-400/50">Next.js + Supabase + Antigravity IDE</span>.
         </p>
 
@@ -535,7 +427,7 @@
       </section>
 
       <!-- 2. Key Highlights & Stats Matrix (Executive Luxury Bento Grid) -->
-      <section class="max-w-4xl mx-auto w-full sr-reveal">
+      <section class="max-w-4xl mx-auto w-full">
         <div class="relative rounded-3xl glow-walking-border bg-gradient-to-b from-[#121218] via-[#0d0d12] to-[#08080a] border border-amber-500/30 p-2 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(245,166,35,0.08)] overflow-hidden">
           
           <!-- Top Ambient Glow Line -->
@@ -544,7 +436,7 @@
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
             
             <!-- Stat 1: Global Projects -->
-            <div class="relative overflow-hidden group rounded-2xl bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/60 p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-[0_10px_25px_rgba(245,166,35,0.15)] flex flex-col justify-between sr-reveal sr-delay-1">
+            <div class="relative overflow-hidden group rounded-2xl bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/60 p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-[0_10px_25px_rgba(245,166,35,0.15)] flex flex-col justify-between">
               <div class="flex items-center justify-between mb-3">
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-yellow-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-[0_0_15px_rgba(245,166,35,0.2)] group-hover:scale-110 transition-transform">
                   <i class="fa-solid fa-earth-americas text-sm"></i>
@@ -616,25 +508,18 @@
       </section>
 
       <!-- 2. About Me Section (Executive & Ultra-Premium Design) -->
-      <section id="about" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
-        <div class="text-center space-y-2" id="about-heading-block">
-          <!-- Pill animates in first -->
-          <span class="inline-block about-pill-reveal text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
+      <section id="about" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1.5 flex flex-col items-center">
+          <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             About Mudassir
           </span>
-          <!-- Heading clips + skews up like hero -->
-          <div class="about-heading-wrap pt-0.5">
-            <h2 class="about-heading-text text-xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-              Crafting Seamless
-              <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">User Applications</span>
-            </h2>
+          <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
+            Crafting Seamless <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">User Applications</span>
+          </h2>
+          <div class="flex items-center justify-center pt-0.5 pb-0.5">
+            <span class="heading-gold-line"></span>
           </div>
-          <!-- Gold accent line draws itself in -->
-          <div class="flex justify-center pt-1">
-            <span class="about-heading-line"></span>
-          </div>
-          <!-- Description fades up last -->
-          <p class="about-desc-reveal text-xs text-slate-400 max-w-xl mx-auto">Engineering scalable digital systems, automating complex business logic &amp; driving healthcare transformation</p>
+          <p class="text-xs text-slate-400 max-w-xl mx-auto">Engineering scalable digital systems, automating complex business logic &amp; driving healthcare transformation</p>
         </div>
 
         <div class="bg-gradient-to-b from-zinc-950 via-[#101016] to-zinc-950 border border-amber-500/35 glow-walking-border rounded-3xl p-4 sm:p-7 space-y-5 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,166,35,0.08)] text-left relative overflow-hidden">
@@ -786,7 +671,7 @@
       </section>
 
       <!-- 3. Flagship Healthcare Products: Infiplus Suite -->
-      <section id="products" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="products" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/30">
             Dedicated Product Company
@@ -1034,7 +919,7 @@
       </section>
 
       <!-- 4. Milestones & Industry Awards (Fixed Aspect & Fully Visible Photos) -->
-      <section id="milestones" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="milestones" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Milestones &amp; Recognitions
@@ -1146,7 +1031,7 @@
       </section>
 
       <!-- 5. Work Experience & Education Timeline -->
-      <section id="experience" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="experience" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Track Record &amp; Academics
@@ -1235,7 +1120,7 @@
       </section>
 
       <!-- 6. Ecosystem: Global Client Partnerships & Live Deployments (22 Projects with Real Logos) -->
-      <section id="ecosystem" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="ecosystem" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Global Ecosystem
@@ -1757,7 +1642,7 @@
       </section>
 
       <!-- 7. My Skills: The Tools Behind Exceptional Development -->
-      <section id="skills" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="skills" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Skills &amp; Mastery
@@ -1839,7 +1724,7 @@
       </section>
 
       <!-- 8. Specialized Engineering Portfolio: Smali Reverse Engineering & Projects with Screenshots -->
-      <section id="portfolio" class="space-y-4 pt-1 max-w-4xl mx-auto sr-reveal">
+      <section id="portfolio" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Tech Portfolio
@@ -2216,75 +2101,6 @@
         }
       }
     }, true);
-
-    /* ============================================================
-       SCROLL REVEAL ENGINE — IntersectionObserver
-       Triggers .sr-visible on all .sr-reveal* elements when
-       they enter the viewport. Fires once and unobserves.
-    ============================================================ */
-    (function initScrollReveal() {
-      // Generic reveal observer (sections, cards, etc.)
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('sr-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.08,        // trigger when 8% visible
-          rootMargin: '0px 0px -40px 0px'
-        }
-      );
-
-      // Observe all scroll-reveal elements
-      document.querySelectorAll(
-        '.sr-reveal, .sr-reveal-left, .sr-reveal-right, .sr-reveal-scale'
-      ).forEach((el) => revealObserver.observe(el));
-
-      /* -------------------------------------------------------
-         ABOUT HEADING — special layered reveal
-         Pill → heading clip/skew → gold line → description
-      ------------------------------------------------------- */
-      const aboutBlock = document.getElementById('about-heading-block');
-      if (aboutBlock) {
-        const aboutObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // Step 1: pill fades in (no delay needed — CSS handles 0s)
-                const pill = aboutBlock.querySelector('.about-pill-reveal');
-                if (pill) pill.classList.add('sr-visible');
-
-                // Step 2: heading skews up (slight delay for cascade feel)
-                setTimeout(() => {
-                  const heading = aboutBlock.querySelector('.about-heading-text');
-                  if (heading) heading.classList.add('sr-visible');
-                }, 120);
-
-                // Step 3: gold line draws itself in
-                setTimeout(() => {
-                  const line = aboutBlock.querySelector('.about-heading-line');
-                  if (line) line.classList.add('sr-visible');
-                }, 320);
-
-                // Step 4: description fades up
-                setTimeout(() => {
-                  const desc = aboutBlock.querySelector('.about-desc-reveal');
-                  if (desc) desc.classList.add('sr-visible');
-                }, 480);
-
-                aboutObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.2, rootMargin: '0px 0px -30px 0px' }
-        );
-        aboutObserver.observe(aboutBlock);
-      }
-    })();
   </script>
 </body>
 </html>
