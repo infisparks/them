@@ -1972,6 +1972,35 @@
         if (label) label.textContent = `Showing all ${totalCount} of ${totalCount} Live Deployments (0 Remaining)`;
       }
     }
+
+    // Universal Production Image Fallback Resolver
+    document.addEventListener('error', function (e) {
+      if (e.target && e.target.tagName === 'IMG') {
+        const img = e.target;
+        const currentSrc = img.getAttribute('src') || '';
+        const attempts = parseInt(img.dataset.retryAttempt || '0', 10);
+        
+        if (attempts === 0) {
+          img.dataset.retryAttempt = '1';
+          if (currentSrc.startsWith('./image/')) {
+            img.src = currentSrc.replace('./image/', 'image/');
+          } else if (currentSrc.startsWith('image/')) {
+            img.src = 'portfolio/' + currentSrc;
+          } else if (!currentSrc.includes('portfolio/')) {
+            img.src = './portfolio/' + currentSrc.replace(/^\.\//, '');
+          }
+        } else if (attempts === 1) {
+          img.dataset.retryAttempt = '2';
+          // Try absolute path from root
+          const filename = currentSrc.split('/').slice(-2).join('/');
+          img.src = '/' + filename;
+        } else if (attempts === 2) {
+          img.dataset.retryAttempt = '3';
+          const filename = currentSrc.split('/').slice(-2).join('/');
+          img.src = '/portfolio/' + filename;
+        }
+      }
+    }, true);
   </script>
 </body>
 </html>
