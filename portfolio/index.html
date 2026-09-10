@@ -281,8 +281,10 @@
               class="w-full h-full object-cover rounded-full" 
             />
           </div>
-          <div class="absolute bottom-1.5 right-1.5 bg-emerald-400 text-slate-950 w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-zinc-950 flex items-center justify-center text-xs sm:text-sm shadow-xl font-black" title="Available for Projects">
-            <i class="fa-solid fa-check"></i>
+          <!-- Executive CTO Tech Badge -->
+          <div class="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 bg-gradient-to-r from-zinc-950 via-[#14141e] to-zinc-950 border border-amber-400/90 text-amber-300 px-2.5 sm:px-3 py-0.5 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.9),0_0_15px_rgba(245,166,35,0.35)] flex items-center gap-1.5 z-20 backdrop-blur-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]"></span>
+            <span class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400">CTO</span>
           </div>
         </div>
 
@@ -594,61 +596,63 @@
           <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
             Infiplus Healthcare Software Suite
           </h2>
-          <p class="text-xs text-slate-400">Complete Hospital &amp; Clinic Paperless Management Solutions</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <p class="text-xs text-slate-400">Complete Hospital &amp; Clinic        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           
           <!-- Product 1: Infiplus HMS -->
-          <div class="dark-gold-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between shadow-xl text-left border border-amber-500/40">
+          <div class="rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between shadow-xl text-left bg-gradient-to-b from-[#14141c] via-[#0d0d14] to-zinc-950 border border-amber-500/40 hover:border-amber-400 transition-all duration-300">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
+                <span class="bg-amber-500/15 text-amber-400 border border-amber-500/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   Flagship Product
                 </span>
-                <span class="text-[10px] font-bold text-emerald-400">Paperless HMS</span>
+                <span class="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Paperless HMS
+                </span>
               </div>
               
-              <!-- Product Image Preview -->
-              <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 group cursor-pointer" onclick="openLightbox('./image/Infiplushms/hms.png', 'Infiplus HMS - Hospital Paperless Management')">
+              <!-- Product Image Preview (Fully Uncropped) -->
+              <div class="relative rounded-2xl overflow-hidden border border-zinc-800/90 bg-[#07070a] group cursor-pointer flex items-center justify-center" onclick="openLightbox('./image/Infiplushms/hms.png', 'Infiplus HMS - Hospital Paperless Management')">
                 <img 
                   src="./image/Infiplushms/hms.png" 
                   alt="Infiplus HMS Hospital Software" 
-                  class="w-full h-36 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  class="w-full h-44 sm:h-52 object-contain bg-[#07070a] p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2 justify-between">
-                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1">
-                    <i class="fa-solid fa-expand text-amber-400 text-[9px]"></i> View HMS Screenshots
+                <div class="absolute top-2 right-2 bg-black/80 backdrop-blur-sm border border-amber-500/30 text-amber-300 font-black text-[9px] px-2 py-0.5 rounded-md shadow">
+                  8 Modules
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-amber-400 text-xs"></i> Click to Zoom
                   </span>
-                  <span class="text-[9px] bg-amber-500/90 text-slate-950 font-black px-1.5 py-0.5 rounded">8 Modules</span>
+                  <span class="text-[9px] text-slate-400 font-mono">Full Dashboard</span>
                 </div>
               </div>
 
-              <!-- Thumbnails Row -->
+              <!-- Thumbnails Row (Uncropped Previews) -->
               <div class="grid grid-cols-4 gap-1.5">
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-amber-400" onclick="openLightbox('./image/Infiplushms/hms2.png', 'Infiplus HMS Patient Portal')">
-                  <img src="./image/Infiplushms/hms2.png" alt="HMS 2" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-amber-400 transition-colors" onclick="openLightbox('./image/Infiplushms/hms2.png', 'Infiplus HMS Patient Portal')">
+                  <img src="./image/Infiplushms/hms2.png" alt="HMS 2" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-amber-400" onclick="openLightbox('./image/Infiplushms/hms3.png', 'Infiplus HMS Billing & Pharmacy')">
-                  <img src="./image/Infiplushms/hms3.png" alt="HMS 3" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-amber-400 transition-colors" onclick="openLightbox('./image/Infiplushms/hms3.png', 'Infiplus HMS Billing & Pharmacy')">
+                  <img src="./image/Infiplushms/hms3.png" alt="HMS 3" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-amber-400" onclick="openLightbox('./image/Infiplushms/hms4.png', 'Infiplus HMS Doctor Dashboard')">
-                  <img src="./image/Infiplushms/hms4.png" alt="HMS 4" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-amber-400 transition-colors" onclick="openLightbox('./image/Infiplushms/hms4.png', 'Infiplus HMS Doctor Dashboard')">
+                  <img src="./image/Infiplushms/hms4.png" alt="HMS 4" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-amber-400" onclick="openLightbox('./image/Infiplushms/hms5.png', 'Infiplus HMS Wards & Beds')">
-                  <img src="./image/Infiplushms/hms5.png" alt="HMS 5" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-amber-400 transition-colors" onclick="openLightbox('./image/Infiplushms/hms5.png', 'Infiplus HMS Wards & Beds')">
+                  <img src="./image/Infiplushms/hms5.png" alt="HMS 5" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
               </div>
 
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white">Infiplus HMS</h3>
+                <h3 class="text-base font-black text-white">Infiplus HMS</h3>
                 <p class="text-xs text-amber-400 font-bold">Hospital Paperless Management System</p>
               </div>
               <p class="text-xs text-slate-300 leading-relaxed">
                 Complete hospital paperless ecosystem featuring:
               </p>
-              <ul class="space-y-1 text-xs text-slate-300">
+              <ul class="space-y-1.5 text-xs text-slate-300">
                 <li class="flex items-center space-x-1.5">
                   <i class="fa-solid fa-circle-check text-emerald-400 text-[10px]"></i>
                   <span>Pathology Blood Test &amp; X-ray Management</span>
@@ -664,8 +668,8 @@
               </ul>
             </div>
 
-            <div class="pt-2 border-t border-zinc-800">
-              <a href="https://infiplus.in/" target="_blank" class="w-full cta-gold-btn shimmer py-2 px-3 rounded-xl text-slate-950 font-black text-xs text-center flex items-center justify-center space-x-1.5 shadow">
+            <div class="pt-2 border-t border-zinc-800/80">
+              <a href="https://infiplus.in/" target="_blank" class="w-full cta-gold-btn shimmer py-2.5 px-3 rounded-xl text-slate-950 font-black text-xs text-center flex items-center justify-center space-x-1.5 shadow">
                 <span>View Product (infiplus.in)</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
@@ -673,46 +677,51 @@
           </div>
 
           <!-- Product 2: Infiplus OPD -->
-          <div class="dark-gold-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between shadow-xl text-left border border-zinc-800 hover:border-amber-500/50 transition-colors">
+          <div class="rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between shadow-xl text-left bg-gradient-to-b from-[#14141c] via-[#0d0d14] to-zinc-950 border border-zinc-800 hover:border-sky-400 transition-all duration-300">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
+                <span class="bg-blue-500/15 text-blue-400 border border-blue-500/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   Doctor Practice
                 </span>
-                <span class="text-[10px] font-bold text-sky-400">OPD Suite</span>
+                <span class="text-[10px] font-bold text-sky-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> OPD Suite
+                </span>
               </div>
 
-              <!-- Product Image Preview -->
-              <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 group cursor-pointer" onclick="openLightbox('./image/opdsoftware/opd.png', 'Infiplus OPD - Clinic Practice Management')">
+              <!-- Product Image Preview (Fully Uncropped) -->
+              <div class="relative rounded-2xl overflow-hidden border border-zinc-800/90 bg-[#07070a] group cursor-pointer flex items-center justify-center" onclick="openLightbox('./image/opdsoftware/opd.png', 'Infiplus OPD - Clinic Practice Management')">
                 <img 
                   src="./image/opdsoftware/opd.png" 
                   alt="Infiplus OPD Software" 
-                  class="w-full h-36 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  class="w-full h-44 sm:h-52 object-contain bg-[#07070a] p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2 justify-between">
-                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1">
-                    <i class="fa-solid fa-expand text-sky-400 text-[9px]"></i> View OPD System
+                <div class="absolute top-2 right-2 bg-black/80 backdrop-blur-sm border border-sky-500/30 text-sky-300 font-black text-[9px] px-2 py-0.5 rounded-md shadow">
+                  4 Views
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-sky-400 text-xs"></i> Click to Zoom
                   </span>
-                  <span class="text-[9px] bg-sky-500/90 text-slate-950 font-black px-1.5 py-0.5 rounded">4 Views</span>
+                  <span class="text-[9px] text-slate-400 font-mono">OPD System</span>
                 </div>
               </div>
 
-              <!-- Thumbnails Row -->
+              <!-- Thumbnails Row (Uncropped Previews) -->
               <div class="grid grid-cols-3 gap-1.5">
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-sky-400" onclick="openLightbox('./image/opdsoftware/opd1.png', 'Infiplus OPD Appointment Calendar')">
-                  <img src="./image/opdsoftware/opd1.png" alt="OPD 1" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors" onclick="openLightbox('./image/opdsoftware/opd1.png', 'Infiplus OPD Appointment Calendar')">
+                  <img src="./image/opdsoftware/opd1.png" alt="OPD 1" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-sky-400" onclick="openLightbox('./image/opdsoftware/opd2.png', 'Infiplus OPD Prescription Generator')">
-                  <img src="./image/opdsoftware/opd2.png" alt="OPD 2" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors" onclick="openLightbox('./image/opdsoftware/opd2.png', 'Infiplus OPD Prescription Generator')">
+                  <img src="./image/opdsoftware/opd2.png" alt="OPD 2" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-sky-400" onclick="openLightbox('./image/opdsoftware/opd3.png', 'Infiplus OPD Patient Billing & History')">
-                  <img src="./image/opdsoftware/opd3.png" alt="OPD 3" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors" onclick="openLightbox('./image/opdsoftware/opd3.png', 'Infiplus OPD Patient Billing & History')">
+                  <img src="./image/opdsoftware/opd3.png" alt="OPD 3" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
               </div>
 
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white">Infiplus OPD</h3>
+                <h3 class="text-base font-black text-white">Infiplus OPD</h3>
                 <p class="text-xs text-sky-400 font-bold">Complete OPD &amp; Practice Management</p>
               </div>
               <p class="text-xs text-slate-300 leading-relaxed">
@@ -734,8 +743,8 @@
               </ul>
             </div>
 
-            <div class="pt-2 border-t border-zinc-800">
-              <a href="https://infiplus.in/" target="_blank" class="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-slate-200 font-bold py-2 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors">
+            <div class="pt-2 border-t border-zinc-800/80">
+              <a href="https://infiplus.in/" target="_blank" class="w-full bg-zinc-900 hover:bg-zinc-850 border border-zinc-700 hover:border-sky-400 text-slate-200 font-bold py-2.5 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors shadow">
                 <span>Explore Infiplus OPD</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
@@ -743,49 +752,54 @@
           </div>
 
           <!-- Product 3: Infiplus Pathology -->
-          <div class="dark-gold-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between shadow-xl text-left border border-zinc-800 hover:border-amber-500/50 transition-colors">
+          <div class="rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between shadow-xl text-left bg-gradient-to-b from-[#14141c] via-[#0d0d14] to-zinc-950 border border-zinc-800 hover:border-emerald-400 transition-all duration-300">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
+                <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   Lab Automation
                 </span>
-                <span class="text-[10px] font-bold text-emerald-400">Pathology Labs</span>
+                <span class="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Pathology Labs
+                </span>
               </div>
 
-              <!-- Product Image Preview -->
-              <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/80 group cursor-pointer" onclick="openLightbox('./image/labsoftware/1.png', 'Infiplus Pathology - Lab Test & Report Generator')">
+              <!-- Product Image Preview (Fully Uncropped) -->
+              <div class="relative rounded-2xl overflow-hidden border border-zinc-800/90 bg-[#07070a] group cursor-pointer flex items-center justify-center" onclick="openLightbox('./image/labsoftware/1.png', 'Infiplus Pathology - Lab Test & Report Generator')">
                 <img 
                   src="./image/labsoftware/1.png" 
                   alt="Infiplus Pathology Lab Software" 
-                  class="w-full h-36 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  class="w-full h-44 sm:h-52 object-contain bg-[#07070a] p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2 justify-between">
-                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1">
-                    <i class="fa-solid fa-expand text-emerald-400 text-[9px]"></i> View Pathology Lab
+                <div class="absolute top-2 right-2 bg-black/80 backdrop-blur-sm border border-emerald-500/30 text-emerald-300 font-black text-[9px] px-2 py-0.5 rounded-md shadow">
+                  6 Modules
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-emerald-400 text-xs"></i> Click to Zoom
                   </span>
-                  <span class="text-[9px] bg-emerald-500/90 text-slate-950 font-black px-1.5 py-0.5 rounded">6 Modules</span>
+                  <span class="text-[9px] text-slate-400 font-mono">Lab System</span>
                 </div>
               </div>
 
-              <!-- Thumbnails Row -->
+              <!-- Thumbnails Row (Uncropped Previews) -->
               <div class="grid grid-cols-4 gap-1.5">
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-emerald-400" onclick="openLightbox('./image/labsoftware/2.png', 'Pathology Test Catalog & Parameters')">
-                  <img src="./image/labsoftware/2.png" alt="Lab 2" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors" onclick="openLightbox('./image/labsoftware/2.png', 'Pathology Test Catalog & Parameters')">
+                  <img src="./image/labsoftware/2.png" alt="Lab 2" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-emerald-400" onclick="openLightbox('./image/labsoftware/3.png', 'Pathology Chemistry & Hematology Reports')">
-                  <img src="./image/labsoftware/3.png" alt="Lab 3" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors" onclick="openLightbox('./image/labsoftware/3.png', 'Pathology Chemistry & Hematology Reports')">
+                  <img src="./image/labsoftware/3.png" alt="Lab 3" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-emerald-400" onclick="openLightbox('./image/labsoftware/4.png', 'Pathology Patient Bill Receipt')">
-                  <img src="./image/labsoftware/4.png" alt="Lab 4" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors" onclick="openLightbox('./image/labsoftware/4.png', 'Pathology Patient Bill Receipt')">
+                  <img src="./image/labsoftware/4.png" alt="Lab 4" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
-                <div class="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 h-10 cursor-pointer hover:border-emerald-400" onclick="openLightbox('./image/labsoftware/6.png', 'Pathology Lab Analytics Dashboard')">
-                  <img src="./image/labsoftware/6.png" alt="Lab 6" class="w-full h-full object-cover" loading="lazy" />
+                <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors" onclick="openLightbox('./image/labsoftware/6.png', 'Pathology Lab Analytics Dashboard')">
+                  <img src="./image/labsoftware/6.png" alt="Lab 6" class="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
               </div>
 
               <div>
-                <h3 class="text-sm sm:text-base font-black text-white">Infiplus Pathology</h3>
+                <h3 class="text-base font-black text-white">Infiplus Pathology</h3>
                 <p class="text-xs text-emerald-400 font-bold">Complete Pathology Software for Labs</p>
               </div>
               <p class="text-xs text-slate-300 leading-relaxed">
@@ -807,8 +821,8 @@
               </ul>
             </div>
 
-            <div class="pt-2 border-t border-zinc-800">
-              <a href="https://infiplus.in/" target="_blank" class="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-slate-200 font-bold py-2 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors">
+            <div class="pt-2 border-t border-zinc-800/80">
+              <a href="https://infiplus.in/" target="_blank" class="w-full bg-zinc-900 hover:bg-zinc-850 border border-zinc-700 hover:border-emerald-400 text-slate-200 font-bold py-2.5 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors shadow">
                 <span>Explore Pathology Suite</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
@@ -1650,7 +1664,7 @@
                 <!-- Instagram Mod -->
                 <a href="https://mkmods472.blogspot.com/2022/10/blog-post.html" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-amber-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/reverseengineering/instagram.png" alt="Instagram Mod Screenshot" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/reverseengineering/instagram.png" alt="Instagram Mod Screenshot" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-amber-400 transition-colors">
                         <span>Instagram Mod</span>
@@ -1665,7 +1679,7 @@
                 <!-- Snapchat Pro -->
                 <a href="https://mkmods472.blogspot.com/2023/01/snapchat-pro.html" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-amber-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/reverseengineering/snapchat.png" alt="Snapchat Pro Screenshot" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/reverseengineering/snapchat.png" alt="Snapchat Pro Screenshot" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-amber-400 transition-colors">
                         <span>Snapchat Pro</span>
@@ -1680,7 +1694,7 @@
                 <!-- YouTube Pro -->
                 <a href="https://mkmods472.blogspot.com/2022/05/youtube-pro.html" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-amber-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/reverseengineering/youtube.png" alt="YouTube Pro Screenshot" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/reverseengineering/youtube.png" alt="YouTube Pro Screenshot" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-amber-400 transition-colors">
                         <span>YouTube Pro</span>
@@ -1709,7 +1723,7 @@
                 <!-- Smart Study -->
                 <a href="https://mkmods472.blogspot.com/2023/11/smart-study.html" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-sky-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/Innovation_Projects_AIKTC/smartstudy.png" alt="Smart Study App Screenshot" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/Innovation_Projects_AIKTC/smartstudy.png" alt="Smart Study App Screenshot" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-sky-400 transition-colors">
                         <span>Smart Study App</span>
@@ -1724,7 +1738,7 @@
                 <!-- My Cloud -->
                 <a href="https://mkmods472.blogspot.com/2023/08/my-cloud.html" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-sky-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/Innovation_Projects_AIKTC/mycloud.png" alt="My Cloud Social Platform" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/Innovation_Projects_AIKTC/mycloud.png" alt="My Cloud Social Platform" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-sky-400 transition-colors">
                         <span>My Cloud Platform</span>
@@ -1739,7 +1753,7 @@
                 <!-- Virtual Lab -->
                 <a href="https://virtual-genetics-lab.vercel.app/" target="_blank" class="block p-2.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-850 border border-zinc-800 hover:border-sky-400 transition-all group">
                   <div class="flex items-center gap-2.5 mb-1.5">
-                    <img src="./image/labsoftware/1.png" alt="Virtual Genetics Lab" class="w-10 h-10 rounded-xl object-cover border border-zinc-700/80 flex-shrink-0" loading="lazy" />
+                    <img src="./image/labsoftware/1.png" alt="Virtual Genetics Lab" class="w-10 h-10 rounded-xl object-contain bg-zinc-950 p-0.5 border border-zinc-700/80 flex-shrink-0" loading="lazy" />
                     <div>
                       <div class="flex items-center justify-between text-white font-bold text-xs group-hover:text-sky-400 transition-colors">
                         <span>Virtual Genetics Lab</span>
