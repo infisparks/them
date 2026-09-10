@@ -157,45 +157,6 @@
     .marquee-track:hover {
       animation-play-state: paused;
     }
-
-    /* =========================================
-       MOLTEN METAL GOLD BACKGROUND ANIMATION
-    ========================================= */
-    .molten-background {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-      background: #08080a;
-      border-radius: 1.5rem;
-    }
-
-    #moltenCanvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Soft Dark fade at bottom */
-    .molten-background::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 140px;
-      background: linear-gradient(
-        to top,
-        #08080a 0%,
-        rgba(8, 8, 10, 0.75) 45%,
-        transparent 100%
-      );
-      border-bottom-left-radius: 1.5rem;
-      border-bottom-right-radius: 1.5rem;
-    }
   </style>
 </head>
 <body class="w-full min-h-full bg-[#08080a] text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
@@ -306,86 +267,79 @@
     <!-- Main Container -->
     <main class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 space-y-8 sm:space-y-12 mx-auto mt-2">
       
-      <!-- 1. Hero Card Section (Molten Metal Gold Animated Background) -->
+      <!-- 1. Hero Card Section (Compact, Screen-Height Friendly) -->
       <section id="hero" class="hero-border-card rounded-3xl p-3.5 sm:p-6 md:p-8 text-center relative overflow-hidden flex flex-col items-center justify-center">
         
-        <!-- Molten Metal Gold Background Animation -->
-        <div class="molten-background">
-          <canvas id="moltenCanvas"></canvas>
+        <!-- Profile Portrait on Top with Gold Glow (Extra Large & Prominent) -->
+        <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-3.5 flex-shrink-0">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 blur-lg opacity-80 animate-pulse"></div>
+          <div class="relative w-full h-full rounded-full p-1.5 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 shadow-[0_15px_45px_rgba(245,166,35,0.4)] overflow-hidden">
+            <img 
+              src="./image/profile.png" 
+              onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='image/profile.png';}else if(this.dataset.tried==1){this.dataset.tried=2;this.src='profile.png';}else if(this.dataset.tried==2){this.dataset.tried=3;this.src='https://firstoptionagency.in/founder.png';}"
+              alt="Shaikh Mudassir - CTO Infispark" 
+              class="w-full h-full object-cover rounded-full" 
+            />
+          </div>
+          <div class="absolute bottom-1.5 right-1.5 bg-emerald-400 text-slate-950 w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-zinc-950 flex items-center justify-center text-xs sm:text-sm shadow-xl font-black" title="Available for Projects">
+            <i class="fa-solid fa-check"></i>
+          </div>
         </div>
 
-        <div class="relative z-10 w-full flex flex-col items-center justify-center">
-          <!-- Profile Portrait on Top with Gold Glow (Extra Large & Prominent) -->
-          <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-3.5 flex-shrink-0">
-            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 blur-lg opacity-80 animate-pulse"></div>
-            <div class="relative w-full h-full rounded-full p-1.5 bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 shadow-[0_15px_45px_rgba(245,166,35,0.4)] overflow-hidden">
-              <img 
-                src="./image/profile.png" 
-                onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='image/profile.png';}else if(this.dataset.tried==1){this.dataset.tried=2;this.src='profile.png';}else if(this.dataset.tried==2){this.dataset.tried=3;this.src='https://firstoptionagency.in/founder.png';}"
-                alt="Shaikh Mudassir - CTO Infispark" 
-                class="w-full h-full object-cover rounded-full" 
-              />
-            </div>
-            <div class="absolute bottom-1.5 right-1.5 bg-emerald-400 text-slate-950 w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-zinc-950 flex items-center justify-center text-xs sm:text-sm shadow-xl font-black" title="Available for Projects">
-              <i class="fa-solid fa-check"></i>
-            </div>
+        <!-- Top Status Pill -->
+        <div class="inline-flex items-center space-x-1.5 bg-amber-500/10 border border-amber-500/30 px-3 py-0.5 rounded-full text-amber-400 text-[9px] sm:text-xs font-black uppercase tracking-wider mb-2">
+          <i class="fa-solid fa-bolt text-xs"></i>
+          <span>Shaikh Mudassir • 23 Years Old • CTO @ Infispark • BKC Mumbai</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-2">
+          Building Robust Applications Inspire — <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">Innovating Digital Landscapes</span>
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3.5 font-medium max-w-2xl mx-auto">
+          Hi, I’m Mudassir, the CTO of Infispark. Expert in full-stack web development, web automation, and reverse engineering. Turning complex challenges into seamless solutions with ultra-fast speed using <span class="text-amber-400 font-extrabold underline decoration-amber-400/50">Next.js + Supabase + Antigravity IDE</span>.
+        </p>
+
+        <!-- 3 Core Pillars (High Speed / Web Automation / Reverse Engineering) -->
+        <div class="grid grid-cols-3 divide-x divide-zinc-800/80 my-2.5 py-1.5 w-full max-w-xl mx-auto bg-zinc-950/70 border border-zinc-800/70 rounded-2xl shadow-inner">
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-layer-group text-amber-400 text-xs sm:text-base"></i>
+            <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Next.js + Supabase</div>
+            <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Rapid Architecture</div>
           </div>
-
-          <!-- Top Status Pill -->
-          <div class="inline-flex items-center space-x-1.5 bg-amber-500/10 border border-amber-500/30 px-3 py-0.5 rounded-full text-amber-400 text-[9px] sm:text-xs font-black uppercase tracking-wider mb-2">
-            <i class="fa-solid fa-bolt text-xs"></i>
-            <span>Shaikh Mudassir • 23 Years Old • CTO @ Infispark • BKC Mumbai</span>
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-robot text-amber-400 text-xs sm:text-base"></i>
+            <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Web Automation</div>
+            <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Custom Scrapers</div>
           </div>
-
-          <!-- Main Title -->
-          <h1 class="text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-tight mb-2">
-            Building Robust Applications Inspire — <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">Innovating Digital Landscapes</span>
-          </h1>
-
-          <!-- Subtitle Description -->
-          <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3.5 font-medium max-w-2xl mx-auto">
-            Hi, I’m Mudassir, the CTO of Infispark. Expert in full-stack web development, web automation, and reverse engineering. Turning complex challenges into seamless solutions with ultra-fast speed using <span class="text-amber-400 font-extrabold underline decoration-amber-400/50">Next.js + Supabase + Antigravity IDE</span>.
-          </p>
-
-          <!-- 3 Core Pillars (High Speed / Web Automation / Reverse Engineering) -->
-          <div class="grid grid-cols-3 divide-x divide-zinc-800/80 my-2.5 py-1.5 w-full max-w-xl mx-auto bg-zinc-950/70 border border-zinc-800/70 rounded-2xl shadow-inner">
-            <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-              <i class="fa-solid fa-layer-group text-amber-400 text-xs sm:text-base"></i>
-              <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Next.js + Supabase</div>
-              <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Rapid Architecture</div>
-            </div>
-            <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-              <i class="fa-solid fa-robot text-amber-400 text-xs sm:text-base"></i>
-              <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Web Automation</div>
-              <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Custom Scrapers</div>
-            </div>
-            <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-              <i class="fa-solid fa-code-compare text-amber-400 text-xs sm:text-base"></i>
-              <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Reverse Engineering</div>
-              <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Smali / Android</div>
-            </div>
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-code-compare text-amber-400 text-xs sm:text-base"></i>
+            <div class="text-white font-extrabold text-[9.5px] sm:text-xs">Reverse Engineering</div>
+            <div class="text-amber-400 font-bold text-[8.5px] sm:text-[9.5px]">Smali / Android</div>
           </div>
+        </div>
 
-          <!-- Action CTAs -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md w-full mx-auto pt-1">
-            <a 
-              href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20discuss%20a%20project%20for%20Infispark."
-              target="_blank"
-              class="w-full sm:flex-1 cta-gold-btn shimmer py-2.5 px-4 rounded-xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
-            >
-              <i class="fa-brands fa-whatsapp text-sm"></i>
-              <span>LETS WORK TOGETHER</span>
-            </a>
+        <!-- Action CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md w-full mx-auto pt-1">
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20discuss%20a%20project%20for%20Infispark."
+            target="_blank"
+            class="w-full sm:flex-1 cta-gold-btn shimmer py-2.5 px-4 rounded-xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>LETS WORK TOGETHER</span>
+          </a>
 
-            <a 
-              href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
-              target="_blank"
-              class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-amber-400 text-slate-200 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-colors shadow"
-            >
-              <i class="fa-solid fa-file-pdf text-amber-400 text-xs"></i>
-              <span>Download CV</span>
-            </a>
-          </div>
+          <a 
+            href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
+            target="_blank"
+            class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-amber-400 text-slate-200 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-colors shadow"
+          >
+            <i class="fa-solid fa-file-pdf text-amber-400 text-xs"></i>
+            <span>Download CV</span>
+          </a>
         </div>
 
       </section>
@@ -1930,9 +1884,9 @@
       const label = document.getElementById('remainingClientsLabel');
       
       const allCards = document.querySelectorAll('#clientsGrid > *');
-      const totalCount = allCards.length;
+      const totalCount = allCards.length; // 24
       const initialVisibleCount = 6;
-      const remainingCount = totalCount - initialVisibleCount;
+      const remainingCount = totalCount - initialVisibleCount; // 18
       
       let isCurrentlyExpanded = false;
       if (extraCards.length > 0 && !extraCards[0].classList.contains('hidden')) {
@@ -1959,164 +1913,6 @@
         if (label) label.textContent = `Showing all ${totalCount} of ${totalCount} Live Deployments (0 Remaining)`;
       }
     }
-
-    /* ===================================================
-       MOLTEN METAL GOLD CANVAS ANIMATION ENGINE
-    =================================================== */
-    (function initMoltenGoldCanvas() {
-      const canvas = document.getElementById("moltenCanvas");
-      if (!canvas) return;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
-      let width = 0;
-      let height = 0;
-      let time = 0;
-      let animationFrameId;
-
-      function resizeCanvas() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const parent = canvas.parentElement || canvas.closest('#hero');
-        const rect = parent ? parent.getBoundingClientRect() : { width: window.innerWidth, height: 600 };
-
-        width = rect.width || window.innerWidth;
-        height = rect.height || 600;
-
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-
-      window.addEventListener("resize", resizeCanvas);
-      // Run resize on load and next frame to ensure parent layout is computed
-      resizeCanvas();
-      setTimeout(resizeCanvas, 50);
-
-      function draw() {
-        time += 0.007;
-
-        ctx.clearRect(0, 0, width, height);
-
-        // Dark Luxury Foundation
-        ctx.fillStyle = "#08080a";
-        ctx.fillRect(0, 0, width, height);
-
-        /*
-           1. Flowing Molten Gold Waves
-        */
-        const waveCount = 20;
-        for (let i = 0; i < waveCount; i++) {
-          const baseY = (i / (waveCount - 1)) * height;
-
-          ctx.beginPath();
-
-          for (let x = -80; x <= width + 80; x += 8) {
-            const wave1 = Math.sin(x * 0.0035 + time * 1.05 + i * 0.65) * 65;
-            const wave2 = Math.sin(x * 0.008 - time * 0.75 + i * 1.25) * 30;
-            const wave3 = Math.sin(x * 0.016 + time * 0.45) * 12;
-
-            const y = baseY + wave1 + wave2 + wave3;
-
-            if (x === -80) {
-              ctx.moveTo(x, y);
-            } else {
-              ctx.lineTo(x, y);
-            }
-          }
-
-          ctx.lineTo(width + 80, height + 150);
-          ctx.lineTo(-80, height + 150);
-          ctx.closePath();
-
-          const gradient = ctx.createLinearGradient(
-            0,
-            baseY - 100,
-            0,
-            baseY + 160
-          );
-
-          gradient.addColorStop(0, "rgba(245, 166, 35, 0)");
-          gradient.addColorStop(
-            0.42,
-            `rgba(217, 119, 6, ${0.03 + i * 0.002})`
-          );
-          gradient.addColorStop(
-            0.55,
-            `rgba(255, 215, 0, ${0.04 + i * 0.0018})`
-          );
-          gradient.addColorStop(
-            0.7,
-            `rgba(255, 235, 160, ${0.02 + i * 0.0012})`
-          );
-          gradient.addColorStop(1, "rgba(20, 15, 5, 0)");
-
-          ctx.fillStyle = gradient;
-          ctx.fill();
-        }
-
-        /*
-           2. Radiant Gold Atmospheric Core Glow
-        */
-        const glowX = width * 0.5 + Math.sin(time * 0.65) * width * 0.22;
-        const glowY = height * 0.45 + Math.cos(time * 0.48) * height * 0.16;
-
-        const glow = ctx.createRadialGradient(
-          glowX,
-          glowY,
-          0,
-          glowX,
-          glowY,
-          Math.max(width, height) * 0.55
-        );
-
-        glow.addColorStop(0, "rgba(245, 166, 35, 0.22)");    // Warm Radiant Gold
-        glow.addColorStop(0.35, "rgba(217, 119, 6, 0.11)");  // Deep Amber
-        glow.addColorStop(0.7, "rgba(180, 83, 9, 0.04)");    // Dark Bronze
-        glow.addColorStop(1, "rgba(8, 8, 10, 0)");
-
-        ctx.fillStyle = glow;
-        ctx.fillRect(0, 0, width, height);
-
-        /*
-           3. Molten Metallic Gold Shimmer Specular Highlights
-        */
-        ctx.globalCompositeOperation = "screen";
-
-        for (let i = 0; i < 7; i++) {
-          const x = width * (0.12 + i * 0.13) + Math.sin(time + i * 1.1) * 90;
-          const y = height * 0.48 + Math.sin(time * 0.85 + i * 1.4) * 110;
-          const radius = 90 + Math.sin(time + i) * 30;
-
-          const highlight = ctx.createRadialGradient(
-            x,
-            y,
-            0,
-            x,
-            y,
-            radius
-          );
-
-          highlight.addColorStop(0, "rgba(255, 240, 180, 0.11)");
-          highlight.addColorStop(0.5, "rgba(245, 166, 35, 0.04)");
-          highlight.addColorStop(1, "rgba(0, 0, 0, 0)");
-
-          ctx.fillStyle = highlight;
-          ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        ctx.globalCompositeOperation = "source-over";
-
-        animationFrameId = requestAnimationFrame(draw);
-      }
-
-      draw();
-    })();
   </script>
 </body>
 </html>
