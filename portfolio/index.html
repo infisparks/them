@@ -27,10 +27,6 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- GSAP + ScrollTrigger (Cinematic Scroll Effects) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -211,38 +207,6 @@
     .marquee-track:hover {
       animation-play-state: paused;
     }
-
-    /* ── Cinematic Scroll Reveal ── */
-    /* Hero wrapper that recedes on scroll */
-    #hero-scroll-wrapper {
-      position: sticky;
-      top: 56px; /* below nav */
-      z-index: 1;
-      transform-origin: center top;
-      will-change: transform, filter, opacity;
-    }
-
-    /* Every section card that rises above the hero */
-    .scroll-card {
-      position: relative;
-      z-index: 2;
-      will-change: transform, opacity;
-      transform: translateY(60px);
-      opacity: 0;
-    }
-
-    /* Frosted overlay that fades in on top of receding hero */
-    #hero-frost-veil {
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: rgba(8,8,10,0);
-      backdrop-filter: blur(0px);
-      -webkit-backdrop-filter: blur(0px);
-      z-index: 10;
-      transition: none; /* driven by GSAP */
-    }
   </style>
 </head>
 <body class="w-full min-h-full bg-[#08080a] text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
@@ -351,13 +315,10 @@
     </header>
 
     <!-- Main Container -->
-    <main id="main-scroll-container" class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 space-y-8 sm:space-y-12 mx-auto mt-2">
+    <main class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 space-y-8 sm:space-y-12 mx-auto mt-2">
       
-      <!-- 1. Hero Card Section — wrapped in sticky scroll wrapper -->
-      <div id="hero-scroll-wrapper">
+      <!-- 1. Hero Card Section (Compact, Screen-Height Friendly) -->
       <section id="hero" class="hero-border-card glow-walking-border rounded-3xl p-3.5 sm:p-6 md:p-8 text-center relative overflow-hidden flex flex-col items-center justify-center">
-        <!-- Frost veil overlay (driven by GSAP) -->
-        <div id="hero-frost-veil"></div>
         
         <!-- Profile Portrait on Top with Subtle Gold Glow -->
         <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-3.5 flex-shrink-0">
@@ -434,10 +395,9 @@
         </div>
 
       </section>
-      </div><!-- /#hero-scroll-wrapper -->
 
       <!-- 2. Key Highlights & Stats Matrix (Executive Luxury Bento Grid) -->
-      <section class="scroll-card max-w-4xl mx-auto w-full">
+      <section class="max-w-4xl mx-auto w-full">
         <div class="relative rounded-3xl glow-walking-border bg-gradient-to-b from-[#121218] via-[#0d0d12] to-[#08080a] border border-amber-500/30 p-2 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(245,166,35,0.08)] overflow-hidden">
           
           <!-- Top Ambient Glow Line -->
@@ -517,8 +477,8 @@
         </div>
       </section>
 
-      <!-- About Me Section -->
-      <section id="about" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <!-- 2. About Me Section (Executive & Ultra-Premium Design) -->
+      <section id="about" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             About Mudassir
@@ -678,7 +638,7 @@
       </section>
 
       <!-- 3. Flagship Healthcare Products: Infiplus Suite -->
-      <section id="products" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="products" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/30">
             Dedicated Product Company
@@ -926,7 +886,7 @@
       </section>
 
       <!-- 4. Milestones & Industry Awards (Fixed Aspect & Fully Visible Photos) -->
-      <section id="milestones" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="milestones" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Milestones &amp; Recognitions
@@ -1038,7 +998,7 @@
       </section>
 
       <!-- 5. Work Experience & Education Timeline -->
-      <section id="experience" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="experience" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Track Record &amp; Academics
@@ -1127,7 +1087,7 @@
       </section>
 
       <!-- 6. Ecosystem: Global Client Partnerships & Live Deployments (22 Projects with Real Logos) -->
-      <section id="ecosystem" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="ecosystem" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Global Ecosystem
@@ -1649,7 +1609,7 @@
       </section>
 
       <!-- 7. My Skills: The Tools Behind Exceptional Development -->
-      <section id="skills" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="skills" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Skills &amp; Mastery
@@ -1731,7 +1691,7 @@
       </section>
 
       <!-- 8. Specialized Engineering Portfolio: Smali Reverse Engineering & Projects with Screenshots -->
-      <section id="portfolio" class="scroll-card space-y-4 pt-1 max-w-4xl mx-auto">
+      <section id="portfolio" class="space-y-4 pt-1 max-w-4xl mx-auto">
         <div class="text-center space-y-1">
           <span class="text-[10px] sm:text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-0.5 rounded-full border border-amber-500/30">
             Tech Portfolio
@@ -1925,7 +1885,7 @@
       </section>
 
       <!-- 9. Contact / Direct Consultation Section -->
-      <section id="contact" class="scroll-card hero-border-card glow-walking-border rounded-3xl p-5 sm:p-8 text-center space-y-5 relative overflow-hidden max-w-3xl mx-auto">
+      <section id="contact" class="hero-border-card glow-walking-border rounded-3xl p-5 sm:p-8 text-center space-y-5 relative overflow-hidden max-w-3xl mx-auto">
         <div class="space-y-2">
           <div class="inline-flex items-center space-x-1.5 bg-amber-500/20 border border-amber-500/40 px-3 py-1 rounded-full text-amber-400 text-[10px] sm:text-xs font-bold">
             <i class="fa-solid fa-handshake"></i>
@@ -2108,63 +2068,6 @@
         }
       }
     }, true);
-
-    // ── Cinematic Scroll Reveal with GSAP ScrollTrigger ──
-    (function () {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      const heroWrapper = document.getElementById('hero-scroll-wrapper');
-      const frostVeil   = document.getElementById('hero-frost-veil');
-
-      // ① Hero recede: scale back, blur & dark-veil as next card rises
-      if (heroWrapper) {
-        const heroSection = document.getElementById('hero');
-        const heroH = heroSection ? heroSection.offsetHeight : 500;
-
-        ScrollTrigger.create({
-          trigger: heroWrapper,
-          start: 'top top+=56',
-          end: () => '+=' + Math.round(heroH * 0.85),
-          scrub: 0.6,
-          onUpdate: (self) => {
-            const p = self.progress;
-            // Scale the hero card back (1 → 0.90)
-            gsap.set(heroWrapper, { scale: 1 - p * 0.10 });
-            // Frost veil: blur 0 → 14px, bg 0 → 0.55 alpha
-            if (frostVeil) {
-              frostVeil.style.backdropFilter       = `blur(${p * 14}px)`;
-              frostVeil.style.webkitBackdropFilter = `blur(${p * 14}px)`;
-              frostVeil.style.background           = `rgba(8,8,10,${p * 0.55})`;
-            }
-          }
-        });
-      }
-
-      // ② Every .scroll-card slides up with a premium reveal
-      const cards = gsap.utils.toArray('.scroll-card');
-      cards.forEach((card) => {
-        gsap.fromTo(card,
-          { y: 70, opacity: 0, scale: 0.97 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.7,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      });
-
-      // Refresh once fully loaded (for accurate heights)
-      window.addEventListener('load', () => ScrollTrigger.refresh());
-    })();
   </script>
 </body>
 </html>
