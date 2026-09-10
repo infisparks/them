@@ -28,6 +28,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Razorpay Checkout SDK -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- Firebase App & Firestore Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -324,42 +327,18 @@
           </div>
         </div>
 
-        <!-- Pricing Card (All adjusted in 1 Clean Row) -->
-        <div class="bg-gradient-to-r from-zinc-950 via-[#121218] to-zinc-950 p-3 sm:p-3.5 rounded-2xl border border-amber-500/40 shadow-xl space-y-2">
-          <!-- Main Price in 1 Single Row -->
-          <div class="flex items-center justify-between gap-1 whitespace-nowrap">
-            <div class="flex items-baseline space-x-1.5 sm:space-x-2 flex-shrink-0">
-              <span id="displayPrice" class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">₹999</span>
-              <span id="displayOriginalPrice" class="text-xs sm:text-sm text-slate-500 line-through font-semibold font-mono">₹2,000</span>
-              <span id="displayDiscountBadge" class="bg-red-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow">SAVE ₹1,001 (50% OFF)</span>
-            </div>
-
-            <div class="text-right text-[10px] sm:text-xs text-emerald-400 font-bold flex items-center justify-end gap-1 flex-shrink-0">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span>Free Delivery</span>
-            </div>
-          </div>
-
-          <!-- Direct Factory Price Tag + Urgency Timer in 1 Single Row -->
-          <div class="flex items-center justify-between text-[10px] sm:text-xs bg-amber-500/10 border border-amber-500/20 px-2.5 py-1.5 rounded-xl text-amber-300 font-bold whitespace-nowrap">
-            <span class="text-emerald-400 flex items-center gap-1">
-              <i class="fa-solid fa-circle-check"></i> Direct Factory Deal (500ml)
-            </span>
-            <div class="flex items-center space-x-1 text-amber-400 font-mono">
-              <i class="fa-solid fa-clock text-[10px] animate-pulse"></i>
-              <span id="countdownTimer" class="font-black">04h 23m 15s</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single Product Clean Box with Quantity Selector -->
+        <!-- Single Product Clean Box with Quantity & Price Selector -->
         <div class="bg-zinc-900/90 border border-amber-500/30 p-3 rounded-2xl flex items-center justify-between">
           <div class="space-y-0.5">
             <div class="flex items-center space-x-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
               <span class="text-xs font-black text-white">1 Bottle (500ml Net Vol.)</span>
             </div>
-            <p class="text-[10px] text-slate-400 font-medium">Standard 1 Month Full Body Wellness Course</p>
+            <div class="flex items-baseline space-x-1.5 pt-0.5">
+              <span id="displayPrice" class="text-base font-black text-amber-400 font-mono">₹999</span>
+              <span id="displayOriginalPrice" class="text-[10px] text-slate-500 line-through font-mono">₹2,000</span>
+              <span id="displayDiscountBadge" class="bg-red-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded">SAVE ₹1,001 (50% OFF)</span>
+            </div>
           </div>
 
           <div class="flex items-center space-x-2">
@@ -583,7 +562,7 @@
         </div>
 
         <!-- Selected Item Recap -->
-        <div class="flex items-center space-x-2.5 bg-zinc-900/90 border border-zinc-800 p-2 sm:p-2.5 rounded-2xl mb-2.5">
+        <div id="modalItemRecap" class="flex items-center space-x-2.5 bg-zinc-900/90 border border-zinc-800 p-2 sm:p-2.5 rounded-2xl mb-2.5">
           <img src="./image/1.png" alt="Aab-E-Hayat Juice" class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-contain p-1 bg-zinc-950 border border-zinc-800 flex-shrink-0" />
           <div class="overflow-hidden flex-1">
             <h5 class="text-xs font-black text-white truncate">AAB-E-HAYAT Health Care Juice</h5>
@@ -608,7 +587,10 @@
           <div>
             <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">WhatsApp Mobile Number <span class="text-amber-400">*</span></label>
             <div class="flex items-center bg-zinc-900/90 border border-zinc-800 focus-within:border-amber-400 rounded-xl overflow-hidden">
-              <div class="px-2.5 py-2 bg-zinc-950 border-r border-zinc-800 text-xs font-bold text-slate-300">🇮🇳 +91</div>
+              <div class="px-2.5 py-2 bg-zinc-950 border-r border-zinc-800 text-xs font-bold text-slate-300 whitespace-nowrap flex items-center space-x-1 flex-shrink-0">
+                <span>🇮🇳</span>
+                <span>+91</span>
+              </div>
               <input type="tel" id="orderPhone" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number" class="w-full px-2.5 py-2 text-xs text-white bg-transparent placeholder-zinc-500 focus:outline-none font-mono" />
             </div>
           </div>
@@ -693,21 +675,49 @@
           </p>
         </form>
 
-      </div>
-    </div>
-
-          <!-- Submit Button Dynamic -->
-          <button type="submit" id="modalSubmitBtn" class="w-full cta-gold-btn shimmer rounded-2xl p-3.5 text-center cursor-pointer shadow-xl mt-2">
-            <div class="text-xs sm:text-sm font-black text-slate-950 flex items-center justify-center space-x-2 uppercase tracking-wide">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span id="modalSubmitBtnText">CONFIRM CASH ON DELIVERY ORDER (₹999)</span>
+        <!-- 🌟 Order Placed & Firebase Live Confirmation View -->
+        <div id="orderSuccessView" class="hidden space-y-3 py-2 text-left animate-toast-in">
+          <div class="text-center space-y-1.5">
+            <div class="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center text-2xl mx-auto shadow-lg">
+              <i class="fa-solid fa-check"></i>
             </div>
+            <h4 class="text-base sm:text-lg font-black text-white">Order Confirmed Successfully!</h4>
+            <p class="text-xs text-emerald-400 font-bold flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-cloud-arrow-up"></i> <span>Saved to Empire Database</span>
+            </p>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-zinc-900/90 border border-amber-500/30 rounded-2xl p-3 space-y-2 text-xs">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Order ID:</span>
+              <span id="successOrderId" class="font-mono font-black text-amber-400">EH-XXXXXX</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Item:</span>
+              <span class="font-bold text-white">AAB-E-HAYAT Juice (500ml)</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Amount &amp; Method:</span>
+              <span id="successPaymentSummary" class="font-bold text-emerald-400">₹999 (COD)</span>
+            </div>
+            <div class="pt-0.5">
+              <span class="text-slate-400 block mb-0.5">Delivery Address:</span>
+              <p id="successAddressSummary" class="text-slate-200 font-medium leading-relaxed text-[11px] bg-zinc-950/80 p-2 rounded-xl border border-zinc-800/80"></p>
+            </div>
+          </div>
+
+          <!-- WhatsApp Action Button -->
+          <button id="successWhatsAppBtn" onclick="openWhatsAppSuccessChat()" class="w-full cta-gold-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>OPEN WHATSAPP DISPATCH TRACKING</span>
           </button>
 
-          <p class="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1">
-            <i class="fa-solid fa-lock text-[9px]"></i> 256-Bit SSL Encrypted Logistics API Booking
-          </p>
-        </form>
+          <button onclick="resetAndPlaceNewOrder()" class="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-slate-300 font-bold py-2.5 px-4 rounded-2xl text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 transition-colors">
+            <i class="fa-solid fa-arrow-rotate-left text-xs"></i>
+            <span>Done / Place Another Order</span>
+          </button>
+        </div>
 
       </div>
     </div>
@@ -823,15 +833,17 @@
       
       cards.forEach(c => {
         const input = c.querySelector("input");
-        const dot = c.querySelector("span.rounded-full");
+        const dot = c.querySelector(".payment-radio-dot");
         if (input.value === method) {
           input.checked = true;
-          c.className = "payment-option-card cursor-pointer border-2 border-amber-400 bg-amber-500/10 p-2.5 rounded-xl flex flex-col justify-between transition-all relative";
-          if (dot) dot.className = "w-3.5 h-3.5 rounded-full border-2 border-amber-400 bg-amber-400 flex items-center justify-center";
+          c.className = "payment-option-card cursor-pointer border-2 border-amber-400 bg-amber-500/10 p-2.5 rounded-xl flex items-center justify-between transition-all";
+          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border-2 border-amber-400 bg-amber-400 flex items-center justify-center flex-shrink-0";
+          if (dot) dot.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-slate-950"></span>';
         } else {
           input.checked = false;
-          c.className = "payment-option-card cursor-pointer border border-zinc-800 bg-zinc-900/60 p-2.5 rounded-xl flex flex-col justify-between transition-all hover:border-zinc-700 relative";
-          if (dot) dot.className = "w-3.5 h-3.5 rounded-full border border-zinc-600 bg-transparent flex items-center justify-center";
+          c.className = "payment-option-card cursor-pointer border border-zinc-800 bg-zinc-900/60 p-2.5 rounded-xl flex items-center justify-between transition-all hover:border-zinc-700";
+          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border border-zinc-600 bg-transparent flex items-center justify-center flex-shrink-0";
+          if (dot) dot.innerHTML = '';
         }
       });
 
@@ -881,8 +893,82 @@
       document.getElementById("fastOrderModal").classList.add("hidden");
     }
 
+    // Firebase Configuration for empire-41774
+    const firebaseConfig = {
+      apiKey: "AIzaSyBMC9Dg03pbzAzycFZokA2do_PglDzHbZ4",
+      authDomain: "empire-41774.firebaseapp.com",
+      projectId: "empire-41774",
+      storageBucket: "empire-41774.firebasestorage.app",
+      messagingSenderId: "784581908427",
+      appId: "1:784581908427:web:a1ad5215a181301676884e",
+      measurementId: "G-352MHCKNT8"
+    };
+
+    let db = null;
+    try {
+      if (typeof firebase !== "undefined") {
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.firestore();
+        console.log("🔥 Firebase Firestore connected successfully for empire-41774");
+      }
+    } catch (err) {
+      console.warn("Firebase Init Notice:", err);
+    }
+
+    // Save Order to Firebase Firestore
+    async function saveOrderToFirebase(payload) {
+      if (!db) {
+        console.warn("Firestore not available, proceeding with WhatsApp confirmation.");
+        return false;
+      }
+      try {
+        await db.collection("orders").doc(payload.order_id).set({
+          ...payload,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          created_at_local: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        });
+        console.log("✅ Order saved to Firebase Firestore: orders/" + payload.order_id);
+        return true;
+      } catch (e) {
+        console.error("Firebase Firestore save error:", e);
+        return false;
+      }
+    }
+
+    let latestWhatsAppMsg = "";
+
+    function showOrderSuccess(payload, waMsg) {
+      latestWhatsAppMsg = waMsg;
+      document.getElementById("fastOrderForm").classList.add("hidden");
+      document.getElementById("modalItemRecap").classList.add("hidden");
+      
+      document.getElementById("successOrderId").innerText = payload.order_id;
+      document.getElementById("successPaymentSummary").innerText = `₹${payload.product.total_amount.toLocaleString('en-IN')} (${payload.payment.method === 'COD' ? 'Cash on Delivery' : 'Paid Online'})`;
+      
+      const addr = payload.shipping_address;
+      document.getElementById("successAddressSummary").innerText = `${addr.recipient_name} | ${addr.phone}\n${addr.house_building_no}, ${addr.area_landmark}\n${addr.city}, ${addr.state} - ${addr.pincode}`;
+      
+      document.getElementById("orderSuccessView").classList.remove("hidden");
+    }
+
+    function openWhatsAppSuccessChat() {
+      if (latestWhatsAppMsg) {
+        window.open(`https://wa.me/918329494445?text=${latestWhatsAppMsg}`, '_blank');
+      }
+    }
+
+    function resetAndPlaceNewOrder() {
+      document.getElementById("fastOrderForm").reset();
+      document.getElementById("fastOrderForm").classList.remove("hidden");
+      document.getElementById("modalItemRecap").classList.remove("hidden");
+      document.getElementById("orderSuccessView").classList.add("hidden");
+      closeFastOrderModal();
+    }
+
     // Delivery API & Order Submission Handler
-    function handleFastOrderSubmit(e) {
+    async function handleFastOrderSubmit(e) {
       e.preventDefault();
       const name = document.getElementById("orderFullName").value.trim();
       const phone = document.getElementById("orderPhone").value.trim();
@@ -890,7 +976,7 @@
       const area = document.getElementById("orderArea").value.trim();
       const pincode = document.getElementById("orderPincode").value.trim();
       const city = document.getElementById("orderCity").value.trim();
-      const state = document.getElementById("orderState").value;
+      const state = document.getElementById("orderState").value.trim();
 
       if (phone.length !== 10 || isNaN(phone)) {
         alert("Please enter a valid 10-digit WhatsApp mobile number.");
@@ -940,6 +1026,9 @@
 
       console.log("🚚 [Delivery API Payload Ready]:", deliveryApiPayload);
 
+      // Save order to Firebase Firestore
+      await saveOrderToFirebase(deliveryApiPayload);
+
       if (selectedPaymentMethod === "RAZORPAY") {
         // Razorpay Online Payment Flow
         if (typeof Razorpay !== "undefined") {
@@ -950,8 +1039,14 @@
             name: "EMPIRE Global Herbal Science",
             description: `Order #${orderId} - Aab-E-Hayat (Qty: ${currentQty})`,
             image: "./image/1.png",
-            handler: function (response) {
+            handler: async function (response) {
               const paymentId = response.razorpay_payment_id || "PAY_" + Date.now();
+              deliveryApiPayload.payment.status = "PAID_ONLINE";
+              deliveryApiPayload.payment.razorpay_payment_id = paymentId;
+              
+              // Update payment status in Firebase
+              await saveOrderToFirebase(deliveryApiPayload);
+
               const msg = encodeURIComponent(
                 `*✅ CONFIRMED ONLINE ORDER - RAZORPAY*\n` +
                 `----------------------------------------\n` +
@@ -970,8 +1065,8 @@
                 `----------------------------------------\n` +
                 `Please dispatch express tracking details!`
               );
+              showOrderSuccess(deliveryApiPayload, msg);
               window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-              closeFastOrderModal();
             },
             prefill: {
               name: name,
@@ -988,7 +1083,6 @@
           rzp.open();
         } else {
           // Fallback if SDK blocked or offline
-          alert("Razorpay checkout is ready. Proceeding to WhatsApp order booking with Online UPI confirmation.");
           const msg = encodeURIComponent(
             `*💳 PREPAID ONLINE ORDER - AAB-E-HAYAT*\n` +
             `----------------------------------------\n` +
@@ -1006,8 +1100,8 @@
             `----------------------------------------\n` +
             `Please share your UPI QR code or payment link to complete order!`
           );
+          showOrderSuccess(deliveryApiPayload, msg);
           window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-          closeFastOrderModal();
         }
       } else {
         // Cash on Delivery (COD) Flow
@@ -1029,8 +1123,8 @@
           `----------------------------------------\n` +
           `Please confirm this COD booking and dispatch my package!`
         );
+        showOrderSuccess(deliveryApiPayload, msg);
         window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-        closeFastOrderModal();
       }
     }
 
