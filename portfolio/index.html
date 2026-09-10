@@ -516,8 +516,10 @@
           <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
             Crafting Seamless <span class="bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 bg-clip-text text-transparent">User Applications</span>
           </h2>
-          <div class="flex items-center justify-center pt-0.5 pb-0.5">
-            <span class="heading-gold-line"></span>
+          <!-- Welding Spark Gold Line Canvas -->
+          <div class="relative flex items-center justify-center" style="height:52px; width:220px;" id="spark-wrapper">
+            <canvas id="welding-spark-canvas" width="220" height="52" style="position:absolute;top:0;left:0;pointer-events:none;z-index:10;"></canvas>
+            <span class="heading-gold-line" id="gold-accent-line" style="position:relative;z-index:1;"></span>
           </div>
           <p class="text-xs text-slate-400 max-w-xl mx-auto">Engineering scalable digital systems, automating complex business logic &amp; driving healthcare transformation</p>
         </div>
@@ -2101,6 +2103,183 @@
         }
       }
     }, true);
+  </script>
+
+  <!-- ========================
+       WELDING SPARK PARTICLE ENGINE
+       Physics: v⃗ = speed·(cosθ, sinθ)  |  gravity: ay = +0.06
+       friction: vx *= 0.98, vy *= 0.98  |  fade: α decreases linearly
+       Burst: 2–4 sparks per frame from random point along line
+  ======================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    const canvas  = document.getElementById('welding-spark-canvas');
+    const linEl   = document.getElementById('gold-accent-line');
+    if (!canvas || !linEl) return;
+
+    const ctx = canvas.getContext('2d');
+
+    // ── Particle pool ─────────────────────────────────────────
+    const MAX_PARTICLES = 120;
+    const particles     = [];
+
+    // Gold colour palette (HSL)
+    const COLORS = [
+      'rgba(255, 215,  60, ',   // vivid gold
+      'rgba(255, 190,  20, ',   // amber
+      'rgba(255, 240, 130, ',   // pale yellow-white
+      'rgba(251, 140,   0, ',   // deep amber
+      'rgba(255, 255, 200, ',   // near-white hot core
+    ];
+
+    function randomBetween(a, b) {
+      return a + Math.random() * (b - a);
+    }
+
+    // ── Spawn a welding spark ─────────────────────────────────
+    // The gold line sits vertically centred in the 52px-tall canvas
+    // and is horizontally centred; we measure its rendered width each burst.
+    function spawnSpark() {
+      // Compute line's rendered width (animates between 44-76 px)
+      const lineRect   = linEl.getBoundingClientRect();
+      const wrapRect   = canvas.getBoundingClientRect();
+      const lineW      = lineRect.width  || 60;
+      // Origin: somewhere along the top surface of the line
+      const lineLeft   = (canvas.width - lineW) / 2;
+      const lineRight  = lineLeft + lineW;
+      const lineY      = canvas.height / 2;   // vertical centre of canvas
+
+      // Emission point: random x along the line, exactly on top edge
+      const ox = randomBetween(lineLeft, lineRight);
+      const oy = lineY - 1.5;   // top surface of the 3.5px pill
+
+      // ── Physics vector (upward burst, fan spread ±75°) ────
+      // Welding sparks shoot mostly upward (270° = up in canvas coords)
+      // with a wide angular spread
+      const BASE_ANGLE_DEG = 270;  // straight up
+      const SPREAD_DEG     = 75;   // ± degrees around up
+      const angleDeg = BASE_ANGLE_DEG + randomBetween(-SPREAD_DEG, SPREAD_DEG);
+      const angleRad = angleDeg * Math.PI / 180;
+
+      // Speed: mix of slow ember drift and fast shooting sparks
+      const speed = randomBetween(0.4, 2.8);
+
+      // Initial velocity components
+      const vx = Math.cos(angleRad) * speed;
+      const vy = Math.sin(angleRad) * speed;
+
+      // Particle size (radius)
+      const radius = randomBetween(0.6, 1.8);
+
+      // Lifetime: frames until fully transparent
+      const life    = Math.floor(randomBetween(22, 55));
+      const maxLife = life;
+
+      // Colour
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+      // Tail length (streak effect) – proportional to speed
+      const tailLen = speed * randomBetween(1.5, 3.5);
+
+      particles.push({ ox, oy, x: ox, y: oy, vx, vy, radius, life, maxLife, color, tailLen });
+    }
+
+    // ── Burst controller ─────────────────────────────────────
+    // Emit bursts irregularly to mimic real welding cadence
+    let frameCount = 0;
+    let nextBurst  = 0;
+
+    function scheduleBurst() {
+      // Stagger: burst every 3–12 frames
+      nextBurst = frameCount + Math.floor(randomBetween(3, 12));
+    }
+
+    // ── Animation loop ───────────────────────────────────────
+    function update() {
+      frameCount++;
+
+      // Clear canvas (fully transparent each frame)
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // ── Burst emission ──
+      if (frameCount >= nextBurst) {
+        const count = Math.floor(randomBetween(2, 5));   // 2–4 sparks per burst
+        for (let i = 0; i < count; i++) spawnSpark();
+        scheduleBurst();
+      }
+
+      // ── Update & draw particles ──
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+
+        // ── Physics step ──
+        // Gravity pulls downward (+y in canvas)
+        const gravity = 0.055;
+        p.vy += gravity;
+
+        // Air friction / drag (welding sparks lose energy quickly)
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        // Position integration
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // ── Fade: linear alpha decay ──
+        p.life--;
+        if (p.life <= 0) { particles.splice(i, 1); continue; }
+
+        const t     = p.life / p.maxLife;   // 1 → 0 as particle dies
+        const alpha = Math.pow(t, 0.6);     // slightly convex curve for snappier fade
+
+        // ── Draw: streak tail first, then bright head ──
+        // Tail: a line from previous position estimate to current
+        const tailX = p.x - p.vx * p.tailLen;
+        const tailY = p.y - p.vy * p.tailLen;
+
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = p.color + (alpha * 0.55).toFixed(3) + ')';
+        ctx.lineWidth   = p.radius * 0.7;
+        ctx.lineCap     = 'round';
+        ctx.stroke();
+
+        // Head: bright glowing dot
+        const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 2.5);
+        grd.addColorStop(0,   p.color + alpha.toFixed(3) + ')');
+        grd.addColorStop(0.5, p.color + (alpha * 0.7).toFixed(3) + ')');
+        grd.addColorStop(1,   p.color + '0)');
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Tiny solid core (white-hot)
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 0.6, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,240,' + (alpha * 0.95).toFixed(3) + ')';
+        ctx.fill();
+      }
+
+      // Cap pool size
+      if (particles.length > MAX_PARTICLES) {
+        particles.splice(0, particles.length - MAX_PARTICLES);
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    // Kick off after a short delay so the DOM is fully painted
+    setTimeout(function() {
+      scheduleBurst();
+      requestAnimationFrame(update);
+    }, 600);
+
+  })();
   </script>
 </body>
 </html>
