@@ -405,18 +405,14 @@
 
         <!-- Action CTAs -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md w-full mx-auto pt-1">
-          <!-- Hero CTA with spark canvas -->
-          <div class="relative w-full sm:flex-1" style="overflow:visible;">
-            <canvas id="btn-spark-canvas-hero" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:20;border-radius:12px;" data-spark-btn></canvas>
-            <a 
-              href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20discuss%20a%20project%20for%20Infispark."
-              target="_blank"
-              class="w-full cta-gold-btn shimmer py-2.5 px-4 rounded-xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
-            >
-              <i class="fa-brands fa-whatsapp text-sm"></i>
-              <span>LETS WORK TOGETHER</span>
-            </a>
-          </div>
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20discuss%20a%20project%20for%20Infispark."
+            target="_blank"
+            class="w-full sm:flex-1 cta-gold-btn shimmer py-2.5 px-4 rounded-xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>LETS WORK TOGETHER</span>
+          </a>
 
           <a 
             href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
@@ -1939,18 +1935,14 @@
         </div>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-md mx-auto">
-          <!-- Contact CTA with spark canvas -->
-          <div class="relative w-full sm:flex-1" style="overflow:visible;">
-            <canvas id="btn-spark-canvas-contact" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:20;border-radius:16px;" data-spark-btn></canvas>
-            <a 
-              href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20work%20together%20on%20a%20project."
-              target="_blank"
-              class="w-full cta-gold-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
-            >
-              <i class="fa-brands fa-whatsapp text-lg"></i>
-              <span>LETS WORK TOGETHER</span>
-            </a>
-          </div>
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20work%20together%20on%20a%20project."
+            target="_blank"
+            class="w-full sm:flex-1 cta-gold-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>LETS WORK TOGETHER</span>
+          </a>
 
           <a 
             href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
@@ -2286,148 +2278,6 @@
       scheduleBurst();
       requestAnimationFrame(update);
     }, 600);
-
-  })();
-  </script>
-
-  <!-- ========================
-       BUTTON WELDING SPARK ENGINE
-       Runs on both CTA buttons — sparks erupt from the top edge
-       Physics: velocity fan ±65° around UP, gravity 0.06, friction 0.97
-       Burst every 4–14 frames, 2–5 sparks each burst
-  ======================== -->
-  <script>
-  (function() {
-    'use strict';
-
-    const BTN_CANVAS_IDS = ['btn-spark-canvas-hero', 'btn-spark-canvas-contact'];
-
-    const COLORS = [
-      'rgba(255, 210,  40, ',
-      'rgba(255, 175,   0, ',
-      'rgba(255, 245, 140, ',
-      'rgba(250, 120,   0, ',
-      'rgba(255, 255, 210, ',
-    ];
-
-    function rand(a, b) { return a + Math.random() * (b - a); }
-
-    // ── Per-canvas state ──────────────────────────────────────
-    function createBtnEngine(canvasId) {
-      const canvas = document.getElementById(canvasId);
-      if (!canvas) return;
-
-      // Match canvas pixel size to its CSS rendered size
-      function resizeCanvas() {
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width  = Math.round(rect.width)  || 220;
-        canvas.height = Math.round(rect.height) || 44;
-      }
-      resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
-
-      const ctx        = canvas.getContext('2d');
-      const particles  = [];
-      const MAX_P      = 90;
-      let   frameCount = 0;
-      let   nextBurst  = 0;
-
-      function spawnSpark() {
-        const W  = canvas.width;
-        const H  = canvas.height;
-
-        // Emit from random point along the TOP edge of the button
-        const ox = rand(W * 0.15, W * 0.85);
-        const oy = 2;   // just below top border
-
-        // Fan upward: 270° = up, ±65° spread
-        const angleDeg = 270 + rand(-65, 65);
-        const angleRad = angleDeg * Math.PI / 180;
-        const speed    = rand(0.5, 2.6);
-
-        const vx      = Math.cos(angleRad) * speed;
-        const vy      = Math.sin(angleRad) * speed;
-        const radius  = rand(0.5, 1.7);
-        const life    = Math.floor(rand(20, 50));
-        const tailLen = speed * rand(1.5, 3.2);
-        const color   = COLORS[Math.floor(Math.random() * COLORS.length)];
-
-        particles.push({ x: ox, y: oy, vx, vy, radius, life, maxLife: life, color, tailLen });
-      }
-
-      function scheduleBurst() {
-        nextBurst = frameCount + Math.floor(rand(4, 14));
-      }
-
-      function loop() {
-        frameCount++;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        if (frameCount >= nextBurst) {
-          const n = Math.floor(rand(2, 6));
-          for (let i = 0; i < n; i++) spawnSpark();
-          scheduleBurst();
-        }
-
-        for (let i = particles.length - 1; i >= 0; i--) {
-          const p = particles[i];
-
-          // Physics
-          p.vy += 0.058;   // gravity
-          p.vx *= 0.97;    // drag
-          p.vy *= 0.97;
-          p.x  += p.vx;
-          p.y  += p.vy;
-
-          p.life--;
-          if (p.life <= 0) { particles.splice(i, 1); continue; }
-
-          const t     = p.life / p.maxLife;
-          const alpha = Math.pow(t, 0.55);
-
-          // Streak tail
-          const tx = p.x - p.vx * p.tailLen;
-          const ty = p.y - p.vy * p.tailLen;
-          ctx.beginPath();
-          ctx.moveTo(tx, ty);
-          ctx.lineTo(p.x, p.y);
-          ctx.strokeStyle = p.color + (alpha * 0.5).toFixed(3) + ')';
-          ctx.lineWidth   = p.radius * 0.65;
-          ctx.lineCap     = 'round';
-          ctx.stroke();
-
-          // Glow head
-          const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 3);
-          grd.addColorStop(0,   p.color + alpha.toFixed(3) + ')');
-          grd.addColorStop(0.5, p.color + (alpha * 0.65).toFixed(3) + ')');
-          grd.addColorStop(1,   p.color + '0)');
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
-          ctx.fillStyle = grd;
-          ctx.fill();
-
-          // White-hot core
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 0.55, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,255,235,' + (alpha * 0.92).toFixed(3) + ')';
-          ctx.fill();
-        }
-
-        if (particles.length > MAX_P) {
-          particles.splice(0, particles.length - MAX_P);
-        }
-
-        requestAnimationFrame(loop);
-      }
-
-      setTimeout(function() {
-        scheduleBurst();
-        requestAnimationFrame(loop);
-      }, 800);
-    }
-
-    // Boot all button engines
-    BTN_CANVAS_IDS.forEach(function(id) { createBtnEngine(id); });
 
   })();
   </script>
