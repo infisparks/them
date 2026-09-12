@@ -246,7 +246,7 @@ new_hero = '''
     <!-- Verified License Rights Box -->
     <div id="verifiedLicenseCard" class="bg-white border-2 border-amber-300 rounded-2xl p-3 sm:p-5 text-left shadow-md space-y-2.5 relative overflow-hidden">
       <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] sm:text-[10px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-2xs">
-        Official Single-User Commercial License
+        Official Single-User Commercial License • ₹29,999 Value Unlocked (₹299)
       </div>
       
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pr-28 sm:pr-0">
