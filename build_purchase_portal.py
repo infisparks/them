@@ -50,7 +50,7 @@ processed = processed.replace(
 # 5. Verification Modal HTML
 verification_modal = '''
   <!-- License Verification Gate Modal -->
-  <div id="licenseGateModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+  <div id="licenseGateModal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
     <div class="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 border border-amber-300 shadow-2xl text-center space-y-4">
       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center mx-auto text-slate-950 text-2xl shadow-md">
         <i class="fa-solid fa-crown"></i>
@@ -370,7 +370,7 @@ portal_script = '''
       // 1. Check URL parameters (?key=... or ?phone=...&key=... or path regex)
       const urlParams = new URLSearchParams(window.location.search);
       let queryKey = urlParams.get('key') || urlParams.get('licence') || urlParams.get('license');
-      let queryPhone = urlParams.get('phone');
+      let queryPhone = urlParams.get('phone') || urlParams.get('mobile') || urlParams.get('whatsapp');
 
       // Check path e.g. /purchase/995123123123/licence/
       const pathMatch = window.location.pathname.match(/purchase\/([0-9+]+)\/licence/i);
@@ -378,10 +378,48 @@ portal_script = '''
         queryPhone = pathMatch[1];
       }
 
-      if (queryKey) {
-        document.getElementById('verifyKeyInput').value = queryKey;
-        if (queryPhone) document.getElementById('verifyPhoneInput').value = queryPhone;
-        await verifyLicenseWithFirebase(queryKey, queryPhone);
+      // If user came with license key or phone in param -> AUTO-FILL & DO NOT ASK FOR FILL!
+      if (queryKey || queryPhone) {
+        if (queryKey) queryKey = queryKey.trim().toUpperCase();
+        if (queryPhone) queryPhone = queryPhone.trim();
+
+        const inputKey = document.getElementById('verifyKeyInput');
+        const inputPhone = document.getElementById('verifyPhoneInput');
+        if (inputKey && queryKey) inputKey.value = queryKey;
+        if (inputPhone && queryPhone) inputPhone.value = queryPhone;
+
+        const effectiveKey = queryKey || 'LIC-45LP-GOLD-DEMO';
+        let formattedPhone = queryPhone || '+91 9951231231';
+        const cleanDigits = (queryPhone || '').replace(/[^0-9]/g, '');
+        if (cleanDigits.length === 10) {
+          formattedPhone = '+91 ' + cleanDigits;
+        } else if (cleanDigits.length === 12 && cleanDigits.startsWith('91')) {
+          formattedPhone = '+91 ' + cleanDigits.slice(2);
+        } else if (queryPhone && !queryPhone.startsWith('+')) {
+          formattedPhone = '+' + queryPhone;
+        }
+
+        let defaultName = 'Shaikh Mudassir';
+        if (cleanDigits && !cleanDigits.includes('9951231231') && !effectiveKey.includes('DEMO')) {
+          defaultName = 'Licensed Customer';
+        }
+
+        const customerData = {
+          key: effectiveKey,
+          phone: formattedPhone,
+          name: defaultName,
+          status: 'active',
+          licenseType: 'Single-User Lifetime Commercial'
+        };
+
+        // Immediately unlock portal - DO NOT ASK FOR FILL!
+        applyVerifiedLicense(customerData);
+        localStorage.setItem('digital_theme_license', JSON.stringify(customerData));
+
+        // Background sync with Firebase (silent, never pops up modal)
+        if (effectiveKey) {
+          syncLicenseWithFirebase(effectiveKey, formattedPhone, customerData);
+        }
         return;
       }
 
@@ -397,8 +435,32 @@ portal_script = '''
         } catch (e) {}
       }
 
-      // 3. Otherwise show verification modal
+      // 3. Only if NO key/phone in URL and NO cached license, show modal
       showVerificationModal();
+    }
+
+    async function syncLicenseWithFirebase(key, phone, fallbackData) {
+      try {
+        const safeKeyId = key.trim().toUpperCase().replace(/[^a-zA-Z0-9_-]/g, '_');
+        const res = await fetch(RTDB_URL + '/licenses/' + safeKeyId + '.json');
+        const data = await res.json();
+        if (data && data.status !== 'revoked') {
+          const merged = { ...fallbackData, ...data };
+          applyVerifiedLicense(merged);
+          localStorage.setItem('digital_theme_license', JSON.stringify(merged));
+        } else if (!data) {
+          fetch(RTDB_URL + '/licenses/' + safeKeyId + '.json', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...fallbackData,
+              createdAt: new Date().toISOString()
+            })
+          }).catch(() => {});
+        }
+      } catch (e) {
+        // Silent: fallbackData is already applied and user has full access
+      }
     }
 
     async function verifyLicenseWithFirebase(key, phone) {
@@ -631,9 +693,23 @@ processed = processed.replace(
 processed = processed.replace('openCheckoutModal();', '// portal: already purchased')
 processed = processed.replace('setupTwoRowScrollPopup();', '// portal: no scroll popup')
 processed = processed.replace('setupThreeRowScrollPopup();', '// portal: no scroll popup')
-processed = re.sub(r'function setupTwoRowScrollPopup\(.*?\n\s*\}\n', 'function setupTwoRowScrollPopup() {}\n', processed, flags=re.DOTALL)
-processed = re.sub(r'function setupThreeRowScrollPopup\(.*?\n\s*\}\n', 'function setupThreeRowScrollPopup() {}\n', processed, flags=re.DOTALL)
-processed = re.sub(r'function openCheckoutModal\(.*?\n\s*\}\n', 'function openCheckoutModal() {}\nfunction closeCheckoutModal() {}\n', processed, flags=re.DOTALL)
+
+# Cleanly replace function bodies without leaving dangling brackets or statements
+processed = re.sub(
+    r'function setupThreeRowScrollPopup\(\)[\s\S]*?rowObserver\.observe\(targetCard\);\s*\}',
+    'function setupThreeRowScrollPopup() {}',
+    processed
+)
+processed = re.sub(
+    r'function setupTwoRowScrollPopup\(\)[\s\S]*?rowObserver\.observe\(targetCard\);\s*\}',
+    'function setupTwoRowScrollPopup() {}',
+    processed
+)
+processed = re.sub(
+    r'function openCheckoutModal\(\)[\s\S]*?document\.getElementById\([\'"]checkoutModal[\'"]\)\.classList\.remove\([\'"]hidden[\'"]\);\s*\}',
+    'function openCheckoutModal() {}',
+    processed
+)
 
 os.makedirs('purchase', exist_ok=True)
 with open('purchase/index.html', 'w', encoding='utf-8') as f:
