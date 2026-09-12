@@ -208,22 +208,6 @@
         return false;
       }, true);
 
-      // 4. DevTools Detection & Anti-Debugger
-      function blockDevTools() {
-        var threshold = 160;
-        var widthDiff = window.outerWidth - window.innerWidth > threshold;
-        var heightDiff = window.outerHeight - window.innerHeight > threshold;
-        if (widthDiff || heightDiff) {
-          document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#08080a;color:#facc15;font-family:sans-serif;text-align:center;padding:24px;">' +
-            '<div style="font-size:48px;margin-bottom:12px;">🔒</div>' +
-            '<h1 style="font-size:22px;font-weight:900;color:#fff;">Protected Source Code</h1>' +
-            '<p style="color:#94a3b8;font-size:13px;max-width:380px;margin:8px 0 20px;">Inspecting, copying, or unauthorized downloads are disabled for intellectual property security.</p>' +
-            '<button onclick="location.reload()" style="background:#eab308;color:#000;border:none;padding:12px 24px;border-radius:12px;font-weight:bold;cursor:pointer;">Reload Website</button>' +
-          '</div>';
-        }
-      }
-      window.addEventListener('resize', blockDevTools, { passive: true });
-
       // Continuous Debugger Trap (Freezes DevTools if opened)
       setInterval(function() {
         (function() {
