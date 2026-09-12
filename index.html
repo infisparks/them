@@ -62,6 +62,63 @@
     }
   </script>
 
+  <!-- High Level Anti-Inspect, Anti-Save & Anti-Download Security Protection -->
+  <script>
+    (function() {
+      'use strict';
+      // Disable Right-Click Context Menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      }, true);
+
+      // Disable Keyboard Shortcuts (Inspect, View Source, Save, Print)
+      document.addEventListener('keydown', function(e) {
+        // F12 key
+        if (e.key === 'F12' || e.keyCode === 123) {
+          e.preventDefault();
+          return false;
+        }
+        var isCmdOrCtrl = e.ctrlKey || e.metaKey;
+        if (isCmdOrCtrl) {
+          // Ctrl+Shift+I / J / C (DevTools & Console)
+          if (e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+            e.preventDefault();
+            return false;
+          }
+          // Ctrl+U (View Source)
+          if (e.key === 'U' || e.key === 'u') {
+            e.preventDefault();
+            return false;
+          }
+          // Ctrl+S (Save Webpage)
+          if (e.key === 'S' || e.key === 's') {
+            e.preventDefault();
+            return false;
+          }
+          // Ctrl+P (Print)
+          if (e.key === 'P' || e.key === 'p') {
+            e.preventDefault();
+            return false;
+          }
+        }
+      }, true);
+
+      // Disable Dragging of Images / Elements
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      }, true);
+
+      // Console Warning
+      if (window.console) {
+        console.clear();
+        console.log("%c🔒 SECURITY PROTECTED", "color:#eab308;font-size:24px;font-weight:900;background:#090d16;padding:8px 16px;border-radius:8px;");
+        console.log("%cUnauthorized downloading, code scraping, or reverse engineering of these landing pages is strictly prohibited.", "color:#94a3b8;font-size:13px;font-weight:bold;");
+      }
+    })();
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -97,12 +154,26 @@
       margin: 0;
       padding: 0;
     }
-    body {
-      background-color: #fafaf9;
-      color: #0f172a;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      width: 100%;
+    /* Anti-Inspect & Anti-Download Protection */
+    body, html {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    input, textarea, select {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+    img, iframe {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
     }
 
     /* Light gold luxury grid */
@@ -113,19 +184,21 @@
         linear-gradient(to bottom, rgba(234, 179, 8, 0.05) 1px, transparent 1px);
     }
 
-    /* Card styling */
+    /* Card styling - Hardware accelerated & virtualized rendering */
     .card-phone-unit {
       background: #ffffff;
       border: 1.5px solid #f1f5f9;
       box-shadow: 0 4px 14px -3px rgba(0, 0, 0, 0.05);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      content-visibility: auto;
+      contain-intrinsic-size: 180px 400px;
     }
     .card-phone-unit:hover {
       border-color: #eab308;
       box-shadow: 0 12px 28px -4px rgba(234, 179, 8, 0.25);
     }
 
-            /* Phone Mockup Frame */
+    /* Phone Mockup Frame */
     .phone-mockup-frame {
       position: relative;
       width: 100%;
@@ -135,6 +208,8 @@
       border: 3px solid #1e293b;
       overflow: hidden;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 6px 18px -4px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      touch-action: pan-y;
     }
     .phone-mockup-frame:hover {
       border-color: #eab308;
@@ -152,6 +227,7 @@
       border-radius: 9999px;
       z-index: 35;
       box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      pointer-events: none;
     }
 
     /* Luxury Gold Shimmer Loading Skeleton */
@@ -171,7 +247,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.25s ease;
       pointer-events: none;
     }
     .skeleton-spinner {
@@ -202,11 +278,12 @@
       height: 790px;
       border: none;
       transform-origin: top left;
-      pointer-events: auto;
+      pointer-events: none; /* Prevents touch/scroll capture for smooth 60fps scrolling */
       background: #ffffff;
       z-index: 20;
       opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.25s ease;
+      will-change: opacity;
     }
     .live-scaled-iframe.loaded {
       opacity: 1;
@@ -1459,30 +1536,98 @@
     </div>
   </div>
 
-  <!-- Instant Checkout Modal -->
-  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3">
-    <div class="relative w-full max-w-sm bg-white rounded-2xl p-5 border border-gold-300 shadow-2xl text-center space-y-3">
-      <button onclick="closeCheckoutModal()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-700">
+  <!-- Instant Checkout Modal (₹2,999 cancelled -> ₹299, 1-Time License, 45+ Themes) -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="relative w-full max-w-md bg-white rounded-3xl p-5 sm:p-6 border border-amber-300 shadow-2xl text-left space-y-4 max-h-[92vh] overflow-y-auto no-scrollbar">
+      <!-- Close Button -->
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors">
         <i class="fa-solid fa-xmark text-sm"></i>
       </button>
-      <div class="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto text-base">
-        <i class="fa-solid fa-crown"></i>
+
+      <!-- Badge & Price Header -->
+      <div class="space-y-1.5 pr-8">
+        <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-900 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+          <span>🔥 Limited Time Launch Deal</span>
+        </div>
+        <h3 class="text-lg sm:text-xl font-black text-slate-950 tracking-tight leading-tight">
+          Unlock All 45+ Landing Page Templates
+        </h3>
+        
+        <!-- Pricing: 2999 canceled (strikethrough) -> 299 -->
+        <div class="flex items-baseline gap-2 pt-1">
+          <span class="text-sm font-bold text-slate-400 line-through">₹2,999</span>
+          <span class="text-3xl font-black text-amber-600">₹299</span>
+          <span class="bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10.5px] font-extrabold px-2 py-0.5 rounded-md">
+            Save 90%
+          </span>
+        </div>
       </div>
-      <h3 class="text-base font-black text-slate-900">Unlock All 45+ Templates for ₹299</h3>
-      <p class="text-[10.5px] text-slate-500 leading-tight">Instant access to complete source codes, images, and commercial lifetime license.</p>
-      
-      <form onsubmit="handlePaymentSubmit(event)" class="space-y-2.5 text-left pt-1">
+
+      <!-- Key Bundle Highlights: 1-Time License, 45+ Themes -->
+      <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-3 space-y-2 text-xs text-slate-800">
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-circle-check text-amber-600 text-xs mt-0.5 flex-shrink-0"></i>
+          <div>
+            <strong class="font-extrabold text-slate-900">1-Time Lifetime License:</strong>
+            <span class="text-slate-600"> Zero monthly fees. Use on unlimited client and personal commercial projects forever.</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-layer-group text-amber-600 text-xs mt-0.5 flex-shrink-0"></i>
+          <div>
+            <strong class="font-extrabold text-slate-900">45+ High-Converting Themes:</strong>
+            <span class="text-slate-600"> Funnel, SaaS AI, Real Estate, E-Commerce, Course &amp; Portfolio editions in 5 luxury color schemes.</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-file-zipper text-amber-600 text-xs mt-0.5 flex-shrink-0"></i>
+          <div>
+            <strong class="font-extrabold text-slate-900">Instant ZIP Source Code:</strong>
+            <span class="text-slate-600"> Complete HTML, CSS, assets and scripts ready for 1-click publishing.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkout Form: Name and WhatsApp Number -->
+      <form onsubmit="handleCheckoutPayment(event)" class="space-y-3 pt-1">
         <div>
-          <label class="block text-[10.5px] font-bold text-slate-700 mb-0.5">Email Address *</label>
-          <input type="email" required placeholder="alex@gmail.com" class="w-full bg-slate-50 border border-slate-300 focus:border-gold-500 rounded-lg px-3 py-2 text-xs text-slate-900 outline-none" />
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">
+            Full Name <span class="text-rose-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="checkoutName" 
+            required 
+            placeholder="Enter your name (e.g. Rahul Sharma)" 
+            class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 outline-none transition-all" 
+          />
         </div>
         <div>
-          <label class="block text-[10.5px] font-bold text-slate-700 mb-0.5">WhatsApp / Phone Number *</label>
-          <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-slate-50 border border-slate-300 focus:border-gold-500 rounded-lg px-3 py-2 text-xs text-slate-900 outline-none" />
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">
+            WhatsApp / Phone Number <span class="text-rose-500">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="checkoutPhone" 
+            required 
+            placeholder="Enter WhatsApp number (e.g. 9876543210)" 
+            class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-xs text-slate-900 outline-none transition-all" 
+          />
         </div>
-        <button type="submit" class="w-full btn-gold-main text-xs py-2.5 rounded-xl shadow mt-1">
-          Pay ₹299 (Instant Zip Access ⚡)
+
+        <button 
+          type="submit" 
+          id="btnCheckoutPay"
+          class="w-full btn-gold-main text-xs sm:text-sm py-3.5 rounded-xl font-black shadow-md flex items-center justify-center gap-2 mt-2"
+        >
+          <span>Pay ₹299 (Unlock All 45+ Templates ⚡)</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
         </button>
+
+        <p class="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1.5 pt-1">
+          <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+          <span>Secure Razorpay / UPI Instant Access • Direct ZIP Download</span>
+        </p>
       </form>
     </div>
   </div>
@@ -1567,34 +1712,46 @@
       }
     }
 
+    // Batch scaling to prevent layout thrashing and scrolling lag
     function scalePhoneIframes() {
-      const frames = document.querySelectorAll('.phone-mockup-frame');
-      frames.forEach(frame => {
-        const iframe = frame.querySelector('.live-scaled-iframe');
-        if (iframe) {
-          scaleSingleIframe(iframe);
-        }
+      const firstFrame = document.querySelector('.phone-mockup-frame');
+      if (!firstFrame) return;
+      const frameWidth = firstFrame.clientWidth;
+      const frameHeight = firstFrame.clientHeight;
+      if (frameWidth <= 0) return;
+      const scale = frameWidth / 375;
+      const heightVal = (frameHeight / scale) + 'px';
+      const transformVal = 'scale(' + scale + ')';
+
+      document.querySelectorAll('.live-scaled-iframe').forEach(iframe => {
+        iframe.style.width = '375px';
+        iframe.style.height = heightVal;
+        iframe.style.transform = transformVal;
       });
     }
 
-    // Scale on resize, observer, and DOM ready
-    window.addEventListener('resize', scalePhoneIframes);
-    
-    // ResizeObserver for zero-delay instant rescale when window or grid column width changes
-    if (window.ResizeObserver) {
-      const resizeObserver = new ResizeObserver(() => {
-        scalePhoneIframes();
-      });
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.phone-mockup-frame').forEach(frame => {
-          resizeObserver.observe(frame);
-        });
-      });
-    }
+    // Debounced resize listener
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (resizeTimer) cancelAnimationFrame(resizeTimer);
+      resizeTimer = requestAnimationFrame(scalePhoneIframes);
+    }, { passive: true });
 
     document.addEventListener('DOMContentLoaded', () => {
       scalePhoneIframes();
       observeLazyIframes();
+
+      // Clicking on phone mockup frame opens preview
+      document.querySelectorAll('.card-phone-unit').forEach(card => {
+        const frame = card.querySelector('.phone-mockup-frame');
+        const previewBtn = card.querySelector('button[onclick*="openPreviewModal"]');
+        if (frame && previewBtn) {
+          frame.addEventListener('click', () => {
+            previewBtn.click();
+          });
+        }
+      });
+
       document.querySelectorAll('.live-scaled-iframe').forEach(iframe => {
         if (iframe.src && !iframe.src.endsWith('about:blank')) {
           if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
@@ -1606,6 +1763,34 @@
       setTimeout(scalePhoneIframes, 150);
       setTimeout(scalePhoneIframes, 400);
     });
+
+    // =========================================================================
+    // 📱 AUTO POPUP ON MOBILE AFTER SCROLLING 3 SLIDES / CARDS
+    // =========================================================================
+    let scrollPopupTriggered = false;
+    function checkMobileScrollPopup() {
+      if (scrollPopupTriggered) return;
+      // Trigger on mobile/tablet view
+      if (window.innerWidth > 768) return;
+      if (sessionStorage.getItem('bundleScrollPopupShown')) return;
+
+      const cards = document.querySelectorAll('.card-phone-unit');
+      if (cards.length >= 3) {
+        const thirdCard = cards[2];
+        const rect = thirdCard.getBoundingClientRect();
+        // If 3rd card is scrolled to 65% of viewport or past
+        if (rect.top <= window.innerHeight * 0.65) {
+          scrollPopupTriggered = true;
+          sessionStorage.setItem('bundleScrollPopupShown', 'true');
+          openCheckoutModal();
+        }
+      } else if (window.scrollY > 400) {
+        scrollPopupTriggered = true;
+        sessionStorage.setItem('bundleScrollPopupShown', 'true');
+        openCheckoutModal();
+      }
+    }
+    window.addEventListener('scroll', checkMobileScrollPopup, { passive: true });
 
     // Color filtering
     function filterColor(color) {
@@ -1663,9 +1848,53 @@
     function closeCheckoutModal() {
       document.getElementById('checkoutModal').classList.add('hidden');
     }
-    function handlePaymentSubmit(e) {
+
+    // Close modals on backdrop click
+    document.addEventListener('click', (e) => {
+      const checkoutModal = document.getElementById('checkoutModal');
+      if (checkoutModal && !checkoutModal.classList.contains('hidden') && e.target === checkoutModal) {
+        closeCheckoutModal();
+      }
+      const previewModal = document.getElementById('previewModal');
+      if (previewModal && !previewModal.classList.contains('hidden') && e.target === previewModal) {
+        closePreviewModal();
+      }
+    });
+
+    // =========================================================================
+    // 💳 RAZORPAY PAYMENT LINK INTEGRATION
+    // (Paste your Razorpay payment link below whenever ready)
+    // =========================================================================
+    const RAZORPAY_PAYMENT_URL = ""; // <-- PASTE YOUR RAZORPAY PAYMENT LINK HERE (e.g. "https://rzp.io/l/yourlink")
+
+    function handleCheckoutPayment(e) {
       e.preventDefault();
-      alert("🎉 Payment Initiated! Instant Zip download link sent to your email & WhatsApp.");
+      const nameInput = document.getElementById('checkoutName');
+      const phoneInput = document.getElementById('checkoutPhone');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+
+      if (!name || !phone) {
+        alert("Please enter both your name and WhatsApp number.");
+        return;
+      }
+
+      // If Razorpay payment link is provided, redirect to Razorpay with customer params
+      if (RAZORPAY_PAYMENT_URL && RAZORPAY_PAYMENT_URL.trim() !== "") {
+        try {
+          const url = new URL(RAZORPAY_PAYMENT_URL);
+          url.searchParams.set('name', name);
+          url.searchParams.set('phone', phone);
+          window.location.href = url.toString();
+          return;
+        } catch (err) {
+          window.location.href = RAZORPAY_PAYMENT_URL;
+          return;
+        }
+      }
+
+      // Default feedback if Razorpay link is not yet set
+      alert("🎉 Thank you " + name + "!\n\n₹299 Payment Initiated! Instant ZIP download will be sent to WhatsApp: " + phone + ".\n\n(Tip: Paste your Razorpay payment link in RAZORPAY_PAYMENT_URL in the script to enable live 1-click Razorpay payments.)");
       closeCheckoutModal();
     }
   </script>
