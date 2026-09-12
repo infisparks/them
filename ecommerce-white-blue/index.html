@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Theme | Premium E-Commerce Catalog &amp; Revenue Systems</title>
+  <meta name="description" content="Discover high-converting product catalogs and automated revenue systems for manufacturers, retailers &amp; growing businesses." />
+  <meta name="keywords" content="e-commerce catalog, performance marketing, B2B sales funnel, mobile responsive store" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digitalthemestore.com" />
+  <meta property="og:site_name" content="Digital Theme" />
+  <meta property="og:title" content="Digital Theme | Premium E-Commerce Catalog" />
+  <meta property="og:description" content="Predictable growth. Serious inquiries. Real revenue for Manufacturers, Retailers &amp; Brands." />
+  <meta property="og:image" content="./image/profile.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Digital Theme | Premium E-Commerce Catalog" />
+  <meta name="twitter:description" content="Predictable growth. Serious inquiries. Real revenue for Manufacturers, Retailers &amp; Brands." />
+  <meta name="twitter:image" content="./image/profile.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Light Gold & Elevation Styles */
+    .gold-border-card {
+      border: 2px solid #6366f1;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+    }
+
+    .light-card {
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    }
+
+    /* High-Impact Gold Gradient CTA button */
+    .cta-indigo-btn {
+      background: linear-gradient(180deg, #818cf8 0%, #4f46e5 100%);
+      box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    .cta-indigo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45);
+    }
+    .cta-indigo-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shimmer-anim 3.5s infinite;
+    }
+
+    @keyframes shimmer-anim {
+      0% { transform: translate(-100%, -100%) rotate(30deg); }
+      100% { transform: translate(100%, 100%) rotate(30deg); }
+    }
+
+    /* Hide scrollbar for clean horizontal scrolls */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
+    }
+
+    /* Continuous Horizontal Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marquee 16s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .animate-toast-in {
+      animation: toastIn 0.3s ease-out forwards;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="w-full min-h-full bg-[#f8fafc] text-slate-900 font-sans selection:bg-indigo-500 selection:text-white selection:text-slate-900">
+
+  <div class="w-full pb-32 text-slate-900 flex flex-col items-center justify-start min-h-screen antialiased">
+
+    <!-- 1. Top Urgency Ticker Bar (Smooth Scrollable Marquee) -->
+    <div class="w-full bg-gradient-to-r from-red-600 via-indigo-600 to-red-600 text-white text-[11px] sm:text-xs md:text-sm font-bold py-1.5 shadow-sm z-40 overflow-hidden relative flex items-center">
+      <div class="animate-marquee flex items-center space-x-6">
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span>⚡ FESTIVAL SALE: Extra 20% OFF + Free Express Shipping On All Orders Today!</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-yellow-300"></span>
+          <span>🔥 Limited Stock Available • Instant WhatsApp Order Confirmation</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span>⚡ FESTIVAL SALE: Extra 20% OFF + Free Express Shipping On All Orders Today!</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-yellow-300"></span>
+          <span>🔥 Limited Stock Available • Instant WhatsApp Order Confirmation</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 2. Header & Store Navigation Bar -->
+    <header class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 pt-2.5 pb-2 mx-auto sticky top-0 bg-white/95 backdrop-blur-md z-30 border-b border-slate-200/90 shadow-sm">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-indigo-500 shadow-sm flex-shrink-0">
+            <img src="./image/profile.png" alt="Digital Theme Store" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h1 class="text-xs sm:text-base font-black text-slate-900 leading-tight">Digital Theme Store</h1>
+            <p class="text-[9px] sm:text-xs text-indigo-600 font-bold">Verified Premium Collection</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="openCartModal()" class="relative bg-slate-100 hover:bg-slate-200 border border-slate-200 hover:border-indigo-400 p-2 sm:px-3 sm:py-2 rounded-xl text-slate-800 flex items-center space-x-1.5 transition-colors">
+            <i class="fa-solid fa-cart-shopping text-indigo-600"></i>
+            <span class="text-xs font-black hidden sm:inline">Cart</span>
+            <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-indigo-600 text-slate-950 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
+          </button>
+          <button onclick="openBookingModal()" class="cta-indigo-btn px-3 py-2 rounded-xl text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-tight shadow-md">
+            Consult
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 sm:px-4 space-y-4 sm:space-y-6 mx-auto mt-2">
+      
+      <!-- 1. Ultra-Premium Compact Hero Banner (Clean White Luxury) -->
+      <section class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-indigo-300/80 bg-gradient-to-b from-white via-amber-50/30 to-white p-3 sm:p-5 my-0.5 shadow-[0_10px_30px_rgba(0,0,0,0.06),0_0_20px_rgba(245,166,35,0.08)]">
+        <!-- Ambient Background Glows -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-36 h-36 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <!-- Hero Background Image Texture -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <img src="image/hero.png" alt="Digital Theme Store Banner" class="w-full h-full object-cover object-right sm:object-center opacity-10 mix-blend-multiply scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 space-y-2 sm:space-y-2.5 text-left">
+          <!-- Top Live Badge -->
+          <div class="flex items-center justify-between">
+            <div class="inline-flex items-center gap-1.5 bg-indigo-600/10 border border-indigo-500/35 backdrop-blur-md px-2.5 py-0.5 rounded-full text-indigo-700 text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-ping"></span>
+              <i class="fa-solid fa-bolt text-[9px] text-indigo-600"></i>
+              <span>Direct Manufacturer Rates</span>
+            </div>
+            <span class="text-[10px] sm:text-xs text-slate-500 font-bold hidden sm:inline-flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> Verified Catalog
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h2 class="text-base sm:text-2xl md:text-3xl font-black text-slate-950 leading-tight tracking-tight">
+            Curated High-Value <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600">Products &amp; Equipment</span>
+          </h2>
+
+          <!-- Subtitle -->
+          <p class="text-slate-600 text-[11px] sm:text-xs md:text-sm font-medium leading-snug">
+            Verified best-sellers across Electronics, Apparel &amp; Commercial Goods.
+          </p>
+
+          <!-- 3-Item Compact Trust Grid -->
+          <div class="grid grid-cols-3 gap-1.5 pt-0.5">
+            <div class="bg-white/90 border border-slate-200/90 rounded-lg py-1.5 px-1 flex items-center justify-center gap-1 text-center shadow-xs">
+              <i class="fa-solid fa-truck-fast text-indigo-600 text-[9px] sm:text-[11px]"></i>
+              <span class="text-[9px] sm:text-[11px] font-bold text-slate-700 truncate">Express Delivery</span>
+            </div>
+            <div class="bg-white/90 border border-slate-200/90 rounded-lg py-1.5 px-1 flex items-center justify-center gap-1 text-center shadow-xs">
+              <i class="fa-solid fa-shield-halved text-indigo-600 text-[9px] sm:text-[11px]"></i>
+              <span class="text-[9px] sm:text-[11px] font-bold text-slate-700 truncate">Direct Warranty</span>
+            </div>
+            <div class="bg-white/90 border border-slate-200/90 rounded-lg py-1.5 px-1 flex items-center justify-center gap-1 text-center shadow-xs">
+              <i class="fa-brands fa-whatsapp text-emerald-600 text-[9px] sm:text-[11px]"></i>
+              <span class="text-[9px] sm:text-[11px] font-bold text-slate-700 truncate">WhatsApp Order</span>
+            </div>
+          </div>
+
+          <!-- Quick Filter Category Pills -->
+          <div class="pt-1 flex items-center space-x-1.5 overflow-x-auto no-scrollbar">
+            <button onclick="filterCatalog('all')" id="catBtnAll" class="cat-pill px-3 py-1 rounded-full text-[11px] sm:text-xs font-black bg-gradient-to-r from-amber-500 to-amber-600 text-white border border-indigo-500 shadow-md flex-shrink-0 transition-all">
+              All Products
+            </button>
+            <button onclick="filterCatalog('electronics')" id="catBtnElec" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-slate-900 flex-shrink-0 transition-all">
+              ⚡ Electronics
+            </button>
+            <button onclick="filterCatalog('fashion')" id="catBtnFashion" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-slate-900 flex-shrink-0 transition-all">
+              👔 Fashion
+            </button>
+            <button onclick="filterCatalog('industrial')" id="catBtnInd" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-slate-900 flex-shrink-0 transition-all">
+              🏭 Industrial
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. E-Commerce Product Catalog Grid -->
+      <section class="space-y-4 pt-1">
+        <div class="flex items-center justify-between px-1">
+          <div>
+            <h3 class="text-sm sm:text-xl font-black text-slate-900 tracking-tight">Featured Catalog</h3>
+            <p class="text-[10px] sm:text-xs text-slate-500 font-medium">Tap any item for detailed specs &amp; reviews</p>
+          </div>
+          <span id="catalogCountLabel" class="text-[10px] sm:text-xs text-indigo-700 font-bold font-mono bg-indigo-600/10 border border-indigo-500/30 px-2.5 py-1 rounded-full">Showing 6 items</span>
+        </div>
+
+        <!-- 2-Column Product Grid -->
+        <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+          
+          <!-- Product Card 1 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(1)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/2.png" alt="Pro ANC Wireless Headphones" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">-35% OFF</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Electronics</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">Pro ANC Wireless Headphones</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono">(142)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹2,499</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹3,899</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('Pro ANC Wireless Headphones', 2499, 'image/2.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(2)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/3.png" alt="Minimalist Oversized Cotton Tee" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-indigo-600 text-slate-950 text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">Best Seller</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Fashion &amp; Retail</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">Minimalist Oversized Cotton Tee</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-slate-500 font-mono">(98)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹799</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹1,299</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('Minimalist Oversized Cotton Tee', 799, 'image/3.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(3)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/4.png" alt="Ultra Fitness Smartwatch" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-emerald-600 text-white text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">In Stock</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Electronics</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">Ultra Fitness Smartwatch</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono">(230)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹1,999</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹3,499</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('Ultra Fitness Smartwatch', 1999, 'image/4.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(4)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/5.png" alt="Precision Ceramic Bulk Tile Kit" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-indigo-600 text-slate-950 text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">Trending</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Industrial B2B</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">Precision Ceramic Bulk Tile Kit</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono">(45)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹4,999</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹7,500</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('Precision Ceramic Bulk Tile Kit', 4999, 'image/5.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card 5 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(5)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/6.png" alt="Classic Leather Handbag" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">-35% OFF</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Fashion &amp; Retail</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">Classic Leather Handbag</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-slate-500 font-mono">(112)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹1,899</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹2,999</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('Classic Leather Handbag', 1899, 'image/6.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Card 6 -->
+          <div class="product-card bg-white border border-slate-200/90 hover:border-indigo-500/80 rounded-2xl p-2 sm:p-3 text-left space-y-2 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300 group cursor-pointer" onclick="openProductModal(6)">
+            <div class="space-y-1.5">
+              <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100 p-2 flex items-center justify-center">
+                <img src="image/7.png" alt="BassBoost Bluetooth Speaker" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-1.5 left-1.5 bg-indigo-600 text-slate-950 text-[8px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow">New</span>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-extrabold text-indigo-600 tracking-wider">Electronics</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight truncate leading-tight group-hover:text-indigo-600 transition-colors">BassBoost Bluetooth Speaker</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-indigo-600 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono">(84)</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-indigo-600">₹1,499</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1">₹2,299</span>
+                </div>
+              </div>
+              <button onclick="event.stopPropagation(); addToCart('BassBoost Bluetooth Speaker', 1499, 'image/7.png')" class="w-full cta-indigo-btn py-2 px-2 rounded-xl text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-md">
+                <i class="fa-solid fa-cart-plus text-[10px]"></i>
+                <span>ADD TO CART</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-slate-500 text-xs sm:text-sm py-6 space-y-2 border-t border-slate-200">
+        <p class="font-bold text-slate-700">Digital Theme • E-Commerce &amp; Revenue Systems</p>
+        <p>© <span id="currentYearSpan">2026</span> Digital Theme. All Rights Reserved.</p>
+        <p class="text-[11px] sm:text-xs text-slate-500">Secure checkout powered by WhatsApp &amp; Direct WhatsApp Concierge.</p>
+      </footer>
+    </main>
+
+    <!-- 3. Ultra-Luxury Single Product Detail Sheet / Modal -->
+    <div id="productModal" class="hidden fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
+      <div class="bg-white text-slate-900 border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative max-h-[92vh] flex flex-col overflow-hidden animate-toast-in">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3 flex-shrink-0">
+          <div class="flex items-center space-x-2">
+            <span id="modalCatTag" class="bg-indigo-600/10 border border-indigo-500/30 text-indigo-700 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Electronics</span>
+            <span class="text-[10px] sm:text-xs font-bold text-emerald-600 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> In Stock • Ships Today
+            </span>
+          </div>
+          <button onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-indigo-400 flex items-center justify-center text-sm transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body (Scrollable) -->
+        <div class="space-y-4 overflow-y-auto flex-1 pr-1 custom-scrollbar text-left">
+          
+          <!-- Image Showcase (Uncut object-contain with padding) -->
+          <div class="relative w-full aspect-square max-h-72 sm:max-h-80 rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 flex items-center justify-center p-3 group">
+            <img id="modalProductImg" src="image/2.png" alt="Product Image" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" />
+            <span id="modalDiscountBadge" class="absolute top-2.5 left-2.5 bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded-lg shadow-sm">-35% OFF</span>
+            <div class="absolute bottom-2.5 left-2.5 bg-white/90 backdrop-blur-md border border-slate-200 px-2.5 py-1 rounded-lg text-[10px] font-bold text-slate-700 flex items-center gap-1 shadow-xs">
+              <i class="fa-solid fa-shield-halved text-indigo-600"></i>
+              <span>100% Genuine Direct Import</span>
+            </div>
+          </div>
+
+          <!-- Title & Star Ratings -->
+          <div class="space-y-1">
+            <h3 id="modalProductTitle" class="text-base sm:text-xl font-black text-slate-900 leading-snug">Pro ANC Wireless Headphones</h3>
+            <div class="flex items-center space-x-2 text-[11px] sm:text-xs">
+              <div class="flex items-center text-indigo-600 space-x-0.5">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span id="modalRatingScore" class="font-extrabold text-slate-900">4.8</span>
+              <span class="text-slate-400">•</span>
+              <span id="modalReviewCount" class="text-indigo-700 font-bold">142 Verified Customer Reviews</span>
+            </div>
+          </div>
+
+          <!-- Pricing Box -->
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/90 flex items-center justify-between">
+            <div>
+              <div class="flex items-baseline space-x-2">
+                <span id="modalProductPrice" class="text-xl sm:text-2xl font-black text-indigo-600">₹2,499</span>
+                <span id="modalOriginalPrice" class="text-xs sm:text-sm text-slate-400 line-through font-semibold">₹3,899</span>
+              </div>
+              <p class="text-[10px] text-emerald-600 font-bold flex items-center gap-1 mt-0.5">
+                <i class="fa-solid fa-tag"></i> <span id="modalSavingsText">Save ₹1,400 (Direct Manufacturer Discount)</span>
+              </p>
+            </div>
+            <div class="text-right text-[10px] text-slate-500 font-medium">
+              <span class="block text-slate-700 font-bold">Free Express Delivery</span>
+              <span>All Taxes Included</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="space-y-1.5">
+            <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider">Product Overview</h4>
+            <p id="modalProductDesc" class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Premium studio-grade active noise cancelling wireless headphones with 40-hour ultra-long battery, ultra-low latency gaming mode, and high-fidelity neodymium dynamic drivers.
+            </p>
+          </div>
+
+          <!-- Key Highlights / Specs -->
+          <div class="space-y-2 bg-slate-50 p-3 rounded-2xl border border-slate-200/80">
+            <h4 class="text-xs font-black text-indigo-700 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt text-indigo-600"></i> Key Highlights &amp; Specifications
+            </h4>
+            <ul id="modalFeatureList" class="space-y-1.5 text-[11px] sm:text-xs text-slate-700">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+
+          <!-- Variant / Color Selector -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold text-slate-700">Select Edition / Color:</label>
+            <div id="modalVariantContainer" class="flex items-center flex-wrap gap-2">
+              <!-- Dynamically populated variant chips -->
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="flex items-center justify-between bg-slate-50 border border-slate-200 p-2.5 rounded-xl">
+            <span class="text-xs font-bold text-slate-700">Quantity</span>
+            <div class="flex items-center space-x-3">
+              <button onclick="changeModalQty(-1)" class="w-7 h-7 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold flex items-center justify-center text-sm transition-colors">-</button>
+              <span id="modalQtyDisplay" class="text-sm font-mono font-black text-slate-900 w-6 text-center">1</span>
+              <button onclick="changeModalQty(1)" class="w-7 h-7 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold flex items-center justify-center text-sm transition-colors">+</button>
+            </div>
+          </div>
+
+          <!-- Assurance Badges Grid -->
+          <div class="grid grid-cols-3 gap-2 pt-1 text-center">
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-2">
+              <i class="fa-solid fa-rotate-left text-indigo-600 text-xs mb-1 block"></i>
+              <span class="text-[9px] font-bold text-slate-700 block">7 Days Return</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-2">
+              <i class="fa-solid fa-certificate text-indigo-600 text-xs mb-1 block"></i>
+              <span class="text-[9px] font-bold text-slate-700 block">1 Year Warranty</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-2">
+              <i class="fa-solid fa-hand-holding-dollar text-emerald-600 text-xs mb-1 block"></i>
+              <span class="text-[9px] font-bold text-slate-700 block">COD Available</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Footer Action Buttons -->
+        <div class="border-t border-slate-100 pt-3 mt-2 grid grid-cols-2 gap-2 flex-shrink-0">
+          <button onclick="addCurrentModalToCart()" class="bg-white hover:bg-slate-50 border border-indigo-500 text-indigo-700 font-extrabold py-3 px-3 rounded-2xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-colors shadow-xs">
+            <i class="fa-solid fa-cart-plus text-xs"></i>
+            <span>Add To Cart</span>
+          </button>
+          <button onclick="buyCurrentModalNowWhatsApp()" class="cta-indigo-btn shimmer py-3 px-3 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-lg">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>Buy Now</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. Ultra-Premium Shopping Cart Drawer & Modal -->
+    <div id="cartModal" class="hidden fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
+      <div class="bg-white text-slate-900 border border-slate-200 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative flex flex-col max-h-[92vh] animate-toast-in">
+        
+        <!-- Cart Header -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3 flex-shrink-0">
+          <div class="flex items-center space-x-2">
+            <span class="bg-indigo-600/15 border border-indigo-500/30 text-indigo-700 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Your Cart</span>
+            <span id="cartHeaderCount" class="text-xs font-bold text-slate-600 font-mono">(0 items)</span>
+          </div>
+          <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-indigo-400 flex items-center justify-center text-sm transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Festival Offer Notice -->
+        <div class="bg-indigo-50 border border-amber-200/80 rounded-xl px-3 py-2 mb-3 flex items-center justify-between text-[11px] text-amber-800 font-bold flex-shrink-0">
+          <div class="flex items-center space-x-1.5">
+            <i class="fa-solid fa-bolt text-indigo-600"></i>
+            <span>Festival Offer: Extra Free Delivery Applied</span>
+          </div>
+          <span class="bg-indigo-600 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded">APPLIED</span>
+        </div>
+
+        <!-- Cart Items List (Scrollable) -->
+        <div id="cartItemsList" class="space-y-2.5 overflow-y-auto flex-1 pr-1 custom-scrollbar text-left">
+          <!-- Cart items injected dynamically -->
+        </div>
+
+        <!-- Order Breakdown & WhatsApp Checkout -->
+        <div class="border-t border-slate-100 pt-3 mt-3 space-y-3 flex-shrink-0">
+          
+          <div class="space-y-1.5 text-xs text-slate-600">
+            <div class="flex items-center justify-between">
+              <span>Subtotal:</span>
+              <span id="cartSubtotalPrice" class="font-mono font-bold text-slate-900">₹0</span>
+            </div>
+            <div class="flex items-center justify-between text-emerald-600 font-bold">
+              <span>Express Shipping:</span>
+              <span class="uppercase">FREE (₹0)</span>
+            </div>
+            <div class="flex items-center justify-between text-sm font-black text-slate-900 pt-1 border-t border-slate-100">
+              <span>Estimated Total:</span>
+              <span id="cartTotalPrice" class="text-indigo-600 text-lg font-black font-mono">₹0</span>
+            </div>
+          </div>
+
+          <button onclick="checkoutViaWhatsApp()" class="w-full cta-indigo-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>CONFIRM &amp; ORDER ON WHATSAPP</span>
+          </button>
+
+          <div class="flex items-center justify-center space-x-3 text-[10px] text-slate-500 font-medium pt-0.5">
+            <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-600"></i> 256-Bit SSL</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-truck-fast text-indigo-600"></i> 24h Express Dispatch</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Booking Modal (Retained for Strategy Consultation) -->
+    <div id="bookingModal" class="hidden fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+      <div id="bookingStep1" class="bg-white text-slate-900 border border-slate-200 w-full max-w-md rounded-3xl p-4 sm:p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+          <div class="flex items-center space-x-2">
+            <span class="bg-indigo-600/15 border border-indigo-500/30 text-indigo-700 text-[10px] font-black px-2.5 py-0.5 rounded-full">Consultation</span>
+            <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide">Fast 30-Sec Booking</span>
+          </div>
+          <button onclick="closeBookingModal()" class="w-7 h-7 rounded-full text-slate-400 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="contactForm" onsubmit="handleStep1Submit(event)" class="space-y-3.5 text-left">
+          <div class="text-center space-y-1">
+            <h3 class="text-base sm:text-xl font-black text-slate-900 leading-snug">Claim Your 1-on-1 Growth Consultation</h3>
+            <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Enter your details to reserve your custom revenue strategy session</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Full Name <span class="text-indigo-600">*</span></label>
+            <input type="text" id="inputFullName" required placeholder="Enter your full name" class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Phone Number <span class="text-indigo-600">*</span></label>
+            <div class="flex items-center bg-slate-50 border border-slate-200 focus-within:border-indigo-500 rounded-xl overflow-hidden">
+              <div class="px-3 py-2.5 bg-slate-100 border-r border-slate-200 text-xs font-bold text-slate-600">🇮🇳 +91</div>
+              <input type="tel" id="inputPhone" inputmode="numeric" pattern="[0-9]*" maxlength="10" required placeholder="9876543210" class="w-full px-3 py-2.5 text-sm text-slate-900 bg-transparent placeholder-slate-400 focus:outline-none font-mono" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full cta-indigo-btn shimmer rounded-2xl p-3.5 text-center cursor-pointer shadow-xl mt-4">
+            <div class="text-sm font-black text-slate-950 flex items-center justify-center space-x-2 uppercase tracking-wide">
+              <span>CONFIRM &amp; CONNECT ON WHATSAPP</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sticky Mobile Floating Bottom Cart & Checkout Bar (Single-Row Compact) -->
+    <div id="stickyCartBar" class="fixed bottom-2.5 left-2.5 right-2.5 sm:bottom-5 sm:left-1/2 sm:-translate-x-1/2 sm:w-full sm:max-w-md z-40 transition-all duration-300 translate-y-24 opacity-0 pointer-events-none">
+      <div class="bg-white/95 border border-indigo-400/90 rounded-2xl p-2 sm:p-2.5 shadow-[0_10px_35px_rgba(245,166,35,0.25)] backdrop-blur-xl flex items-center justify-between gap-2 text-slate-900">
+        <div class="flex items-center space-x-2 min-w-0 pl-1">
+          <div class="w-8 h-8 rounded-xl bg-indigo-600/10 border border-indigo-500/30 text-indigo-600 flex items-center justify-center font-black flex-shrink-0 text-xs">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <div class="flex items-baseline space-x-1.5 whitespace-nowrap overflow-hidden">
+            <span id="stickyCartTotal" class="text-sm sm:text-base font-black text-indigo-600 font-mono">₹0</span>
+            <span id="stickyCartCount" class="text-[11px] font-bold text-slate-500 font-sans truncate">(0 items)</span>
+          </div>
+        </div>
+
+        <button onclick="openCartModal()" class="cta-indigo-btn shimmer py-2 px-3.5 sm:px-4 rounded-xl text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-tight flex items-center space-x-1 shadow-md flex-shrink-0 whitespace-nowrap">
+          <span>Checkout</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Social Proof Toast -->
+    <div id="socialProofToast" class="hidden fixed bottom-16 sm:bottom-6 left-2.5 sm:left-6 z-40 max-w-[210px] sm:max-w-[250px] transition-all duration-300 animate-toast-in pointer-events-none">
+      <div class="bg-white border border-slate-200 text-slate-900 rounded-xl p-2.5 shadow-[0_6px_20px_rgba(0,0,0,0.12)] backdrop-blur-md flex items-center space-x-2">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 text-xs font-black shadow-xs border border-indigo-300/40">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div class="text-[10px] sm:text-[11px] overflow-hidden leading-tight space-y-0.5">
+          <div class="flex items-center space-x-1">
+            <span id="toastName" class="font-extrabold text-slate-900 truncate max-w-[120px]">Rahul Sharma</span>
+            <span class="text-[9px] text-emerald-700 font-bold bg-emerald-50 px-1 py-0.2 rounded border border-emerald-300 flex-shrink-0">✓</span>
+          </div>
+          <p id="toastAction" class="text-indigo-600 font-bold truncate">Ordered Wireless Headphones</p>
+          <div class="flex items-center space-x-1 text-[9px] text-slate-500 font-mono truncate">
+            <span id="toastLocation" class="truncate max-w-[90px]">Mumbai</span>
+            <span>•</span>
+            <span id="toastTime">Just now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    document.getElementById("currentYearSpan").innerText = new Date().getFullYear();
+
+    // Full Products Database
+    const productsData = [
+      {
+        id: 1,
+        name: "Pro ANC Wireless Headphones",
+        category: "electronics",
+        catLabel: "Electronics",
+        badge: "-35% OFF",
+        badgeColor: "bg-red-600",
+        rating: 4.8,
+        reviews: 142,
+        price: 2499,
+        originalPrice: 3899,
+        image: "image/2.png",
+        description: "Studio-grade active noise cancelling wireless headphones with 40-hour ultra-long battery, ultra-low latency gaming mode, and high-fidelity neodymium dynamic drivers for crystal clear acoustic performance.",
+        features: [
+          "Active Noise Cancellation (Up to 35dB Hybrid ANC)",
+          "40-Hour Extended Battery Life with Fast USB-C Charging",
+          "Plush Memory Foam Ergonomic Over-Ear Cushions",
+          "Bluetooth 5.3 + 3.5mm Wired Hybrid Dual-Mode"
+        ],
+        variants: ["Midnight Black", "Gold Accent", "Silver Chrome"]
+      },
+      {
+        id: 2,
+        name: "Minimalist Oversized Cotton Tee",
+        category: "fashion",
+        catLabel: "Fashion & Retail",
+        badge: "Best Seller",
+        badgeColor: "bg-indigo-600 text-slate-950",
+        rating: 4.9,
+        reviews: 98,
+        price: 799,
+        originalPrice: 1299,
+        image: "image/3.png",
+        description: "Heavyweight 240 GSM 100% combed premium cotton oversized silhouette. Pre-shrunk, bio-washed, and designed for ultimate street-style luxury & comfort.",
+        features: [
+          "100% Combed Compact Pure Cotton (240 GSM Heavyweight)",
+          "Bio-Washed & Pre-Shrunk Breathable Matte Fabric",
+          "Drop-Shoulder Relaxed Streetwear Silhouette",
+          "Reinforced Seamless Ribbed Crew Neck Finish"
+        ],
+        variants: ["Onyx Black", "Charcoal Grey", "Pure Ivory"]
+      },
+      {
+        id: 3,
+        name: "Ultra Fitness Smartwatch",
+        category: "electronics",
+        catLabel: "Electronics",
+        badge: "In Stock",
+        badgeColor: "bg-emerald-600",
+        rating: 4.7,
+        reviews: 230,
+        price: 1999,
+        originalPrice: 3499,
+        image: "image/4.png",
+        description: "Aerospace titanium alloy bezel with a 1.96-inch AMOLED always-on crystal display, IP68 water resistance, multi-sport tracking, and 24/7 SpO2 health sensors.",
+        features: [
+          "1.96\" AMOLED Ultra-Bright Curved Display (600 nits)",
+          "Aerospace-Grade Titanium Frame with Glass Back",
+          "Continuous Heart Rate, Blood Oxygen & Sleep Tracking",
+          "IP68 Waterproof + 100+ Professional Sport Modes"
+        ],
+        variants: ["Titanium Grey", "Obsidian Black", "Olive Sport"]
+      },
+      {
+        id: 4,
+        name: "Precision Ceramic Bulk Tile Kit",
+        category: "industrial",
+        catLabel: "Industrial B2B",
+        badge: "Trending",
+        badgeColor: "bg-indigo-600 text-slate-950",
+        rating: 4.9,
+        reviews: 45,
+        price: 4999,
+        originalPrice: 7500,
+        image: "image/5.png",
+        description: "Architectural-grade vitrified ceramic tile batch kit with anti-skid nano-coating. Engineered for high-end luxury residences, commercial showrooms, and heavy footfall zones.",
+        features: [
+          "Nano-Polished Double-Charged Vitrified Surface",
+          "Zero-Porous Scratch & Stain Resistant Armor Coating",
+          "Heavy Load & Commercial High-Traffic Certified",
+          "Direct Manufacturer Factory Wholesale Price Per Box"
+        ],
+        variants: ["Polished Statuario", "Matte Slate", "Urban Concrete"]
+      },
+      {
+        id: 5,
+        name: "Classic Leather Handbag",
+        category: "fashion",
+        catLabel: "Fashion & Retail",
+        badge: "Limited",
+        badgeColor: "bg-red-600",
+        rating: 4.9,
+        reviews: 112,
+        price: 1899,
+        originalPrice: 2999,
+        image: "image/6.png",
+        description: "Handcrafted full-grain vegan leather handbag featuring gold-plated hardware, organized interior dividers, and a detachable shoulder strap.",
+        features: [
+          "Premium Textured Full-Grain Vegan Eco-Leather",
+          "Solid 24k Gold-Tone Zinc Alloy Heavy Hardware",
+          "Triple-Compartment Organization with Security Zip",
+          "Water-Resistant Premium Silk-Lined Interior"
+        ],
+        variants: ["Classic Black", "Mocha Brown", "Wine Maroon"]
+      },
+      {
+        id: 6,
+        name: "BassBoost Bluetooth Speaker",
+        category: "electronics",
+        catLabel: "Electronics",
+        badge: "New",
+        badgeColor: "bg-indigo-600 text-slate-950",
+        rating: 4.8,
+        reviews: 84,
+        price: 1499,
+        originalPrice: 2299,
+        image: "image/7.png",
+        description: "Portable 20W high-power bass acoustic cylinder speaker with dual passive radiators, dynamic RGB beat pulse lights, and IPX7 waterproof rating.",
+        features: [
+          "20W Deep Bass Drivers + Dual Sub Passive Radiators",
+          "RGB Dynamic LED Aura Pulse Syncs to the Rhythm",
+          "12-Hour Continuous Playtime on a Single Charge",
+          "IPX7 Fully Submersible Waterproof & Rugged Build"
+        ],
+        variants: ["Stealth Black", "Navy Blue", "Army Green"]
+      }
+    ];
+
+    // Helper: Check if any modal is currently visible
+    function isAnyModalOpen() {
+      const pm = document.getElementById("productModal");
+      const cm = document.getElementById("cartModal");
+      const bm = document.getElementById("bookingModal");
+      return (pm && !pm.classList.contains("hidden")) ||
+             (cm && !cm.classList.contains("hidden")) ||
+             (bm && !bm.classList.contains("hidden"));
+    }
+
+    // Single Product Modal State
+    let currentModalProduct = null;
+    let currentModalQty = 1;
+    let currentModalVariant = "";
+
+    function openProductModal(productId) {
+      const prod = productsData.find(p => p.id === productId);
+      if (!prod) return;
+
+      currentModalProduct = prod;
+      currentModalQty = 1;
+      currentModalVariant = prod.variants[0] || "";
+
+      document.getElementById("modalCatTag").innerText = prod.catLabel;
+      document.getElementById("modalProductImg").src = prod.image;
+      document.getElementById("modalProductImg").alt = prod.name;
+      document.getElementById("modalDiscountBadge").innerText = prod.badge;
+      document.getElementById("modalProductTitle").innerText = prod.name;
+      document.getElementById("modalRatingScore").innerText = prod.rating;
+      document.getElementById("modalReviewCount").innerText = `${prod.reviews} Verified Customer Reviews`;
+      
+      document.getElementById("modalProductPrice").innerText = `₹${prod.price.toLocaleString('en-IN')}`;
+      document.getElementById("modalOriginalPrice").innerText = `₹${prod.originalPrice.toLocaleString('en-IN')}`;
+      const savings = prod.originalPrice - prod.price;
+      document.getElementById("modalSavingsText").innerText = `Save ₹${savings.toLocaleString('en-IN')} (Direct Manufacturer Discount)`;
+      
+      document.getElementById("modalProductDesc").innerText = prod.description;
+      document.getElementById("modalQtyDisplay").innerText = currentModalQty;
+
+      // Populate features
+      const featureListEl = document.getElementById("modalFeatureList");
+      featureListEl.innerHTML = prod.features.map(f => `
+        <li class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-check text-indigo-600 text-[10px] flex-shrink-0"></i>
+          <span>${f}</span>
+        </li>
+      `).join("");
+
+      // Populate variants (White Theme Chips)
+      const variantContainer = document.getElementById("modalVariantContainer");
+      variantContainer.innerHTML = prod.variants.map((v, i) => `
+        <button type="button" onclick="selectModalVariant('${v}')" class="variant-chip px-3 py-1 rounded-xl text-xs font-bold transition-all ${i === 0 ? 'bg-indigo-600 text-white border border-amber-600 shadow-sm' : 'bg-slate-100 text-slate-700 border border-slate-200 hover:border-slate-300'}">
+          ${v}
+        </button>
+      `).join("");
+
+      // Hide sticky bottom cart bar while modal is open
+      const stickyBar = document.getElementById("stickyCartBar");
+      stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+
+      document.getElementById("productModal").classList.remove("hidden");
+    }
+
+    function closeProductModal() {
+      document.getElementById("productModal").classList.add("hidden");
+      updateCartUI();
+    }
+
+    function selectModalVariant(variantName) {
+      currentModalVariant = variantName;
+      const chips = document.querySelectorAll(".variant-chip");
+      chips.forEach(chip => {
+        if (chip.innerText.trim() === variantName) {
+          chip.className = "variant-chip px-3 py-1 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white border border-amber-600 shadow-sm";
+        } else {
+          chip.className = "variant-chip px-3 py-1 rounded-xl text-xs font-bold transition-all bg-slate-100 text-slate-700 border border-slate-200 hover:border-slate-300";
+        }
+      });
+    }
+
+    function changeModalQty(delta) {
+      currentModalQty = Math.max(1, currentModalQty + delta);
+      document.getElementById("modalQtyDisplay").innerText = currentModalQty;
+    }
+
+    function addCurrentModalToCart() {
+      if (!currentModalProduct) return;
+      addToCart(currentModalProduct.name, currentModalProduct.price, currentModalProduct.image, currentModalVariant, currentModalQty);
+      closeProductModal();
+    }
+
+    function buyCurrentModalNowWhatsApp() {
+      if (!currentModalProduct) return;
+      const total = currentModalProduct.price * currentModalQty;
+      const msg = encodeURIComponent(`Hello Digital Theme Store,\n\nI would like to instantly order:\n• Product: ${currentModalProduct.name}\n• Edition/Color: ${currentModalVariant}\n• Quantity: ${currentModalQty}\n• Total Amount: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm availability and dispatch details!`);
+      window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
+      closeProductModal();
+    }
+
+    // Shopping Cart State
+    let cart = [];
+
+    function addToCart(name, price, img, variant = "", qty = 1) {
+      const itemKey = `${name}_${variant}`;
+      const existing = cart.find(item => item.key === itemKey);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ key: itemKey, name, price, img, variant, qty });
+      }
+      updateCartUI();
+      showToastNotification(name);
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      document.getElementById("cartCountBadge").innerText = totalCount;
+      document.getElementById("cartHeaderCount").innerText = `(${totalCount} item${totalCount === 1 ? '' : 's'})`;
+      document.getElementById("stickyCartCount").innerText = `(${totalCount} item${totalCount === 1 ? '' : 's'})`;
+      document.getElementById("stickyCartTotal").innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+      document.getElementById("cartSubtotalPrice").innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+      document.getElementById("cartTotalPrice").innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+
+      // Only display sticky bottom bar when cart is not empty AND no modal is currently open
+      const stickyBar = document.getElementById("stickyCartBar");
+      if (totalCount > 0 && !isAnyModalOpen()) {
+        stickyBar.classList.remove("translate-y-24", "opacity-0", "pointer-events-none");
+      } else {
+        stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      }
+
+      const listContainer = document.getElementById("cartItemsList");
+      if (cart.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-8 space-y-2 text-slate-400">
+            <i class="fa-solid fa-cart-arrow-down text-3xl text-slate-300"></i>
+            <p class="text-xs text-slate-500 font-bold">Your cart is currently empty.</p>
+            <button onclick="closeCartModal()" class="text-indigo-600 text-xs underline font-bold">Browse Catalog</button>
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = cart.map((item, idx) => `
+        <div class="flex items-center justify-between bg-slate-50 border border-slate-200 p-2.5 rounded-2xl">
+          <div class="flex items-center space-x-2.5 overflow-hidden">
+            <img src="${item.img}" alt="${item.name}" class="w-12 h-12 rounded-xl object-contain p-1 bg-white border border-slate-200 flex-shrink-0" />
+            <div class="overflow-hidden">
+              <h5 class="text-xs font-black text-slate-900 truncate">${item.name}</h5>
+              ${item.variant ? `<p class="text-[10px] text-slate-500 font-medium">${item.variant}</p>` : ''}
+              <p class="text-indigo-600 font-black text-xs">₹${(item.price * item.qty).toLocaleString('en-IN')} <span class="text-[10px] text-slate-400 font-normal">(@ ₹${item.price.toLocaleString('en-IN')})</span></p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2 flex-shrink-0">
+            <div class="flex items-center space-x-1.5 bg-white border border-slate-200 rounded-lg p-0.5 shadow-xs">
+              <button onclick="updateQty(${idx}, -1)" class="w-5 h-5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">-</button>
+              <span class="text-xs font-mono font-black text-slate-900 px-1">${item.qty}</span>
+              <button onclick="updateQty(${idx}, 1)" class="w-5 h-5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs">+</button>
+            </div>
+            <button onclick="removeCartItem(${idx})" class="text-slate-400 hover:text-red-600 p-1 text-xs transition-colors">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function updateQty(index, change) {
+      cart[index].qty += change;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function openCartModal() {
+      // Hide sticky bottom cart bar while cart modal is open
+      const stickyBar = document.getElementById("stickyCartBar");
+      stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      document.getElementById("cartModal").classList.remove("hidden");
+    }
+
+    function closeCartModal() {
+      document.getElementById("cartModal").classList.add("hidden");
+      updateCartUI();
+    }
+
+    function checkoutViaWhatsApp() {
+      if (cart.length === 0) return;
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      let msg = "Hello Digital Theme Store, I would like to place an order:\n\n";
+      cart.forEach(item => {
+        msg += `• ${item.name} ${item.variant ? `(${item.variant})` : ''} x ${item.qty} = ₹${(item.price * item.qty).toLocaleString('en-IN')}\n`;
+      });
+      msg += `\nSubtotal: ₹${totalPrice.toLocaleString('en-IN')}\nExpress Delivery: FREE (₹0)\nTotal Amount: ₹${totalPrice.toLocaleString('en-IN')}\n\nPlease confirm my order and shipping details.`;
+
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/918329494445?text=${encoded}`, '_blank');
+    }
+
+    // Category Filtering (White Theme)
+    function filterCatalog(cat) {
+      const activeClass = "cat-pill px-3 py-1 rounded-full text-[11px] sm:text-xs font-black bg-gradient-to-r from-amber-500 to-amber-600 text-white border border-indigo-500 shadow-md flex-shrink-0 transition-all";
+      const inactiveClass = "cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-white text-slate-700 border border-slate-200 hover:border-indigo-400 hover:text-slate-900 flex-shrink-0 transition-all";
+
+      const btnMap = {
+        'all': document.getElementById('catBtnAll'),
+        'electronics': document.getElementById('catBtnElec'),
+        'fashion': document.getElementById('catBtnFashion'),
+        'industrial': document.getElementById('catBtnInd')
+      };
+
+      Object.keys(btnMap).forEach(key => {
+        const btn = btnMap[key];
+        if (btn) {
+          if (key === cat) {
+            btn.className = activeClass;
+          } else {
+            btn.className = inactiveClass;
+          }
+        }
+      });
+
+      const cards = document.querySelectorAll('.product-card');
+      let count = 0;
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'all' || cardCat === cat) {
+          card.style.display = "flex";
+          count++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+      document.getElementById("catalogCountLabel").innerText = `Showing ${count} items`;
+    }
+
+    // Booking Modal Flow
+    function openBookingModal() {
+      const stickyBar = document.getElementById("stickyCartBar");
+      stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      document.getElementById("bookingModal").classList.remove("hidden");
+    }
+
+    function closeBookingModal() {
+      document.getElementById("bookingModal").classList.add("hidden");
+      updateCartUI();
+    }
+
+    function handleStep1Submit(e) {
+      e.preventDefault();
+      const name = document.getElementById("inputFullName").value.trim();
+      const phone = document.getElementById("inputPhone").value.trim();
+      if (phone.length < 10) {
+        alert("Please enter a valid 10-digit WhatsApp phone number.");
+        return;
+      }
+      const msg = encodeURIComponent(`Hi Digital Theme, my name is ${name} (+91 ${phone}). I would like to schedule a 1-on-1 Growth Strategy Consultation.`);
+      window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
+      closeBookingModal();
+    }
+
+    // Toast Notification for Add to Cart
+    function showToastNotification(prodName) {
+      const toast = document.getElementById("socialProofToast");
+      document.getElementById("toastName").innerText = "Added to Cart";
+      document.getElementById("toastAction").innerText = prodName;
+      document.getElementById("toastLocation").innerText = "Success";
+      document.getElementById("toastTime").innerText = "Just now";
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

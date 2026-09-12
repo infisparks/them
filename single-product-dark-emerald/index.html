@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aab-E-Hayat Health Care Juice | 65 Bio-Active Herbs Full Body Wellness</title>
+  <meta name="description" content="Aab-E-Hayat by Empire Global Herbal Science. World's 1st bio-active full body wellness formula with 65 powerful herbs. Immunity booster, antioxidant, anti-inflammatory & multi-vitamin supplement." />
+  <meta name="keywords" content="Aab-E-Hayat juice, herbal health care juice, immunity booster 65 herbs, empire global herbal science, ayurvedic health supplement, full body wellness" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://digitalthemestore.com" />
+  <meta property="og:site_name" content="Empire Global Herbal Science" />
+  <meta property="og:title" content="Aab-E-Hayat Health Care Juice | Official Store" />
+  <meta property="og:description" content="65 Most Powerful Bio-Active Ingredients in One Juice. Full Body Wellness & Natural Immunity Booster." />
+  <meta property="og:image" content="./image/1.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aab-E-Hayat Health Care Juice | Official Store" />
+  <meta name="twitter:description" content="65 Bio-Active Herbal Ingredients in One Juice. Order directly on WhatsApp with Cash on Delivery." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Razorpay Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- Firebase App & Firestore Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background-color: #060c08;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Gold gradient CTA button */
+    .cta-emerald-btn {
+      background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    .cta-emerald-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(16, 185, 129, 0.55);
+    }
+    .cta-emerald-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Secondary WhatsApp button */
+    .cta-whatsapp-btn {
+      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta-whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shimmer-anim 3.5s infinite;
+    }
+
+    @keyframes shimmer-anim {
+      0% { transform: translate(-100%, -100%) rotate(30deg); }
+      100% { transform: translate(100%, 100%) rotate(30deg); }
+    }
+
+    /* Hide scrollbar for smooth carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060c08;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+
+    .animate-toast-in {
+      animation: toastIn 0.3s ease-out forwards;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Smooth slider snap */
+    .slider-container {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    .slide-item {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+  </style>
+</head>
+<body class="w-full min-h-full bg-[#060c08] text-slate-100 font-sans selection:bg-emerald-500 selection:text-slate-950">
+
+  <div class="w-full pb-10 text-slate-100 flex flex-col items-center justify-start min-h-screen antialiased">
+
+    <!-- 1. Clean Sleek Store Navigation (No Marketing Banner on top) -->
+    <header class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 pt-2.5 pb-2 mx-auto sticky top-0 bg-[#060c08]/95 backdrop-blur-md z-30 border-b border-zinc-900">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <a href="../ecommerce.html" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 hover:border-emerald-400 text-zinc-300 hover:text-white flex items-center justify-center text-xs transition-colors shadow">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400/80 flex items-center justify-center font-black text-emerald-400 text-xs shadow flex-shrink-0">
+              <i class="fa-solid fa-leaf text-[11px]"></i>
+            </div>
+            <div>
+              <h1 class="text-xs sm:text-sm font-black text-white leading-tight">EMPIRE Global Herbal</h1>
+              <p class="text-[9px] text-emerald-400 font-bold">Official Direct Store</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="openFastOrderModal()" class="cta-emerald-btn shimmer py-1.5 px-3 rounded-xl text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-tight shadow-md flex items-center space-x-1.5">
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+            <span>Order Now</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 sm:px-4 space-y-4 sm:space-y-6 mx-auto mt-1 pb-20 sm:pb-6">
+      
+      <!-- 2. Product Gallery Showcase (40% Mobile Screen Height Slidable Carousel) -->
+      <section class="relative w-full rounded-2xl sm:rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-zinc-950 via-[#101017] to-black p-2 sm:p-3 shadow-[0_15px_40px_rgba(0,0,0,0.9),0_0_25px_rgba(245,166,35,0.08)] overflow-hidden">
+        
+        <!-- Top Live Badges -->
+        <div class="absolute top-3.5 left-3.5 z-20 flex items-center space-x-1.5 pointer-events-none">
+          <span class="bg-red-600 text-white text-[9px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+            50% FESTIVAL OFF
+          </span>
+          <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded-full backdrop-blur-md hidden sm:inline-block">
+            🌿 100% Ayurvedic Bio-Active
+          </span>
+        </div>
+
+        <div class="absolute top-3.5 right-3.5 z-20 pointer-events-none flex items-center space-x-1">
+          <span class="bg-black/80 border border-zinc-700/80 text-emerald-400 text-[9px] font-bold px-2.5 py-0.5 rounded-full backdrop-blur-md flex items-center gap-1 shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            In Stock
+          </span>
+        </div>
+
+        <!-- Carousel Track (Strictly 40% Mobile Viewport Height, Slidable with touch) -->
+        <div id="productCarousel" class="slider-container flex overflow-x-auto no-scrollbar w-full h-[40vh] min-h-[260px] max-h-[350px] sm:h-[420px] sm:max-h-[440px] rounded-xl relative touch-pan-x">
+          
+          <!-- Slide 1: Front Box & Bottle Combo -->
+          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img src="./image/1.png" alt="Aab-E-Hayat Health Care Juice 500ml" class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-2 left-2 bg-black/80 border border-emerald-500/40 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-400 backdrop-blur-md">
+                65 Bio-Active Herbs
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Emerald Green Bottle Display -->
+          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img src="./image/2.png" alt="Aab-E-Hayat Emerald Green Bottle" class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-2 left-2 bg-black/80 border border-emerald-500/40 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-400 backdrop-blur-md">
+                500ml Net Volume
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: 65 Ingredients Herb Grid -->
+          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img src="./image/3.png" alt="65 Powerful Herbal Ingredients" class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-2 left-2 bg-black/80 border border-emerald-500/40 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-300 backdrop-blur-md">
+                Ashwagandha • Shilajit • Kesar
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Nutritional Facts & Lab Certification -->
+          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img src="./image/4.png" alt="FSSAI, ISO & Halal Certifications" class="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-2 left-2 bg-black/80 border border-emerald-500/40 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-300 backdrop-blur-md">
+                FSSAI &amp; Halal Certified
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Navigation Arrows -->
+        <button onclick="scrollSlide(-1)" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-zinc-700/80 text-white hover:border-emerald-400 hover:text-emerald-400 flex items-center justify-center text-xs backdrop-blur-md transition-all shadow z-20">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="scrollSlide(1)" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/70 border border-zinc-700/80 text-white hover:border-emerald-400 hover:text-emerald-400 flex items-center justify-center text-xs backdrop-blur-md transition-all shadow z-20">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Floating Slide Dots & Counter Indicator -->
+        <div class="absolute bottom-2.5 inset-x-0 flex items-center justify-center space-x-2 z-20 pointer-events-none">
+          <div class="bg-black/80 backdrop-blur-md border border-zinc-800/90 rounded-full px-2.5 py-1 flex items-center space-x-1.5 shadow">
+            <div class="flex items-center space-x-1 pointer-events-auto">
+              <button onclick="goToSlide(0)" class="slide-dot w-4 h-1.5 rounded-full bg-emerald-400 transition-all"></button>
+              <button onclick="goToSlide(1)" class="slide-dot w-1.5 h-1.5 rounded-full bg-zinc-600 transition-all"></button>
+              <button onclick="goToSlide(2)" class="slide-dot w-1.5 h-1.5 rounded-full bg-zinc-600 transition-all"></button>
+              <button onclick="goToSlide(3)" class="slide-dot w-1.5 h-1.5 rounded-full bg-zinc-600 transition-all"></button>
+            </div>
+            <span class="text-zinc-600 font-mono text-[9px]">•</span>
+            <span id="slideCounterLabel" class="text-[9px] font-mono font-bold text-emerald-400">1/4</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 3. Rich Product Details Section Directly Below -->
+      <section class="space-y-4 text-left">
+
+        <!-- Title, Brand & Ratings -->
+        <div class="space-y-1.5">
+          <!-- 1 Single Clean Row for Brand & Ayurvedic Badge -->
+          <div class="flex items-center justify-between gap-1 overflow-hidden whitespace-nowrap">
+            <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wide truncate">
+              EMPIRE GLOBAL HERBAL SCIENCE
+            </span>
+            <span class="text-[10px] sm:text-xs font-bold text-emerald-400 flex-shrink-0 flex items-center gap-1">
+              <i class="fa-solid fa-seedling text-[10px]"></i> 100% Ayurvedic
+            </span>
+          </div>
+
+          <!-- Product Name in 1 Single Row on Mobile -->
+          <h2 class="text-[15px] xs:text-base sm:text-2xl font-black text-white leading-tight whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">
+            AAB-E-HAYAT™ Health Care Juice (500ml)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+            World's 1st Bio-Active Full Body Wellness Formula • 65 Most Powerful Natural Ingredients in One Juice.
+          </p>
+
+          <div class="flex items-center space-x-2 text-xs pt-0.5">
+            <div class="flex items-center text-emerald-400 space-x-0.5 text-xs">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="font-extrabold text-white text-xs">4.9 / 5.0</span>
+            <span class="text-slate-500">•</span>
+            <span class="text-emerald-400 font-bold text-[11px] underline">1,840+ Verified Customer Orders</span>
+          </div>
+        </div>
+
+        <!-- 4-in-1 Bio-Active Shield Pills (Strictly Single Row on Mobile) -->
+        <div class="grid grid-cols-4 gap-1 sm:gap-1.5 text-center">
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl py-1 px-0.5 flex items-center justify-center">
+            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-400 uppercase whitespace-nowrap tracking-tight">Anti-Oxidant</span>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl py-1 px-0.5 flex items-center justify-center">
+            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-400 uppercase whitespace-nowrap tracking-tight">Anti-Septic</span>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl py-1 px-0.5 flex items-center justify-center">
+            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-400 uppercase whitespace-nowrap tracking-tight">Anti-Biotics</span>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl py-1 px-0.5 flex items-center justify-center">
+            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-400 uppercase whitespace-nowrap tracking-tight">Anti-Bacterial</span>
+          </div>
+        </div>
+
+        <!-- Single Product Clean Box with Quantity & Price Selector -->
+        <div class="bg-zinc-900/90 border border-emerald-500/30 p-3 rounded-2xl flex items-center justify-between">
+          <div class="space-y-0.5">
+            <div class="flex items-center space-x-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="text-xs font-black text-white">1 Bottle (500ml Net Vol.)</span>
+            </div>
+            <div class="flex items-baseline space-x-1.5 pt-0.5">
+              <span id="displayPrice" class="text-base font-black text-emerald-400 font-mono">₹999</span>
+              <span id="displayOriginalPrice" class="text-[10px] text-slate-500 line-through font-mono">₹2,000</span>
+              <span id="displayDiscountBadge" class="bg-red-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded">SAVE ₹1,001 (50% OFF)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <button onclick="changeQty(-1)" class="w-7 h-7 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm transition-colors border border-zinc-700">-</button>
+            <span id="qtyDisplay" class="text-sm font-mono font-black text-emerald-400 w-5 text-center">1</span>
+            <button onclick="changeQty(1)" class="w-7 h-7 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm transition-colors border border-zinc-700">+</button>
+          </div>
+        </div>
+
+        <!-- Action CTAs: Direct Checkout Modal Trigger -->
+        <div class="space-y-2 pt-1">
+          <button onclick="openFastOrderModal()" class="w-full cta-emerald-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
+            <i class="fa-solid fa-truck-fast text-lg"></i>
+            <span>ORDER NOW - CASH ON DELIVERY</span>
+          </button>
+
+          <button onclick="openFastOrderModal()" class="w-full bg-zinc-900 hover:bg-zinc-800 border border-emerald-400/80 text-emerald-400 font-extrabold py-3 px-4 rounded-2xl text-xs sm:text-sm uppercase tracking-tight flex items-center justify-center space-x-2 transition-colors shadow">
+            <i class="fa-solid fa-bolt text-xs"></i>
+            <span>FAST 1-CLICK ADDRESS CHECKOUT</span>
+          </button>
+        </div>
+
+        <!-- 4-Item Assurance Badges Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-center">
+          <div class="bg-zinc-900/60 border border-zinc-800/90 rounded-2xl p-2.5 space-y-1 shadow-sm">
+            <i class="fa-solid fa-hand-holding-dollar text-emerald-400 text-sm"></i>
+            <span class="text-[10px] font-bold text-slate-200 block">Cash on Delivery</span>
+            <span class="text-[9px] text-slate-400 block">Pay when delivered</span>
+          </div>
+          <div class="bg-zinc-900/60 border border-zinc-800/90 rounded-2xl p-2.5 space-y-1 shadow-sm">
+            <i class="fa-solid fa-shield-halved text-emerald-400 text-sm"></i>
+            <span class="text-[10px] font-bold text-slate-200 block">100% Herbal &amp; Pure</span>
+            <span class="text-[9px] text-slate-400 block">No Chemical Toxins</span>
+          </div>
+          <div class="bg-zinc-900/60 border border-zinc-800/90 rounded-2xl p-2.5 space-y-1 shadow-sm">
+            <i class="fa-solid fa-certificate text-emerald-400 text-sm"></i>
+            <span class="text-[10px] font-bold text-slate-200 block">Halal Certified</span>
+            <span class="text-[9px] text-slate-400 block">Lic: HALAL/25M0524</span>
+          </div>
+          <div class="bg-zinc-900/60 border border-zinc-800/90 rounded-2xl p-2.5 space-y-1 shadow-sm">
+            <i class="fa-solid fa-flask-vial text-emerald-400 text-sm"></i>
+            <span class="text-[10px] font-bold text-slate-200 block">FSSAI Approved</span>
+            <span class="text-[9px] text-slate-400 block">Lic: 21525029000100</span>
+          </div>
+        </div>
+
+        <!-- 4. Key Bio-Active Health Benefits -->
+        <div class="bg-zinc-950 border border-zinc-800/90 rounded-2xl p-3.5 space-y-3 shadow-lg">
+          <h3 class="text-xs sm:text-sm font-black text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-heart-pulse"></i> Comprehensive Full Body Health Benefits
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] sm:text-xs text-slate-300">
+            <div class="flex items-start space-x-2 bg-zinc-900/60 border border-zinc-800/60 p-2.5 rounded-xl">
+              <i class="fa-solid fa-shield-virus text-emerald-400 mt-0.5"></i>
+              <div>
+                <span class="font-extrabold text-white block">Powerful Immuno-Modulator</span>
+                <span class="text-slate-400 text-[10px]">Stimulates white blood cells and natural defense barriers against seasonal infections.</span>
+              </div>
+            </div>
+            <div class="flex items-start space-x-2 bg-zinc-900/60 border border-zinc-800/60 p-2.5 rounded-xl">
+              <i class="fa-solid fa-fire text-emerald-400 mt-0.5"></i>
+              <div>
+                <span class="font-extrabold text-white block">Anti-Inflammatory &amp; Joint Support</span>
+                <span class="text-slate-400 text-[10px]">Relieves chronic body fatigue, muscular soreness, and joint stiffness with Curcumin &amp; Shilajit.</span>
+              </div>
+            </div>
+            <div class="flex items-start space-x-2 bg-zinc-900/60 border border-zinc-800/60 p-2.5 rounded-xl">
+              <i class="fa-solid fa-droplet text-emerald-400 mt-0.5"></i>
+              <div>
+                <span class="font-extrabold text-white block">Total Body Detoxification</span>
+                <span class="text-slate-400 text-[10px]">Flushes deep cellular toxins from liver and kidneys with Punarnava, Manjistha &amp; Giloy.</span>
+              </div>
+            </div>
+            <div class="flex items-start space-x-2 bg-zinc-900/60 border border-zinc-800/60 p-2.5 rounded-xl">
+              <i class="fa-solid fa-bolt text-emerald-400 mt-0.5"></i>
+              <div>
+                <span class="font-extrabold text-white block">Energy, Stamina &amp; Vitality</span>
+                <span class="text-slate-400 text-[10px]">Boosts natural vigor and stamina with Ashwagandha, Ginseng, Safed Musli &amp; Swarna Bhasma.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Key 65 Bio-Active Herbal Ingredients Breakdown -->
+        <div class="bg-zinc-950/80 border border-zinc-800/80 rounded-2xl p-3.5 space-y-2.5">
+          <h3 class="text-xs sm:text-sm font-black text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-seedling text-emerald-400"></i> Core Active Herbs from 65 Ingredients
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[10px] text-slate-300">
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Pure Shilajit &amp; Honey</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Kesar &amp; Red Chandan</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Ashwagandha &amp; Moringa</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Curcumin &amp; Ginger</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Swarna Bhasma &amp; Javitri</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Safed Musli &amp; Shatavari</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Cordyceps &amp; Sea Buckthorn</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Giloy, Neem &amp; Tulsi</span>
+            </div>
+            <div class="bg-zinc-900/70 p-2 rounded-xl border border-zinc-800 flex items-center space-x-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span>Amla, Harad &amp; Baheda</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Usage Directions & Nutritional Facts -->
+        <div class="bg-zinc-950/90 border border-zinc-800/90 rounded-2xl p-3.5 space-y-2.5">
+          <h3 class="text-xs sm:text-sm font-black text-white uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-glass-water text-emerald-400"></i> Recommended Usage &amp; Dosage
+          </h3>
+          <div class="bg-zinc-900/60 p-2.5 rounded-xl border border-zinc-800/80 space-y-1 text-[11px] text-slate-300">
+            <p><strong>• Daily Dosage:</strong> Take 15ml to 20ml of Aab-E-Hayat Juice twice daily.</p>
+            <p><strong>• How to Consume:</strong> Mix with a glass of lukewarm water 30 minutes before breakfast &amp; dinner.</p>
+            <p><strong>• Duration:</strong> Regular usage for 60 to 90 days is recommended for maximum revitalization.</p>
+          </div>
+        </div>
+
+        <!-- 7. Verified Customer Reviews -->
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-sm sm:text-base font-black text-white tracking-tight">Verified Buyer Reviews</h3>
+              <p class="text-[10px] text-slate-400 font-medium">Real testimonials from customers across India</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-black text-emerald-400">4.9 ★★★★★</span>
+              <span class="text-[10px] text-slate-400 block font-mono">1,840+ Orders</span>
+            </div>
+          </div>
+
+          <div class="space-y-2.5">
+            <!-- Review 1 -->
+            <div class="bg-zinc-900/80 border border-zinc-800 p-3 rounded-2xl space-y-1.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-black text-[10px] flex items-center justify-center">M</div>
+                  <div>
+                    <span class="text-xs font-black text-white block leading-none">Mohammed Irfan</span>
+                    <span class="text-[9px] text-slate-500">Nashik • Verified Buyer</span>
+                  </div>
+                </div>
+                <div class="flex items-center text-emerald-400 text-[10px] space-x-0.5">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed font-normal">
+                "SubhanAllah, remarkable energy difference within 10 days of taking Aab-E-Hayat! My morning sluggishness and joint discomfort are completely gone. 100% genuine herbal taste."
+              </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-zinc-900/80 border border-zinc-800 p-3 rounded-2xl space-y-1.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-black text-[10px] flex items-center justify-center">S</div>
+                  <div>
+                    <span class="text-xs font-black text-white block leading-none">Sunil Gaikwad</span>
+                    <span class="text-[9px] text-slate-500">Pune • Verified Buyer</span>
+                  </div>
+                </div>
+                <div class="flex items-center text-emerald-400 text-[10px] space-x-0.5">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed font-normal">
+                "Ordered the 2-bottle pack with Cash on Delivery. Got delivery in 2 days. The 65-herb bio-active combination is truly powerful for building body immunity."
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-slate-500 text-xs py-6 space-y-2 border-t border-zinc-900">
+        <p class="font-bold text-slate-400">EMPIRE • Global Herbal Science Pvt. Ltd.</p>
+        <p class="text-[10px] text-slate-500">Khatoon D.ed College Road, China Ground, Malegaon-423203 (Nashik) Maharashtra</p>
+        <p>© <span id="currentYearSpan">2026</span> Empire Global Herbal Science. All Rights Reserved.</p>
+        <p class="text-[10px] text-slate-600">Direct WhatsApp Concierge &amp; 256-Bit SSL Encrypted Checkout.</p>
+      </footer>
+    </main>
+
+    <!-- 7. Fast Delivery API & Checkout Modal (COD + Razorpay) -->
+    <div id="fastOrderModal" class="hidden fixed inset-0 z-[60] bg-black/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
+      <div class="bg-gradient-to-b from-zinc-950 via-[#0d0e14] to-zinc-950 text-white border border-emerald-500/40 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-3.5 sm:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative flex flex-col max-h-[92vh] overflow-y-auto animate-toast-in">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-2.5 mb-2.5">
+          <div class="flex items-center space-x-1.5 overflow-hidden">
+            <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider truncate">
+              Express Dispatch
+            </span>
+            <span class="text-[10px] sm:text-xs font-bold text-emerald-400 truncate">⚡ Verified Delivery</span>
+          </div>
+          <button onclick="closeFastOrderModal()" class="w-7 h-7 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-emerald-400 flex items-center justify-center text-xs transition-colors flex-shrink-0">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Selected Item Recap -->
+        <div id="modalItemRecap" class="flex items-center space-x-2.5 bg-zinc-900/90 border border-zinc-800 p-2 sm:p-2.5 rounded-2xl mb-2.5">
+          <img src="./image/1.png" alt="Aab-E-Hayat Juice" class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-contain p-1 bg-zinc-950 border border-zinc-800 flex-shrink-0" />
+          <div class="overflow-hidden flex-1">
+            <h5 class="text-xs font-black text-white truncate">AAB-E-HAYAT Health Care Juice</h5>
+            <p id="modalPackSummary" class="text-[10px] text-emerald-400 font-bold">1 Bottle (500ml Net Volume)</p>
+            <p class="text-emerald-400 font-black text-xs"><span id="modalTotalSummary">₹999</span> <span id="modalQtySummary" class="text-[10px] text-slate-400 font-normal">(Qty: 1)</span></p>
+          </div>
+          <div class="text-right text-[10px] text-emerald-400 font-bold flex-shrink-0">
+            <i class="fa-solid fa-truck-fast"></i> Free Delivery
+          </div>
+        </div>
+
+        <!-- Fast Contact & Shipping Form (Delivery API Formatted) -->
+        <form id="fastOrderForm" onsubmit="handleFastOrderSubmit(event)" class="space-y-2.5 text-left">
+          
+          <!-- Full Name -->
+          <div>
+            <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">Full Name <span class="text-emerald-400">*</span></label>
+            <input type="text" id="orderFullName" required placeholder="Enter full name" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none" />
+          </div>
+
+          <!-- WhatsApp Mobile Number -->
+          <div>
+            <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">WhatsApp Mobile Number <span class="text-emerald-400">*</span></label>
+            <div class="flex items-center bg-zinc-900/90 border border-zinc-800 focus-within:border-emerald-400 rounded-xl overflow-hidden">
+              <div class="px-2.5 py-2 bg-zinc-950 border-r border-zinc-800 text-xs font-bold text-slate-300 whitespace-nowrap flex items-center space-x-1 flex-shrink-0">
+                <span>🇮🇳</span>
+                <span>+91</span>
+              </div>
+              <input type="tel" id="orderPhone" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number" class="w-full px-2.5 py-2 text-xs text-white bg-transparent placeholder-zinc-500 focus:outline-none font-mono" />
+            </div>
+          </div>
+
+          <!-- Flat / House No / Building -->
+          <div>
+            <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">Flat / House No. &amp; Building Name <span class="text-emerald-400">*</span></label>
+            <input type="text" id="orderHouseNo" required placeholder="e.g. Flat 402, Sai Residency" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none" />
+          </div>
+
+          <!-- Street / Area / Landmark -->
+          <div>
+            <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">Street, Area &amp; Landmark <span class="text-emerald-400">*</span></label>
+            <input type="text" id="orderArea" required placeholder="e.g. MG Road, Near City Hospital" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none" />
+          </div>
+
+          <!-- Pincode, City & State (Manual typing for State with full responsive grid) -->
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">Pincode <span class="text-emerald-400">*</span></label>
+              <input type="text" id="orderPincode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none font-mono" />
+            </div>
+
+            <div>
+              <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">City <span class="text-emerald-400">*</span></label>
+              <input type="text" id="orderCity" required placeholder="e.g. Nashik" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none" />
+            </div>
+
+            <!-- Manual Typing State Field (Full Width 2 columns) -->
+            <div class="col-span-2">
+              <label class="block text-[11px] sm:text-xs font-bold text-slate-300 mb-1">State <span class="text-emerald-400">*</span></label>
+              <input type="text" id="orderState" required placeholder="e.g. Maharashtra" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none" />
+            </div>
+          </div>
+
+          <!-- Payment Options Selector: COD vs Razorpay Online -->
+          <div class="space-y-1.5 pt-0.5">
+            <label class="block text-[11px] sm:text-xs font-bold text-slate-300">Select Payment Method:</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              
+              <!-- Option 1: Cash on Delivery (COD) -->
+              <label onclick="setPaymentMethod('COD')" class="payment-option-card cursor-pointer border-2 border-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl flex items-center justify-between transition-all">
+                <input type="radio" name="payment_method" value="COD" checked class="sr-only" />
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-hand-holding-dollar text-emerald-400 text-sm"></i>
+                  <div>
+                    <span class="text-xs font-black text-white block leading-tight">Cash on Delivery</span>
+                    <span class="text-[9px] text-slate-400 block">Pay cash at doorstep</span>
+                  </div>
+                </div>
+                <span class="payment-radio-dot w-4 h-4 rounded-full border-2 border-emerald-400 bg-emerald-400 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-950"></span>
+                </span>
+              </label>
+
+              <!-- Option 2: Razorpay Online Payment -->
+              <label onclick="setPaymentMethod('RAZORPAY')" class="payment-option-card cursor-pointer border border-zinc-800 bg-zinc-900/60 p-2.5 rounded-xl flex items-center justify-between transition-all hover:border-zinc-700">
+                <input type="radio" name="payment_method" value="RAZORPAY" class="sr-only" />
+                <div class="flex items-center space-x-2">
+                  <i class="fa-solid fa-credit-card text-sky-400 text-sm"></i>
+                  <div>
+                    <span class="text-xs font-black text-white block leading-tight">Pay Online</span>
+                    <span class="text-[9px] text-sky-300 block">UPI, GPay, Cards</span>
+                  </div>
+                </div>
+                <span class="payment-radio-dot w-4 h-4 rounded-full border border-zinc-600 bg-transparent flex items-center justify-center flex-shrink-0"></span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Submit Button Dynamic -->
+          <button type="submit" id="modalSubmitBtn" class="w-full cta-emerald-btn shimmer rounded-2xl p-3.5 text-center cursor-pointer shadow-xl mt-2">
+            <div class="text-xs sm:text-sm font-black text-slate-950 flex items-center justify-center space-x-2 uppercase tracking-wide">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span id="modalSubmitBtnText">CONFIRM CASH ON DELIVERY ORDER (₹999)</span>
+            </div>
+          </button>
+
+          <p class="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1">
+            <i class="fa-solid fa-lock text-[9px]"></i> 256-Bit SSL Encrypted Logistics API Booking
+          </p>
+        </form>
+
+        <!-- 🌟 Order Placed & Firebase Live Confirmation View -->
+        <div id="orderSuccessView" class="hidden space-y-3 py-2 text-left animate-toast-in">
+          <div class="text-center space-y-1.5">
+            <div class="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center text-2xl mx-auto shadow-lg">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h4 class="text-base sm:text-lg font-black text-white">Order Confirmed Successfully!</h4>
+            <p class="text-xs text-emerald-400 font-bold flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-cloud-arrow-up"></i> <span>Saved to Empire Database</span>
+            </p>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-zinc-900/90 border border-emerald-500/30 rounded-2xl p-3 space-y-2 text-xs">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Order ID:</span>
+              <span id="successOrderId" class="font-mono font-black text-emerald-400">EH-XXXXXX</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Item:</span>
+              <span class="font-bold text-white">AAB-E-HAYAT Juice (500ml)</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <span class="text-slate-400">Amount &amp; Method:</span>
+              <span id="successPaymentSummary" class="font-bold text-emerald-400">₹999 (COD)</span>
+            </div>
+            <div class="pt-0.5">
+              <span class="text-slate-400 block mb-0.5">Delivery Address:</span>
+              <p id="successAddressSummary" class="text-slate-200 font-medium leading-relaxed text-[11px] bg-zinc-950/80 p-2 rounded-xl border border-zinc-800/80"></p>
+            </div>
+          </div>
+
+          <!-- WhatsApp Action Button -->
+          <button id="successWhatsAppBtn" onclick="openWhatsAppSuccessChat()" class="w-full cta-emerald-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>OPEN WHATSAPP DISPATCH TRACKING</span>
+          </button>
+
+          <button onclick="resetAndPlaceNewOrder()" class="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-slate-300 font-bold py-2.5 px-4 rounded-2xl text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 transition-colors">
+            <i class="fa-solid fa-arrow-rotate-left text-xs"></i>
+            <span>Done / Place Another Order</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 8. Fixed Mobile Floating Bottom Bar (ORDER NOW - CASH ON DELIVERY) -->
+    <div class="fixed bottom-0 inset-x-0 bg-[#0c0d12]/95 border-t border-emerald-500/50 p-2.5 sm:hidden z-40 backdrop-blur-xl shadow-[0_-10px_30px_rgba(0,0,0,0.95)]">
+      <div class="flex items-center justify-between gap-2.5 max-w-md mx-auto">
+        <div class="flex flex-col justify-center flex-shrink-0 pl-1">
+          <div class="flex items-baseline space-x-1">
+            <span class="text-lg font-black text-emerald-400 font-mono" id="mobileBarPrice">₹999</span>
+            <span class="text-[10px] text-slate-500 line-through font-mono">₹2,000</span>
+          </div>
+          <span class="text-[9px] text-emerald-400 font-bold flex items-center gap-0.5">
+            <i class="fa-solid fa-truck-fast text-[8px]"></i> Free Delivery
+          </span>
+        </div>
+        <button onclick="openFastOrderModal()" class="flex-1 cta-emerald-btn shimmer py-2.5 px-3 rounded-xl text-slate-950 font-black text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-lg cursor-pointer">
+          <i class="fa-solid fa-truck-fast text-sm"></i>
+          <span>ORDER NOW - CASH ON DELIVERY</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 9. Live Social Proof Toast -->
+    <div id="socialProofToast" class="hidden fixed bottom-18 sm:bottom-6 left-2.5 sm:left-6 z-30 max-w-[210px] sm:max-w-[250px] transition-all duration-300 animate-toast-in pointer-events-none">
+      <div class="bg-[#0f0f12]/95 border border-emerald-500/40 text-white rounded-xl p-2.5 shadow-[0_6px_20px_rgba(0,0,0,0.8)] backdrop-blur-md flex items-center space-x-2">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 text-xs font-black shadow border border-emerald-300/40">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="text-[10px] sm:text-[11px] overflow-hidden leading-tight space-y-0.5">
+          <div class="flex items-center space-x-1">
+            <span id="toastName" class="font-extrabold text-white truncate max-w-[120px]">Mohammed Irfan</span>
+            <span class="text-[9px] text-emerald-400 font-bold bg-emerald-950/80 px-1 py-0.2 rounded border border-emerald-500/30 flex-shrink-0">✓</span>
+          </div>
+          <p class="text-emerald-400 font-bold truncate">Bought Aab-E-Hayat Juice</p>
+          <div class="flex items-center space-x-1 text-[9px] text-slate-400 font-mono truncate">
+            <span id="toastLocation" class="truncate max-w-[90px]">Nashik</span>
+            <span>•</span>
+            <span id="toastTime">Just now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    document.getElementById("currentYearSpan").innerText = new Date().getFullYear();
+
+    let selectedPackPrice = 999;
+    let selectedPackOriginalPrice = 2000;
+    let selectedPackName = "1 Bottle (500ml Net Volume)";
+    let selectedPaymentMethod = "COD"; // Default: COD or RAZORPAY
+    let currentQty = 1;
+    let currentSlide = 0;
+    const totalSlides = 4;
+
+    // Carousel Slide Controls
+    const carouselEl = document.getElementById("productCarousel");
+    const dots = document.querySelectorAll(".slide-dot");
+    const counterLabel = document.getElementById("slideCounterLabel");
+
+    function updateSlideIndicator(index) {
+      currentSlide = index;
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = "slide-dot w-4 h-1.5 rounded-full bg-emerald-400 transition-all";
+        } else {
+          dot.className = "slide-dot w-1.5 h-1.5 rounded-full bg-zinc-600 transition-all";
+        }
+      });
+
+      if (counterLabel) {
+        counterLabel.innerText = `${index + 1}/${totalSlides}`;
+      }
+    }
+
+    function goToSlide(index) {
+      if (!carouselEl) return;
+      const slideWidth = carouselEl.clientWidth;
+      carouselEl.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth'
+      });
+      updateSlideIndicator(index);
+    }
+
+    function scrollSlide(direction) {
+      let next = currentSlide + direction;
+      if (next < 0) next = totalSlides - 1;
+      if (next >= totalSlides) next = 0;
+      goToSlide(next);
+    }
+
+    // Carousel Scroll Listener
+    if (carouselEl) {
+      carouselEl.addEventListener("scroll", () => {
+        const slideWidth = carouselEl.clientWidth;
+        if (slideWidth > 0) {
+          const index = Math.round(carouselEl.scrollLeft / slideWidth);
+          if (index !== currentSlide && index >= 0 && index < totalSlides) {
+            updateSlideIndicator(index);
+          }
+        }
+      });
+    }
+
+    // Payment Method Toggle (COD vs Razorpay)
+    function setPaymentMethod(method) {
+      selectedPaymentMethod = method;
+      const cards = document.querySelectorAll(".payment-option-card");
+      
+      cards.forEach(c => {
+        const input = c.querySelector("input");
+        const dot = c.querySelector(".payment-radio-dot");
+        if (input.value === method) {
+          input.checked = true;
+          c.className = "payment-option-card cursor-pointer border-2 border-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl flex items-center justify-between transition-all";
+          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border-2 border-emerald-400 bg-emerald-400 flex items-center justify-center flex-shrink-0";
+          if (dot) dot.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-slate-950"></span>';
+        } else {
+          input.checked = false;
+          c.className = "payment-option-card cursor-pointer border border-zinc-800 bg-zinc-900/60 p-2.5 rounded-xl flex items-center justify-between transition-all hover:border-zinc-700";
+          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border border-zinc-600 bg-transparent flex items-center justify-center flex-shrink-0";
+          if (dot) dot.innerHTML = '';
+        }
+      });
+
+      updateCalculatedPrices();
+    }
+
+    // Quantity Selector
+    function changeQty(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById("qtyDisplay").innerText = currentQty;
+      updateCalculatedPrices();
+    }
+
+    function updateCalculatedPrices() {
+      const total = selectedPackPrice * currentQty;
+      const totalOrig = selectedPackOriginalPrice * currentQty;
+      const savings = totalOrig - total;
+      const discountPercent = Math.round((savings / totalOrig) * 100);
+
+      document.getElementById("displayPrice").innerText = `₹${total.toLocaleString('en-IN')}`;
+      document.getElementById("displayOriginalPrice").innerText = `₹${totalOrig.toLocaleString('en-IN')}`;
+      document.getElementById("displayDiscountBadge").innerText = `SAVE ₹${savings.toLocaleString('en-IN')} (${discountPercent}% OFF)`;
+
+      const mbEl = document.getElementById("mobileBarPrice");
+      if (mbEl) mbEl.innerText = `₹${total.toLocaleString('en-IN')}`;
+
+      document.getElementById("modalTotalSummary").innerText = `₹${total.toLocaleString('en-IN')}`;
+      document.getElementById("modalQtySummary").innerText = `(Qty: ${currentQty})`;
+
+      const submitBtnText = document.getElementById("modalSubmitBtnText");
+      if (submitBtnText) {
+        if (selectedPaymentMethod === "COD") {
+          submitBtnText.innerText = `CONFIRM CASH ON DELIVERY ORDER (₹${total.toLocaleString('en-IN')})`;
+        } else {
+          submitBtnText.innerText = `PAY NOW VIA RAZORPAY (₹${total.toLocaleString('en-IN')})`;
+        }
+      }
+    }
+
+    // Modal Visibility
+    function openFastOrderModal() {
+      document.getElementById("fastOrderModal").classList.remove("hidden");
+      updateCalculatedPrices();
+    }
+
+    function closeFastOrderModal() {
+      document.getElementById("fastOrderModal").classList.add("hidden");
+    }
+
+    // Firebase Configuration for empire-41774
+    const firebaseConfig = {
+      apiKey: "AIzaSyBMC9Dg03pbzAzycFZokA2do_PglDzHbZ4",
+      authDomain: "empire-41774.firebaseapp.com",
+      projectId: "empire-41774",
+      storageBucket: "empire-41774.firebasestorage.app",
+      messagingSenderId: "784581908427",
+      appId: "1:784581908427:web:a1ad5215a181301676884e",
+      measurementId: "G-352MHCKNT8"
+    };
+
+    let db = null;
+    try {
+      if (typeof firebase !== "undefined") {
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.firestore();
+        console.log("🔥 Firebase Firestore connected successfully for empire-41774");
+      }
+    } catch (err) {
+      console.warn("Firebase Init Notice:", err);
+    }
+
+    // Save Order to Firebase Firestore
+    async function saveOrderToFirebase(payload) {
+      if (!db) {
+        console.warn("Firestore not available, proceeding with WhatsApp confirmation.");
+        return false;
+      }
+      try {
+        await db.collection("orders").doc(payload.order_id).set({
+          ...payload,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          created_at_local: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        });
+        console.log("✅ Order saved to Firebase Firestore: orders/" + payload.order_id);
+        return true;
+      } catch (e) {
+        console.error("Firebase Firestore save error:", e);
+        return false;
+      }
+    }
+
+    let latestWhatsAppMsg = "";
+
+    function showOrderSuccess(payload, waMsg) {
+      latestWhatsAppMsg = waMsg;
+      document.getElementById("fastOrderForm").classList.add("hidden");
+      document.getElementById("modalItemRecap").classList.add("hidden");
+      
+      document.getElementById("successOrderId").innerText = payload.order_id;
+      document.getElementById("successPaymentSummary").innerText = `₹${payload.product.total_amount.toLocaleString('en-IN')} (${payload.payment.method === 'COD' ? 'Cash on Delivery' : 'Paid Online'})`;
+      
+      const addr = payload.shipping_address;
+      document.getElementById("successAddressSummary").innerText = `${addr.recipient_name} | ${addr.phone}\n${addr.house_building_no}, ${addr.area_landmark}\n${addr.city}, ${addr.state} - ${addr.pincode}`;
+      
+      document.getElementById("orderSuccessView").classList.remove("hidden");
+    }
+
+    function openWhatsAppSuccessChat() {
+      if (latestWhatsAppMsg) {
+        window.open(`https://wa.me/918329494445?text=${latestWhatsAppMsg}`, '_blank');
+      }
+    }
+
+    function resetAndPlaceNewOrder() {
+      document.getElementById("fastOrderForm").reset();
+      document.getElementById("fastOrderForm").classList.remove("hidden");
+      document.getElementById("modalItemRecap").classList.remove("hidden");
+      document.getElementById("orderSuccessView").classList.add("hidden");
+      closeFastOrderModal();
+    }
+
+    // Delivery API & Order Submission Handler
+    async function handleFastOrderSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("orderFullName").value.trim();
+      const phone = document.getElementById("orderPhone").value.trim();
+      const houseNo = document.getElementById("orderHouseNo").value.trim();
+      const area = document.getElementById("orderArea").value.trim();
+      const pincode = document.getElementById("orderPincode").value.trim();
+      const city = document.getElementById("orderCity").value.trim();
+      const state = document.getElementById("orderState").value.trim();
+
+      if (phone.length !== 10 || isNaN(phone)) {
+        alert("Please enter a valid 10-digit WhatsApp mobile number.");
+        document.getElementById("orderPhone").focus();
+        return;
+      }
+
+      if (pincode.length !== 6 || isNaN(pincode)) {
+        alert("Please enter a valid 6-digit delivery pincode.");
+        document.getElementById("orderPincode").focus();
+        return;
+      }
+
+      const total = selectedPackPrice * currentQty;
+      const orderId = "EH-" + Date.now().toString().slice(-6);
+
+      // Formatted Logistics / Delivery API Payload
+      const deliveryApiPayload = {
+        order_id: orderId,
+        order_date: new Date().toISOString(),
+        product: {
+          name: "AAB-E-HAYAT Health Care Juice (500ml)",
+          brand: "EMPIRE Global Herbal Science",
+          sku: "AAB-HAYAT-500ML",
+          volume: "500ml",
+          quantity: currentQty,
+          unit_price: selectedPackPrice,
+          total_amount: total
+        },
+        shipping_address: {
+          recipient_name: name,
+          phone: "+91 " + phone,
+          house_building_no: houseNo,
+          area_landmark: area,
+          city: city,
+          state: state,
+          pincode: pincode,
+          country: "India"
+        },
+        payment: {
+          method: selectedPaymentMethod,
+          status: selectedPaymentMethod === "COD" ? "PENDING_COD" : "PREPAID_ONLINE",
+          currency: "INR",
+          amount: total
+        }
+      };
+
+      console.log("🚚 [Delivery API Payload Ready]:", deliveryApiPayload);
+
+      // Save order to Firebase Firestore
+      await saveOrderToFirebase(deliveryApiPayload);
+
+      if (selectedPaymentMethod === "RAZORPAY") {
+        // Razorpay Online Payment Flow
+        if (typeof Razorpay !== "undefined") {
+          const options = {
+            key: "rzp_test_placeholder", // Replace with your Live Razorpay Key ID
+            amount: total * 100, // Amount in paise
+            currency: "INR",
+            name: "EMPIRE Global Herbal Science",
+            description: `Order #${orderId} - Aab-E-Hayat (Qty: ${currentQty})`,
+            image: "./image/1.png",
+            handler: async function (response) {
+              const paymentId = response.razorpay_payment_id || "PAY_" + Date.now();
+              deliveryApiPayload.payment.status = "PAID_ONLINE";
+              deliveryApiPayload.payment.razorpay_payment_id = paymentId;
+              
+              // Update payment status in Firebase
+              await saveOrderToFirebase(deliveryApiPayload);
+
+              const msg = encodeURIComponent(
+                `*✅ CONFIRMED ONLINE ORDER - RAZORPAY*\n` +
+                `----------------------------------------\n` +
+                `📦 *Order ID:* ${orderId}\n` +
+                `💳 *Payment ID:* ${paymentId}\n` +
+                `💰 *Total Paid:* ₹${total.toLocaleString('en-IN')} (Online Verified)\n` +
+                `🌿 *Product:* AAB-E-HAYAT Health Care Juice (500ml)\n` +
+                `🔢 *Quantity:* ${currentQty} Bottle(s)\n\n` +
+                `📍 *SHIPPING & DELIVERY ADDRESS:*\n` +
+                `👤 *Name:* ${name}\n` +
+                `📞 *Phone:* +91 ${phone}\n` +
+                `🏠 *House/Flat:* ${houseNo}\n` +
+                `🛣️ *Street/Area:* ${area}\n` +
+                `🏙️ *City/State:* ${city}, ${state}\n` +
+                `📮 *Pincode:* ${pincode}\n` +
+                `----------------------------------------\n` +
+                `Please dispatch express tracking details!`
+              );
+              showOrderSuccess(deliveryApiPayload, msg);
+              window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
+            },
+            prefill: {
+              name: name,
+              contact: phone
+            },
+            theme: {
+              color: "#10b981"
+            }
+          };
+          const rzp = new Razorpay(options);
+          rzp.on('payment.failed', function (response) {
+            alert("Payment failed: " + response.error.description);
+          });
+          rzp.open();
+        } else {
+          // Fallback if SDK blocked or offline
+          const msg = encodeURIComponent(
+            `*💳 PREPAID ONLINE ORDER - AAB-E-HAYAT*\n` +
+            `----------------------------------------\n` +
+            `📦 *Order ID:* ${orderId}\n` +
+            `💰 *Amount:* ₹${total.toLocaleString('en-IN')}\n` +
+            `🔢 *Quantity:* ${currentQty} Bottle(s) (500ml)\n` +
+            `💳 *Payment Choice:* UPI / Razorpay\n\n` +
+            `📍 *DELIVERY ADDRESS:*\n` +
+            `👤 *Name:* ${name}\n` +
+            `📞 *Phone:* +91 ${phone}\n` +
+            `🏠 *House/Building:* ${houseNo}\n` +
+            `🛣️ *Area/Landmark:* ${area}\n` +
+            `🏙️ *City, State:* ${city}, ${state}\n` +
+            `📮 *Pincode:* ${pincode}\n` +
+            `----------------------------------------\n` +
+            `Please share your UPI QR code or payment link to complete order!`
+          );
+          showOrderSuccess(deliveryApiPayload, msg);
+          window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
+        }
+      } else {
+        // Cash on Delivery (COD) Flow
+        const msg = encodeURIComponent(
+          `*📦 NEW CASH ON DELIVERY (COD) ORDER*\n` +
+          `----------------------------------------\n` +
+          `🏷️ *Order ID:* ${orderId}\n` +
+          `🌿 *Product:* AAB-E-HAYAT Health Care Juice (500ml)\n` +
+          `🔢 *Quantity:* ${currentQty} Bottle(s)\n` +
+          `💰 *Total Amount to Collect:* ₹${total.toLocaleString('en-IN')}\n` +
+          `💵 *Payment Method:* Cash on Delivery (COD)\n\n` +
+          `📍 *DELIVERY DETAILS:*\n` +
+          `👤 *Customer Name:* ${name}\n` +
+          `📞 *WhatsApp Mobile:* +91 ${phone}\n` +
+          `🏠 *House/Flat/Building:* ${houseNo}\n` +
+          `🛣️ *Street/Area/Landmark:* ${area}\n` +
+          `🏙️ *City & State:* ${city}, ${state}\n` +
+          `📮 *Delivery Pincode:* ${pincode}\n` +
+          `----------------------------------------\n` +
+          `Please confirm this COD booking and dispatch my package!`
+        );
+        showOrderSuccess(deliveryApiPayload, msg);
+        window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
+      }
+    }
+
+    // Live Countdown Timer
+    let secondsLeft = 4 * 3600 + 23 * 60 + 15;
+    function updateCountdown() {
+      if (secondsLeft <= 0) secondsLeft = 6 * 3600;
+      secondsLeft--;
+      const h = String(Math.floor(secondsLeft / 3600)).padStart(2, '0');
+      const m = String(Math.floor((secondsLeft % 3600) / 60)).padStart(2, '0');
+      const s = String(secondsLeft % 60).padStart(2, '0');
+      const el = document.getElementById("countdownTimer");
+      if (el) el.innerText = `${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateCountdown, 1000);
+
+    // Live Social Proof Toast Simulation
+    const buyers = [
+      { name: "Mohammed Irfan", city: "Nashik", time: "Just now" },
+      { name: "Sunil Gaikwad", city: "Pune", time: "2 mins ago" },
+      { name: "Rashid Khan", city: "Mumbai", time: "4 mins ago" },
+      { name: "Dr. Aniket Sharma", city: "Nagpur", time: "7 mins ago" }
+    ];
+    let buyerIdx = 0;
+
+    function triggerSocialProof() {
+      const toast = document.getElementById("socialProofToast");
+      if (!toast) return;
+      const b = buyers[buyerIdx % buyers.length];
+      buyerIdx++;
+      document.getElementById("toastName").innerText = b.name;
+      document.getElementById("toastLocation").innerText = b.city;
+      document.getElementById("toastTime").innerText = b.time;
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 3500);
+    }
+    setInterval(triggerSocialProof, 8000);
+  </script>
+</body>
+</html>

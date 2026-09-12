@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaikh Mudassir | CTO @ Infispark • Full-Stack Engineer &amp; Product Architect</title>
+  <meta name="description" content="Official portfolio of Shaikh Mudassir, CTO of Infispark. Specializing in scalable software, web automation, reverse engineering, and robust applications using Next.js, Supabase &amp; Antigravity IDE." />
+  <meta name="keywords" content="Shaikh Mudassir, CTO Infispark, Infiplus HMS, Full-Stack Developer, Next.js, Supabase, Reverse Engineering Smali, BKC Mumbai" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://mudassir.infispark.in/" />
+  <meta property="og:site_name" content="Shaikh Mudassir Portfolio" />
+  <meta property="og:title" content="Shaikh Mudassir | CTO @ Infispark • Software Architect" />
+  <meta property="og:description" content="Building robust, high-performance applications with Next.js, Supabase, and Web Automation." />
+  <meta property="og:image" content="./image/profile.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shaikh Mudassir | CTO @ Infispark" />
+  <meta name="twitter:description" content="Building scalable software, web automation, and robust healthcare &amp; enterprise platforms." />
+  <meta name="twitter:image" content="./image/profile.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Clean Card Elevated Styles */
+    .white-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .white-card:hover {
+      box-shadow: 0 10px 25px -3px rgba(79, 70, 229, 0.08), 0 4px 6px -4px rgba(79, 70, 229, 0.04);
+      border-color: #CBD5E1;
+    }
+
+    /* Premium Active Border Walking Beam (Light/Indigo/Purple Theme) */
+    .glow-walking-border-light {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+    }
+
+    .glow-walking-border-light::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(
+        transparent 0deg,
+        transparent 45deg,
+        rgba(99, 102, 241, 0.15) 70deg,
+        #6366F1 90deg,
+        #818CF8 105deg,
+        #C7D2FE 120deg,
+        rgba(99, 102, 241, 0.2) 140deg,
+        transparent 165deg,
+        transparent 360deg
+      );
+      animation: walkingBeamSpin 5s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-walking-border-light::after {
+      content: '';
+      position: absolute;
+      inset: 1.5px;
+      background: #FFFFFF;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-walking-border-light > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes walkingBeamSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Animated Accent Line */
+    .heading-indigo-line {
+      display: inline-block;
+      height: 3.5px;
+      width: 52px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(79, 70, 229, 0.1) 0%, #4f46e5 25%, #818cf8 50%, #4f46e5 75%, rgba(79, 70, 229, 0.1) 100%);
+      background-size: 200% 100%;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.4), 0 0 20px rgba(129, 140, 248, 0.25);
+      animation: indigoLinePulse 3s ease-in-out infinite, indigoLineMove 2.5s linear infinite;
+    }
+
+    @keyframes indigoLinePulse {
+      0%, 100% {
+        width: 44px;
+        opacity: 0.85;
+        box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
+      }
+      50% {
+        width: 76px;
+        opacity: 1;
+        box-shadow: 0 0 16px rgba(79, 70, 229, 0.6);
+      }
+    }
+
+    @keyframes indigoLineMove {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    /* Primary Indigo Action Button */
+    .cta-primary-btn {
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    .cta-primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.38);
+      background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+    }
+    .cta-primary-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* WhatsApp Green CTA */
+    .cta-whatsapp-btn {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.28);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta-whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.38);
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    }
+
+    /* Shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shimmer-anim 3.5s infinite;
+    }
+
+    @keyframes shimmer-anim {
+      0% { transform: translate(-100%, -100%) rotate(30deg); }
+      100% { transform: translate(100%, 100%) rotate(30deg); }
+    }
+
+    /* Custom Scrollbar for Light Theme */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+
+    /* Infinite Smooth Marquee Ticker */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: inline-flex;
+      width: max-content;
+      animation: marqueeScroll 24s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="w-full min-h-full bg-[#F8FAFC] text-slate-900 font-sans selection:bg-indigo-500 selection:text-white">
+
+  <div class="w-full pb-24 sm:pb-28 text-slate-900 flex flex-col items-center justify-start min-h-screen antialiased">
+
+    <!-- 1. Top Urgency & Live Status Ticker (Infinitely Scrollable Marquee) -->
+    <div class="w-full bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-700 text-white text-[11px] sm:text-xs font-bold py-1.5 px-0 shadow-sm z-40 overflow-hidden whitespace-nowrap relative select-none">
+      <div class="marquee-track flex items-center space-x-6">
+        <div class="flex items-center space-x-3">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>⚡ CTO @ INFISPARK • High-Speed Development with Supabase + Next.js + Antigravity IDE • BKC Mumbai</span>
+          <span class="text-white/40 font-bold">•</span>
+          <span>🏆 Bharat ka Best Brand (The Taj Mumbai) &amp; Tech Partner Award (Taj Dubai)</span>
+          <span class="text-white/40 font-bold">•</span>
+          <span>💼 Infiplus Healthcare Suite &amp; 24+ Global Client Deployments</span>
+          <span class="text-white/40 font-bold">•</span>
+        </div>
+        <!-- Duplicate block for seamless loop -->
+        <div class="flex items-center space-x-3" aria-hidden="true">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>⚡ CTO @ INFISPARK • High-Speed Development with Supabase + Next.js + Antigravity IDE • BKC Mumbai</span>
+          <span class="text-white/40 font-bold">•</span>
+          <span>🏆 Bharat ka Best Brand (The Taj Mumbai) &amp; Tech Partner Award (Taj Dubai)</span>
+          <span class="text-white/40 font-bold">•</span>
+          <span>💼 Infiplus Healthcare Suite &amp; 24+ Global Client Deployments</span>
+          <span class="text-white/40 font-bold">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Header Navigation Bar -->
+    <header class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 pt-2.5 pb-2 sticky top-0 bg-white/95 backdrop-blur-md z-30 border-b border-slate-200 shadow-xs mx-auto">
+      <div class="flex items-center justify-between gap-2">
+        
+        <!-- Brand & Profile -->
+        <a href="#hero" class="flex items-center space-x-2 group min-w-0 flex-shrink">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-400 p-0.5 shadow-sm flex-shrink-0 overflow-hidden">
+            <img 
+              src="./image/profile.png" 
+              onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='image/profile.png';}else if(this.dataset.tried==1){this.dataset.tried=2;this.src='profile.png';}else if(this.dataset.tried==2){this.dataset.tried=3;this.src='./image/profile.png';}"
+              alt="Shaikh Mudassir" 
+              class="w-full h-full object-cover rounded-full bg-white" 
+            />
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 flex-nowrap">
+              <span class="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight whitespace-nowrap">
+                Shaikh Mudassir
+              </span>
+              <span class="text-indigo-600 font-mono text-[9px] sm:text-[10px] font-bold bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-100 whitespace-nowrap flex-shrink-0">
+                CTO
+              </span>
+            </div>
+            <p class="text-[9.5px] sm:text-[10px] text-slate-500 font-medium leading-tight truncate">Infispark &amp; Infiplus HMS</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-5 text-xs font-bold text-slate-600 flex-shrink-0">
+          <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
+          <a href="#products" class="hover:text-indigo-600 transition-colors">Infiplus Products</a>
+          <a href="#experience" class="hover:text-indigo-600 transition-colors">Experience</a>
+          <a href="#milestones" class="hover:text-indigo-600 transition-colors">Awards</a>
+          <a href="#ecosystem" class="hover:text-indigo-600 transition-colors">Global Clients</a>
+          <a href="#skills" class="hover:text-indigo-600 transition-colors">Skills</a>
+          <a href="#portfolio" class="hover:text-indigo-600 transition-colors">Projects</a>
+        </nav>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
+          <a 
+            href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf" 
+            target="_blank"
+            class="hidden sm:inline-flex bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-xl text-xs items-center space-x-1.5 transition-colors shadow-xs"
+          >
+            <i class="fa-solid fa-file-arrow-down text-indigo-600 text-[11px]"></i>
+            <span>CV</span>
+          </a>
+
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20collaborate%20on%20a%20project."
+            target="_blank"
+            class="cta-primary-btn shimmer py-1.5 px-2.5 sm:px-3.5 rounded-xl font-bold text-[11px] sm:text-xs tracking-tight shadow flex items-center space-x-1 sm:space-x-1.5 cursor-pointer whitespace-nowrap flex-shrink-0"
+          >
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+            <span>Let's Work</span>
+          </a>
+
+          <button 
+            onclick="toggleMobileNav()" 
+            class="md:hidden w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs transition-colors flex-shrink-0"
+            aria-label="Toggle Menu"
+          >
+            <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobileNavMenu" class="hidden md:hidden border-t border-slate-100 mt-2.5 pt-2.5 pb-1 space-y-2 text-xs font-semibold text-slate-600 bg-white">
+        <a href="#about" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">About Mudassir</a>
+        <a href="#products" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Infiplus Healthcare Products</a>
+        <a href="#experience" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Work Experience &amp; Education</a>
+        <a href="#milestones" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Awards &amp; Recognitions</a>
+        <a href="#ecosystem" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Global Client Ecosystem (24+)</a>
+        <a href="#skills" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Skills &amp; Tech Mastery</a>
+        <a href="#portfolio" onclick="toggleMobileNav()" class="block py-1 hover:text-indigo-600">Smali Reverse Engineering &amp; Apps</a>
+        <a href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf" target="_blank" class="block py-1 text-indigo-600 font-bold">Download Resume / CV (PDF)</a>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 space-y-6 sm:space-y-8 mx-auto mt-3">
+      
+      <!-- 1. Hero Card Section (Clean, Elevated White Card) -->
+      <section id="hero" class="glow-walking-border-light rounded-3xl p-4 sm:p-6 md:p-8 text-center relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
+        
+        <!-- Subtle Background Glow -->
+        <div class="absolute -top-16 -right-16 w-60 h-60 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-16 -left-16 w-60 h-60 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Profile Portrait on Top with Subtle Glow -->
+        <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 mx-auto mb-3.5 flex-shrink-0">
+          <div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-sky-400/30 blur-md opacity-70 pointer-events-none"></div>
+          <div class="relative w-full h-full rounded-full p-1 bg-gradient-to-tr from-indigo-600 via-indigo-400 to-purple-400 shadow-md overflow-hidden">
+            <img 
+              src="./image/profile.png" 
+              onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='image/profile.png';}else if(this.dataset.tried==1){this.dataset.tried=2;this.src='profile.png';}else if(this.dataset.tried==2){this.dataset.tried=3;this.src='./image/profile.png';}"
+              alt="Shaikh Mudassir - CTO Infispark" 
+              class="w-full h-full object-cover rounded-full bg-white" 
+            />
+          </div>
+          <!-- Executive CTO Tech Badge -->
+          <div class="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 bg-white border border-indigo-200 text-indigo-700 px-2.5 sm:px-3 py-0.5 rounded-full shadow-md flex items-center gap-1.5 z-20">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_6px_#10b981]"></span>
+            <span class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-indigo-700">CTO</span>
+          </div>
+        </div>
+
+        <!-- Top Status Pill -->
+        <div class="inline-flex items-center gap-1.5 bg-indigo-50 border border-indigo-200/80 px-3 py-1 rounded-full text-indigo-700 text-[10px] sm:text-xs font-bold uppercase tracking-tight mb-2.5 max-w-full whitespace-nowrap shadow-xs">
+          <i class="fa-solid fa-bolt text-indigo-600 flex-shrink-0 text-xs"></i>
+          <span class="truncate">Shaikh Mudassir • 23 Years Old • CTO @ Infispark</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight mb-2">
+          Building Robust Applications — <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent">Innovating Digital Landscapes</span>
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed mb-4 font-normal max-w-2xl mx-auto">
+          Hi, I’m Mudassir, the CTO of Infispark. Expert in full-stack web development, web automation, and reverse engineering. Turning complex challenges into seamless solutions with ultra-fast speed using <span class="text-indigo-600 font-bold underline decoration-indigo-300">Next.js + Supabase + Antigravity IDE</span>.
+        </p>
+
+        <!-- 3 Core Pillars -->
+        <div class="grid grid-cols-3 divide-x divide-slate-100 my-2 py-2 w-full max-w-xl mx-auto bg-slate-50/80 border border-slate-200/80 rounded-2xl shadow-xs">
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-layer-group text-indigo-600 text-xs sm:text-base"></i>
+            <div class="text-slate-800 font-extrabold text-[9.5px] sm:text-xs">Next.js + Supabase</div>
+            <div class="text-indigo-600 font-semibold text-[8.5px] sm:text-[9.5px]">Rapid Architecture</div>
+          </div>
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-robot text-purple-600 text-xs sm:text-base"></i>
+            <div class="text-slate-800 font-extrabold text-[9.5px] sm:text-xs">Web Automation</div>
+            <div class="text-purple-600 font-semibold text-[8.5px] sm:text-[9.5px]">Custom Scrapers</div>
+          </div>
+          <div class="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+            <i class="fa-solid fa-code-compare text-sky-600 text-xs sm:text-base"></i>
+            <div class="text-slate-800 font-extrabold text-[9.5px] sm:text-xs">Reverse Engineering</div>
+            <div class="text-sky-600 font-semibold text-[8.5px] sm:text-[9.5px]">Smali / Android</div>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md w-full mx-auto pt-2">
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20discuss%20a%20project%20for%20Infispark."
+            target="_blank"
+            class="w-full sm:flex-1 cta-primary-btn shimmer py-2.5 px-4 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-md cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>LETS WORK TOGETHER</span>
+          </a>
+
+          <a 
+            href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
+            target="_blank"
+            class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-200 hover:border-indigo-300 text-slate-700 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-colors shadow-xs"
+          >
+            <i class="fa-solid fa-file-pdf text-indigo-600 text-xs"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- 2. Key Highlights & Stats Matrix (Clean Bento Grid) -->
+      <section class="max-w-4xl mx-auto w-full">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5">
+          
+          <!-- Stat 1: Global Projects -->
+          <div class="white-card rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-xs group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-earth-americas text-sm"></i>
+              </div>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full">Global</span>
+            </div>
+            <div class="space-y-0.5">
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-baseline gap-0.5">
+                <span>24</span><span class="text-indigo-600 text-xl font-black">+</span>
+              </div>
+              <div class="text-xs font-bold text-slate-800">Client Projects</div>
+              <p class="text-[10px] text-slate-500 font-medium leading-tight">Live in 5+ countries</p>
+            </div>
+          </div>
+
+          <!-- Stat 2: Awards & Honors -->
+          <div class="white-card rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-amber-100 flex items-center justify-center text-indigo-600 shadow-xs group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-trophy text-sm"></i>
+              </div>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-amber-100 px-2 py-0.5 rounded-full">Honors</span>
+            </div>
+            <div class="space-y-0.5">
+              <div class="text-2xl sm:text-3xl font-black text-indigo-600 tracking-tight flex items-baseline gap-1">
+                <span>3</span><span class="text-xs sm:text-sm uppercase font-bold text-indigo-700">Wins</span>
+              </div>
+              <div class="text-xs font-bold text-slate-800">Industry Awards</div>
+              <p class="text-[10px] text-slate-500 font-medium leading-tight">Taj Mumbai &amp; Dubai</p>
+            </div>
+          </div>
+
+          <!-- Stat 3: Degree -->
+          <div class="white-card rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shadow-xs group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-graduation-cap text-sm"></i>
+              </div>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full">Degree</span>
+            </div>
+            <div class="space-y-0.5">
+              <div class="text-xl sm:text-2xl font-black text-emerald-600 tracking-tight">
+                B.E. ECS
+              </div>
+              <div class="text-xs font-bold text-slate-800">Electronics &amp; CS</div>
+              <p class="text-[10px] text-slate-500 font-medium leading-tight">AIKTC Mumbai Univ</p>
+            </div>
+          </div>
+
+          <!-- Stat 4: Infiplus HMS -->
+          <div class="white-card rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group">
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 shadow-xs group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-hospital-user text-sm"></i>
+              </div>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-100 px-2 py-0.5 rounded-full">Platform</span>
+            </div>
+            <div class="space-y-0.5">
+              <div class="text-xl sm:text-2xl font-black text-purple-600 tracking-tight">
+                Infiplus
+              </div>
+              <div class="text-xs font-bold text-slate-800">Healthcare HMS</div>
+              <p class="text-[10px] text-slate-500 font-medium leading-tight">Hospital Enterprise OS</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. About Me Section -->
+      <section id="about" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1.5 flex flex-col items-center">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            About Mudassir
+          </span>
+          <h2 class="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight pt-0.5">
+            Crafting Seamless <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">User Applications</span>
+          </h2>
+          <!-- Animated Indigo Accent Line -->
+          <div class="flex items-center justify-center my-1" style="height:12px;">
+            <span class="heading-indigo-line"></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">Engineering scalable digital systems, automating complex business logic &amp; driving healthcare transformation</p>
+        </div>
+
+        <div class="white-card rounded-3xl p-4 sm:p-7 space-y-5 text-left relative overflow-hidden">
+          
+          <!-- Header Row -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div class="space-y-1.5">
+              <div class="flex items-center space-x-2.5">
+                <h3 class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">Shaikh Mudassir</h3>
+                <span class="bg-indigo-50 text-indigo-700 border border-indigo-200 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full font-mono">
+                  23 Yrs
+                </span>
+              </div>
+              <div class="text-xs sm:text-sm font-bold text-indigo-600">
+                Software Developer &amp; CTO @ Infispark
+              </div>
+              <div class="flex flex-wrap items-center gap-2 pt-0.5">
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-lg">
+                  <i class="fa-solid fa-location-dot text-indigo-600 text-[10px]"></i>
+                  <span>BKC, Mumbai</span>
+                </span>
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-lg">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>Active Technical Leadership</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative -->
+          <div class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+            <p>
+              I am a Software Developer and the <strong>CTO of Infispark</strong>, based in <strong>BKC Mumbai</strong>. My expertise lies in full-stack web development, mobile applications, and reverse engineering. I maintain an extraordinarily high development velocity by leveraging the power of <span class="text-indigo-600 font-bold underline decoration-indigo-200">Supabase + Next.js + Antigravity IDE</span>.
+            </p>
+            <p>
+              I am deeply passionate about learning and deploying cutting-edge technologies to keep solutions ahead of current global tech trends, ensuring every digital product is robust, secure, and lightning fast.
+            </p>
+          </div>
+
+          <!-- Dual Company Venture Highlight Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            
+            <!-- Company 1: Infispark -->
+            <div class="bg-slate-50/80 border border-slate-200/90 hover:border-indigo-300 p-3.5 rounded-2xl space-y-1.5 transition-all shadow-xs group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-black text-slate-900 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                  <i class="fa-solid fa-building-columns text-indigo-600 text-xs"></i>
+                  <span>Infispark</span>
+                </span>
+                <span class="text-[9px] text-indigo-700 font-bold bg-indigo-100/70 px-2 py-0.5 rounded-full border border-indigo-200 font-mono">Agency</span>
+              </div>
+              <p class="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+                Provides custom scalable software, complex web automation, and digital growth infrastructure to international clients.
+              </p>
+            </div>
+
+            <!-- Company 2: Infiplus -->
+            <div class="bg-slate-50/80 border border-slate-200/90 hover:border-emerald-300 p-3.5 rounded-2xl space-y-1.5 transition-all shadow-xs group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-black text-slate-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1.5">
+                  <i class="fa-solid fa-hospital text-emerald-600 text-xs"></i>
+                  <span>Infiplus Healthcare</span>
+                </span>
+                <span class="text-[9px] text-emerald-700 font-bold bg-emerald-100/70 px-2 py-0.5 rounded-full border border-emerald-200 font-mono">Product Suite</span>
+              </div>
+              <p class="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+                Dedicated healthcare SaaS specializing in hospital paperless management, pathology lab automation &amp; clinic practice systems.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- 4 Core Pillars Matrix -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-2">
+            
+            <!-- Pillar 1 -->
+            <div class="bg-white border border-slate-200 hover:border-indigo-300 p-3.5 rounded-2xl space-y-2 transition-all flex flex-col justify-between shadow-xs">
+              <div class="space-y-1.5">
+                <div class="w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h4 class="text-xs font-black text-slate-900">Software Development</h4>
+                <p class="text-[10px] text-slate-500 leading-relaxed font-normal">
+                  Intuitive, user-focused web &amp; desktop applications prioritizing high performance and clean code.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[8.5px] font-mono text-indigo-700 pt-1">
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Next.js / React</span>
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Supabase</span>
+              </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="bg-white border border-slate-200 hover:border-emerald-300 p-3.5 rounded-2xl space-y-2 transition-all flex flex-col justify-between shadow-xs">
+              <div class="space-y-1.5">
+                <div class="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-server"></i>
+                </div>
+                <h4 class="text-xs font-black text-slate-900">Backend &amp; APIs</h4>
+                <p class="text-[10px] text-slate-500 leading-relaxed font-normal">
+                  Scalable cloud backend architectures and secure REST APIs powering mission-critical platforms.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[8.5px] font-mono text-emerald-700 pt-1">
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Node.js</span>
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">PostgreSQL</span>
+              </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="bg-white border border-slate-200 hover:border-sky-300 p-3.5 rounded-2xl space-y-2 transition-all flex flex-col justify-between shadow-xs">
+              <div class="space-y-1.5">
+                <div class="w-8 h-8 rounded-xl bg-sky-50 border border-sky-100 text-sky-600 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <h4 class="text-xs font-black text-slate-900">Automation &amp; Reverse Eng.</h4>
+                <p class="text-[10px] text-slate-500 leading-relaxed font-normal">
+                  Custom automated scrapers, workflow bots, and Smali bytecode patching for specialized mobile builds.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[8.5px] font-mono text-sky-700 pt-1">
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Web Automation</span>
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Smali Bytecode</span>
+              </div>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="bg-white border border-slate-200 hover:border-purple-300 p-3.5 rounded-2xl space-y-2 transition-all flex flex-col justify-between shadow-xs">
+              <div class="space-y-1.5">
+                <div class="w-8 h-8 rounded-xl bg-purple-50 border border-purple-100 text-purple-600 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h4 class="text-xs font-black text-slate-900">Responsive UX &amp; Design</h4>
+                <p class="text-[10px] text-slate-500 leading-relaxed font-normal">
+                  Sub-second page speeds, seamless multi-device adaptation, and conversion-engineered branding.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[8.5px] font-mono text-purple-700 pt-1">
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Tailwind CSS</span>
+                <span class="bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Core Vitals</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Flagship Healthcare Products: Infiplus Suite -->
+      <section id="products" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-0.5 rounded-full border border-emerald-200">
+            Dedicated Product Company
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            Infiplus Healthcare Software Suite
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500">Complete Hospital &amp; Clinic Paperless Management Solutions</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <!-- Product 1: Infiplus HMS -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between text-left">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="bg-indigo-50 text-indigo-700 border border-indigo-200 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Flagship Product
+                </span>
+                <span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Paperless HMS
+                </span>
+              </div>
+              
+              <!-- Product Image Preview -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 group cursor-pointer flex items-center justify-center shadow-inner" onclick="openLightbox('./image/Infiplushms/hms.png', 'Infiplus HMS - Hospital Paperless Management')">
+                <img 
+                  src="./image/Infiplushms/hms.png" 
+                  alt="Infiplus HMS Hospital Software" 
+                  class="w-full h-44 sm:h-48 object-contain bg-slate-50 p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white font-bold text-[9px] px-2 py-0.5 rounded-md shadow">
+                  8 Modules
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-indigo-300 text-xs"></i> Click to Zoom
+                  </span>
+                  <span class="text-[9px] text-slate-200 font-mono">Full Dashboard</span>
+                </div>
+              </div>
+
+              <!-- Thumbnails Row -->
+              <div class="grid grid-cols-4 gap-1.5">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/Infiplushms/hms2.png', 'Infiplus HMS Patient Portal')">
+                  <img src="./image/Infiplushms/hms2.png" alt="HMS 2" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/Infiplushms/hms3.png', 'Infiplus HMS Billing & Pharmacy')">
+                  <img src="./image/Infiplushms/hms3.png" alt="HMS 3" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/Infiplushms/hms4.png', 'Infiplus HMS Doctor Dashboard')">
+                  <img src="./image/Infiplushms/hms4.png" alt="HMS 4" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/Infiplushms/hms5.png', 'Infiplus HMS Wards & Beds')">
+                  <img src="./image/Infiplushms/hms5.png" alt="HMS 5" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-base font-black text-slate-900">Infiplus HMS</h3>
+                <p class="text-xs text-indigo-600 font-bold">Hospital Paperless Management System</p>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Complete hospital paperless ecosystem featuring:
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600">
+                <li class="flex items-center space-x-1.5">
+                  <i class="fa-solid fa-circle-check text-emerald-600 text-[11px]"></i>
+                  <span>Pathology Blood Test &amp; X-ray Management</span>
+                </li>
+                <li class="flex items-center space-x-1.5">
+                  <i class="fa-solid fa-circle-check text-emerald-600 text-[11px]"></i>
+                  <span>Dental Management Software</span>
+                </li>
+                <li class="flex items-center space-x-1.5">
+                  <i class="fa-solid fa-circle-check text-emerald-600 text-[11px]"></i>
+                  <span>Multi-department Clinic Solutions</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <a href="https://infiplus.in/" target="_blank" class="w-full cta-primary-btn shimmer py-2 px-3 rounded-xl text-xs font-bold text-center flex items-center justify-center space-x-1.5 shadow">
+                <span>Explore Infiplus HMS</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 2: Infiplus OPD -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between text-left">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="bg-sky-50 text-sky-700 border border-sky-200 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Doctor Practice
+                </span>
+                <span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> OPD Management
+                </span>
+              </div>
+
+              <!-- Product Image Preview -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 group cursor-pointer flex items-center justify-center shadow-inner" onclick="openLightbox('./image/opdsoftware/opd1.png', 'Infiplus OPD - Clinic Practice & Appointment Management')">
+                <img 
+                  src="./image/opdsoftware/opd1.png" 
+                  alt="Infiplus OPD Software" 
+                  class="w-full h-44 sm:h-48 object-contain bg-slate-50 p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white font-bold text-[9px] px-2 py-0.5 rounded-md shadow">
+                  5 Modules
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-sky-300 text-xs"></i> Click to Zoom
+                  </span>
+                  <span class="text-[9px] text-slate-200 font-mono">OPD Suite</span>
+                </div>
+              </div>
+
+              <!-- Thumbnails Row -->
+              <div class="grid grid-cols-3 gap-1.5">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors shadow-xs" onclick="openLightbox('./image/opdsoftware/opd1.png', 'Infiplus OPD Appointment Calendar')">
+                  <img src="./image/opdsoftware/opd1.png" alt="OPD 1" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors shadow-xs" onclick="openLightbox('./image/opdsoftware/opd2.png', 'Infiplus OPD Prescription Generator')">
+                  <img src="./image/opdsoftware/opd2.png" alt="OPD 2" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-sky-400 transition-colors shadow-xs" onclick="openLightbox('./image/opdsoftware/opd3.png', 'Infiplus OPD Patient Billing & History')">
+                  <img src="./image/opdsoftware/opd3.png" alt="OPD 3" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-base font-black text-slate-900">Infiplus OPD</h3>
+                <p class="text-xs text-sky-600 font-bold">Complete OPD &amp; Practice Management</p>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Streamline daily clinic operations for doctors:
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600">
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-solid fa-receipt text-indigo-600 text-[11px] mt-0.5"></i>
+                  <span><strong>Integrated Billing:</strong> Quick prescription-to-invoice.</span>
+                </li>
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-solid fa-users text-indigo-600 text-[11px] mt-0.5"></i>
+                  <span><strong>Staff Attendance:</strong> Built-in schedule tracker.</span>
+                </li>
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-brands fa-whatsapp text-emerald-600 text-[11px] mt-0.5"></i>
+                  <span><strong>WhatsApp Prescriptions:</strong> Instant automated send.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <a href="https://infiplus.in/" target="_blank" class="w-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold py-2 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors shadow-xs">
+                <span>Explore Infiplus OPD</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 3: Infiplus Pathology -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3.5 flex flex-col justify-between text-left">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Lab Automation
+                </span>
+                <span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Pathology Labs
+                </span>
+              </div>
+
+              <!-- Product Image Preview -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 group cursor-pointer flex items-center justify-center shadow-inner" onclick="openLightbox('./image/labsoftware/1.png', 'Infiplus Pathology - Lab Test & Report Generator')">
+                <img 
+                  src="./image/labsoftware/1.png" 
+                  alt="Infiplus Pathology Lab Software" 
+                  class="w-full h-44 sm:h-48 object-contain bg-slate-50 p-1.5 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white font-bold text-[9px] px-2 py-0.5 rounded-md shadow">
+                  6 Modules
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent p-2.5 flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-white flex items-center gap-1.5">
+                    <i class="fa-solid fa-expand text-emerald-300 text-xs"></i> Click to Zoom
+                  </span>
+                  <span class="text-[9px] text-slate-200 font-mono">Lab System</span>
+                </div>
+              </div>
+
+              <!-- Thumbnails Row -->
+              <div class="grid grid-cols-4 gap-1.5">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors shadow-xs" onclick="openLightbox('./image/labsoftware/2.png', 'Pathology Test Catalog & Parameters')">
+                  <img src="./image/labsoftware/2.png" alt="Lab 2" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors shadow-xs" onclick="openLightbox('./image/labsoftware/3.png', 'Pathology Chemistry & Hematology Reports')">
+                  <img src="./image/labsoftware/3.png" alt="Lab 3" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors shadow-xs" onclick="openLightbox('./image/labsoftware/4.png', 'Pathology Patient Bill Receipt')">
+                  <img src="./image/labsoftware/4.png" alt="Lab 4" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-12 flex items-center justify-center p-1 cursor-pointer hover:border-emerald-400 transition-colors shadow-xs" onclick="openLightbox('./image/labsoftware/6.png', 'Pathology Lab Analytics Dashboard')">
+                  <img src="./image/labsoftware/6.png" alt="Lab 6" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-base font-black text-slate-900">Infiplus Pathology</h3>
+                <p class="text-xs text-emerald-700 font-bold">Complete Pathology Software for Labs</p>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Advanced lab billing, test processing &amp; reporting:
+              </p>
+              <ul class="space-y-1.5 text-xs text-slate-600">
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-solid fa-calculator text-emerald-600 text-[11px] mt-0.5"></i>
+                  <span><strong>Formula Calculation:</strong> Biochemistry &amp; hematology.</span>
+                </li>
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-solid fa-file-pdf text-emerald-600 text-[11px] mt-0.5"></i>
+                  <span><strong>Quick Reports:</strong> Clean layout printing in seconds.</span>
+                </li>
+                <li class="flex items-start space-x-1.5">
+                  <i class="fa-brands fa-whatsapp text-emerald-600 text-[11px] mt-0.5"></i>
+                  <span><strong>WhatsApp PDF Dispatch:</strong> Direct to patient portal.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <a href="https://infiplus.in/" target="_blank" class="w-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold py-2 px-3 rounded-xl text-xs text-center flex items-center justify-center space-x-1.5 transition-colors shadow-xs">
+                <span>Explore Pathology Suite</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. Milestones & Industry Awards -->
+      <section id="milestones" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            Milestones &amp; Recognitions
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            Industry Awards &amp; Honors
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500">Recognized at prestigious national &amp; international platforms</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <!-- Award 1: Taj Mumbai -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3.5 text-left flex flex-col justify-between">
+            <div class="space-y-3">
+              <!-- Achievement Photo Gallery -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center group cursor-pointer shadow-inner" onclick="openLightbox('./image/achivement_isrc_1.jpeg', 'Bharat ka Best Brand Award - The Taj Hotel, Mumbai')">
+                <img 
+                  src="./image/achivement_isrc_1.jpeg" 
+                  alt="Bharat ka Best Brand Award Taj Mumbai" 
+                  class="w-full h-56 sm:h-60 object-contain bg-slate-50 p-1 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end p-3 justify-between">
+                  <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-trophy text-amber-400"></i> The Taj Hotel, Mumbai
+                  </span>
+                  <span class="text-[10px] bg-indigo-600 text-slate-950 font-black px-2.5 py-0.5 rounded-full">2023</span>
+                </div>
+              </div>
+
+              <!-- Thumbnails -->
+              <div class="grid grid-cols-2 gap-2">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-20 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/achivement_isrc_2.jpeg', 'Taj Mumbai Stage Ceremony')">
+                  <img src="./image/achivement_isrc_2.jpeg" alt="Taj Award Ceremony 2" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-20 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/achivement_isrc_3.jpeg', 'Taj Mumbai Trophy & Certificate')">
+                  <img src="./image/achivement_isrc_3.jpeg" alt="Taj Award Ceremony 3" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              </div>
+
+              <div class="pt-1">
+                <h3 class="text-base font-black text-slate-900">Bharat ka Best Brand Award</h3>
+                <p class="text-xs text-indigo-600 font-bold">The Taj Hotel, Mumbai (2023)</p>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed font-normal">
+                Awarded for excellence in technical leadership, digital transformation, and scalable web architecture at ISRC.
+              </p>
+            </div>
+            
+            <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+              <span class="flex items-center gap-1 text-indigo-700 font-bold">
+                <i class="fa-solid fa-certificate"></i> Verified Honor
+              </span>
+              <span class="font-mono text-[10px] text-slate-400">Mumbai, India</span>
+            </div>
+          </div>
+
+          <!-- Award 2: Taj Dubai -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3.5 text-left flex flex-col justify-between">
+            <div class="space-y-3">
+              <!-- Achievement Photo Gallery -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center group cursor-pointer shadow-inner" onclick="openLightbox('./image/achivement_investarise_1.jpeg', 'Technology Partner Award - Taj Exotica Resort, Dubai')">
+                <img 
+                  src="./image/achivement_investarise_1.jpeg" 
+                  alt="Technology Partner Award Taj Dubai" 
+                  class="w-full h-56 sm:h-60 object-contain bg-slate-50 p-1 group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end p-3 justify-between">
+                  <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-award text-amber-400"></i> Taj Exotica, Dubai
+                  </span>
+                  <span class="text-[10px] bg-indigo-600 text-slate-950 font-black px-2.5 py-0.5 rounded-full">Global</span>
+                </div>
+              </div>
+
+              <!-- Thumbnails -->
+              <div class="grid grid-cols-3 gap-2">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-20 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/achivement_investarise_2.jpeg', 'Taj Exotica Dubai Award Felicitation')">
+                  <img src="./image/achivement_investarise_2.jpeg" alt="Dubai Award 2" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-20 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/achivement_investarise_3.jpeg', 'Taj Exotica Dubai Stage Ceremony')">
+                  <img src="./image/achivement_investarise_3.jpeg" alt="Dubai Award 3" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 h-20 flex items-center justify-center p-1 cursor-pointer hover:border-indigo-400 transition-colors shadow-xs" onclick="openLightbox('./image/achivement_investarise_4.jpeg', 'Dubai Tech Partner Memento')">
+                  <img src="./image/achivement_investarise_4.jpeg" alt="Dubai Award 4" class="max-h-full max-w-full object-contain" loading="lazy" />
+                </div>
+              </div>
+
+              <div class="pt-1">
+                <h3 class="text-base font-black text-slate-900">Technology Partner Award</h3>
+                <p class="text-xs text-indigo-600 font-bold">Taj Exotica Resort, Dubai</p>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed font-normal">
+                Recognized for Infispark's innovative IT engineering solutions, custom web automation tools, and strategic international partnerships.
+              </p>
+            </div>
+            
+            <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+              <span class="flex items-center gap-1 text-indigo-700 font-bold">
+                <i class="fa-solid fa-earth-americas"></i> International
+              </span>
+              <span class="font-mono text-[10px] text-slate-400">Dubai, UAE</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Work Experience & Education Timeline -->
+      <section id="experience" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            Track Record &amp; Academics
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            Work Experience &amp; Education
+          </h2>
+        </div>
+
+        <div class="space-y-3 text-left">
+          
+          <!-- Experience 1: Infispark -->
+          <div class="white-card rounded-2xl p-4 sm:p-5 space-y-2 border-l-4 border-l-indigo-600">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <a href="https://infispark.in/" target="_blank" class="text-sm sm:text-base font-black text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                  <span>CTO @ Infispark</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-indigo-600"></i>
+                </a>
+                <span class="text-xs font-bold text-indigo-600">Global Client Solutions &amp; Infiplus Products</span>
+              </div>
+              <span class="text-[10px] font-mono text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">
+                2023 - Present
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Leading software development, web automation, and digital marketing strategies for global clients. Founded in my 3rd year of college.
+            </p>
+          </div>
+
+          <!-- Experience 2: ISRC -->
+          <div class="white-card rounded-2xl p-4 sm:p-5 space-y-2 border-l-4 border-l-blue-600">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <a href="http://in.linkedin.com/company/isrc-org-in" target="_blank" class="text-sm sm:text-base font-black text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                  <span>CTO @ ISRC</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-blue-600"></i>
+                </a>
+                <span class="text-xs font-bold text-blue-600">Kuwait &amp; Regional Digital Web Initiatives</span>
+              </div>
+              <span class="text-[10px] font-mono text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">
+                2023 (8 Months)
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Managed website development and marketing projects, including Kuwait-based web initiatives, during my 2nd year of college.
+            </p>
+          </div>
+
+          <!-- Experience 3: Freelance -->
+          <div class="white-card rounded-2xl p-4 sm:p-5 space-y-2 border-l-4 border-l-emerald-600">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <a href="https://mudassir.infispark.in/#" target="_blank" class="text-sm sm:text-base font-black text-slate-900 hover:text-emerald-700 transition-colors flex items-center gap-1.5">
+                  <span>Freelance Developer</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-600"></i>
+                </a>
+                <span class="text-xs font-bold text-emerald-700">Early Software &amp; Booking Engines</span>
+              </div>
+              <span class="text-[10px] font-mono text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">
+                2018 - 2020 (10th-12th Std)
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Developed custom software and websites for local shops, including Al-Kashif Enterprises booking and visa management system.
+            </p>
+          </div>
+
+          <!-- Education -->
+          <div class="white-card rounded-2xl p-4 sm:p-5 space-y-2 border-l-4 border-l-purple-600">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-slate-900">B.E. Electronic and Computer Science Engineering</h3>
+                <span class="text-xs font-bold text-purple-600">Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC), Mumbai University</span>
+              </div>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto font-bold">
+                2022 - 2026 (Completed)
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Graduated with a Bachelor of Engineering (B.E.) degree from AIKTC, Mumbai University, focusing on distributed systems, mobile development, and network architecture.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 7. Ecosystem: Global Client Partnerships & Live Deployments -->
+      <section id="ecosystem" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            Global Ecosystem
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            Client Partnerships &amp; Live Deployments
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500">Delivering digital infrastructure, healthcare systems &amp; web automation across 22+ verified clients</p>
+        </div>
+
+        <!-- Global Clients Grid (Initial 6 Logos Visible + Exact Remaining Count Toggle) -->
+        <div id="clientsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-left">
+          
+          <!-- Client 1: Noori Group (Visible) -->
+          <a href="https://noori-group.vercel.app/" target="_blank" class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/noorigroup.png" 
+                  alt="Noori Group Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Noori Group</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Luxury real estate portal in Mumbai.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Real Estate</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 2: Dr. Laxman (Visible) -->
+          <div class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/drlaxman.png" 
+                  alt="Dr Laxman Proctology Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Dr. Laxman</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Proctology center management software.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-sky-600 font-mono font-semibold">Healthcare</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 3: Maden Multicorp (Visible) -->
+          <a href="https://www.madenmulticorp.com/" target="_blank" class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/maden.png" 
+                  alt="Maden Multicorp Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Maden Multicorp</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Business solutions &amp; industrial automation.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Enterprise</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 4: Investarise Global (Visible) -->
+          <a href="https://www.investariseglobal.com/" target="_blank" class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/investarise.png" 
+                  alt="Investarise Global Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Investarise Global</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Financial management &amp; investment platform.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">Fintech</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 5: IGZinet (Visible) -->
+          <a href="https://www.igzinet.in/" target="_blank" class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/igzinet.png" 
+                  alt="IGZinet Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">IGZinet</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Web solutions &amp; digital infrastructure.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-blue-600 font-mono font-semibold">Infrastructure</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 6: ZA Legal (Visible) -->
+          <a href="https://www.zalegal.in/" target="_blank" class="white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/za-legal.png" 
+                  alt="ZA Legal Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">ZA Legal</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Legal management &amp; case tracking platform.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-purple-600 font-mono font-semibold">LegalTech</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 7: EVENERGY (Hidden Initially) -->
+          <a href="https://electric-two.vercel.app/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/evenergy.png" 
+                  alt="EVENERGY Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">EVENERGY</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Electric vehicle charging &amp; tech portal.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">CleanTech</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 8: Connect Angels (Hidden Initially) -->
+          <a href="https://connectangels.com/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/connectangels.png" 
+                  alt="Connect Angels Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Connect Angels</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Networking &amp; investment hub for startups.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Ventures</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 9: Memoni AI (Hidden Initially) -->
+          <a href="https://memani-afrr.vercel.app/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/memoni-ai.png" 
+                  alt="Memoni AI Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Memoni AI</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">AI integrations &amp; neural network solutions.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-purple-600 font-mono font-semibold">Artificial Intel</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 10: Medford Hospital (Hidden Initially) -->
+          <a href="https://g-medford.medzeal.in/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/medford.png" 
+                  alt="Medford Hospital Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Medford Hospital</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Hospital paperless management &amp; billing.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">Hospital HMS</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 11: Medzeal (Hidden Initially) -->
+          <a href="https://www.medzeal.in/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/medzeal.png" 
+                  alt="Medzeal Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Medzeal</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Advanced healthcare &amp; patient platform.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">Health Ecosystem</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 12: Medora (Hidden Initially) -->
+          <a href="https://www.medora.org.in/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/medora.png" 
+                  alt="Medora Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Medora</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Medical records &amp; pharmacy management.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-sky-600 font-mono font-semibold">MedTech</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 13: Noworrry Trip (Hidden Initially) -->
+          <a href="https://mudassir.infispark.in/#" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/noworrrytrip.png" 
+                  alt="Noworrry Trip Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Noworrry Trip</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Travel booking &amp; tourism platform.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Travel</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 14: Al-Kashif Enterprises (Hidden Initially) -->
+          <a href="https://mkmods472.blogspot.com/2024/01/al-kashif-enterprises.html" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/al-kashif-enterprises.png" 
+                  alt="Al-Kashif Enterprises Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Al-Kashif Enterprises</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Ticketing &amp; visa management software.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">Custom Software</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </a>
+
+          <!-- Client 15: Cigma (Hidden Initially) -->
+          <div class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/cigma.png" 
+                  alt="Cigma Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Cigma</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Diagnostics &amp; healthcare automation.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-sky-600 font-mono font-semibold">Diagnostics</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 16: Elite (Hidden Initially) -->
+          <div class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/elite.png" 
+                  alt="Elite Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Elite</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Enterprise resource &amp; management.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Enterprise</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 17: Gautami (Hidden Initially) -->
+          <div class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/gautami.png" 
+                  alt="Gautami Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Gautami</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Educational management &amp; hospitals.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-purple-600 font-mono font-semibold">EdTech / Health</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 18: Medbliss (Hidden Initially) -->
+          <div class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/medbliss.png" 
+                  alt="Medbliss Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Medbliss</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Premium wellness &amp; booking portal.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-emerald-700 font-mono font-semibold">Wellness</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 19: Organiza (Hidden Initially) -->
+          <div class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden">
+                <img 
+                  src="./image/client/organiza.png" 
+                  alt="Organiza Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-black text-slate-900">Organiza</span>
+              <p class="text-[10px] text-slate-500 leading-tight">Corporate event &amp; logistics platform.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Events SaaS</span>
+              <span class="text-emerald-600 font-bold">● Active</span>
+            </div>
+          </div>
+
+          <!-- Client 20: Digital Theme Store (Hidden Initially) -->
+          <a href="https://digitalthemestore.com/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/firsoptionagency.png" 
+                  alt="Digital Theme Store Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Digital Theme Store</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Digital marketing &amp; revenue funnel agency.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Agency</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 21: Taxi Service Bihar (Hidden Initially) -->
+          <a href="https://www.taxiservicebihar.com/" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/taxiservicebihar.png" 
+                  alt="Taxi Service Bihar Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">Taxi Service Bihar</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Transportation booking service across Bihar.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-indigo-600 font-mono font-semibold">Mobility</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+          <!-- Client 22: ChatPie (Hidden Initially) -->
+          <a href="https://mkmods472.blogspot.com/2023/06/chatpie.html" target="_blank" class="extra-client-card hidden white-card p-3 rounded-2xl flex flex-col justify-between group">
+            <div class="space-y-2">
+              <div class="w-full h-20 rounded-xl bg-slate-50 flex items-center justify-center p-2 border border-slate-100 overflow-hidden group-hover:border-indigo-200 transition-colors">
+                <img 
+                  src="./image/client/chatpie.png" 
+                  alt="ChatPie Logo" 
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900 group-hover:text-indigo-600 transition-colors">ChatPie App</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 group-hover:text-indigo-600"></i>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-tight">Real-time messaging platform &amp; community app.</p>
+            </div>
+            <div class="pt-2 mt-1 border-t border-slate-100 flex items-center justify-between text-[9px]">
+              <span class="text-sky-600 font-mono font-semibold">Social Chat</span>
+              <span class="text-emerald-600 font-bold">● Live</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Interactive Show More Action Control -->
+        <div class="flex flex-col items-center justify-center pt-3 pb-1">
+          <button 
+            id="toggleClientsBtn" 
+            onclick="toggleMoreClients()" 
+            class="cta-primary-btn shimmer px-6 py-2.5 rounded-2xl font-bold text-xs sm:text-sm uppercase tracking-wide shadow-md flex items-center space-x-2.5 transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <i class="fa-solid fa-layer-group text-sm"></i>
+            <span id="toggleClientsText">Show More (+16 More Clients)</span>
+            <i id="toggleClientsIcon" class="fa-solid fa-chevron-down text-xs ml-1"></i>
+          </button>
+          <p id="remainingClientsLabel" class="text-[11px] text-slate-500 mt-2 font-mono font-medium">
+            Showing 6 of 22 Live Deployments (16 Remaining)
+          </p>
+        </div>
+      </section>
+
+      <!-- 8. My Skills: The Tools Behind Exceptional Development -->
+      <section id="skills" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            Skills &amp; Mastery
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            The Tools Behind Exceptional Development
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-left">
+          
+          <!-- Skill 1 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Next.js &amp; React</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">73%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 73%"></div>
+            </div>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Supabase &amp; Firebase</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">71%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 71%"></div>
+            </div>
+          </div>
+
+          <!-- Skill 3 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Node.js &amp; REST API</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">69%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 69%"></div>
+            </div>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Reverse Engineering (Smali)</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">68%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 68%"></div>
+            </div>
+          </div>
+
+          <!-- Skill 5 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Flutter, Java &amp; Kotlin</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">63%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 63%"></div>
+            </div>
+          </div>
+
+          <!-- Skill 6 -->
+          <div class="white-card p-3.5 rounded-2xl space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-black text-slate-800">Docker &amp; VPS Deploy</span>
+              <span class="text-xs font-mono font-bold text-indigo-600">62%</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full" style="width: 62%"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 9. Specialized Engineering Portfolio: Smali Reverse Engineering & Projects -->
+      <section id="portfolio" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-3 py-0.5 rounded-full border border-indigo-200">
+            Tech Portfolio
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight pt-0.5">
+            Showcasing Advanced Engineering Mastery
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500">Smali Bytecode Modification, Mobile Applications &amp; Academic Innovations</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          
+          <!-- Category 1: Smali Reverse Engineering -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center space-x-2 text-indigo-600">
+                <i class="fa-solid fa-terminal text-sm"></i>
+                <h3 class="text-sm font-black text-slate-900">Reverse Engineering (Smali)</h3>
+              </div>
+              
+              <div class="space-y-2.5 text-xs">
+                
+                <!-- Instagram Mod -->
+                <a href="https://mkmods472.blogspot.com/2022/10/blog-post.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/reverseengineering/instagram.png" alt="Instagram Mod Screenshot" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-indigo-600 transition-colors">
+                        <span>Instagram Mod</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-indigo-600 font-mono font-semibold">10k+ Downloads</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Custom Smali-patched with stealth ghost mode &amp; privacy UI enhancements.</p>
+                </a>
+
+                <!-- Snapchat Pro -->
+                <a href="https://mkmods472.blogspot.com/2023/01/snapchat-pro.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/reverseengineering/snapchat.png" alt="Snapchat Pro Screenshot" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-indigo-600 transition-colors">
+                        <span>Snapchat Pro</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-indigo-600 font-mono font-semibold">Direct Bytecode Patch</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Reverse-engineered with save-anywhere, secret screenshot &amp; stealth viewing.</p>
+                </a>
+
+                <!-- YouTube Pro -->
+                <a href="https://mkmods472.blogspot.com/2022/05/youtube-pro.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/reverseengineering/youtube.png" alt="YouTube Pro Screenshot" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-indigo-600 transition-colors">
+                        <span>YouTube Pro</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-red-600 font-mono font-semibold">Background &amp; AdBlock</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Patched background playback, ad-block bypass &amp; direct video downloading.</p>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Academic & Innovation Projects -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center space-x-2 text-sky-600">
+                <i class="fa-solid fa-graduation-cap text-sm"></i>
+                <h3 class="text-sm font-black text-slate-900">Innovation Projects (AIKTC)</h3>
+              </div>
+              
+              <div class="space-y-2.5 text-xs">
+                
+                <!-- Smart Study -->
+                <a href="https://mkmods472.blogspot.com/2023/11/smart-study.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/Innovation_Projects_AIKTC/smartstudy.png" alt="Smart Study App Screenshot" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-sky-600 transition-colors">
+                        <span>Smart Study App</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-sky-600 font-mono font-semibold">Academic Utility</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Timetable and notes management with PYQ, UT papers &amp; attendance.</p>
+                </a>
+
+                <!-- My Cloud -->
+                <a href="https://mkmods472.blogspot.com/2023/08/my-cloud.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/Innovation_Projects_AIKTC/mycloud.png" alt="My Cloud Social Platform" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-sky-600 transition-colors">
+                        <span>My Cloud Platform</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-sky-600 font-mono font-semibold">Semester 1 Build</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Full-stack social networking &amp; cloud storage platform built during college.</p>
+                </a>
+
+                <!-- Virtual Lab -->
+                <a href="https://virtual-genetics-lab.vercel.app/" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/labsoftware/1.png" alt="Virtual Genetics Lab" class="w-10 h-10 rounded-xl object-contain bg-white p-0.5 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-sky-600 transition-colors">
+                        <span>Virtual Genetics Lab</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-emerald-700 font-mono font-semibold">Live Interactive</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Interactive virtual biology &amp; genetics experimentation portal.</p>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Freelance Solutions -->
+          <div class="white-card rounded-3xl p-4 sm:p-5 space-y-3 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center space-x-2 text-emerald-600">
+                <i class="fa-solid fa-briefcase text-sm"></i>
+                <h3 class="text-sm font-black text-slate-900">Freelance Solutions</h3>
+              </div>
+              
+              <div class="space-y-2.5 text-xs">
+                
+                <!-- Al Kashif -->
+                <a href="https://mkmods472.blogspot.com/2024/01/al-kashif-enterprises.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-emerald-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/client/al-kashif-enterprises.png" alt="Al Kashif Booking Software" class="w-10 h-10 rounded-xl object-contain bg-white p-1 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-emerald-700 transition-colors">
+                        <span>Al-Kashif Enterprises</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-emerald-700 font-mono font-semibold">Travel &amp; Visa System</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Complete booking software for travel shops (Flight, Train, Umrah, Visa).</p>
+                </a>
+
+                <!-- ChatPie -->
+                <a href="https://mkmods472.blogspot.com/2023/06/chatpie.html" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-emerald-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/client/chatpie.png" alt="ChatPie Messaging System" class="w-10 h-10 rounded-xl object-contain bg-white p-1 border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-emerald-700 transition-colors">
+                        <span>ChatPie Messaging</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-sky-600 font-mono font-semibold">Community Chat</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Real-time chat platform for local community engagement.</p>
+                </a>
+
+                <!-- Pathology Offline -->
+                <a href="https://pathology-offline.vercel.app/" target="_blank" class="block p-2.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-emerald-300 transition-all group shadow-xs">
+                  <div class="flex items-center gap-2.5 mb-1.5">
+                    <img src="./image/labsoftware/2.png" alt="Pathology Offline SQL" class="w-10 h-10 rounded-xl object-cover border border-slate-200 flex-shrink-0" loading="lazy" />
+                    <div>
+                      <div class="flex items-center justify-between text-slate-800 font-bold text-xs group-hover:text-emerald-700 transition-colors">
+                        <span>Pathology Offline SQL</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-600 ml-1"></i>
+                      </div>
+                      <span class="text-[9px] text-emerald-700 font-mono font-semibold">Offline Database</span>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-slate-500 leading-tight">Standalone offline clinic SQL database and report generator.</p>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 10. Contact / Direct Consultation Section -->
+      <section id="contact" class="glow-walking-border-light rounded-3xl p-5 sm:p-8 text-center space-y-5 relative overflow-hidden max-w-3xl mx-auto shadow-sm">
+        <div class="space-y-2">
+          <div class="inline-flex items-center space-x-1.5 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full text-indigo-700 text-[10px] sm:text-xs font-bold">
+            <i class="fa-solid fa-handshake text-indigo-600"></i>
+            <span>Innovating Digital Landscapes Together</span>
+          </div>
+          <h2 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Ready to Build Scalable Software or Automate Workflows?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-medium">
+            Whether you need rapid full-stack application development, healthcare hospital management software (Infiplus HMS), or web automation tools, let’s talk.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-md mx-auto">
+          <a 
+            href="https://wa.me/919958399157?text=Hi%20Mudassir,%20let's%20work%20together%20on%20a%20project."
+            target="_blank"
+            class="w-full sm:flex-1 cta-primary-btn shimmer py-3 px-4 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-md cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>LETS WORK TOGETHER</span>
+          </a>
+
+          <a 
+            href="https://mudassir.infispark.in/assets/img/all-images/hero/cv.pdf"
+            target="_blank"
+            class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-200 hover:border-indigo-300 text-slate-700 font-bold py-3 px-5 rounded-2xl text-xs sm:text-sm flex items-center justify-center space-x-2 transition-all shadow-xs"
+          >
+            <i class="fa-solid fa-download text-indigo-600 text-xs"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+        <div class="pt-1 text-[11px] text-slate-500 flex items-center justify-center gap-4">
+          <span><i class="fa-solid fa-bolt text-indigo-600 mr-1"></i> High Development Speed</span>
+          <span>•</span>
+          <span><i class="fa-solid fa-location-dot text-emerald-600 mr-1"></i> BKC Mumbai</span>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-slate-500 text-xs py-6 space-y-2 border-t border-slate-200">
+        <p class="font-bold text-slate-700">Shaikh Mudassir • CTO @ Infispark</p>
+        <p class="text-[10px] text-slate-500">
+          <a href="https://infispark.in/" target="_blank" class="hover:text-indigo-600 underline">Infispark.in</a> • 
+          <a href="https://infiplus.in/" target="_blank" class="hover:text-emerald-700 underline">Infiplus.in</a> • 
+          <a href="https://mudassir.infispark.in/" target="_blank" class="hover:text-indigo-600 underline">mudassir.infispark.in</a>
+        </p>
+        <p>© 2026 Infispark. Built with <span class="text-red-500">❤️</span> by Shaikh Mudassir. All Rights Reserved.</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Universal Lightbox Modal for Image Previews -->
+  <div id="imageLightbox" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300 select-none" onclick="closeLightbox(event)">
+    <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button 
+        onclick="closeLightbox()" 
+        class="absolute -top-10 right-0 sm:top-2 sm:right-2 z-10 w-9 h-9 rounded-full bg-white/90 hover:bg-indigo-600 hover:text-white text-slate-800 flex items-center justify-center text-sm border border-slate-200 transition-colors shadow-lg"
+        aria-label="Close Preview"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-2xl max-h-[80vh] flex items-center justify-center p-2">
+        <img id="lightboxImg" src="" alt="Enlarged Preview" class="max-h-[75vh] max-w-full object-contain rounded-xl" />
+      </div>
+      <p id="lightboxCaption" class="text-slate-800 text-xs sm:text-sm font-bold text-center mt-3 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-md"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Mobile navigation toggle
+    function toggleMobileNav() {
+      const menu = document.getElementById("mobileNavMenu");
+      const icon = document.getElementById("mobileMenuIcon");
+      if (menu) {
+        menu.classList.toggle("hidden");
+        if (icon) {
+          icon.className = menu.classList.contains("hidden") ? "fa-solid fa-bars" : "fa-solid fa-xmark";
+        }
+      }
+    }
+
+    // Lightbox image modal functions
+    function openLightbox(src, caption) {
+      const modal = document.getElementById("imageLightbox");
+      const img = document.getElementById("lightboxImg");
+      const cap = document.getElementById("lightboxCaption");
+      if (modal && img) {
+        img.src = src;
+        cap.textContent = caption || "Preview";
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById("imageLightbox");
+      if (modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Close lightbox on Escape key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    });
+
+    // Toggle Expand/Collapse for Clients Grid with Exact Count
+    function toggleMoreClients() {
+      const extraCards = document.querySelectorAll('.extra-client-card');
+      const btnText = document.getElementById('toggleClientsText');
+      const btnIcon = document.getElementById('toggleClientsIcon');
+      const label = document.getElementById('remainingClientsLabel');
+      
+      const allCards = document.querySelectorAll('#clientsGrid > *');
+      const totalCount = allCards.length; // 22
+      const initialVisibleCount = 6;
+      const remainingCount = totalCount - initialVisibleCount; // 16
+      
+      let isCurrentlyExpanded = false;
+      if (extraCards.length > 0 && !extraCards[0].classList.contains('hidden')) {
+        isCurrentlyExpanded = true;
+      }
+      
+      if (isCurrentlyExpanded) {
+        // Collapse to initial 6
+        extraCards.forEach(card => card.classList.add('hidden'));
+        if (btnText) btnText.textContent = `Show More (+${remainingCount} More Clients)`;
+        if (btnIcon) btnIcon.className = "fa-solid fa-chevron-down text-xs ml-1";
+        if (label) label.textContent = `Showing ${initialVisibleCount} of ${totalCount} Live Deployments (${remainingCount} Remaining)`;
+        
+        // Smoothly scroll back to top of ecosystem section
+        const ecoSection = document.getElementById('ecosystem');
+        if (ecoSection) {
+          ecoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        // Expand all remaining clients
+        extraCards.forEach(card => card.classList.remove('hidden'));
+        if (btnText) btnText.textContent = `Show Less (Collapse ${remainingCount} Clients)`;
+        if (btnIcon) btnIcon.className = "fa-solid fa-chevron-up text-xs ml-1";
+        if (label) label.textContent = `Showing all ${totalCount} of ${totalCount} Live Deployments (0 Remaining)`;
+      }
+    }
+
+    // Universal Production Image Fallback Resolver
+    document.addEventListener('error', function (e) {
+      if (e.target && e.target.tagName === 'IMG') {
+        const img = e.target;
+        const currentSrc = img.getAttribute('src') || '';
+        const attempts = parseInt(img.dataset.retryAttempt || '0', 10);
+        
+        if (attempts === 0) {
+          img.dataset.retryAttempt = '1';
+          if (currentSrc.startsWith('./image/')) {
+            img.src = currentSrc.replace('./image/', 'image/');
+          } else if (currentSrc.startsWith('image/')) {
+            img.src = 'portfolio/' + currentSrc;
+          } else if (!currentSrc.includes('portfolio/')) {
+            img.src = './portfolio/' + currentSrc.replace(/^\.\//, '');
+          }
+        } else if (attempts === 1) {
+          img.dataset.retryAttempt = '2';
+          const filename = currentSrc.split('/').slice(-2).join('/');
+          img.src = '/' + filename;
+        } else if (attempts === 2) {
+          img.dataset.retryAttempt = '3';
+          const filename = currentSrc.split('/').slice(-2).join('/');
+          img.src = '/portfolio/' + filename;
+        }
+      }
+    }, true);
+  </script>
+</body>
+</html>

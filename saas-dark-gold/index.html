@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>SynapseAI | Autonomous Enterprise AI Agent Platform</title>
+  <meta name="description" content="Build, deploy, and scale autonomous AI agents that automate complex workflows, customer ops, and data intelligence with enterprise reliability." />
+  <meta name="keywords" content="SaaS, AI agents, enterprise automation, workflow automation, autonomous AI, LLM orchestration" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digitalthemestore.com" />
+  <meta property="og:site_name" content="Digital Theme Store" />
+  <meta property="og:title" content="SynapseAI | Autonomous Enterprise AI Agent Platform" />
+  <meta property="og:description" content="Build, deploy, and scale autonomous AI agents with enterprise reliability and sub-second latency." />
+  <meta property="og:image" content="./image/profile.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            gold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+              700: '#a16207',
+            },
+            obsidian: {
+              950: '#070709',
+              900: '#0d0e12',
+              850: '#12131a',
+              800: '#181a24',
+              700: '#232636',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #070709;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Ambient background grid */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(234, 179, 8, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(234, 179, 8, 0.04) 1px, transparent 1px);
+    }
+
+    /* Glassmorphism cards */
+    .glass-card {
+      background: linear-gradient(135deg, rgba(24, 26, 36, 0.75) 0%, rgba(13, 14, 18, 0.9) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(234, 179, 8, 0.22);
+    }
+
+    .glass-card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @media (min-width: 768px) {
+      .glass-card-hover:hover {
+        border-color: rgba(234, 179, 8, 0.55);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px -10px rgba(234, 179, 8, 0.25);
+      }
+    }
+
+    /* Gold Gradient Buttons */
+    .btn-gold-primary {
+      background: linear-gradient(180deg, #fde047 0%, #eab308 100%);
+      color: #070709;
+      box-shadow: 0 4px 18px rgba(234, 179, 8, 0.35);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-gold-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(234, 179, 8, 0.5);
+    }
+    .btn-gold-primary:active {
+      transform: scale(0.98);
+    }
+
+    /* Text Gradients */
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #ffffff 0%, #fef08a 40%, #eab308 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom range slider styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #181a24;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 9999px;
+      height: 8px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #eab308;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.8);
+      border: 2px solid #ffffff;
+    }
+
+    /* Terminal scrollbar */
+    #terminalBody::-webkit-scrollbar {
+      width: 4px;
+    }
+    #terminalBody::-webkit-scrollbar-thumb {
+      background: rgba(234, 179, 8, 0.3);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian-950 text-slate-100 min-h-screen bg-grid-pattern relative selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] h-[220px] sm:h-[350px] bg-gold-500/10 blur-[100px] sm:blur-[130px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- 1. Sticky Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-obsidian-950/85 border-b border-gold-500/20">
+    <div class="max-w-6xl mx-auto px-3.5 sm:px-6 h-13 sm:h-16 flex items-center justify-between py-2 sm:py-0">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2 group">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-gold-400 to-amber-600 p-0.5 shadow-md shadow-gold-500/30 group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-obsidian-950 rounded-[10px] flex items-center justify-center">
+            <i class="fa-solid fa-brain text-gold-400 text-xs sm:text-sm"></i>
+          </div>
+        </div>
+        <div class="flex flex-col text-left">
+          <span class="text-sm sm:text-base font-extrabold text-white tracking-tight leading-none group-hover:text-gold-400 transition-colors">
+            Synapse<span class="text-gold-400">AI</span>
+          </span>
+          <span class="text-[8px] sm:text-[9px] text-slate-400 font-mono tracking-wider uppercase">Enterprise v3.4</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold text-slate-300">
+        <a href="#features" class="hover:text-gold-400 transition-colors">Features</a>
+        <a href="#agents" class="hover:text-gold-400 transition-colors">AI Agents</a>
+        <a href="#integrations" class="hover:text-gold-400 transition-colors">Integrations</a>
+        <a href="#calculator" class="hover:text-gold-400 transition-colors">ROI Calculator</a>
+        <a href="#pricing" class="hover:text-gold-400 transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <button onclick="openAuthModal('signin')" class="text-xs font-bold text-slate-300 hover:text-white px-2.5 py-1.5 transition-colors">
+          Sign In
+        </button>
+        <a href="#pricing" class="btn-gold-primary text-xs font-extrabold px-3.5 py-2 rounded-xl flex items-center space-x-1.5">
+          <span>Start Free Trial</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" onclick="toggleMobileNav()" class="md:hidden p-1.5 text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle navigation menu">
+        <i id="menuIcon" class="fa-solid fa-bars text-base"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobileNavMenu" class="hidden md:hidden border-b border-gold-500/20 bg-obsidian-950/98 px-4 py-3.5 space-y-2.5">
+      <a href="#features" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Features</a>
+      <a href="#agents" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">AI Agents Sandbox</a>
+      <a href="#calculator" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">ROI Calculator</a>
+      <a href="#pricing" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Pricing</a>
+      <a href="#faq" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">FAQ</a>
+      <div class="pt-2 border-t border-slate-800 flex flex-col gap-2">
+        <button onclick="openAuthModal('signin')" class="w-full text-center text-xs font-bold text-slate-200 py-2 bg-obsidian-850 rounded-lg">Sign In</button>
+        <a href="#pricing" onclick="toggleMobileNav()" class="btn-gold-primary text-center text-xs font-extrabold py-2.5 rounded-lg">Start 14-Day Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section (Ultra-Compact on Mobile) -->
+  <section class="relative pt-3 pb-6 md:pt-14 md:pb-20 px-3 sm:px-6 max-w-5xl mx-auto text-center z-10">
+    <!-- Announcement Badge -->
+    <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold mb-2 sm:mb-3.5 hover:bg-gold-500/20 transition-all cursor-pointer">
+      <span class="flex h-1.5 w-1.5 sm:h-2 sm:w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-gold-500"></span>
+      </span>
+      <span>Autonomous Agent Engine v3.4 is Live</span>
+      <i class="fa-solid fa-chevron-right text-[8px] sm:text-[9px] ml-0.5"></i>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-2xl min-[375px]:text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-2 sm:mb-3.5 max-w-4xl mx-auto">
+      Automate Enterprise Workflows with <span class="text-gradient-gold">Autonomous AI Agents</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-slate-300 text-xs sm:text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-5">
+      Deploy goal-oriented AI agent swarms that execute multi-step workflows, query databases, and orchestrate tools with 99.98% deterministic accuracy.
+    </p>
+
+    <!-- CTAs -->
+    <div class="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2 sm:gap-3.5 max-w-md mx-auto mb-3 sm:mb-5">
+      <a href="#pricing" class="btn-gold-primary font-black text-xs sm:text-sm py-2.5 px-3 sm:py-3.5 sm:px-6 rounded-xl flex items-center justify-center space-x-1.5 shadow-md">
+        <i class="fa-solid fa-bolt text-[10px] sm:text-xs"></i>
+        <span>Start Free Trial</span>
+      </a>
+      <button onclick="openVideoModal()" class="bg-obsidian-850 hover:bg-obsidian-800 border border-gold-500/30 hover:border-gold-400 text-slate-200 font-bold text-xs sm:text-sm py-2.5 px-3 sm:py-3.5 sm:px-5 rounded-xl flex items-center justify-center space-x-1.5 transition-all">
+        <i class="fa-solid fa-play text-gold-400 text-[10px] sm:text-xs"></i>
+        <span>Watch Demo</span>
+      </button>
+    </div>
+
+    <!-- Quick Trust Badges -->
+    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 text-[9.5px] sm:text-[11px] text-slate-400 font-medium mb-3.5 sm:mb-7">
+      <div class="flex items-center space-x-1">
+        <i class="fa-solid fa-check text-emerald-400 text-[9px]"></i>
+        <span>No credit card</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <i class="fa-solid fa-shield-halved text-gold-400 text-[9px]"></i>
+        <span>SOC2 &amp; GDPR</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <i class="fa-solid fa-plug text-blue-400 text-[9px]"></i>
+        <span>200+ Integrations</span>
+      </div>
+    </div>
+
+    <!-- Interactive Hero App Mockup -->
+    <div class="w-full max-w-4xl mx-auto rounded-2xl md:rounded-3xl p-0.5 sm:p-1 bg-gradient-to-b from-gold-500/40 via-gold-500/10 to-transparent shadow-[0_0_35px_rgba(234,179,8,0.15)]">
+      <div class="bg-obsidian-900 border border-gold-500/20 rounded-[16px] sm:rounded-[22px] overflow-hidden">
+        <!-- Mockup Window Header -->
+        <div class="bg-obsidian-850 px-2.5 py-1.5 sm:px-4 sm:py-2.5 border-b border-gold-500/15 flex items-center justify-between">
+          <div class="flex items-center space-x-1.5">
+            <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span class="text-[9.5px] sm:text-xs text-slate-400 font-mono ml-1 hidden min-[360px]:inline">synapse-orchestrator-prod</span>
+          </div>
+          <div class="flex items-center space-x-1 text-[8.5px] sm:text-[11px] font-mono bg-obsidian-950 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-gold-500/30 text-gold-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>24/24 Nodes Active</span>
+          </div>
+        </div>
+
+        <!-- Mockup Body Image -->
+        <div class="relative w-full bg-obsidian-950 overflow-hidden group cursor-pointer" onclick="openVideoModal()">
+          <img src="./image/saas_hero.jpg" alt="SynapseAI Dashboard Overview" class="w-full h-auto max-h-[220px] sm:max-h-[360px] md:max-h-[460px] object-cover object-top opacity-95 group-hover:scale-[1.01] transition-all duration-300" />
+          
+          <!-- Floating Overlay Pill -->
+          <div class="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-3 sm:left-4 sm:right-auto bg-obsidian-950/95 backdrop-blur-md border border-gold-500/40 p-1.5 sm:p-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-left">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 flex-shrink-0 text-xs">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div>
+              <p class="text-[9px] sm:text-xs font-bold text-white leading-tight">Live Pipeline Throughput</p>
+              <p class="text-[8px] sm:text-[10px] text-emerald-400 font-mono font-bold leading-tight">+1,480 Automated • 24.8% CVR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Logo Cloud / Social Proof -->
+  <section class="py-6 sm:py-10 border-y border-gold-500/10 bg-obsidian-900/50">
+    <div class="max-w-6xl mx-auto px-3.5 text-center">
+      <p class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 sm:mb-6">
+        Powering Autonomous Workflows For 12,000+ Fast-Growing Companies
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all text-xs sm:text-base font-bold text-slate-300">
+        <span class="hover:text-gold-400"><i class="fa-brands fa-aws mr-1"></i>AWS</span>
+        <span class="hover:text-gold-400"><i class="fa-brands fa-github mr-1"></i>GITHUB</span>
+        <span class="hover:text-gold-400"><i class="fa-brands fa-slack mr-1"></i>SLACK</span>
+        <span class="hover:text-gold-400"><i class="fa-brands fa-stripe mr-1"></i>STRIPE</span>
+        <span class="hover:text-gold-400"><i class="fa-brands fa-hubspot mr-1"></i>HUBSPOT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Live AI Agent Playground (Responsive & Clean) -->
+  <section id="agents" class="py-12 md:py-20 px-3.5 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-2 mb-8 sm:mb-10">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-terminal text-[9px]"></i>
+        <span>Live Interactive Sandbox</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+        Test Pre-Built AI Agent Swarms
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto">
+        Select a specialized AI workflow and trigger simulated execution to see instantaneous multi-model reasoning in action.
+      </p>
+    </div>
+
+    <!-- Agent Tabs & Playground Container -->
+    <div class="glass-card rounded-2xl md:rounded-3xl p-3 sm:p-5 border border-gold-500/30 shadow-2xl">
+      <!-- Agent Tab Selector -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-4 p-1 bg-obsidian-950 rounded-xl border border-gold-500/20">
+        <button onclick="switchAgentTab('lead_scoring')" id="tab-lead_scoring" class="agent-tab active py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center bg-gold-500 text-obsidian-950 shadow-md truncate">
+          <i class="fa-solid fa-filter-circle-dollar mr-1"></i> Lead Scoring
+        </button>
+        <button onclick="switchAgentTab('support_triage')" id="tab-support_triage" class="agent-tab py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center text-slate-400 hover:text-white truncate">
+          <i class="fa-solid fa-headset mr-1"></i> Support Triage
+        </button>
+        <button onclick="switchAgentTab('data_extract')" id="tab-data_extract" class="agent-tab py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center text-slate-400 hover:text-white truncate">
+          <i class="fa-solid fa-database mr-1"></i> Doc Extract
+        </button>
+        <button onclick="switchAgentTab('sql_analyst')" id="tab-sql_analyst" class="agent-tab py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center text-slate-400 hover:text-white truncate">
+          <i class="fa-solid fa-chart-pie mr-1"></i> SQL Analytics
+        </button>
+      </div>
+
+      <!-- Live Terminal Window -->
+      <div class="bg-obsidian-950 rounded-xl border border-slate-800 p-3 sm:p-4 font-mono text-xs text-left">
+        <!-- Terminal Header with Responsive Layout -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-slate-800 mb-2.5">
+          <div class="flex items-center space-x-2">
+            <span class="text-gold-400 font-bold text-xs truncate max-w-[200px] sm:max-w-none" id="agentTitle">Agent: LeadScorer-v3</span>
+            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[9px] px-1.5 py-0.5 rounded font-bold">READY</span>
+          </div>
+          <button onclick="runAgentDemo()" class="btn-gold-primary font-sans font-bold text-xs py-2 px-3 sm:py-1.5 sm:px-3 rounded-lg flex items-center justify-center space-x-1.5 w-full sm:w-auto shadow-md">
+            <i class="fa-solid fa-play text-[9px]"></i>
+            <span>Execute Workflow</span>
+          </button>
+        </div>
+
+        <!-- Terminal Output -->
+        <div id="terminalBody" class="space-y-1.5 text-slate-300 min-h-[140px] max-h-[220px] overflow-y-auto leading-relaxed text-[11px] sm:text-xs break-words">
+          <p class="text-slate-500">// Press "Execute Workflow" to watch this autonomous agent run live.</p>
+          <p class="text-gold-400">> SynapseAgent.listen(event="inbound_enterprise_form")</p>
+          <p class="text-slate-400">Payload: { company: "Acme Health", employees: 2500, intent: "Enterprise Telehealth" }</p>
+        </div>
+
+        <!-- Execution Stats Bar -->
+        <div class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-between gap-1.5 text-[10px] sm:text-[11px] text-slate-400">
+          <div>Latency: <span class="text-emerald-400 font-bold" id="execLatency">38ms</span></div>
+          <div>Tokens: <span class="text-gold-400 font-bold" id="execTokens">1,420</span></div>
+          <div>Cost: <span class="text-slate-200 font-bold">$0.0004</span></div>
+          <div>SLA: <span class="text-emerald-400 font-bold">99.99%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Bento Grid Core Features -->
+  <section id="features" class="py-12 md:py-20 px-3.5 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-2 mb-10">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-microchip text-[9px]"></i>
+        <span>Architected For Scale</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+        Engineered for High-Throughput Teams
+      </h2>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Card 1 -->
+      <div class="md:col-span-2 glass-card glass-card-hover rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between">
+        <div class="space-y-2 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-base">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h3 class="text-base sm:text-xl font-extrabold text-white">Multi-Agent Swarm Orchestration</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Coordinate specialized agents across distinct domains. Supervisor agents delegate subtasks and synthesize outputs with zero human loop.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-gold-500/20 bg-obsidian-950 aspect-[16/8]">
+          <img src="./image/architecture.jpg" alt="Architecture Banner" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card glass-card-hover rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between">
+        <div class="space-y-2 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-base">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-extrabold text-white">Enterprise Guardrails &amp; PII</h3>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Real-time prompt injection filtering, automatic customer PII redaction, and token policies.
+          </p>
+        </div>
+        <div class="p-3 bg-obsidian-950 rounded-xl border border-slate-800 font-mono text-[10px] sm:text-[11px] space-y-1">
+          <div class="flex justify-between text-emerald-400 font-bold"><span>PII Redaction</span><span>100% Passed</span></div>
+          <div class="flex justify-between text-gold-400"><span>Deterministic Eval</span><span>0.00% Drift</span></div>
+          <div class="flex justify-between text-slate-400"><span>Audit Log</span><span>Encrypted</span></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card glass-card-hover rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between">
+        <div class="space-y-2 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-base">
+            <i class="fa-solid fa-memory"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-extrabold text-white">Hybrid Vector Memory &amp; RAG</h3>
+          <p class="text-slate-300 text-xs leading-relaxed">
+            Instantaneous long-term memory across documents, chats, and schemas.
+          </p>
+        </div>
+        <div class="rounded-xl bg-obsidian-950 border border-slate-800 p-2.5">
+          <div class="flex items-center space-x-1.5 text-xs font-bold text-slate-200 mb-1.5">
+            <i class="fa-solid fa-bolt text-gold-400 text-xs"></i>
+            <span>Vector Retrieval: 12ms</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-gold-500 to-emerald-400 h-full w-[94%]"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="md:col-span-2 glass-card glass-card-hover rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between">
+        <div class="space-y-2 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-base">
+            <i class="fa-solid fa-plug-circle-check"></i>
+          </div>
+          <h3 class="text-base sm:text-xl font-extrabold text-white">200+ One-Click Production Connectors</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Direct bi-directional synchronization with PostgreSQL, Snowflake, Salesforce, Slack, Gmail, HubSpot, and custom REST/GraphQL APIs.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-1.5 text-center text-[10px] sm:text-xs font-bold">
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-brands fa-slack text-gold-400 block mb-0.5 text-sm"></i>Slack</div>
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-brands fa-github text-gold-400 block mb-0.5 text-sm"></i>GitHub</div>
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-brands fa-google text-gold-400 block mb-0.5 text-sm"></i>Google</div>
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-solid fa-database text-gold-400 block mb-0.5 text-sm"></i>Postgres</div>
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-brands fa-stripe text-gold-400 block mb-0.5 text-sm"></i>Stripe</div>
+          <div class="bg-obsidian-950 p-2 rounded-lg border border-slate-800 text-slate-300"><i class="fa-brands fa-hubspot text-gold-400 block mb-0.5 text-sm"></i>HubSpot</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Interactive ROI Calculator -->
+  <section id="calculator" class="py-12 md:py-20 px-3.5 sm:px-6 max-w-3xl mx-auto">
+    <div class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-gold-500/30 text-center space-y-6 shadow-[0_0_40px_rgba(234,179,8,0.1)]">
+      <div class="space-y-1.5">
+        <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-calculator text-[9px]"></i>
+          <span>Value Estimator</span>
+        </div>
+        <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight">Calculate Your Monthly ROI</h2>
+      </div>
+
+      <!-- Sliders Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+        <!-- Slider 1 -->
+        <div class="space-y-1.5 bg-obsidian-950 p-3 sm:p-4 rounded-xl border border-slate-800">
+          <div class="flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-300">Tasks per Month</span>
+            <span class="text-gold-400 font-mono text-xs sm:text-sm" id="calcTasksVal">5,000</span>
+          </div>
+          <input type="range" id="calcTasksSlider" min="1000" max="50000" step="1000" value="5000" oninput="updateRoiCalc()" class="w-full" />
+        </div>
+
+        <!-- Slider 2 -->
+        <div class="space-y-1.5 bg-obsidian-950 p-3 sm:p-4 rounded-xl border border-slate-800">
+          <div class="flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-300">Team Size</span>
+            <span class="text-gold-400 font-mono text-xs sm:text-sm" id="calcTeamVal">15</span>
+          </div>
+          <input type="range" id="calcTeamSlider" min="2" max="100" step="1" value="15" oninput="updateRoiCalc()" class="w-full" />
+        </div>
+      </div>
+
+      <!-- Results Display -->
+      <div class="grid grid-cols-3 gap-2 bg-obsidian-900 border border-gold-500/30 p-3 sm:p-4 rounded-xl text-center">
+        <div>
+          <p class="text-slate-400 text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">Savings / Mo</p>
+          <p class="text-base sm:text-2xl font-black text-emerald-400 font-mono mt-0.5" id="calcMonthlySavings">$14,500</p>
+        </div>
+        <div>
+          <p class="text-slate-400 text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">Hours Saved</p>
+          <p class="text-base sm:text-2xl font-black text-gold-400 font-mono mt-0.5" id="calcHoursSaved">380 hrs</p>
+        </div>
+        <div>
+          <p class="text-slate-400 text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">ROI</p>
+          <p class="text-base sm:text-2xl font-black text-white font-mono mt-0.5" id="calcRoiPercent">840%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Pricing Tiers Section -->
+  <section id="pricing" class="py-12 md:py-20 px-3.5 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-2 mb-8">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-tags text-[9px]"></i>
+        <span>Predictable Pricing</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+        Scale From Prototype to Enterprise
+      </h2>
+
+      <!-- Billing Toggle -->
+      <div class="flex items-center justify-center space-x-2.5 pt-2">
+        <span class="text-xs font-bold text-slate-300" id="monthlyLabel">Monthly</span>
+        <button onclick="togglePricingBilling()" class="w-11 h-5.5 bg-obsidian-850 rounded-full border border-gold-500/40 p-0.5 relative transition-colors focus:outline-none" id="billingToggleBtn">
+          <div class="w-4 h-4 rounded-full bg-gold-400 transition-transform translate-x-0" id="toggleCircle"></div>
+        </button>
+        <span class="text-xs font-bold text-slate-400 flex items-center gap-1" id="annualLabel">
+          <span>Annual</span>
+          <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[8.5px] px-1.5 py-0.2 rounded font-black">SAVE 20%</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+      <!-- Tier 1 -->
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between border-slate-800">
+        <div class="space-y-3">
+          <div>
+            <h3 class="text-base font-extrabold text-white">Starter</h3>
+            <p class="text-[11px] text-slate-400">For indie hackers and early teams.</p>
+          </div>
+          <div class="flex items-baseline space-x-1 font-mono">
+            <span class="text-2xl sm:text-3xl font-black text-white" id="priceStarter">$29</span>
+            <span class="text-xs text-slate-400">/ mo</span>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-300 pt-3 border-t border-slate-800">
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>5 AI Agents</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>50,000 Executions/mo</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Standard Webhooks</span></li>
+          </ul>
+        </div>
+        <button onclick="openAuthModal('starter')" class="mt-6 w-full bg-obsidian-850 hover:bg-obsidian-800 border border-slate-700 hover:border-gold-400 text-slate-200 font-bold text-xs py-2.5 rounded-xl transition-all">
+          Start Free Trial
+        </button>
+      </div>
+
+      <!-- Tier 2 (Highlighted) -->
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between border-2 border-gold-400 relative shadow-[0_0_30px_rgba(234,179,8,0.2)]">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-400 text-obsidian-950 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow">
+          Most Popular
+        </div>
+        <div class="space-y-3">
+          <div>
+            <h3 class="text-base font-extrabold text-white">Pro Scale</h3>
+            <p class="text-[11px] text-slate-400">For teams requiring multi-agent swarms.</p>
+          </div>
+          <div class="flex items-baseline space-x-1 font-mono">
+            <span class="text-2xl sm:text-3xl font-black text-gold-400" id="pricePro">$79</span>
+            <span class="text-xs text-slate-400">/ mo</span>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-200 pt-3 border-t border-gold-500/20">
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i><span class="font-bold">Unlimited Agents</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i><span>500,000 Executions/mo</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i><span>Swarm Orchestration</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i><span>200+ Integrations</span></li>
+          </ul>
+        </div>
+        <button onclick="openAuthModal('pro')" class="mt-6 w-full btn-gold-primary font-black text-xs py-3 rounded-xl shadow-md">
+          Get Started with Pro
+        </button>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between border-slate-800">
+        <div class="space-y-3">
+          <div>
+            <h3 class="text-base font-extrabold text-white">Enterprise</h3>
+            <p class="text-[11px] text-slate-400">Dedicated cluster &amp; custom VPC.</p>
+          </div>
+          <div class="flex items-baseline space-x-1 font-mono">
+            <span class="text-2xl sm:text-3xl font-black text-white" id="priceEnterprise">$199</span>
+            <span class="text-xs text-slate-400">/ mo</span>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-300 pt-3 border-t border-slate-800">
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Everything in Pro</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Dedicated VPC &amp; On-Prem</span></li>
+            <li class="flex items-center space-x-1.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Custom Fine-Tuning</span></li>
+          </ul>
+        </div>
+        <button onclick="openAuthModal('enterprise')" class="mt-6 w-full bg-obsidian-850 hover:bg-obsidian-800 border border-slate-700 hover:border-gold-400 text-slate-200 font-bold text-xs py-2.5 rounded-xl transition-all">
+          Contact Enterprise
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ Accordion -->
+  <section id="faq" class="py-12 px-3.5 sm:px-6 max-w-2xl mx-auto">
+    <div class="text-center space-y-2 mb-8">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-circle-question text-[9px]"></i>
+        <span>Got Questions?</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-2.5">
+      <!-- FAQ 1 -->
+      <div class="glass-card rounded-xl p-3.5 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(1)">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs sm:text-sm font-bold text-white">How does SynapseAI prevent hallucinations?</h3>
+          <i id="faq-icon-1" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform"></i>
+        </div>
+        <div id="faq-answer-1" class="hidden text-xs text-slate-300 pt-2.5 leading-relaxed border-t border-slate-800 mt-2.5">
+          SynapseAI utilizes deterministic schema-enforced tool execution, multi-agent validation passes, and grounded vector retrieval.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="glass-card rounded-xl p-3.5 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(2)">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs sm:text-sm font-bold text-white">Can we host SynapseAI inside our private VPC?</h3>
+          <i id="faq-icon-2" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform"></i>
+        </div>
+        <div id="faq-answer-2" class="hidden text-xs text-slate-300 pt-2.5 leading-relaxed border-t border-slate-800 mt-2.5">
+          Yes. Enterprise Cluster plans support dedicated deployments in your AWS, GCP, or Azure VPC using Kubernetes Helm charts.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="glass-card rounded-xl p-3.5 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(3)">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs sm:text-sm font-bold text-white">What models and LLM providers are supported?</h3>
+          <i id="faq-icon-3" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform"></i>
+        </div>
+        <div id="faq-answer-3" class="hidden text-xs text-slate-300 pt-2.5 leading-relaxed border-t border-slate-800 mt-2.5">
+          We support OpenAI (GPT-4o), Anthropic (Claude 3.5), Google Gemini 1.5, Meta Llama 3, and self-hosted open models.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Bottom High-Converting CTA Banner -->
+  <section class="py-12 px-3.5 sm:px-6 max-w-4xl mx-auto">
+    <div class="relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 text-center overflow-hidden border-2 border-gold-500/40 bg-gradient-to-b from-obsidian-900 via-obsidian-950 to-obsidian-900 shadow-[0_0_40px_rgba(234,179,8,0.2)]">
+      <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2 leading-tight">
+        Build Your Autonomous AI Workforce
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm max-w-md mx-auto mb-6">
+        Join over 12,000 engineers automating mission-critical business processes.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-xs sm:max-w-md mx-auto">
+        <a href="#pricing" class="w-full sm:w-auto btn-gold-primary font-black text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg flex items-center justify-center space-x-1.5">
+          <span>Start Free Trial</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Footer -->
+  <footer class="border-t border-gold-500/15 py-8 bg-obsidian-950 text-slate-400 text-[11px]">
+    <div class="max-w-5xl mx-auto px-3.5 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex items-center space-x-2">
+        <div class="w-6 h-6 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400">
+          <i class="fa-solid fa-brain text-[10px]"></i>
+        </div>
+        <span class="font-extrabold text-white">Synapse<span class="text-gold-400">AI</span></span>
+        <span>•</span>
+        <span>By <a href="https://digitalthemestore.com" class="text-gold-400 hover:underline">Digital Theme Store</a></span>
+      </div>
+      <p class="text-slate-500">
+        &copy; 2026 SynapseAI. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Video Demo Modal -->
+  <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3">
+    <div class="relative w-full max-w-3xl bg-obsidian-900 border border-gold-500/40 rounded-2xl overflow-hidden shadow-2xl">
+      <div class="p-3 bg-obsidian-850 flex items-center justify-between border-b border-slate-800">
+        <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-play text-gold-400"></i>
+          <span>SynapseAI Architecture &amp; Demo</span>
+        </h3>
+        <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+      <div class="relative aspect-video w-full bg-black">
+        <iframe id="videoIframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign In / Trial Modal -->
+  <div id="authModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-3">
+    <div class="relative w-full max-w-sm glass-card rounded-2xl p-5 border border-gold-500/40 shadow-2xl">
+      <button onclick="closeAuthModal()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="text-center space-y-1.5 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto text-base mb-1">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <h3 class="text-base font-extrabold text-white" id="authModalTitle">Start 14-Day Free Trial</h3>
+        <p class="text-[11px] text-slate-400">Instant access to SynapseAI cluster.</p>
+      </div>
+
+      <form onsubmit="handleAuthSubmit(event)" class="space-y-3 text-left">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-300 mb-1">Work Email *</label>
+          <input type="email" required placeholder="alex@company.com" class="w-full bg-obsidian-950 border border-slate-700 focus:border-gold-400 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-300 mb-1">Company Name</label>
+          <input type="text" placeholder="Acme Inc." class="w-full bg-obsidian-950 border border-slate-700 focus:border-gold-400 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+        </div>
+        <button type="submit" class="w-full btn-gold-primary font-black text-xs py-2.5 rounded-xl shadow mt-1">
+          Launch Free Workspace
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    // 1. Mobile Menu Toggle
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileNavMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // 2. AI Agent Sandbox Tabs & Real-time Runner
+    const agentData = {
+      lead_scoring: {
+        title: "Agent: LeadScorer-v3",
+        initText: [
+          "> SynapseAgent.listen(event=\"inbound_enterprise_form\")",
+          "Payload: { company: \"Acme Health\", employees: 2500, intent: \"Enterprise Telehealth\" }"
+        ],
+        execSequence: [
+          "⚡ [Step 1] Querying Clearbit & LinkedIn APIs for ARR...",
+          "✓ Verified ARR: $180M+ | Healthcare Enterprise",
+          "⚡ [Step 2] Executing LLM ICP Scoring Model...",
+          "✓ Score: 98/100 (HIGH INTENT ENTERPRISE LEAD)",
+          "⚡ [Step 3] Triggering Slack Notification (#vip-leads)...",
+          "✓ Calendar Link dispatched to VP of Sales.",
+          "🎉 Workflow complete in 38ms (0 human loop)."
+        ],
+        latency: "38ms",
+        tokens: "1,420"
+      },
+      support_triage: {
+        title: "Agent: SupportTriage-v2",
+        initText: [
+          "> SynapseAgent.listen(event=\"zendesk_ticket\")",
+          "Ticket #84920: \"OAuth2 redirect URI error on custom domain.\""
+        ],
+        execSequence: [
+          "⚡ [Step 1] Parsing error logs from CloudWatch...",
+          "✓ Root Cause: DNS CNAME missing SSL handshake.",
+          "⚡ [Step 2] Querying internal docs (Vector RAG)...",
+          "⚡ [Step 3] Composing personalized patch guide...",
+          "✓ Automated reply sent to customer.",
+          "🎉 Ticket updated to RESOLVED (CSAT: 99%)."
+        ],
+        latency: "44ms",
+        tokens: "2,180"
+      },
+      data_extract: {
+        title: "Agent: DocExtract-v4",
+        initText: [
+          "> SynapseAgent.listen(event=\"pdf_invoice\")",
+          "File: contract_agreement_2026.pdf (14 Pages)"
+        ],
+        execSequence: [
+          "⚡ [Step 1] OCR Tokenization (Gemini 1.5 Pro)...",
+          "✓ Extracted 42 line items & payment milestones.",
+          "⚡ [Step 2] Validating against ERP schema...",
+          "✓ Line item sum ($452,000.00) matches PO #9021.",
+          "⚡ [Step 3] Writing record to PostgreSQL DB...",
+          "🎉 14-page contract ingested with 100% precision."
+        ],
+        latency: "52ms",
+        tokens: "3,890"
+      },
+      sql_analyst: {
+        title: "Agent: SQLAnalyst-v3",
+        initText: [
+          "> SynapseAgent.prompt(\"Top 5 churn risk customer cohorts\")",
+        ],
+        execSequence: [
+          "⚡ [Step 1] Inspecting Snowflake metadata & schemas...",
+          "⚡ [Step 2] Generating CTE query...",
+          "SELECT segment, churn_prob FROM analytics.customers WHERE risk > 0.75 LIMIT 5;",
+          "⚡ [Step 3] Compiling interactive data chart...",
+          "🎉 Real-time cohort insights generated in 29ms."
+        ],
+        latency: "29ms",
+        tokens: "980"
+      }
+    };
+
+    let currentAgentKey = "lead_scoring";
+
+    function switchAgentTab(key) {
+      currentAgentKey = key;
+      document.querySelectorAll('.agent-tab').forEach(b => {
+        b.className = "agent-tab py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center text-slate-400 hover:text-white truncate";
+      });
+      document.getElementById('tab-' + key).className = "agent-tab active py-2 px-2 rounded-lg text-[11px] sm:text-xs font-extrabold transition-all text-center bg-gold-500 text-obsidian-950 shadow-md truncate";
+
+      const data = agentData[key];
+      document.getElementById('agentTitle').innerText = data.title;
+      document.getElementById('execLatency').innerText = data.latency;
+      document.getElementById('execTokens').innerText = data.tokens;
+
+      const tb = document.getElementById('terminalBody');
+      tb.innerHTML = '<p class="text-slate-500">// Press "Execute Workflow" to watch this autonomous agent run live.</p>' +
+        data.initText.map(t => `<p class="text-gold-400">${t}</p>`).join('');
+    }
+
+    function runAgentDemo() {
+      const data = agentData[currentAgentKey];
+      const tb = document.getElementById('terminalBody');
+      tb.innerHTML = data.initText.map(t => `<p class="text-gold-400">${t}</p>`).join('');
+
+      data.execSequence.forEach((line, index) => {
+        setTimeout(() => {
+          const p = document.createElement('p');
+          if (line.startsWith('⚡')) p.className = "text-amber-300";
+          else if (line.startsWith('✓')) p.className = "text-emerald-400 font-bold";
+          else if (line.startsWith('🎉')) p.className = "text-gold-400 font-extrabold";
+          else p.className = "text-slate-200";
+          p.innerText = line;
+          tb.appendChild(p);
+          tb.scrollTop = tb.scrollHeight;
+        }, (index + 1) * 300);
+      });
+    }
+
+    // 3. ROI Calculator
+    function updateRoiCalc() {
+      const tasks = parseInt(document.getElementById('calcTasksSlider').value);
+      const team = parseInt(document.getElementById('calcTeamSlider').value);
+
+      document.getElementById('calcTasksVal').innerText = tasks.toLocaleString();
+      document.getElementById('calcTeamVal').innerText = team.toString();
+
+      const savings = Math.round((tasks * 2.4) + (team * 160));
+      const hours = Math.round((tasks * 0.07) + (team * 4));
+      const roi = Math.round((savings / 79) * 10);
+
+      document.getElementById('calcMonthlySavings').innerText = '$' + savings.toLocaleString();
+      document.getElementById('calcHoursSaved').innerText = hours.toLocaleString() + ' hrs';
+      document.getElementById('calcRoiPercent').innerText = roi.toLocaleString() + '%';
+    }
+
+    // 4. Pricing Annual / Monthly Toggle
+    let isAnnual = false;
+    function togglePricingBilling() {
+      isAnnual = !isAnnual;
+      const circle = document.getElementById('toggleCircle');
+      const monthlyLabel = document.getElementById('monthlyLabel');
+      const annualLabel = document.getElementById('annualLabel');
+
+      if (isAnnual) {
+        circle.className = "w-4 h-4 rounded-full bg-gold-400 transition-transform translate-x-5.5";
+        monthlyLabel.className = "text-xs font-bold text-slate-400";
+        annualLabel.className = "text-xs font-bold text-gold-400 flex items-center gap-1";
+        
+        document.getElementById('priceStarter').innerText = '$23';
+        document.getElementById('pricePro').innerText = '$63';
+        document.getElementById('priceEnterprise').innerText = '$159';
+      } else {
+        circle.className = "w-4 h-4 rounded-full bg-gold-400 transition-transform translate-x-0";
+        monthlyLabel.className = "text-xs font-bold text-white";
+        annualLabel.className = "text-xs font-bold text-slate-400 flex items-center gap-1";
+
+        document.getElementById('priceStarter').innerText = '$29';
+        document.getElementById('pricePro').innerText = '$79';
+        document.getElementById('priceEnterprise').innerText = '$199';
+      }
+    }
+
+    // 5. FAQ Accordion
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-answer-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // 6. Video Modal
+    function openVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoIframe');
+      iframe.src = "https://www.youtube-nocookie.com/embed/n1qrvNAMOp4?autoplay=1";
+      modal.classList.remove('hidden');
+    }
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoIframe');
+      iframe.src = "";
+      modal.classList.add('hidden');
+    }
+
+    // 7. Auth Modal
+    function openAuthModal(tier) {
+      const modal = document.getElementById('authModal');
+      const title = document.getElementById('authModalTitle');
+      if (tier === 'signin') title.innerText = "Sign In to SynapseAI";
+      else if (tier === 'enterprise') title.innerText = "Schedule Enterprise Demo";
+      else title.innerText = "Start 14-Day Free Trial";
+      modal.classList.remove('hidden');
+    }
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.add('hidden');
+    }
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      alert("🎉 Workspace provisioning initialized! Check your inbox for instant login access.");
+      closeAuthModal();
+    }
+  </script>
+</body>
+</html>

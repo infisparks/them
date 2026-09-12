@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mastery Academy | High-Income Tech &amp; AI Masterclasses</title>
+  <meta name="description" content="Learn Next.js, Supabase, AI Automation, Reverse Engineering, and High-Converting Funnels from industry architects. Step-by-step practical masterclasses with source code &amp; certification." />
+  <meta name="keywords" content="Next.js course, Supabase masterclass, AI Automation course, Smali Reverse Engineering, Sales Funnel marketing, full stack web development" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digitalthemestore.com" />
+  <meta property="og:site_name" content="Mastery Academy" />
+  <meta property="og:title" content="Mastery Academy | High-Income Tech &amp; AI Masterclasses" />
+  <meta property="og:description" content="Master Next.js, AI Automation, Smali Bytecode &amp; High-Ticket Funnels. Step-by-step masterclasses with project source code." />
+  <meta property="og:image" content="./image/profile.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mastery Academy | High-Income Tech &amp; AI Masterclasses" />
+  <meta name="twitter:description" content="Step-by-step practical masterclasses designed by industry architects to help you build, launch, and monetize in 2026." />
+  <meta name="twitter:image" content="./image/profile.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background-color: #060c08;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Cyber Emerald Glow Borders */
+    .glow-walking-border {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .glow-walking-border::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(
+        transparent 0deg,
+        transparent 40deg,
+        rgba(16, 185, 129, 0.25) 60deg,
+        #10b981 85deg,
+        #6ee7b7 105deg,
+        #059669 120deg,
+        rgba(16, 185, 129, 0.3) 140deg,
+        transparent 165deg,
+        transparent 360deg
+      );
+      animation: walkingBeamSpin 4.5s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-walking-border::after {
+      content: '';
+      position: absolute;
+      inset: 1.5px;
+      background: linear-gradient(180deg, #0d1a12 0%, #08110b 100%);
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-walking-border > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes walkingBeamSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-emerald-card {
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: linear-gradient(180deg, #0d1d13 0%, #07100b 100%);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(16, 185, 129, 0.12);
+    }
+
+    /* Emerald gradient CTA button */
+    .cta-emerald-btn {
+      background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    .cta-emerald-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(16, 185, 129, 0.55);
+    }
+    .cta-emerald-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shimmer-anim 3.5s infinite;
+    }
+
+    @keyframes shimmer-anim {
+      0% { transform: translate(-100%, -100%) rotate(30deg); }
+      100% { transform: translate(100%, 100%) rotate(30deg); }
+    }
+
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060c08;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #14281c;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+
+    /* Continuous Horizontal Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marquee 18s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .animate-toast-in {
+      animation: toastIn 0.3s ease-out forwards;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="w-full min-h-full bg-[#060c08] text-slate-100 font-sans selection:bg-emerald-500 selection:text-slate-950">
+
+  <div class="w-full pb-32 text-slate-100 flex flex-col items-center justify-start min-h-screen antialiased">
+
+    <!-- 1. Top Urgency Ticker Bar -->
+    <div class="w-full bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 text-slate-950 text-[11px] sm:text-xs md:text-sm font-black py-1.5 shadow-md z-40 overflow-hidden relative flex items-center select-none">
+      <div class="animate-marquee flex items-center space-x-6">
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-slate-950 animate-ping"></span>
+          <span>⚡ BATCH 2026 ENROLLMENT OPEN: Extra 70% OFF + Lifetime Access + Source Code Included!</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-slate-950"></span>
+          <span>🎓 Verified Certification &amp; 1-on-1 WhatsApp Mentorship Included</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-slate-950 animate-ping"></span>
+          <span>⚡ BATCH 2026 ENROLLMENT OPEN: Extra 70% OFF + Lifetime Access + Source Code Included!</span>
+        </span>
+        <span class="flex items-center space-x-1.5 flex-shrink-0">
+          <span class="inline-block w-2 h-2 rounded-full bg-slate-950"></span>
+          <span>🎓 Verified Certification &amp; 1-on-1 WhatsApp Mentorship Included</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 2. Header & Navigation Bar -->
+    <header class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 pt-2.5 pb-2 mx-auto sticky top-0 bg-[#060c08]/95 backdrop-blur-md z-30 border-b border-emerald-950/80 shadow-xs">
+      <div class="flex items-center justify-between gap-1.5 sm:gap-2">
+        
+        <!-- Brand / Academy -->
+        <a href="#hero" class="flex items-center space-x-2 group min-w-0 flex-shrink">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-400 to-emerald-300 p-0.5 shadow-md flex-shrink-0 overflow-hidden">
+            <img 
+              src="./image/profile.png" 
+              onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='profile.png';}else if(this.dataset.tried==1){this.dataset.tried=2;this.src='./image/profile.png';}"
+              alt="Mastery Academy Mentor" 
+              class="w-full h-full object-cover rounded-full bg-zinc-900" 
+            />
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1 flex-nowrap">
+              <span class="text-xs sm:text-sm font-black text-white leading-tight whitespace-nowrap">
+                Mastery Academy
+              </span>
+              <span class="text-emerald-400 font-mono text-[8.5px] sm:text-[9.5px] font-bold bg-emerald-500/10 px-1 py-0.2 rounded border border-emerald-500/30 whitespace-nowrap flex-shrink-0">
+                PRO
+              </span>
+            </div>
+            <p class="text-[9px] sm:text-[10px] text-slate-400 font-medium leading-none truncate mt-0.5">By CTO Shaikh Mudassir</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-5 text-xs font-bold text-slate-300 flex-shrink-0">
+          <a href="#courses" class="hover:text-emerald-400 transition-colors">Courses</a>
+          <a href="#curriculum" class="hover:text-emerald-400 transition-colors">Curriculum</a>
+          <a href="#certificate" class="hover:text-emerald-400 transition-colors">Certificate</a>
+          <a href="#reviews" class="hover:text-emerald-400 transition-colors">Reviews</a>
+          <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+        </nav>
+
+        <!-- CTA Buttons -->
+        <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
+          <button onclick="openCartModal()" class="relative bg-emerald-950/40 border border-emerald-800/60 hover:border-emerald-400 p-1.5 sm:px-3 sm:py-2 rounded-xl text-white flex items-center space-x-1 transition-colors cursor-pointer flex-shrink-0">
+            <i class="fa-solid fa-graduation-cap text-emerald-400 text-xs sm:text-sm"></i>
+            <span class="text-xs font-black hidden sm:inline">My Courses</span>
+            <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-emerald-500 text-slate-950 text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
+          </button>
+          
+          <button onclick="openBookingModal()" class="cta-emerald-btn shimmer py-1.5 px-2.5 sm:px-3.5 rounded-xl text-slate-950 font-black text-[10.5px] sm:text-xs uppercase tracking-tight shadow flex items-center space-x-1 flex-shrink-0 whitespace-nowrap cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+            <span>Consult</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-2.5 sm:px-4 space-y-3 sm:space-y-6 mx-auto mt-1">
+      
+      <!-- 1. Sleek, Uncluttered Hero Header -->
+      <section id="hero" class="hero-emerald-card glow-walking-border rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 text-center relative overflow-hidden flex flex-col items-center justify-center shadow-xl">
+        
+        <!-- Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-1.5 sm:space-y-2 max-w-2xl mx-auto w-full">
+          
+          <!-- Live Status Badge -->
+          <div class="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500/40 px-2.5 py-0.5 rounded-full text-emerald-400 text-[9px] sm:text-[11px] font-black uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Batch 2026 Architect Masterclasses</span>
+          </div>
+
+          <!-- Clean Punchy Headline -->
+          <h2 class="text-sm sm:text-2xl md:text-3xl font-black text-white leading-tight tracking-tight">
+            High-Income Tech Skills &amp; <span class="bg-gradient-to-r from-emerald-400 via-teal-200 to-emerald-500 bg-clip-text text-transparent">Production Code</span>
+          </h2>
+
+          <!-- Clean Category Filter Pills -->
+          <div class="pt-1 flex items-center justify-start sm:justify-center space-x-1.5 overflow-x-auto no-scrollbar pb-0.5">
+            <button onclick="filterCourses('all')" id="catBtnAll" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-black bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-950 border border-emerald-300 shadow-[0_2px_8px_rgba(16,185,129,0.35)] flex-shrink-0 transition-all cursor-pointer">
+              All
+            </button>
+            <button onclick="filterCourses('fullstack')" id="catBtnFullstack" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-zinc-900/90 text-slate-300 border border-zinc-800 hover:border-emerald-500/50 hover:text-white flex-shrink-0 transition-all cursor-pointer">
+              💻 Full-Stack
+            </button>
+            <button onclick="filterCourses('automation')" id="catBtnAuto" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-zinc-900/90 text-slate-300 border border-zinc-800 hover:border-emerald-500/50 hover:text-white flex-shrink-0 transition-all cursor-pointer">
+              🤖 Automation
+            </button>
+            <button onclick="filterCourses('reverse')" id="catBtnRev" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-zinc-900/90 text-slate-300 border border-zinc-800 hover:border-emerald-500/50 hover:text-white flex-shrink-0 transition-all cursor-pointer">
+              ⚡ Reverse Eng
+            </button>
+            <button onclick="filterCourses('business')" id="catBtnBiz" class="cat-pill px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold bg-zinc-900/90 text-slate-300 border border-zinc-800 hover:border-emerald-500/50 hover:text-white flex-shrink-0 transition-all cursor-pointer">
+              📈 Funnels
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 2. Course Catalog Grid (Strict 2 Columns on Mobile, 3 on Desktop) -->
+      <section id="courses" class="space-y-2.5 sm:space-y-4 pt-1 max-w-5xl mx-auto">
+        <div class="flex items-center justify-between px-1">
+          <div>
+            <h3 class="text-xs sm:text-lg font-black text-white tracking-tight">Available Masterclasses</h3>
+            <p class="text-[9px] sm:text-xs text-slate-400 font-medium">1:1 Practical training with full repository access</p>
+          </div>
+          <span id="courseCountLabel" class="text-[9.5px] sm:text-xs text-emerald-400 font-bold font-mono bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">6 Courses</span>
+        </div>
+
+        <div id="courseGrid" class="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- 3. Why Learn From Our Academy -->
+      <section id="curriculum" class="space-y-4 pt-2 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/30">
+            Academy Architecture
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
+            Built Differently for Real Industry Impact
+          </h2>
+          <p class="text-xs text-slate-400 max-w-xl mx-auto">Everything you need to go from writing your first line of code to deploying enterprise client systems</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left">
+          
+          <div class="bg-zinc-950/90 border border-emerald-950/80 hover:border-emerald-400/60 p-4 sm:p-5 rounded-2xl space-y-2 transition-all shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-base mb-1">
+              <i class="fa-solid fa-code-branch"></i>
+            </div>
+            <h4 class="text-sm sm:text-base font-black text-white">Full Production Source Code Included</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Every course comes with clean, well-commented GitHub repository access. Fork, customize, and deploy real SaaS products and scrapers immediately.
+            </p>
+          </div>
+
+          <div class="bg-zinc-950/90 border border-emerald-950/80 hover:border-emerald-400/60 p-4 sm:p-5 rounded-2xl space-y-2 transition-all shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center text-teal-400 text-base mb-1">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h4 class="text-sm sm:text-base font-black text-white">Direct 1-on-1 Mentor WhatsApp Support</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Never get stuck on an error. Get direct guidance, code reviews, and architectural advice straight from Shaikh Mudassir and our engineering team.
+            </p>
+          </div>
+
+          <div class="bg-zinc-950/90 border border-emerald-950/80 hover:border-emerald-400/60 p-4 sm:p-5 rounded-2xl space-y-2 transition-all shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-base mb-1">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h4 class="text-sm sm:text-base font-black text-white">Recognized Verified Certification</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Earn an accredited, shareable digital certificate upon completing your final capstone project. Showcase it on LinkedIn, resumes &amp; client proposals.
+            </p>
+          </div>
+
+          <div class="bg-zinc-950/90 border border-emerald-950/80 hover:border-emerald-400/60 p-4 sm:p-5 rounded-2xl space-y-2 transition-all shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 text-base mb-1">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h4 class="text-sm sm:text-base font-black text-white">Freelance &amp; Agency Client Roadmap</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We teach you how to monetize your skills: how to price software, pitch international clients, write contracts, and close high-ticket retainers.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Certificate Showcase Banner -->
+      <section id="certificate" class="hero-emerald-card rounded-3xl p-5 sm:p-7 text-center relative overflow-hidden max-w-4xl mx-auto space-y-3.5">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+          <div class="space-y-1.5 max-w-lg">
+            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              Accredited Credential
+            </span>
+            <h3 class="text-base sm:text-2xl font-black text-white">Get Industry-Recognized Certification</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+              Validate your technical skills with a verified credential backed by Infispark. Includes unique verification URL &amp; QR code for instant employer verification.
+            </p>
+          </div>
+          <div class="bg-zinc-950 border border-emerald-500/40 rounded-2xl p-3 text-center w-full sm:w-64 flex-shrink-0 shadow-lg">
+            <i class="fa-solid fa-certificate text-emerald-400 text-3xl mb-1.5 block"></i>
+            <div class="text-xs font-black text-white">Mastery Academy Certificate</div>
+            <div class="text-[10px] text-emerald-400 font-mono">Issued by CTO Shaikh Mudassir</div>
+            <div class="mt-2 text-[9px] text-slate-400 bg-zinc-900 border border-zinc-800 rounded px-2 py-0.5 inline-block">100% Shareable on LinkedIn</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Student Reviews / Wall of Love -->
+      <section id="reviews" class="space-y-4 pt-1 max-w-4xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/30">
+            Student Outcomes
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight pt-0.5">
+            What Our Students Are Building &amp; Earning
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-left">
+          
+          <div class="bg-zinc-950/80 border border-emerald-950/80 p-4 rounded-2xl space-y-2.5 shadow-md flex flex-col justify-between">
+            <div class="space-y-1.5">
+              <div class="flex items-center text-emerald-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                "The Next.js + Supabase masterclass saved me 6 months of trial and error. I built and launched my healthcare SaaS in just 3 weeks and closed my first hospital client!"
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 pt-2 border-t border-zinc-900">
+              <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">AK</div>
+              <div>
+                <div class="text-xs font-black text-white">Aniket Kumar</div>
+                <div class="text-[10px] text-slate-400">Full-Stack SaaS Founder (Pune)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-zinc-950/80 border border-emerald-950/80 p-4 rounded-2xl space-y-2.5 shadow-md flex flex-col justify-between">
+            <div class="space-y-1.5">
+              <div class="flex items-center text-emerald-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                "The Smali Reverse Engineering course is pure gold. Nowhere on YouTube or Udemy can you find such deep, practical bytecode analysis. Unbelievable value."
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 pt-2 border-t border-zinc-900">
+              <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">TS</div>
+              <div>
+                <div class="text-xs font-black text-white">Tariq Siddiqui</div>
+                <div class="text-[10px] text-slate-400">Mobile Security Engineer (Dubai)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-zinc-950/80 border border-emerald-950/80 p-4 rounded-2xl space-y-2.5 shadow-md flex flex-col justify-between">
+            <div class="space-y-1.5">
+              <div class="flex items-center text-emerald-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                "The automated scrapers masterclass helped me build a custom lead generation engine for doctors. Closed 3 retainer clients at ₹45,000/month within 40 days."
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 pt-2 border-t border-zinc-900">
+              <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">RM</div>
+              <div>
+                <div class="text-xs font-black text-white">Rohan Mehta</div>
+                <div class="text-[10px] text-slate-400">Automation Agency Owner (Delhi)</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Frequently Asked Questions (FAQ) -->
+      <section id="faq" class="space-y-4 pt-1 max-w-3xl mx-auto">
+        <div class="text-center space-y-1">
+          <span class="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/30">
+            Got Questions?
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight pt-0.5">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-2.5 text-left">
+          
+          <details class="bg-zinc-950 border border-emerald-950/80 rounded-2xl p-3.5 sm:p-4 group cursor-pointer" open>
+            <summary class="font-black text-xs sm:text-sm text-white flex items-center justify-between list-none">
+              <span>Do I get full access to the source code?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Yes! Every masterclass comes with complete production GitHub repository access, database migrations, Docker configs, and setup documentation. You have 100% rights to use the code for client or commercial SaaS projects.
+            </p>
+          </details>
+
+          <details class="bg-zinc-950 border border-emerald-950/80 rounded-2xl p-3.5 sm:p-4 group cursor-pointer">
+            <summary class="font-black text-xs sm:text-sm text-white flex items-center justify-between list-none">
+              <span>Is mentorship really 1-on-1 on WhatsApp?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Yes. Upon enrollment, you receive direct WhatsApp access to CTO Shaikh Mudassir and our engineering mentors for architecture guidance, bug debugging, and project roadmap reviews.
+            </p>
+          </details>
+
+          <details class="bg-zinc-950 border border-emerald-950/80 rounded-2xl p-3.5 sm:p-4 group cursor-pointer">
+            <summary class="font-black text-xs sm:text-sm text-white flex items-center justify-between list-none">
+              <span>How does instant checkout and access work?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Simply click Enroll Now. Your order is prepared and sent directly to our official WhatsApp support where you can complete instant payment via UPI/Cards and receive immediate portal login credentials within 2 minutes.
+            </p>
+          </details>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-3 sm:px-4 mt-8 pt-6 border-t border-zinc-900 text-center space-y-3 mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div class="flex items-center space-x-2">
+          <span class="font-black text-white">Mastery Academy</span>
+          <span>• Powered by Infispark</span>
+        </div>
+        <p>© <span id="currentYearSpan">2026</span> CTO Shaikh Mudassir. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- MODALS & DRAWERS -->
+
+    <!-- 3. Course Details & Full Syllabus Modal -->
+    <div id="courseModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
+      <div class="bg-gradient-to-b from-zinc-950 via-[#0a140e] to-zinc-950 text-white border border-emerald-500/40 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl relative flex flex-col max-h-[90vh] animate-toast-in">
+        
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-3 flex-shrink-0">
+          <div class="flex items-center space-x-2">
+            <span id="modalCatTag" class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Full-Stack Web</span>
+            <span class="text-xs font-bold text-slate-400 font-mono">Masterclass Syllabus</span>
+          </div>
+          <button onclick="closeCourseModal()" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-emerald-400 flex items-center justify-center text-sm transition-colors cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body (Scrollable) -->
+        <div class="space-y-4 overflow-y-auto flex-1 pr-1 custom-scrollbar text-left">
+          
+          <!-- Banner & Play Teaser with Course Thumbnail -->
+          <div class="relative w-full aspect-video sm:aspect-[16/9] rounded-2xl overflow-hidden bg-black border border-zinc-800 flex items-center justify-center group">
+            <img id="modalCourseImg" src="image/1.png" alt="Course Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 flex flex-col items-center justify-center p-3 text-center">
+              <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 flex items-center justify-center text-base sm:text-lg font-black shadow-xl mb-1 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-play ml-0.5"></i>
+              </div>
+              <div class="text-[11px] sm:text-xs font-black text-white drop-shadow">Full Video Masterclass &amp; Live Projects</div>
+              <div id="modalDurationTag" class="text-[9.5px] sm:text-[10px] text-emerald-300 font-mono drop-shadow">18.5 Hours • 64 Comprehensive Lessons</div>
+            </div>
+            <span id="modalDiscountBadge" class="absolute top-2.5 left-2.5 bg-red-600 text-white text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-md shadow-md">-70% OFF</span>
+          </div>
+
+          <!-- Title & Rating -->
+          <div class="space-y-1">
+            <h3 id="modalCourseTitle" class="text-base sm:text-xl font-black text-white leading-snug">Full-Stack Next.js 15 &amp; Supabase Masterclass</h3>
+            <div class="flex items-center space-x-2 text-[11px] sm:text-xs">
+              <div class="flex items-center text-emerald-400 space-x-0.5">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span id="modalRatingScore" class="font-extrabold text-white">4.9</span>
+              <span class="text-slate-500">•</span>
+              <span id="modalStudentCount" class="text-emerald-400 font-bold">480+ Enrolled Students</span>
+            </div>
+          </div>
+
+          <!-- Pricing Box -->
+          <div class="bg-gradient-to-r from-zinc-900/90 to-zinc-950 p-3 rounded-2xl border border-zinc-800/90 flex items-center justify-between">
+            <div>
+              <div class="flex items-baseline space-x-2">
+                <span id="modalCoursePrice" class="text-xl sm:text-2xl font-black text-emerald-400 font-mono">₹1,499</span>
+                <span id="modalOriginalPrice" class="text-xs sm:text-sm text-slate-500 line-through font-semibold font-mono">₹4,999</span>
+              </div>
+              <p class="text-[10px] text-emerald-400 font-bold flex items-center gap-1 mt-0.5">
+                <i class="fa-solid fa-bolt"></i> <span id="modalSavingsText">Save ₹3,500 (Early Bird Scholarship Applied)</span>
+              </p>
+            </div>
+            <div class="text-right text-[10px] text-slate-400 font-medium">
+              <span class="block text-slate-200 font-bold">Includes Source Code</span>
+              <span>Accredited Certificate</span>
+            </div>
+          </div>
+
+          <!-- Overview -->
+          <div class="space-y-1">
+            <h4 class="text-xs font-black text-slate-200 uppercase tracking-wider">Course Overview</h4>
+            <p id="modalCourseDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+              Step-by-step masterclass covering Next.js 15 App Router, Server Actions, Supabase PostgreSQL, Authentication, Row-Level Security, Stripe Payments, and production multi-tenant SaaS deployment.
+            </p>
+          </div>
+
+          <!-- Curriculum Modules -->
+          <div class="space-y-2 bg-zinc-900/60 p-3.5 rounded-2xl border border-zinc-800/60">
+            <h4 class="text-xs font-black text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-layer-group text-emerald-400"></i> Detailed Syllabus &amp; Curriculum Breakdown
+            </h4>
+            <div id="modalModuleList" class="space-y-2 text-[11px] sm:text-xs text-slate-300">
+              <!-- Dynamically populated modules -->
+            </div>
+          </div>
+
+          <!-- What's Included Perks -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-black text-slate-200 uppercase tracking-wider">What You Get With Enrollment</h4>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-300">
+              <li class="flex items-center space-x-2 bg-zinc-900/50 p-2 rounded-xl border border-zinc-800/80">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                <span>Complete GitHub Source Code</span>
+              </li>
+              <li class="flex items-center space-x-2 bg-zinc-900/50 p-2 rounded-xl border border-zinc-800/80">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                <span>Direct WhatsApp Mentor Support</span>
+              </li>
+              <li class="flex items-center space-x-2 bg-zinc-900/50 p-2 rounded-xl border border-zinc-800/80">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                <span>Accredited Completion Certificate</span>
+              </li>
+              <li class="flex items-center space-x-2 bg-zinc-900/50 p-2 rounded-xl border border-zinc-800/80">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                <span>Private Student Community Access</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Sticky Modal Footer Actions -->
+        <div class="border-t border-zinc-800/90 pt-3 mt-2 grid grid-cols-2 gap-2 flex-shrink-0">
+          <button onclick="addCurrentModalToCart()" class="bg-zinc-900 hover:bg-zinc-800 border border-emerald-400/80 text-emerald-400 font-extrabold py-3 px-3 rounded-2xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 transition-colors shadow cursor-pointer">
+            <i class="fa-solid fa-cart-plus text-xs"></i>
+            <span>Add To Cart</span>
+          </button>
+          <button onclick="buyCurrentModalNowWhatsApp()" class="cta-emerald-btn shimmer py-3 px-3 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-xl cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>Enroll on WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. Course Enrollment Cart Drawer & Modal -->
+    <div id="cartModal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
+      <div class="bg-gradient-to-b from-zinc-950 via-[#0a140e] to-zinc-950 text-white border border-emerald-500/40 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl relative flex flex-col max-h-[92vh] animate-toast-in">
+        
+        <!-- Cart Header -->
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-3 flex-shrink-0">
+          <div class="flex items-center space-x-2">
+            <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Your Masterclasses</span>
+            <span id="cartHeaderCount" class="text-xs font-bold text-slate-300 font-mono">(0 courses)</span>
+          </div>
+          <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-emerald-400 flex items-center justify-center text-sm transition-colors cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Scholarship Banner -->
+        <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-3 py-2 mb-3 flex items-center justify-between text-[11px] text-emerald-300 font-bold flex-shrink-0">
+          <div class="flex items-center space-x-1.5">
+            <i class="fa-solid fa-bolt text-emerald-400"></i>
+            <span>Early Bird Discount + Source Code Applied</span>
+          </div>
+          <span class="bg-emerald-500 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded">SAVED</span>
+        </div>
+
+        <!-- Cart Items List (Scrollable) -->
+        <div id="cartItemsList" class="space-y-2.5 overflow-y-auto flex-1 pr-1 custom-scrollbar text-left">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Order Breakdown & WhatsApp Checkout -->
+        <div class="border-t border-zinc-800/90 pt-3 mt-3 space-y-3 flex-shrink-0">
+          
+          <div class="space-y-1.5 text-xs text-slate-300">
+            <div class="flex items-center justify-between">
+              <span>Course Subtotal:</span>
+              <span id="cartSubtotalPrice" class="font-mono font-bold text-white">₹0</span>
+            </div>
+            <div class="flex items-center justify-between text-emerald-400 font-bold">
+              <span>Source Code &amp; Certification:</span>
+              <span class="uppercase">FREE (₹0)</span>
+            </div>
+            <div class="flex items-center justify-between text-sm font-black text-white pt-1 border-t border-zinc-800">
+              <span>Total Investment:</span>
+              <span id="cartTotalPrice" class="text-emerald-400 text-lg font-black font-mono">₹0</span>
+            </div>
+          </div>
+
+          <button onclick="checkoutViaWhatsApp()" class="w-full cta-emerald-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>CONFIRM &amp; ENROLL VIA WHATSAPP</span>
+          </button>
+
+          <div class="flex items-center justify-center space-x-3 text-[10px] text-slate-400 font-medium pt-0.5">
+            <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-emerald-400"></i> Instant Discord &amp; GitHub Access</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 5. Free Roadmap & Strategy Consultation Modal -->
+    <div id="bookingModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+      <div class="bg-gradient-to-b from-zinc-950 via-[#0a140e] to-zinc-950 text-white border border-emerald-500/40 w-full max-w-md rounded-3xl p-4 sm:p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-3">
+          <div class="flex items-center space-x-2">
+            <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-black px-2.5 py-0.5 rounded-full">1-on-1 Advisory</span>
+            <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wide">Free Tech Roadmap</span>
+          </div>
+          <button onclick="closeBookingModal()" class="w-7 h-7 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 flex items-center justify-center text-sm cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form onsubmit="handleConsultationSubmit(event)" class="space-y-3.5 text-left">
+          <div class="text-center space-y-1">
+            <h3 class="text-base sm:text-xl font-black text-white leading-snug">Get 1-on-1 Career &amp; Tech Roadmap</h3>
+            <p class="text-[11px] sm:text-xs text-slate-400 font-medium">Connect with CTO Shaikh Mudassir to discuss which masterclass fits your career or startup goals.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Your Name <span class="text-emerald-400">*</span></label>
+            <input type="text" id="inputFullName" required placeholder="Enter your full name" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">WhatsApp Number <span class="text-emerald-400">*</span></label>
+            <div class="flex items-center bg-zinc-900/90 border border-zinc-800 focus-within:border-emerald-400 rounded-xl overflow-hidden">
+              <div class="px-3 py-2.5 bg-zinc-950 border-r border-zinc-800 text-xs font-bold text-slate-300">🇮🇳 +91</div>
+              <input type="tel" id="inputPhone" inputmode="numeric" pattern="[0-9]*" maxlength="10" required placeholder="9876543210" class="w-full px-3 py-2.5 text-sm text-white bg-transparent placeholder-zinc-500 focus:outline-none font-mono" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Target Skill or Goal:</label>
+            <select id="inputSkillGoal" class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-400 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none">
+              <option value="Full-Stack Next.js &amp; Supabase">Full-Stack Next.js &amp; Supabase SaaS</option>
+              <option value="AI Web Automation &amp; Scrapers">AI Web Automation &amp; Scrapers</option>
+              <option value="Smali Reverse Engineering">Smali Bytecode Reverse Engineering</option>
+              <option value="Freelancing &amp; High-Ticket Funnels">Freelancing &amp; High-Ticket Funnels</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full cta-emerald-btn shimmer rounded-2xl p-3.5 text-center cursor-pointer shadow-xl mt-4">
+            <div class="text-sm font-black text-slate-950 flex items-center justify-center space-x-2 uppercase tracking-wide">
+              <span>CONNECT WITH MENTOR ON WHATSAPP</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sticky Mobile Floating Bottom Cart Bar -->
+    <div id="stickyCartBar" class="fixed bottom-2.5 left-2.5 right-2.5 sm:bottom-5 sm:left-1/2 sm:-translate-x-1/2 sm:w-full sm:max-w-md z-40 transition-all duration-300 translate-y-24 opacity-0 pointer-events-none">
+      <div class="bg-zinc-950/95 border border-emerald-400/80 rounded-2xl p-2 sm:p-2.5 shadow-[0_10px_35px_rgba(16,185,129,0.4)] backdrop-blur-xl flex items-center justify-between gap-2">
+        <div class="flex items-center space-x-2 min-w-0 pl-1">
+          <div class="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-black flex-shrink-0 text-xs">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="flex items-baseline space-x-1.5 whitespace-nowrap overflow-hidden">
+            <span id="stickyCartTotal" class="text-sm sm:text-base font-black text-emerald-400 font-mono">₹0</span>
+            <span id="stickyCartCount" class="text-[11px] font-bold text-slate-400 font-sans truncate">(0 courses)</span>
+          </div>
+        </div>
+
+        <button onclick="openCartModal()" class="cta-emerald-btn shimmer py-2 px-3.5 sm:px-4 rounded-xl text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-tight flex items-center space-x-1 shadow-lg flex-shrink-0 whitespace-nowrap cursor-pointer">
+          <span>Enroll Now</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Social Proof Toast Notification -->
+    <div id="socialProofToast" class="hidden fixed bottom-16 sm:bottom-6 left-2.5 sm:left-6 z-40 max-w-[220px] sm:max-w-[260px] transition-all duration-300 animate-toast-in pointer-events-none">
+      <div class="bg-[#0c1610]/95 border border-emerald-500/40 text-white rounded-xl p-2.5 shadow-[0_6px_20px_rgba(0,0,0,0.8)] backdrop-blur-md flex items-center space-x-2.5">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 flex items-center justify-center flex-shrink-0 text-xs font-black shadow border border-emerald-300/40">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="text-[10px] sm:text-[11px] overflow-hidden leading-tight space-y-0.5">
+          <div class="flex items-center space-x-1">
+            <span id="toastName" class="font-extrabold text-white truncate max-w-[120px]">Rahul Sharma</span>
+            <span class="text-[9px] text-emerald-400 font-bold bg-emerald-950/80 px-1 py-0.2 rounded border border-emerald-500/30 flex-shrink-0">✓ Enrolled</span>
+          </div>
+          <p id="toastAction" class="text-emerald-400 font-bold truncate">Next.js 15 &amp; Supabase SaaS</p>
+          <div class="flex items-center space-x-1 text-[9px] text-slate-400 font-mono truncate">
+            <span id="toastLocation" class="truncate max-w-[90px]">Mumbai</span>
+            <span>•</span>
+            <span id="toastTime">Just now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    document.getElementById("currentYearSpan").innerText = new Date().getFullYear();
+
+    // Comprehensive Course Master Database with 1:1 Thumbnails
+    const coursesData = [
+      {
+        id: 1,
+        title: "Full-Stack Next.js 15 & Supabase Masterclass",
+        image: "image/1.png",
+        category: "fullstack",
+        catLabel: "Full-Stack Web",
+        badge: "Best Seller",
+        badgeColor: "bg-emerald-500 text-slate-950",
+        rating: 4.9,
+        students: 480,
+        price: 1499,
+        originalPrice: 4999,
+        icon: "fa-brands fa-react text-emerald-400",
+        duration: "18.5 Hours • 64 Lessons",
+        description: "Master modern production web development from scratch. Build multi-tenant hospital management systems, authenticated dashboards, Supabase Row-Level Security, PostgreSQL schemas, and Razorpay/Stripe automated checkout.",
+        modules: [
+          { title: "Module 1: Next.js 15 Architecture", desc: "App Router, Server Components, SSR vs SSG, and Server Actions." },
+          { title: "Module 2: Supabase & PostgreSQL Deep Dive", desc: "Row Level Security (RLS), Realtime subscriptions, and DB relations." },
+          { title: "Module 3: Production SaaS Build", desc: "Build complete paperless Hospital HMS with Doctor portals & patient billing." },
+          { title: "Module 4: Deployment & Stripe Billing", desc: "Vercel edge deployment, domain setup, and recurring subscription webhooks." }
+        ]
+      },
+      {
+        id: 2,
+        title: "AI Web Automation & Custom Scrapers Mastery",
+        image: "image/2.png",
+        category: "automation",
+        catLabel: "AI & Automation",
+        badge: "Trending",
+        badgeColor: "bg-teal-600 text-white",
+        rating: 4.9,
+        students: 310,
+        price: 1299,
+        originalPrice: 3999,
+        icon: "fa-solid fa-robot text-emerald-400",
+        duration: "14 Hours • 48 Lessons",
+        description: "Learn how to build industrial-grade automated web bots, price monitoring engines, WhatsApp dispatch pipelines, and Cloudflare bypass scrapers to automate client workflows.",
+        modules: [
+          { title: "Module 1: Headless Browser Automation", desc: "Puppeteer, Playwright, anti-bot evasion & rotating proxies." },
+          { title: "Module 2: Realtime Scrapers & Data Pipelines", desc: "Extracting structured JSON from dynamic single-page applications." },
+          { title: "Module 3: WhatsApp & Email Automation Bots", desc: "Automate report PDF generation & instant patient/customer dispatch." },
+          { title: "Module 4: VPS Cron Jobs & Cloud Deploy", desc: "Deploying 24/7 background worker daemons on Docker & Ubuntu VPS." }
+        ]
+      },
+      {
+        id: 3,
+        title: "Smali Bytecode & Android Reverse Engineering",
+        image: "image/3.png",
+        category: "reverse",
+        catLabel: "Reverse Engineering",
+        badge: "Elite Masterclass",
+        badgeColor: "bg-red-600 text-white",
+        rating: 4.9,
+        students: 220,
+        price: 1999,
+        originalPrice: 5999,
+        icon: "fa-solid fa-terminal text-emerald-400",
+        duration: "16.5 Hours • 52 Lessons",
+        description: "The most comprehensive hands-on guide to Android reverse engineering. Decompile APKs, understand Dalvik VM registers, patch Smali opcodes, bypass SSL pinning, and repackage secure mobile builds.",
+        modules: [
+          { title: "Module 1: APK Decompilation & Architecture", desc: "APKTool, JADX-GUI, AndroidManifest inspection & Dex structure." },
+          { title: "Module 2: Smali Bytecode Fundamentals", desc: "Registers (v0-vn, p0-pn), conditional branching (if-eqz), & method calls." },
+          { title: "Module 3: Hands-on Modifications", desc: "Patching feature gates, ad-block bypass, and custom privacy injection." },
+          { title: "Module 4: SSL Pinning Bypass & Signature Verification", desc: "Frida hooks, integrity bypass, and keytool keystore re-signing." }
+        ]
+      },
+      {
+        id: 4,
+        title: "High-Converting Sales Funnels & Ads Engineering",
+        image: "image/4.png",
+        category: "business",
+        catLabel: "Marketing & CRO",
+        badge: "Live Cohort",
+        badgeColor: "bg-emerald-600 text-white",
+        rating: 4.8,
+        students: 540,
+        price: 999,
+        originalPrice: 3499,
+        icon: "fa-solid fa-bullhorn text-emerald-400",
+        duration: "12 Hours • 38 Lessons",
+        description: "Turn clicks into real high-ticket buyers and clinic appointments. Master sub-second landing page CRO, direct WhatsApp lead funnels, Meta Ads targeting, and revenue tracking.",
+        modules: [
+          { title: "Module 1: Conversion Rate Optimization (CRO)", desc: "Psychological copywriting, luxury aesthetics, and sticky mobile CTAs." },
+          { title: "Module 2: Meta Ads Machine Learning", desc: "Advantage+ campaigns, custom pixel events, and laser audience testing." },
+          { title: "Module 3: Direct WhatsApp Revenue Systems", desc: "Instant automated WhatsApp lead routing & qualifying conversations." },
+          { title: "Module 4: Client Case Studies & Metrics", desc: "Deconstructing ₹20L+ client revenue funnels in healthcare & retail." }
+        ]
+      },
+      {
+        id: 5,
+        title: "Healthcare SaaS & Enterprise HMS Architecture",
+        image: "image/5.png",
+        category: "fullstack",
+        catLabel: "Enterprise SaaS",
+        badge: "Flagship",
+        badgeColor: "bg-emerald-500 text-slate-950",
+        rating: 5.0,
+        students: 190,
+        price: 2499,
+        originalPrice: 7999,
+        icon: "fa-solid fa-hospital-user text-emerald-400",
+        duration: "22 Hours • 80 Lessons",
+        description: "Learn how we built Infiplus HMS deployed across 24+ global hospitals. Multi-department OPD, Pathology lab formula calculations, bed allocation matrices, and GST invoices.",
+        modules: [
+          { title: "Module 1: Enterprise Healthcare DB Architecture", desc: "Patient records, doctor appointment slots, and multi-branch isolation." },
+          { title: "Module 2: Pathology Lab Formula Engines", desc: "Automatic biochemistry & hematology reference range calculations." },
+          { title: "Module 3: Pharmacy Inventory & Billing", desc: "Batch tracking, expiry alerts, thermal receipt printing, & GST." },
+          { title: "Module 4: Real-world Hospital Deployment", desc: "Local offline SQL sync & hybrid cloud multi-hospital syncing." }
+        ]
+      },
+      {
+        id: 6,
+        title: "Freelancing & International Agency Blueprint",
+        image: "image/6.png",
+        category: "business",
+        catLabel: "Agency Scaling",
+        badge: "Career Growth",
+        badgeColor: "bg-teal-600 text-white",
+        rating: 4.9,
+        students: 390,
+        price: 899,
+        originalPrice: 2999,
+        icon: "fa-solid fa-briefcase text-teal-400",
+        duration: "10 Hours • 32 Lessons",
+        description: "How to land $2,000+ international web and automation clients without bidding wars on Upwork. Cold outreach systems, proposal decks, contract templates, and client management.",
+        modules: [
+          { title: "Module 1: Positioning & High-Ticket Portfolio", desc: "Building credibility assets that command 5x higher project fees." },
+          { title: "Module 2: Outbound Client Acquisition", desc: "Targeting Doctors, Manufacturers, & US/UK startups via LinkedIn & Email." },
+          { title: "Module 3: Pricing & Closing Strategies", desc: "Value-based pricing, retainer structuring, and contract protection." },
+          { title: "Module 4: Scaling to a Team & Agency", desc: "Hiring developers, delegation systems, and client delivery SOPs." }
+        ]
+      }
+    ];
+
+    // Render Course Cards into 2-Column Grid with 1:1 Aspect Ratio Thumbnails
+    function renderCourses() {
+      const grid = document.getElementById("courseGrid");
+      grid.innerHTML = coursesData.map(c => `
+        <div class="course-card bg-zinc-950/90 border border-emerald-950/80 hover:border-emerald-500/60 rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-lg flex flex-col justify-between transition-all duration-300 group cursor-pointer" data-category="${c.category}" onclick="openCourseModal(${c.id})">
+          <div class="space-y-2">
+            
+            <!-- 1:1 Square Thumbnail -->
+            <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-black border border-emerald-950/80 group-hover:border-emerald-500/50 transition-colors">
+              <img src="${c.image}" alt="${c.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="absolute top-1.5 left-1.5 flex items-center gap-1 z-10">
+                <span class="text-[7.5px] sm:text-[9px] uppercase font-black ${c.badgeColor} px-1.5 py-0.5 rounded shadow">
+                  ${c.badge}
+                </span>
+              </div>
+              <div class="absolute bottom-1.5 right-1.5 z-10">
+                <span class="text-[8px] sm:text-[9px] font-mono font-bold text-emerald-300 bg-black/85 px-1.5 py-0.5 rounded border border-emerald-500/30 backdrop-blur-xs">
+                  ${c.duration.split('•')[0]}
+                </span>
+              </div>
+            </div>
+
+            <!-- Title & Category Info -->
+            <div class="space-y-1">
+              <span class="text-[8.5px] sm:text-[10px] font-bold text-emerald-400 font-mono block truncate">${c.catLabel}</span>
+              <h4 class="text-[11px] sm:text-xs md:text-sm font-black text-white tracking-tight leading-snug group-hover:text-emerald-400 transition-colors line-clamp-2">
+                ${c.title}
+              </h4>
+              <div class="flex items-center space-x-1 text-emerald-400 text-[8.5px] sm:text-[10px]">
+                <i class="fa-solid fa-star text-[8px]"></i>
+                <span class="font-extrabold text-white">${c.rating}</span>
+                <span class="text-slate-500">•</span>
+                <span class="text-slate-400 font-mono truncate">(${c.students})</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Price & Compact Action Button -->
+          <div class="space-y-1.5 pt-1.5 border-t border-zinc-900">
+            <div class="flex items-baseline justify-between">
+              <span class="text-xs sm:text-base font-black text-emerald-400 font-mono">₹${c.price.toLocaleString('en-IN')}</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-500 line-through font-mono">₹${c.originalPrice.toLocaleString('en-IN')}</span>
+            </div>
+
+            <button onclick="event.stopPropagation(); addToCart('${c.title}', ${c.price})" class="w-full cta-emerald-btn shimmer py-1.5 sm:py-2 px-2 rounded-xl text-slate-950 font-black text-[9.5px] sm:text-xs uppercase tracking-tight flex items-center justify-center space-x-1 shadow cursor-pointer">
+              <i class="fa-solid fa-graduation-cap text-[10px]"></i>
+              <span>Enroll</span>
+            </button>
+          </div>
+
+        </div>
+      `).join("");
+    }
+
+    // Modal State Management
+    let currentModalCourse = null;
+
+    function openCourseModal(courseId) {
+      const course = coursesData.find(c => c.id === courseId);
+      if (!course) return;
+
+      currentModalCourse = course;
+
+      document.getElementById("modalCourseImg").src = course.image;
+      document.getElementById("modalCatTag").innerText = course.catLabel;
+      document.getElementById("modalDiscountBadge").innerText = course.badge;
+      document.getElementById("modalCourseTitle").innerText = course.title;
+      document.getElementById("modalRatingScore").innerText = course.rating;
+      document.getElementById("modalStudentCount").innerText = `${course.students} Enrolled Students`;
+      document.getElementById("modalDurationTag").innerText = course.duration;
+      
+      document.getElementById("modalCoursePrice").innerText = `₹${course.price.toLocaleString('en-IN')}`;
+      document.getElementById("modalOriginalPrice").innerText = `₹${course.originalPrice.toLocaleString('en-IN')}`;
+      const savings = course.originalPrice - course.price;
+      document.getElementById("modalSavingsText").innerText = `Save ₹${savings.toLocaleString('en-IN')} (Early Bird Scholarship Applied)`;
+      
+      document.getElementById("modalCourseDesc").innerText = course.description;
+
+      // Populate Modules Accordion List
+      const moduleListEl = document.getElementById("modalModuleList");
+      moduleListEl.innerHTML = course.modules.map(m => `
+        <div class="bg-zinc-950/80 border border-zinc-800/90 rounded-xl p-2.5 space-y-0.5">
+          <div class="font-black text-white text-xs flex items-center justify-between">
+            <span class="text-emerald-400">${m.title}</span>
+            <i class="fa-solid fa-circle-play text-[10px] text-slate-400"></i>
+          </div>
+          <p class="text-[10.5px] text-slate-400 leading-tight">${m.desc}</p>
+        </div>
+      `).join("");
+
+      // Hide sticky bottom cart bar while modal is open
+      const stickyBar = document.getElementById("stickyCartBar");
+      stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+
+      document.getElementById("courseModal").classList.remove("hidden");
+    }
+
+    function closeCourseModal() {
+      document.getElementById("courseModal").classList.add("hidden");
+      updateCartUI();
+    }
+
+    function addCurrentModalToCart() {
+      if (!currentModalCourse) return;
+      addToCart(currentModalCourse.title, currentModalCourse.price);
+      closeCourseModal();
+    }
+
+    function buyCurrentModalNowWhatsApp() {
+      if (!currentModalCourse) return;
+      addToCart(currentModalCourse.title, currentModalCourse.price);
+      closeCourseModal();
+      checkoutViaWhatsApp();
+    }
+
+    // Category Filter Handler
+    function filterCourses(category) {
+      const cards = document.querySelectorAll(".course-card");
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove("hidden");
+          visibleCount++;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      document.getElementById("courseCountLabel").innerText = `${visibleCount} Courses`;
+
+      // Update Filter Pill Active State
+      const pills = document.querySelectorAll(".cat-pill");
+      pills.forEach(pill => {
+        pill.classList.remove("bg-gradient-to-r", "from-emerald-400", "to-emerald-500", "text-slate-950", "border-emerald-300", "shadow-[0_2px_8px_rgba(16,185,129,0.35)]");
+        pill.classList.add("bg-zinc-900/90", "text-slate-300", "border-zinc-800");
+      });
+
+      const activeMap = {
+        'all': 'catBtnAll',
+        'fullstack': 'catBtnFullstack',
+        'automation': 'catBtnAuto',
+        'reverse': 'catBtnRev',
+        'business': 'catBtnBiz'
+      };
+      
+      const activeBtn = document.getElementById(activeMap[category]);
+      if (activeBtn) {
+        activeBtn.classList.remove("bg-zinc-900/90", "text-slate-300", "border-zinc-800");
+        activeBtn.classList.add("bg-gradient-to-r", "from-emerald-400", "to-emerald-500", "text-slate-950", "border-emerald-300", "shadow-[0_2px_8px_rgba(16,185,129,0.35)]");
+      }
+    }
+
+    // Cart State Management
+    let cart = [];
+
+    function addToCart(title, price) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ title, price, qty: 1 });
+      }
+
+      updateCartUI();
+      showToastNotification(`Added: ${title}`);
+    }
+
+    function removeFromCart(title) {
+      cart = cart.filter(item => item.title !== title);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      // Header Count Badge
+      const badge = document.getElementById("cartCountBadge");
+      badge.innerText = totalItems;
+      if (totalItems > 0) {
+        badge.classList.remove("scale-0");
+        badge.classList.add("scale-100");
+      }
+
+      // Sticky Bottom Cart Bar
+      const stickyBar = document.getElementById("stickyCartBar");
+      const stickyTotal = document.getElementById("stickyCartTotal");
+      const stickyCount = document.getElementById("stickyCartCount");
+
+      if (totalItems > 0) {
+        stickyTotal.innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+        stickyCount.innerText = `(${totalItems} course${totalItems > 1 ? 's' : ''})`;
+        stickyBar.classList.remove("translate-y-24", "opacity-0", "pointer-events-none");
+      } else {
+        stickyBar.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      }
+
+      // Cart Modal Content
+      document.getElementById("cartHeaderCount").innerText = `(${totalItems} course${totalItems > 1 ? 's' : ''})`;
+      document.getElementById("cartSubtotalPrice").innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+      document.getElementById("cartTotalPrice").innerText = `₹${totalPrice.toLocaleString('en-IN')}`;
+
+      const listContainer = document.getElementById("cartItemsList");
+      if (cart.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-8 space-y-2 text-slate-400">
+            <i class="fa-solid fa-graduation-cap text-3xl text-emerald-400"></i>
+            <p class="text-xs">Your course cart is empty.<br />Select a masterclass to enroll.</p>
+          </div>
+        `;
+      } else {
+        listContainer.innerHTML = cart.map(item => `
+          <div class="bg-zinc-900/80 border border-zinc-800 p-2.5 rounded-xl flex items-center justify-between gap-2">
+            <div class="min-w-0 flex-1">
+              <div class="font-bold text-xs text-white truncate">${item.title}</div>
+              <div class="text-[10px] text-emerald-400 font-mono font-bold">₹${item.price.toLocaleString('en-IN')}</div>
+            </div>
+            <button onclick="removeFromCart('${item.title}')" class="text-slate-400 hover:text-red-500 text-xs p-1.5 transition-colors cursor-pointer">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `).join("");
+      }
+    }
+
+    function openCartModal() {
+      updateCartUI();
+      document.getElementById("cartModal").classList.remove("hidden");
+    }
+
+    function closeCartModal() {
+      document.getElementById("cartModal").classList.add("hidden");
+    }
+
+    // Direct WhatsApp Checkout
+    function checkoutViaWhatsApp() {
+      if (cart.length === 0) {
+        alert("Please select at least one course to enroll!");
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const coursesListText = cart.map((c, i) => `${i + 1}. *${c.title}* (₹${c.price})`).join("\n");
+
+      const message = `👋 Hello CTO Shaikh Mudassir,\n\nI want to enroll in the following Mastery Academy Masterclasses:\n\n${coursesListText}\n\n💰 *Total Investment:* ₹${total.toLocaleString('en-IN')}\n🎁 *Perks:* 100% Source Code + 1-on-1 Mentorship + Verified Certificate\n\nPlease share the payment details & access link!`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/917415444747?text=${encodedMessage}`;
+
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Consultation Modal
+    function openBookingModal() {
+      document.getElementById("bookingModal").classList.remove("hidden");
+    }
+
+    function closeBookingModal() {
+      document.getElementById("bookingModal").classList.add("hidden");
+    }
+
+    function handleConsultationSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById("inputFullName").value.trim();
+      const phone = document.getElementById("inputPhone").value.trim();
+      const goal = document.getElementById("inputSkillGoal").value;
+
+      const message = `👋 Hello CTO Shaikh Mudassir,\n\nI would like to book a *1-on-1 Strategy & Course Consultation*.\n\n👤 *Name:* ${name}\n📱 *WhatsApp:* +91 ${phone}\n🎯 *Target Goal:* ${goal}\n\nPlease let me know your available schedule for the call!`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/917415444747?text=${encodedMessage}`;
+
+      closeBookingModal();
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Live Social Proof Notifications Simulation
+    const socialNames = ["Aditya Varma", "Pooja Reddy", "Nikhil Deshmukh", "Faizan Ali", "Siddharth Jain", "Sneha Roy", "Sameer Qureshi"];
+    const socialLocations = ["Bengaluru", "Hyderabad", "Mumbai", "Pune", "Delhi NCR", "Chennai", "Dubai"];
+    const socialCourses = [
+      "Next.js 15 & Supabase SaaS",
+      "AI Web Automation & Scrapers",
+      "Smali Bytecode Reverse Eng",
+      "Sales Funnels & Meta Ads",
+      "Healthcare SaaS Architecture",
+      "Freelancing & Agency Blueprint"
+    ];
+
+    function triggerSocialProof() {
+      const toast = document.getElementById("socialProofToast");
+      const nameEl = document.getElementById("toastName");
+      const locEl = document.getElementById("toastLocation");
+      const actionEl = document.getElementById("toastAction");
+
+      const randomName = socialNames[Math.floor(Math.random() * socialNames.length)];
+      const randomLoc = socialLocations[Math.floor(Math.random() * socialLocations.length)];
+      const randomCourse = socialCourses[Math.floor(Math.random() * socialCourses.length)];
+
+      nameEl.innerText = randomName;
+      locEl.innerText = randomLoc;
+      actionEl.innerText = randomCourse;
+
+      toast.classList.remove("hidden");
+
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 5500);
+    }
+
+    // Periodic toast triggers
+    setTimeout(() => {
+      triggerSocialProof();
+      setInterval(triggerSocialProof, 22000);
+    }, 4000);
+
+    function showToastNotification(text) {
+      const toast = document.getElementById("socialProofToast");
+      const nameEl = document.getElementById("toastName");
+      const locEl = document.getElementById("toastLocation");
+      const actionEl = document.getElementById("toastAction");
+
+      nameEl.innerText = "Cart Updated";
+      locEl.innerText = "Active Session";
+      actionEl.innerText = text;
+
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 3000);
+    }
+
+    // Initialize Courses on Load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCourses();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Aurelia Estates | Ultra-Luxury Sky Residences &amp; Penthouses</title>
+  <meta name="description" content="Discover Aurelia Estates — an iconic collection of bespoke sky villas and waterfront penthouses crafted with architectural grandeur and private infinity pools." />
+  <meta name="keywords" content="luxury real estate, sky villas, penthouses, luxury properties, waterfront residence, Dubai luxury homes" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digitalthemestore.com" />
+  <meta property="og:site_name" content="Digital Theme Store" />
+  <meta property="og:title" content="Aurelia Estates | Ultra-Luxury Sky Residences &amp; Penthouses" />
+  <meta property="og:description" content="Bespoke luxury sky residences with private infinity pools and panoramic skyline views." />
+  <meta property="og:image" content="./image/profile.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            gold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+              700: '#a16207',
+            },
+            obsidian: {
+              950: '#070709',
+              900: '#0e0f14',
+              850: '#14151e',
+              800: '#1c1e2a',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #070709;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Ambient background luxury texture */
+    .bg-luxury-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(234, 179, 8, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(234, 179, 8, 0.04) 1px, transparent 1px);
+    }
+
+    /* Glassmorphism luxury cards */
+    .glass-luxury-card {
+      background: linear-gradient(135deg, rgba(20, 21, 30, 0.85) 0%, rgba(10, 11, 15, 0.95) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(234, 179, 8, 0.22);
+    }
+
+    .glass-luxury-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @media (min-width: 768px) {
+      .glass-luxury-hover:hover {
+        border-color: rgba(234, 179, 8, 0.6);
+        transform: translateY(-3px);
+        box-shadow: 0 16px 35px -10px rgba(234, 179, 8, 0.3);
+      }
+    }
+
+    /* Gold Gradient Luxury Button */
+    .btn-gold-luxury {
+      background: linear-gradient(180deg, #fde047 0%, #eab308 100%);
+      color: #070709;
+      box-shadow: 0 4px 18px rgba(234, 179, 8, 0.35);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 800;
+    }
+    .btn-gold-luxury:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(234, 179, 8, 0.55);
+    }
+    .btn-gold-luxury:active {
+      transform: scale(0.98);
+    }
+
+    /* Luxury Serif Title Gradient */
+    .text-luxury-gold {
+      background: linear-gradient(135deg, #ffffff 0%, #fef08a 40%, #eab308 80%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Range slider */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #1c1e2a;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 9999px;
+      height: 8px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #eab308;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.8);
+      border: 2px solid #ffffff;
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian-950 text-slate-100 min-h-screen bg-luxury-pattern relative selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Luxury Glow Orbs -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[650px] h-[220px] sm:h-[380px] bg-gold-500/10 blur-[100px] sm:blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- 1. Sticky Luxury Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-obsidian-950/85 border-b border-gold-500/20">
+    <div class="max-w-6xl mx-auto px-3.5 sm:px-6 h-13 sm:h-16 flex items-center justify-between py-2 sm:py-0">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2 group">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-gold-400 to-amber-600 p-0.5 shadow-md shadow-gold-500/30 group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-obsidian-950 rounded-[10px] flex items-center justify-center">
+            <i class="fa-solid fa-building-columns text-gold-400 text-xs sm:text-sm"></i>
+          </div>
+        </div>
+        <div class="flex flex-col text-left">
+          <span class="text-sm sm:text-base font-black font-serif tracking-widest text-white leading-none group-hover:text-gold-400 transition-colors">
+            AURELIA<span class="text-gold-400">.</span>
+          </span>
+          <span class="text-[8px] sm:text-[9px] text-slate-400 tracking-wider uppercase">Luxury Residences</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold text-slate-300">
+        <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a>
+        <a href="#floorplans" class="hover:text-gold-400 transition-colors">Floor Plans</a>
+        <a href="#amenities" class="hover:text-gold-400 transition-colors">Amenities</a>
+        <a href="#calculator" class="hover:text-gold-400 transition-colors">Mortgage &amp; ROI</a>
+        <a href="#location" class="hover:text-gold-400 transition-colors">Location</a>
+        <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <a href="https://wa.me/919999999999" target="_blank" class="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 px-2.5 py-1.5">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+          <span>VIP Concierge</span>
+        </a>
+        <button onclick="openVipModal()" class="btn-gold-luxury text-xs px-3.5 py-2 rounded-xl flex items-center space-x-1.5">
+          <i class="fa-solid fa-calendar-check text-[10px]"></i>
+          <span>Book Tour</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" onclick="toggleMobileNav()" class="md:hidden p-1.5 text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle navigation">
+        <i id="menuIcon" class="fa-solid fa-bars text-base"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobileNavMenu" class="hidden md:hidden border-b border-gold-500/20 bg-obsidian-950/98 px-4 py-3.5 space-y-2.5">
+      <a href="#overview" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Overview</a>
+      <a href="#floorplans" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Floor Plans &amp; Units</a>
+      <a href="#amenities" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Luxury Amenities</a>
+      <a href="#calculator" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Mortgage Calculator</a>
+      <a href="#location" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">Prime Location</a>
+      <a href="#faq" onclick="toggleMobileNav()" class="block text-xs font-semibold text-slate-300 hover:text-gold-400 py-1">FAQ</a>
+      <div class="pt-2 border-t border-slate-800 flex flex-col gap-2">
+        <button onclick="openVipModal()" class="btn-gold-luxury text-center text-xs py-2.5 rounded-lg">Book VIP Private Tour</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section (Ultra-Compact on Mobile) -->
+  <section id="overview" class="relative pt-3 pb-6 md:pt-14 md:pb-20 px-3 sm:px-6 max-w-5xl mx-auto text-center z-10">
+    <!-- Announcement Badge -->
+    <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[9.5px] sm:text-xs font-bold mb-2 sm:mb-3.5 hover:bg-gold-500/20 transition-all cursor-pointer">
+      <i class="fa-solid fa-gem text-[9px] flex-shrink-0"></i>
+      <span class="truncate">Limited Collection • Only 18 Sky Penthouses</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-2xl min-[375px]:text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-black font-serif tracking-tight leading-[1.15] mb-2 sm:mb-3.5 max-w-4xl mx-auto">
+      Architectural Masterpieces for the <span class="text-luxury-gold">Discerning Few</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-slate-300 text-xs sm:text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-5">
+      Bespoke waterfront sky residences featuring private 360° infinity pools, double-height ceilings, and panoramic skyline vistas.
+    </p>
+
+    <!-- CTAs -->
+    <div class="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2 sm:gap-3.5 max-w-md mx-auto mb-3 sm:mb-5">
+      <button onclick="openVipModal()" class="btn-gold-luxury text-xs sm:text-sm py-2.5 px-3 sm:py-3.5 sm:px-6 rounded-xl flex items-center justify-center space-x-1.5 shadow-md">
+        <i class="fa-solid fa-key text-[10px] sm:text-xs"></i>
+        <span>Book VIP Viewing</span>
+      </button>
+      <button onclick="openTourModal()" class="bg-obsidian-850 hover:bg-obsidian-800 border border-gold-500/30 hover:border-gold-400 text-slate-200 font-bold text-xs sm:text-sm py-2.5 px-3 sm:py-3.5 sm:px-5 rounded-xl flex items-center justify-center space-x-1.5 transition-all">
+        <i class="fa-solid fa-vr-cardboard text-gold-400 text-[10px] sm:text-xs"></i>
+        <span>3D Virtual Tour</span>
+      </button>
+    </div>
+
+    <!-- Quick Estate Key Metrics -->
+    <div class="grid grid-cols-2 min-[480px]:flex min-[480px]:flex-wrap items-center justify-center gap-1.5 sm:gap-5 text-[9.5px] sm:text-[11px] text-slate-300 font-semibold mb-3 sm:mb-6 max-w-md sm:max-w-none mx-auto text-left min-[480px]:text-center">
+      <div class="flex items-center space-x-1 bg-obsidian-900/60 p-1 rounded min-[480px]:p-0 min-[480px]:bg-transparent">
+        <i class="fa-solid fa-tag text-gold-400 text-[9px] flex-shrink-0"></i>
+        <span class="truncate">From $4.8M USD</span>
+      </div>
+      <div class="flex items-center space-x-1 bg-obsidian-900/60 p-1 rounded min-[480px]:p-0 min-[480px]:bg-transparent">
+        <i class="fa-solid fa-ruler-combined text-gold-400 text-[9px] flex-shrink-0"></i>
+        <span class="truncate">3,800 to 8,200 Sq.Ft</span>
+      </div>
+      <div class="flex items-center space-x-1 bg-obsidian-900/60 p-1 rounded min-[480px]:p-0 min-[480px]:bg-transparent">
+        <i class="fa-solid fa-water-ladder text-gold-400 text-[9px] flex-shrink-0"></i>
+        <span class="truncate">Private Sky Pool</span>
+      </div>
+      <div class="flex items-center space-x-1 bg-obsidian-900/60 p-1 rounded min-[480px]:p-0 min-[480px]:bg-transparent">
+        <i class="fa-solid fa-calendar-days text-emerald-400 text-[9px] flex-shrink-0"></i>
+        <span class="truncate">Q4 2026 Handover</span>
+      </div>
+    </div>
+
+    <!-- Hero Estate Preview Card -->
+    <div class="w-full max-w-4xl mx-auto rounded-2xl md:rounded-3xl p-0.5 sm:p-1 bg-gradient-to-b from-gold-500/40 via-gold-500/10 to-transparent shadow-[0_0_35px_rgba(234,179,8,0.2)]">
+      <div class="bg-obsidian-900 border border-gold-500/20 rounded-[16px] sm:rounded-[22px] overflow-hidden">
+        <!-- Window Top Bar -->
+        <div class="bg-obsidian-850 px-2.5 py-1.5 sm:px-4 sm:py-2.5 border-b border-gold-500/15 flex items-center justify-between gap-2">
+          <div class="flex items-center space-x-1.5 text-[9px] sm:text-xs font-serif font-bold text-slate-300 truncate">
+            <i class="fa-solid fa-location-dot text-gold-400 flex-shrink-0"></i>
+            <span class="truncate">Aurelia Tower • Prime Marina</span>
+          </div>
+          <div class="text-[8px] sm:text-[10px] font-mono bg-obsidian-950 px-1.5 py-0.5 rounded border border-gold-500/30 text-gold-400 flex-shrink-0">
+            Freehold 100%
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative w-full bg-obsidian-950 overflow-hidden group cursor-pointer" onclick="openTourModal()">
+          <img src="./image/hero_villa.jpg" alt="Aurelia Estates Penthouse Villa" class="w-full h-auto max-h-[220px] sm:max-h-[360px] md:max-h-[460px] object-cover object-center opacity-95 group-hover:scale-[1.01] transition-all duration-500" />
+          
+          <!-- Center Play VR Badge -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-obsidian-950/85 border border-gold-400 text-gold-400 flex items-center justify-center shadow-[0_0_20px_rgba(234,179,8,0.4)] group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-play text-xs sm:text-lg ml-0.5"></i>
+            </div>
+          </div>
+
+          <!-- Floating Overlay Pill -->
+          <div class="absolute bottom-1.5 left-1.5 right-1.5 sm:bottom-3 sm:left-4 sm:right-auto bg-obsidian-950/95 backdrop-blur-md border border-gold-500/40 p-1.5 sm:p-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-left">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xs sm:text-sm flex-shrink-0">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="text-[10px] sm:text-xs font-bold text-white leading-tight font-serif truncate">The Presidential Sky Villa</p>
+              <p class="text-[8px] sm:text-[10px] text-gold-400 font-mono leading-tight truncate">8,200 Sq.Ft • 5 En-Suite • 360° Marina View</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Key Highlights Strip -->
+  <section class="py-5 sm:py-8 border-y border-gold-500/10 bg-obsidian-900/50">
+    <div class="max-w-5xl mx-auto px-3 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 text-center">
+      <div class="glass-luxury-card p-2.5 sm:p-3 rounded-xl">
+        <p class="text-[8.5px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider truncate">Starting Price</p>
+        <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-gold-400 mt-0.5">$4.8 Million</p>
+      </div>
+      <div class="glass-luxury-card p-2.5 sm:p-3 rounded-xl">
+        <p class="text-[8.5px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider truncate">Anticipated ROI</p>
+        <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-emerald-400 mt-0.5">9.2% Net Yield</p>
+      </div>
+      <div class="glass-luxury-card p-2.5 sm:p-3 rounded-xl">
+        <p class="text-[8.5px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider truncate">Payment Plan</p>
+        <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-white mt-0.5">60 / 40 Linked</p>
+      </div>
+      <div class="glass-luxury-card p-2.5 sm:p-3 rounded-xl">
+        <p class="text-[8.5px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider truncate">Golden Visa</p>
+        <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-gold-400 mt-0.5">10-Yr Eligible</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Floor Plans & Unit Selector -->
+  <section id="floorplans" class="py-10 md:py-20 px-3 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-1.5 mb-6 sm:mb-10">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-layer-group text-[9px]"></i>
+        <span>Architectural Layouts</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black font-serif text-white tracking-tight">
+        Curated Sky Residences
+      </h2>
+    </div>
+
+    <!-- Unit Selector Tabs -->
+    <div class="glass-luxury-card rounded-2xl md:rounded-3xl p-3 sm:p-6 border border-gold-500/30 shadow-2xl">
+      <div class="grid grid-cols-3 gap-1 mb-4 p-1 bg-obsidian-950 rounded-xl border border-gold-500/20">
+        <button onclick="switchUnit('unit3bed')" id="tab-unit3bed" class="unit-tab active py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all text-center bg-gold-500 text-obsidian-950 shadow truncate">
+          3-Bed Sky
+        </button>
+        <button onclick="switchUnit('unit4bed')" id="tab-unit4bed" class="unit-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all text-center text-slate-400 hover:text-white truncate">
+          4-Bed Duplex
+        </button>
+        <button onclick="switchUnit('unitPresidential')" id="tab-unitPresidential" class="unit-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all text-center text-slate-400 hover:text-white truncate">
+          Presidential
+        </button>
+      </div>
+
+      <!-- Dynamic Unit Card Container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-center">
+        <!-- Unit Image Preview -->
+        <div class="relative rounded-xl overflow-hidden bg-obsidian-950 border border-slate-800 aspect-[16/10]">
+          <img id="unitImage" src="./image/penthouse_interior.jpg" alt="Luxury Interior" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-obsidian-950/90 border border-gold-500/40 px-2 py-0.5 rounded text-[9.5px] font-mono text-gold-400 font-bold" id="unitBadge">
+            Levels 42 - 58
+          </div>
+        </div>
+
+        <!-- Unit Details & Specs -->
+        <div class="space-y-3 sm:space-y-4 text-left">
+          <div>
+            <h3 class="text-base sm:text-2xl font-bold font-serif text-white" id="unitTitle">3-Bed Sky Residence</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed" id="unitDesc">Double-height panoramic living room with floor-to-ceiling soundproof glass and private infinity plunge pool.</p>
+          </div>
+
+          <!-- Specs Grid -->
+          <div class="grid grid-cols-3 gap-1.5 text-center text-xs">
+            <div class="bg-obsidian-950 p-2 rounded-xl border border-slate-800">
+              <span class="text-slate-400 text-[9px] block">Total Area</span>
+              <span class="font-bold text-gold-400 text-xs sm:text-sm truncate block" id="unitSize">3,850 Sq.Ft</span>
+            </div>
+            <div class="bg-obsidian-950 p-2 rounded-xl border border-slate-800">
+              <span class="text-slate-400 text-[9px] block">Bedrooms</span>
+              <span class="font-bold text-white text-xs sm:text-sm truncate block" id="unitBeds">3 En-Suite</span>
+            </div>
+            <div class="bg-obsidian-950 p-2 rounded-xl border border-slate-800">
+              <span class="text-slate-400 text-[9px] block">Parking</span>
+              <span class="font-bold text-white text-xs sm:text-sm truncate block" id="unitParking">2 Slots</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-slate-800">
+            <div>
+              <span class="text-[9.5px] text-slate-400 uppercase tracking-wider block">Investment From</span>
+              <span class="text-lg sm:text-2xl font-black font-serif text-gold-400" id="unitPrice">$4,850,000</span>
+            </div>
+            <button onclick="openVipModal()" class="btn-gold-luxury text-xs py-2.5 px-4 rounded-xl text-center">
+              Request Floorplan PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. World-Class Luxury Amenities -->
+  <section id="amenities" class="py-10 md:py-20 px-3 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-1.5 mb-8">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-star text-[9px]"></i>
+        <span>Bespoke Lifestyle</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black font-serif text-white tracking-tight">
+        Private Club Level Amenities
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-4">
+      <!-- Amenity 1 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-water-ladder"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">Sky Infinity Pool</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Temperature-controlled 50m oceanview infinity pool.</p>
+      </div>
+
+      <!-- Amenity 2 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-helicopter"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">Helipad &amp; Yacht Berth</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Direct VIP helicopter landing pad &amp; private yacht berths.</p>
+      </div>
+
+      <!-- Amenity 3 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">24/7 Butler Service</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Dedicated white-glove concierge, sommelier, and valet.</p>
+      </div>
+
+      <!-- Amenity 4 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-spa"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">Hydrotherapy Spa</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Hammam, ice plunge baths, and cryotherapy suites.</p>
+      </div>
+
+      <!-- Amenity 5 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-wine-glass"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">Private Wine Cellar</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Climate-controlled lockers &amp; members tasting lounge.</p>
+      </div>
+
+      <!-- Amenity 6 -->
+      <div class="glass-luxury-card glass-luxury-hover p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left space-y-1.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center text-xs sm:text-sm">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="text-xs sm:text-sm font-bold font-serif text-white leading-tight">Biometric Security</h3>
+        <p class="text-[10px] sm:text-xs text-slate-400 leading-snug">Encrypted private elevator access directly into foyer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Interactive Mortgage & Investment ROI Calculator -->
+  <section id="calculator" class="py-10 md:py-20 px-3 sm:px-6 max-w-3xl mx-auto">
+    <div class="glass-luxury-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-gold-500/30 text-center space-y-5 shadow-[0_0_35px_rgba(234,179,8,0.1)]">
+      <div class="space-y-1">
+        <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-calculator text-[9px]"></i>
+          <span>Financial Planning</span>
+        </div>
+        <h2 class="text-xl sm:text-3xl font-black font-serif text-white tracking-tight">Mortgage &amp; ROI Calculator</h2>
+      </div>
+
+      <!-- Sliders Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left">
+        <!-- Slider 1 -->
+        <div class="space-y-1 bg-obsidian-950 p-3 rounded-xl border border-slate-800">
+          <div class="flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-300">Property Price</span>
+            <span class="text-gold-400 font-mono text-xs sm:text-sm" id="calcPriceVal">$5.0M</span>
+          </div>
+          <input type="range" id="calcPriceSlider" min="4.8" max="15.0" step="0.2" value="5.0" oninput="updateMortgageCalc()" class="w-full" />
+        </div>
+
+        <!-- Slider 2 -->
+        <div class="space-y-1 bg-obsidian-950 p-3 rounded-xl border border-slate-800">
+          <div class="flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-300">Down Payment</span>
+            <span class="text-gold-400 font-mono text-xs sm:text-sm" id="calcDownVal">30%</span>
+          </div>
+          <input type="range" id="calcDownSlider" min="20" max="60" step="5" value="30" oninput="updateMortgageCalc()" class="w-full" />
+        </div>
+      </div>
+
+      <!-- Results Display -->
+      <div class="grid grid-cols-3 gap-1.5 sm:gap-2 bg-obsidian-900 border border-gold-500/30 p-2.5 sm:p-4 rounded-xl text-center">
+        <div>
+          <p class="text-slate-400 text-[8.5px] sm:text-[10px] uppercase font-bold tracking-wider truncate">Mortgage / Mo</p>
+          <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-gold-400 mt-0.5 truncate" id="calcMonthlyMortgage">$19,450</p>
+        </div>
+        <div>
+          <p class="text-slate-400 text-[8.5px] sm:text-[10px] uppercase font-bold tracking-wider truncate">Annual Yield</p>
+          <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-emerald-400 mt-0.5 truncate" id="calcRentalReturn">$460,000</p>
+        </div>
+        <div>
+          <p class="text-slate-400 text-[8.5px] sm:text-[10px] uppercase font-bold tracking-wider truncate">5-Yr Gain</p>
+          <p class="text-sm min-[360px]:text-base sm:text-2xl font-black font-serif text-white mt-0.5 truncate" id="calcCapitalGain">+$2.1M</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Prime Location & Distances -->
+  <section id="location" class="py-10 md:py-20 px-3 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center space-y-1.5 mb-6">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-map-pin text-[9px]"></i>
+        <span>Prime Geography</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-black font-serif text-white tracking-tight">
+        The Epicenter of Prestige
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+      <div class="glass-luxury-card p-2.5 rounded-xl border-slate-800">
+        <i class="fa-solid fa-plane-departure text-gold-400 text-base mb-1 block"></i>
+        <span class="text-xs font-bold text-white block truncate">Int'l Airport</span>
+        <span class="text-[10px] text-slate-400">12 Mins Drive</span>
+      </div>
+      <div class="glass-luxury-card p-2.5 rounded-xl border-slate-800">
+        <i class="fa-solid fa-ship text-gold-400 text-base mb-1 block"></i>
+        <span class="text-xs font-bold text-white block truncate">Yacht Marina</span>
+        <span class="text-[10px] text-slate-400">2 Mins Walk</span>
+      </div>
+      <div class="glass-luxury-card p-2.5 rounded-xl border-slate-800">
+        <i class="fa-solid fa-golf-ball-tee text-gold-400 text-base mb-1 block"></i>
+        <span class="text-xs font-bold text-white block truncate">Championship Golf</span>
+        <span class="text-[10px] text-slate-400">7 Mins Drive</span>
+      </div>
+      <div class="glass-luxury-card p-2.5 rounded-xl border-slate-800">
+        <i class="fa-solid fa-bag-shopping text-gold-400 text-base mb-1 block"></i>
+        <span class="text-xs font-bold text-white block truncate">Luxury Boutiques</span>
+        <span class="text-[10px] text-slate-400">4 Mins Drive</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ Section -->
+  <section id="faq" class="py-10 px-3 sm:px-6 max-w-2xl mx-auto">
+    <div class="text-center space-y-1.5 mb-6">
+      <div class="inline-flex items-center space-x-1.5 bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-gold-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+        <i class="fa-solid fa-circle-question text-[9px]"></i>
+        <span>Advisory FAQ</span>
+      </div>
+      <h2 class="text-xl sm:text-3xl font-black font-serif text-white tracking-tight">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-2">
+      <!-- FAQ 1 -->
+      <div class="glass-luxury-card rounded-xl p-3 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(1)">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="text-xs sm:text-sm font-bold text-white leading-snug">Can international buyers purchase freehold?</h3>
+          <i id="faq-icon-1" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform flex-shrink-0"></i>
+        </div>
+        <div id="faq-answer-1" class="hidden text-xs text-slate-300 pt-2 leading-relaxed border-t border-slate-800 mt-2">
+          Yes. Aurelia Estates is designated 100% Freehold for both local and foreign international investors, qualifying owners for 10-Year Resident Golden Visas.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="glass-luxury-card rounded-xl p-3 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(2)">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="text-xs sm:text-sm font-bold text-white leading-snug">What is the construction milestone payment schedule?</h3>
+          <i id="faq-icon-2" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform flex-shrink-0"></i>
+        </div>
+        <div id="faq-answer-2" class="hidden text-xs text-slate-300 pt-2 leading-relaxed border-t border-slate-800 mt-2">
+          The payment structure is 20% on booking, 40% linked to construction milestones, and the remaining 40% upon key handover in Q4 2026.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="glass-luxury-card rounded-xl p-3 sm:p-4 border-slate-800 cursor-pointer" onclick="toggleFaq(3)">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="text-xs sm:text-sm font-bold text-white leading-snug">Are interior customizations permitted?</h3>
+          <i id="faq-icon-3" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform flex-shrink-0"></i>
+        </div>
+        <div id="faq-answer-3" class="hidden text-xs text-slate-300 pt-2 leading-relaxed border-t border-slate-800 mt-2">
+          Buyers securing units prior to structural completion may collaborate with our Milanese design team for bespoke Italian marble and smart home finishes.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Bottom Luxury CTA Banner -->
+  <section class="py-10 px-3 sm:px-6 max-w-4xl mx-auto">
+    <div class="relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 text-center overflow-hidden border-2 border-gold-500/40 bg-gradient-to-b from-obsidian-900 via-obsidian-950 to-obsidian-900 shadow-[0_0_40px_rgba(234,179,8,0.25)]">
+      <h2 class="text-2xl sm:text-4xl font-black font-serif text-white tracking-tight mb-2 leading-tight">
+        Secure Your Legacy at Aurelia
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm max-w-md mx-auto mb-5">
+        Private viewings are conducted by executive appointment only.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-xs sm:max-w-md mx-auto">
+        <button onclick="openVipModal()" class="w-full sm:w-auto btn-gold-luxury text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg flex items-center justify-center space-x-1.5">
+          <span>Request Private Viewing</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Footer -->
+  <footer class="border-t border-gold-500/15 py-6 sm:py-8 bg-obsidian-950 text-slate-400 text-[11px]">
+    <div class="max-w-5xl mx-auto px-3.5 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex items-center justify-center space-x-2">
+        <div class="w-6 h-6 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400">
+          <i class="fa-solid fa-building-columns text-[10px]"></i>
+        </div>
+        <span class="font-extrabold font-serif text-white">Aurelia Estates</span>
+        <span>•</span>
+        <span>By <a href="https://digitalthemestore.com" class="text-gold-400 hover:underline">Digital Theme Store</a></span>
+      </div>
+      <p class="text-slate-500 text-[10px] sm:text-[11px]">
+        &copy; 2026 Aurelia Estates. RERA Project Registration #49281.
+      </p>
+    </div>
+  </footer>
+
+  <!-- VIP Private Tour Modal -->
+  <div id="vipModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-3">
+    <div class="relative w-full max-w-sm glass-luxury-card rounded-2xl p-4 sm:p-5 border border-gold-500/40 shadow-2xl">
+      <button onclick="closeVipModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="text-center space-y-1 mb-3.5">
+        <div class="w-9 h-9 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto text-sm mb-1">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <h3 class="text-base font-bold font-serif text-white">Book VIP Viewing</h3>
+        <p class="text-[10.5px] text-slate-400">Receive private chauffeur tour and floorplans.</p>
+      </div>
+
+      <form onsubmit="handleVipSubmit(event)" class="space-y-2.5 text-left">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-300 mb-0.5">Full Name *</label>
+          <input type="text" required placeholder="Lord / Lady / Dr. Name" class="w-full bg-obsidian-950 border border-slate-700 focus:border-gold-400 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-300 mb-0.5">Phone / WhatsApp *</label>
+          <input type="tel" required placeholder="+971 50 123 4567" class="w-full bg-obsidian-950 border border-slate-700 focus:border-gold-400 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-300 mb-0.5">Interested Residence</label>
+          <select class="w-full bg-obsidian-950 border border-slate-700 focus:border-gold-400 rounded-xl px-3 py-2 text-xs text-white outline-none">
+            <option>3-Bed Sky Residence ($4.8M)</option>
+            <option>4-Bed Duplex Penthouse ($7.2M)</option>
+            <option>Grand Presidential Sky Villa ($12.5M)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full btn-gold-luxury text-xs py-2.5 rounded-xl shadow mt-1">
+          Confirm Private Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Virtual Tour Modal -->
+  <div id="tourModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-3">
+    <div class="relative w-full max-w-3xl bg-obsidian-900 border border-gold-500/40 rounded-2xl overflow-hidden shadow-2xl">
+      <div class="p-3 bg-obsidian-850 flex items-center justify-between border-b border-slate-800">
+        <h3 class="text-xs font-bold font-serif text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-vr-cardboard text-gold-400"></i>
+          <span>Aurelia Sky Villa 3D Tour Experience</span>
+        </h3>
+        <button onclick="closeTourModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+      <div class="relative aspect-video w-full bg-black">
+        <iframe id="tourIframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    // 1. Mobile Navigation Toggle
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileNavMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // 2. Unit & Floor Plan Selector Data
+    const unitData = {
+      unit3bed: {
+        title: "3-Bed Sky Residence",
+        badge: "Levels 42 - 58",
+        desc: "Double-height panoramic living room with floor-to-ceiling soundproof glass and private infinity plunge pool.",
+        size: "3,850 Sq.Ft",
+        beds: "3 En-Suite",
+        parking: "2 Slots",
+        price: "$4,850,000",
+        img: "./image/penthouse_interior.jpg"
+      },
+      unit4bed: {
+        title: "4-Bed Duplex Penthouse",
+        badge: "Levels 60 - 74",
+        desc: "Split-level luxury penthouse featuring master wing with walk-in dressing room and wrap-around terrace.",
+        size: "5,420 Sq.Ft",
+        beds: "4 En-Suite",
+        parking: "3 Slots",
+        price: "$7,200,000",
+        img: "./image/hero_villa.jpg"
+      },
+      unitPresidential: {
+        title: "Presidential Sky Villa",
+        badge: "Top Floor 75",
+        desc: "Full-floor 360° residence with private rooftop helipad access and 15m sky infinity pool.",
+        size: "8,200 Sq.Ft",
+        beds: "5 En-Suite",
+        parking: "4 Slots",
+        price: "$12,500,000",
+        img: "./image/architecture.jpg"
+      }
+    };
+
+    function switchUnit(key) {
+      document.querySelectorAll('.unit-tab').forEach(b => {
+        b.className = "unit-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all text-center text-slate-400 hover:text-white truncate";
+      });
+      document.getElementById('tab-' + key).className = "unit-tab active py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold transition-all text-center bg-gold-500 text-obsidian-950 shadow truncate";
+
+      const data = unitData[key];
+      document.getElementById('unitTitle').innerText = data.title;
+      document.getElementById('unitBadge').innerText = data.badge;
+      document.getElementById('unitDesc').innerText = data.desc;
+      document.getElementById('unitSize').innerText = data.size;
+      document.getElementById('unitBeds').innerText = data.beds;
+      document.getElementById('unitParking').innerText = data.parking;
+      document.getElementById('unitPrice').innerText = data.price;
+      document.getElementById('unitImage').src = data.img;
+    }
+
+    // 3. Mortgage Calculator
+    function updateMortgageCalc() {
+      const priceM = parseFloat(document.getElementById('calcPriceSlider').value);
+      const downPct = parseInt(document.getElementById('calcDownSlider').value);
+
+      document.getElementById('calcPriceVal').innerText = '$' + priceM.toFixed(1) + 'M';
+      document.getElementById('calcDownVal').innerText = downPct + '%';
+
+      const loanAmt = (priceM * 1000000) * (1 - (downPct / 100));
+      const monthlyPmt = Math.round((loanAmt * 0.0556) / 12);
+      const rental = Math.round((priceM * 1000000) * 0.092);
+      const equityGain = (priceM * 0.42).toFixed(1);
+
+      document.getElementById('calcMonthlyMortgage').innerText = '$' + monthlyPmt.toLocaleString();
+      document.getElementById('calcRentalReturn').innerText = '$' + rental.toLocaleString();
+      document.getElementById('calcCapitalGain').innerText = '+$' + equityGain + 'M';
+    }
+
+    // 4. FAQ Accordion
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-answer-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // 5. VIP Modal
+    function openVipModal() {
+      document.getElementById('vipModal').classList.remove('hidden');
+    }
+    function closeVipModal() {
+      document.getElementById('vipModal').classList.add('hidden');
+    }
+    function handleVipSubmit(e) {
+      e.preventDefault();
+      alert("💎 Thank you. Our Senior Luxury Property Director will contact you within 15 minutes to confirm your private site tour.");
+      closeVipModal();
+    }
+
+    // 6. Virtual Tour Modal
+    function openTourModal() {
+      const modal = document.getElementById('tourModal');
+      const iframe = document.getElementById('tourIframe');
+      iframe.src = "https://www.youtube-nocookie.com/embed/0U8D8ahfZe0?autoplay=1";
+      modal.classList.remove('hidden');
+    }
+    function closeTourModal() {
+      const modal = document.getElementById('tourModal');
+      const iframe = document.getElementById('tourIframe');
+      iframe.src = "";
+      modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
