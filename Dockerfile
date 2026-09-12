@@ -14,6 +14,6 @@ RUN rm -rf /usr/share/nginx/html/.git \
     && rm -rf /usr/share/nginx/html/nginx.conf \
     && rm -rf /usr/share/nginx/html/Dockerfile
 
-EXPOSE 80 3000 8080
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
