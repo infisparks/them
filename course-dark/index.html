@@ -217,6 +217,92 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
   </style>
+  <!-- High Level Anti-Inspect, Anti-DevTools & Anti-Download Security -->
+  <style>
+    body, html {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+    input, textarea, select {
+      -webkit-user-select: text !important;
+      user-select: text !important;
+    }
+    img, iframe {
+      -webkit-user-drag: none !important;
+      user-drag: none !important;
+    }
+  </style>
+  <script>
+    (function() {
+      'use strict';
+      // 1. Disable Right Click
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      }, true);
+
+      // 2. Disable Keyboard Shortcuts (Inspect, View Source, Save, Print)
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+          e.preventDefault();
+          return false;
+        }
+        var isCmdOrCtrl = e.ctrlKey || e.metaKey;
+        if (isCmdOrCtrl) {
+          if (e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+            e.preventDefault();
+            return false;
+          }
+          if (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'P' || e.key === 'p') {
+            e.preventDefault();
+            return false;
+          }
+        }
+      }, true);
+
+      // 3. Disable Dragging
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      }, true);
+
+      // 4. DevTools Detection & Anti-Debugger
+      function blockDevTools() {
+        var threshold = 160;
+        var widthDiff = window.outerWidth - window.innerWidth > threshold;
+        var heightDiff = window.outerHeight - window.innerHeight > threshold;
+        if (widthDiff || heightDiff) {
+          document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#08080a;color:#facc15;font-family:sans-serif;text-align:center;padding:24px;">' +
+            '<div style="font-size:48px;margin-bottom:12px;">🔒</div>' +
+            '<h1 style="font-size:22px;font-weight:900;color:#fff;">Protected Source Code</h1>' +
+            '<p style="color:#94a3b8;font-size:13px;max-width:380px;margin:8px 0 20px;">Inspecting, copying, or unauthorized downloads are disabled for intellectual property security.</p>' +
+            '<button onclick="location.reload()" style="background:#eab308;color:#000;border:none;padding:12px 24px;border-radius:12px;font-weight:bold;cursor:pointer;">Reload Website</button>' +
+          '</div>';
+        }
+      }
+      window.addEventListener('resize', blockDevTools, { passive: true });
+
+      // Continuous Debugger Trap (Freezes DevTools if opened)
+      setInterval(function() {
+        (function() {
+          return false;
+        }['constructor']('debugger')());
+      }, 500);
+
+      // Console Warning
+      if (window.console) {
+        setInterval(function() {
+          console.clear();
+          console.log("%c🔒 SECURITY PROTECTED", "color:#eab308;font-size:24px;font-weight:900;background:#090d16;padding:8px 16px;border-radius:8px;");
+          console.log("%cUnauthorized downloading or inspection of these landing pages is strictly prohibited.", "color:#94a3b8;font-size:13px;font-weight:bold;");
+        }, 1500);
+      }
+    })();
+  </script>
+
 </head>
 <body class="w-full min-h-full bg-[#08080a] text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
 
