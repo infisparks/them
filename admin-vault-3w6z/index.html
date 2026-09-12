@@ -169,10 +169,10 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
 
       <!-- Overview Stats Banner -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
           <div>
-            <p class="text-xs font-medium text-gray-500">Total Purchase Inquiries</p>
+            <p class="text-xs font-medium text-gray-500">Total Inquiries</p>
             <h3 id="statTotalLeads" class="text-2xl font-bold text-gray-900 mt-1">--</h3>
           </div>
           <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg">
@@ -181,7 +181,7 @@
         </div>
         <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
           <div>
-            <p class="text-xs font-medium text-gray-500">Active Issued Licenses</p>
+            <p class="text-xs font-medium text-gray-500">Active Licenses</p>
             <h3 id="statTotalLicenses" class="text-2xl font-bold text-gray-900 mt-1">--</h3>
           </div>
           <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">
@@ -190,7 +190,16 @@
         </div>
         <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
           <div>
-            <p class="text-xs font-medium text-gray-500">Bundle Price &amp; License</p>
+            <p class="text-xs font-medium text-gray-500">Customization ($100)</p>
+            <h3 id="statCustomOrders" class="text-2xl font-bold text-purple-700 mt-1">--</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
+          <div>
+            <p class="text-xs font-medium text-gray-500">Store Bundle Offer</p>
             <h3 class="text-2xl font-bold text-gray-900 mt-1">₹299 <span class="text-xs font-semibold text-emerald-600">Lifetime</span></h3>
           </div>
           <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
@@ -409,6 +418,43 @@ https://digital-them-store.infispark.in/purchase/index.html
         </div>
       </div>
 
+      <!-- Section: Customization & Deployment Orders ($100 / ₹8,499) -->
+      <div class="bg-white rounded-xl border border-[#E5E7EB] shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-[#E5E7EB] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm font-bold text-gray-900 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+              <span>Template Customization &amp; Deployment Orders ($100 / ₹8,499)</span>
+            </h2>
+            <p class="text-xs text-gray-500">Submitted by customers requesting full customization &amp; custom domain deployment.</p>
+          </div>
+          <button onclick="loadFirebaseData()" class="text-xs font-semibold text-purple-600 hover:text-purple-700 flex items-center gap-1 self-start sm:self-auto">
+            <i class="fa-solid fa-rotate text-[10px]"></i> Refresh Orders
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-gray-600">
+            <thead class="bg-gray-50 text-gray-700 font-semibold border-b border-gray-200 uppercase text-[10px] tracking-wider">
+              <tr>
+                <th class="py-3 px-4">Client Name</th>
+                <th class="py-3 px-4">WhatsApp &amp; Email</th>
+                <th class="py-3 px-4">Selected Template</th>
+                <th class="py-3 px-4">Domain &amp; Requirements</th>
+                <th class="py-3 px-4">Amount</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="customOrdersTableBody" class="divide-y divide-gray-100">
+              <tr>
+                <td colspan="7" class="py-8 text-center text-gray-400">Loading customization orders from Firebase...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </main>
   </div>
 
@@ -572,6 +618,11 @@ https://digital-them-store.infispark.in/purchase/index.html
         const licRes = await fetch(`${RTDB_URL}/licenses.json`);
         const licData = await licRes.json();
         renderLicenses(licData);
+
+        // 3. Fetch Customization Orders ($100)
+        const custRes = await fetch(`${RTDB_URL}/customization_requests.json`);
+        const custData = await custRes.json();
+        renderCustomOrders(custData);
       } catch (err) {
         console.error("Firebase fetch error:", err);
       }
@@ -642,6 +693,74 @@ https://digital-them-store.infispark.in/purchase/index.html
           </tr>
         `;
       }).join('');
+    }
+
+    function renderCustomOrders(data) {
+      const tbody = document.getElementById('customOrdersTableBody');
+      if (!tbody) return;
+      if (!data) {
+        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-gray-400">No customization requests yet.</td></tr>`;
+        const statEl = document.getElementById('statCustomOrders');
+        if (statEl) statEl.innerText = "0";
+        return;
+      }
+      const list = Object.keys(data).map(id => ({ id, ...data[id] })).reverse();
+      const statEl = document.getElementById('statCustomOrders');
+      if (statEl) statEl.innerText = list.length;
+
+      tbody.innerHTML = list.map(item => {
+        const cleanPhone = (item.phone || '').replace(/[^0-9]/g, '');
+        const chatMsg = encodeURIComponent(`Hello ${item.name || 'there'}! Regarding your $100 template customization request for "${item.template || 'template'}" and domain requirements "${item.requirements || ''}". We are ready to begin!`);
+        const statusVal = item.status || 'New Request';
+        return `
+          <tr class="hover:bg-gray-50/80 transition-colors">
+            <td class="py-3 px-4 font-semibold text-gray-900">${escapeHtml(item.name || 'Client')}</td>
+            <td class="py-3 px-4">
+              <div class="font-mono font-medium text-gray-800">${escapeHtml(item.phone || '-')}</div>
+              <div class="text-[11px] text-gray-400">${escapeHtml(item.email || '-')}</div>
+            </td>
+            <td class="py-3 px-4 font-bold text-indigo-700">${escapeHtml(item.template || '-')}</td>
+            <td class="py-3 px-4 max-w-xs text-gray-700 text-[11px] leading-relaxed break-words">${escapeHtml(item.requirements || '-')}</td>
+            <td class="py-3 px-4 font-black text-emerald-600">${escapeHtml(item.amount || '$100 (₹8,499)')}</td>
+            <td class="py-3 px-4">
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold ${
+                statusVal.includes('Completed') ? 'bg-emerald-100 text-emerald-800' :
+                statusVal.includes('In Progress') ? 'bg-blue-100 text-blue-800' :
+                'bg-purple-100 text-purple-800'
+              }">
+                ${escapeHtml(statusVal)}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-right space-x-2">
+              <a href="https://wa.me/${cleanPhone}?text=${chatMsg}" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Chat
+              </a>
+              <button onclick="toggleOrderStatus('${item.id}', '${escapeHtml(statusVal)}')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 bg-indigo-50 px-2 py-1 rounded border border-indigo-200">
+                Next Status
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function toggleOrderStatus(orderId, currentStatus) {
+      let nextStatus = 'In Progress';
+      if (currentStatus.includes('In Progress')) {
+        nextStatus = 'Completed';
+      } else if (currentStatus.includes('Completed')) {
+        nextStatus = 'In Progress';
+      }
+      try {
+        await fetch(`${RTDB_URL}/customization_requests/${orderId}/status.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(nextStatus)
+        });
+        loadFirebaseData();
+      } catch (e) {
+        alert("Status update error: " + e.message);
+      }
     }
 
     function prefillLicense(name, phone) {
