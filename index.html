@@ -24,11 +24,43 @@
   
   <!-- Pre-cache top Landing Pages for 0ms latency -->
   <link rel="prefetch" href="./portfolio-dark-gold/index.html" />
+  <link rel="prefetch" href="./funnel-dark-gold/index.html" />
   <link rel="prefetch" href="./course-white-gold/index.html" />
   <link rel="prefetch" href="./ecommerce-dark-gold/index.html" />
   <link rel="prefetch" href="./single-product-white-gold/index.html" />
   <link rel="prefetch" href="./funnel-dark/index.html" />
   <link rel="prefetch" href="./saas-dark-gold/index.html" />
+
+  <script>
+    function scaleSingleIframe(iframe) {
+      if (!iframe) return;
+      var frame = iframe.closest ? iframe.closest('.phone-mockup-frame') : null;
+      if (frame) {
+        var frameWidth = frame.clientWidth;
+        var frameHeight = frame.clientHeight;
+        if (frameWidth > 0) {
+          var scale = frameWidth / 375;
+          iframe.style.width = '375px';
+          iframe.style.height = (frameHeight / scale) + 'px';
+          iframe.style.transform = 'scale(' + scale + ')';
+        }
+      }
+    }
+    function handleIframeLoaded(iframe) {
+      if (!iframe) return;
+      if (!iframe.src || iframe.src.indexOf('about:blank') !== -1) return;
+      scaleSingleIframe(iframe);
+      iframe.classList.add('loaded');
+      var frame = iframe.closest ? iframe.closest('.phone-mockup-frame') : null;
+      if (frame) {
+        var skeleton = frame.querySelector('.phone-skeleton');
+        if (skeleton) {
+          skeleton.style.opacity = '0';
+          setTimeout(function() { skeleton.style.display = 'none'; }, 250);
+        }
+      }
+    }
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -355,7 +387,42 @@
           </div>
         </div>
 
-        <!-- 2. Master Academy | Gold (Course White Gold) -->
+        <!-- 2. Revenue Funnel | Gold (Funnel Dark Gold) -->
+        <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
+          <div class="space-y-1.5">
+            <div class="phone-mockup-frame group">
+              <div class="phone-notch"></div>
+              <div class="phone-skeleton">
+                <div class="skeleton-spinner"></div>
+                <div class="w-16 space-y-1.5">
+                  <div class="skeleton-line w-full"></div>
+                  <div class="skeleton-line w-3/4 mx-auto"></div>
+                </div>
+              </div>
+              <iframe src="./funnel-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Gold" loading="eager"></iframe>
+              <div class="absolute top-1.5 left-1.5 z-20">
+                <span class="bg-black/85 text-gold-400 border border-gold-400/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
+                  Funnel
+                </span>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Revenue Funnel | Gold</h3>
+              <p class="text-[8.5px] sm:text-[10px] text-slate-500 truncate">3D Funnel, 12 Video Proofs</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
+            <button onclick="openPreviewModal('funnel-dark-gold/index.html', 'Revenue Funnel - Dark Gold')" class="flex-1 btn-gold-main text-[9.5px] sm:text-[11px] font-black py-1 px-1.5 rounded-lg flex items-center justify-center gap-1 shadow-2xs">
+              <i class="fa-solid fa-eye text-[8px]"></i>
+              <span>Preview</span>
+            </button>
+            <a href="./funnel-dark-gold/index.html" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-black py-1 px-2 rounded-lg">
+              ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Master Academy | Gold (Course White Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
             <div class="phone-mockup-frame group">
@@ -390,7 +457,7 @@
           </div>
         </div>
 
-        <!-- 3. Nexus Store | Dark Gold (Ecommerce Dark Gold) -->
+        <!-- 4. Nexus Store | Dark Gold (Ecommerce Dark Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
             <div class="phone-mockup-frame group">
@@ -425,7 +492,7 @@
           </div>
         </div>
 
-        <!-- 4. Hero DTC | White Gold (Single Product White Gold) -->
+        <!-- 5. Hero DTC | White Gold (Single Product White Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
             <div class="phone-mockup-frame group">
@@ -437,7 +504,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./single-product-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product White Gold" loading="eager"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product White Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border border-amber-400 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Product
@@ -460,7 +527,7 @@
           </div>
         </div>
 
-        <!-- 5. Funnel | Dark Classic (Funnel Dark) -->
+        <!-- 6. Funnel | Dark Classic (Funnel Dark) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-slate-300">
           <div class="space-y-1.5">
             <div class="phone-mockup-frame group">
@@ -472,7 +539,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./funnel-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Classic" loading="eager"></iframe>
+              <iframe src="about:blank" data-src="./funnel-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Classic" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-slate-200 border border-slate-500/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Funnel
@@ -495,7 +562,7 @@
           </div>
         </div>
 
-        <!-- 6. SaaS AI (Dark Gold) -->
+        <!-- 7. SaaS AI (Dark Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
             <!-- Mobile Screen Mockup -->
@@ -508,7 +575,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./saas-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="SaaS AI Dark Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./saas-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="SaaS AI Dark Gold" loading="lazy"></iframe>
               <!-- Overlay Hover / Quick Preview Badge -->
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border border-gold-400/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
@@ -533,7 +600,7 @@
           </div>
         </div>
 
-        <!-- 7. Real Estate (Dark Gold) -->
+        <!-- 8. Real Estate (Dark Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
             <!-- Mobile Screen Mockup -->
@@ -546,7 +613,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./realstate-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Real Estate Dark Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./realstate-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Real Estate Dark Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border border-gold-400/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Real Estate
@@ -569,41 +636,6 @@
           </div>
         </div>
 
-        <!-- 8. Agency Funnel (Dark Gold) -->
-        <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
-          <div class="space-y-1.5">
-            <div class="phone-mockup-frame group">
-              <div class="phone-notch"></div>
-              <div class="phone-skeleton">
-                <div class="skeleton-spinner"></div>
-                <div class="w-16 space-y-1.5">
-                  <div class="skeleton-line w-full"></div>
-                  <div class="skeleton-line w-3/4 mx-auto"></div>
-                </div>
-              </div>
-              <iframe src="./funnel-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Gold" loading="lazy"></iframe>
-              <div class="absolute top-1.5 left-1.5 z-20">
-                <span class="bg-black/85 text-gold-400 border border-gold-400/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
-                  Funnel
-                </span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Revenue Funnel | Gold</h3>
-              <p class="text-[8.5px] sm:text-[10px] text-slate-500 truncate">3D Funnel, 12 Video Proofs</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
-            <button onclick="openPreviewModal('funnel-dark-gold/index.html', 'Revenue Funnel - Dark Gold')" class="flex-1 btn-gold-main text-[9.5px] sm:text-[11px] font-black py-1 px-1.5 rounded-lg flex items-center justify-center gap-1 shadow-2xs">
-              <i class="fa-solid fa-eye text-[8px]"></i>
-              <span>Preview</span>
-            </button>
-            <a href="./funnel-dark-gold/index.html" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-black py-1 px-2 rounded-lg">
-              ↗
-            </a>
-          </div>
-        </div>
-
         <!-- 9. Agency Funnel (White Gold) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
           <div class="space-y-1.5">
@@ -616,7 +648,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./funnel-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border border-amber-400 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Funnel
@@ -651,7 +683,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./ecommerce-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Ecommerce White Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Ecommerce White Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border border-amber-400 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   E-Commerce
@@ -686,7 +718,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./portfolio-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border border-amber-400 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Portfolio
@@ -721,7 +753,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./single-product-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product Dark Gold" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product Dark Gold" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border border-gold-400/40 text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Product
@@ -765,7 +797,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | Dark Emerald</h3>
           </div>
@@ -782,7 +814,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | White Emerald</h3>
           </div>
@@ -799,7 +831,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./course-dark-green/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course Dark Green" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-dark-green/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course Dark Green" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Course | Dark Green</h3>
           </div>
@@ -816,7 +848,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./course-white-green/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Green" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-white-green/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Green" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Course | White Green</h3>
           </div>
@@ -833,7 +865,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | Dark Emerald</h3>
           </div>
@@ -850,7 +882,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | White Emerald</h3>
           </div>
@@ -867,7 +899,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | Emerald</h3>
           </div>
@@ -884,7 +916,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | White Emerald</h3>
           </div>
@@ -901,7 +933,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product Dark Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-dark-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product Dark Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | Dark Emerald</h3>
           </div>
@@ -918,7 +950,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product White Emerald" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-emerald/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product White Emerald" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | White Emerald</h3>
           </div>
@@ -950,7 +982,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | Dark Purple</h3>
           </div>
@@ -967,7 +999,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | White Purple</h3>
           </div>
@@ -984,7 +1016,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./course-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Course | White Purple</h3>
           </div>
@@ -1001,7 +1033,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | Dark Purple</h3>
           </div>
@@ -1018,7 +1050,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | White Purple</h3>
           </div>
@@ -1035,7 +1067,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | Dark Purple</h3>
           </div>
@@ -1052,7 +1084,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | White Purple</h3>
           </div>
@@ -1069,7 +1101,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product Dark Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-dark-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product Dark Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | Dark Purple</h3>
           </div>
@@ -1086,7 +1118,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Purple" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-purple/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Purple" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | White Purple</h3>
           </div>
@@ -1118,7 +1150,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Blue" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Blue" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | White Blue</h3>
           </div>
@@ -1135,7 +1167,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./course-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Blue" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course White Blue" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Course | White Blue</h3>
           </div>
@@ -1152,7 +1184,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Blue" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Blue" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | White Blue</h3>
           </div>
@@ -1169,7 +1201,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Blue" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Blue" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | White Blue</h3>
           </div>
@@ -1186,7 +1218,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Blue" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-blue/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Blue" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | White Blue</h3>
           </div>
@@ -1218,7 +1250,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel Dark Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | Dark Classic</h3>
           </div>
@@ -1235,7 +1267,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./funnel-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Funnel White Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Funnel | White Classic</h3>
           </div>
@@ -1252,7 +1284,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./course-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course Dark Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Course Dark Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Course | Dark Classic</h3>
           </div>
@@ -1269,7 +1301,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store Dark Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | Dark Classic</h3>
           </div>
@@ -1286,7 +1318,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./ecommerce-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Store White Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Store | White Classic</h3>
           </div>
@@ -1303,7 +1335,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio Dark Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | Dark Classic</h3>
           </div>
@@ -1320,7 +1352,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./portfolio-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./portfolio-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Portfolio White Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Portfolio | White Classic</h3>
           </div>
@@ -1337,7 +1369,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product Dark Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-dark/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product Dark Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | Dark Classic</h3>
           </div>
@@ -1354,7 +1386,7 @@
           <div class="space-y-1.5">
             <div class="phone-mockup-frame">
               <div class="phone-notch"></div>
-              <iframe src="./single-product-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Classic" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Product White Classic" loading="lazy"></iframe>
             </div>
             <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">Product | White Classic</h3>
           </div>
@@ -1468,8 +1500,46 @@
 
   <!-- Javascript Logic for scaling phone iframes and interactivity -->
   <script>
-        function handleIframeLoaded(iframe) {
+    // IntersectionObserver for rapid on-demand iframe preloading
+    let lazyIframeObserver = null;
+    if ('IntersectionObserver' in window) {
+      lazyIframeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            if (iframe.dataset.src && (!iframe.src || iframe.src.endsWith('about:blank'))) {
+              iframe.src = iframe.dataset.src;
+            }
+            observer.unobserve(iframe);
+          }
+        });
+      }, {
+        rootMargin: '500px 0px', // Preload 500px before reaching viewport for instant display
+        threshold: 0.01
+      });
+    }
+
+    function observeLazyIframes() {
+      if (!lazyIframeObserver) {
+        // Fallback: load iframes if IntersectionObserver is unavailable
+        document.querySelectorAll('.live-scaled-iframe[data-src]').forEach(iframe => {
+          if (!iframe.src || iframe.src.endsWith('about:blank')) {
+            iframe.src = iframe.dataset.src;
+          }
+        });
+        return;
+      }
+      document.querySelectorAll('.live-scaled-iframe[data-src]').forEach(iframe => {
+        if (!iframe.src || iframe.src.endsWith('about:blank')) {
+          lazyIframeObserver.observe(iframe);
+        }
+      });
+    }
+
+    function handleIframeLoaded(iframe) {
       if (!iframe) return;
+      // Do not dismiss skeleton for empty about:blank
+      if (!iframe.src || iframe.src.endsWith('about:blank')) return;
       scaleSingleIframe(iframe);
       iframe.classList.add('loaded');
       const frame = iframe.closest('.phone-mockup-frame');
@@ -1477,7 +1547,7 @@
         const skeleton = frame.querySelector('.phone-skeleton');
         if (skeleton) {
           skeleton.style.opacity = '0';
-          setTimeout(() => { skeleton.style.display = 'none'; }, 350);
+          setTimeout(() => { skeleton.style.display = 'none'; }, 250);
         }
       }
     }
@@ -1524,9 +1594,12 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       scalePhoneIframes();
+      observeLazyIframes();
       document.querySelectorAll('.live-scaled-iframe').forEach(iframe => {
-        if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-          handleIframeLoaded(iframe);
+        if (iframe.src && !iframe.src.endsWith('about:blank')) {
+          if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+            handleIframeLoaded(iframe);
+          }
         }
       });
       setTimeout(scalePhoneIframes, 50);
@@ -1554,11 +1627,7 @@
       });
       setTimeout(() => {
         scalePhoneIframes();
-        document.querySelectorAll('.live-scaled-iframe').forEach(iframe => {
-          if (iframe.dataset.src) {
-            lazyIframeObserver.observe(iframe);
-          }
-        });
+        observeLazyIframes();
       }, 50);
     }
 
