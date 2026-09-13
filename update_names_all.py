@@ -277,17 +277,17 @@ THEME_DATA = {
 }
 
 GOLD_ORDER = [
-    "portfolio-dark-gold",
-    "funnel-dark-gold",
-    "realstate-dark-gold",          # #3 strictly Real Estate
-    "course-white-gold",             # #4 Tech Architect
-    "ecommerce-dark-gold",
-    "single-product-white-gold",
-    "saas-dark-gold",
-    "funnel-white-gold",
-    "ecommerce-white-gold",
-    "portfolio-white-gold",
-    "single-product-dark-gold"
+    "portfolio-dark-gold",          # #1 Portfolio
+    "funnel-dark-gold",             # #2 Meta Ads
+    "realstate-dark-gold",          # #3 Luxury Real Estate
+    "single-product-white-gold",    # #4 Ergonomic Workspace DTC (User requested)
+    "funnel-white-gold",            # #5 B2B Growth Agency (User requested)
+    "ecommerce-dark-gold",          # #6 Luxury Watches & Jewelry (User requested)
+    "course-white-gold",            # #7 Tech Architect & AI Masterclass
+    "saas-dark-gold",               # #8 Enterprise AI Platform & SaaS
+    "ecommerce-white-gold",         # #9 Designer Fashion Boutique
+    "portfolio-white-gold",         # #10 Architecture Studio
+    "single-product-dark-gold"      # #11 Smart Ring DTC
 ]
 
 EMERALD_ORDER = [
