@@ -21,15 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  
-  <!-- Pre-cache top Landing Pages for 0ms latency -->
-  <link rel="prefetch" href="./portfolio-dark-gold/index.html" />
-  <link rel="prefetch" href="./funnel-dark-gold/index.html" />
-  <link rel="prefetch" href="./course-white-gold/index.html" />
-  <link rel="prefetch" href="./ecommerce-dark-gold/index.html" />
-  <link rel="prefetch" href="./single-product-white-gold/index.html" />
-  <link rel="prefetch" href="./funnel-dark/index.html" />
-  <link rel="prefetch" href="./saas-dark-gold/index.html" />
 
   <script>
     function handleIframeLoaded(iframe) {
@@ -104,7 +95,7 @@
     })();
   </script>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -525,7 +516,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./realstate-dark-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Real Estate Landing Page Template" loading="eager"></iframe>
+              <iframe src="about:blank" data-src="./realstate-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Real Estate Landing Page Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Real Estate
@@ -560,7 +551,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./single-product-white-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Single Product E-Commerce Template" loading="eager"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product E-Commerce Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Single Product
@@ -595,7 +586,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./funnel-white-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="B2B Sales Funnel Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="B2B Sales Funnel Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Sales Funnel
@@ -630,7 +621,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./ecommerce-dark-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="E-Commerce Store Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="E-Commerce Store Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   E-Commerce
@@ -665,7 +656,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./course-white-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Online Course Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Online Course Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Course / EdTech
@@ -1144,25 +1135,11 @@
       lazyIframeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const iframe = entry.target;
-          const isHero = iframe.classList.contains('hero-iframe');
           if (entry.isIntersecting) {
             // Load iframe when within 350px of screen
             if (iframe.dataset.src && (!iframe.src || iframe.src.indexOf('about:blank') !== -1)) {
               iframe.src = iframe.dataset.src;
-            }
-          } else {
-            // Unload iframes scrolled far out of view to keep memory ultra-light (ZERO LAG)
-            if (!isHero && iframe.src && iframe.src.indexOf('about:blank') === -1) {
-              iframe.src = 'about:blank';
-              iframe.classList.remove('loaded');
-              const frame = iframe.closest('.phone-mockup-frame');
-              if (frame) {
-                const skeleton = frame.querySelector('.phone-skeleton');
-                if (skeleton) {
-                  skeleton.style.display = 'flex';
-                  skeleton.style.opacity = '1';
-                }
-              }
+              lazyIframeObserver.unobserve(iframe); // Keep loaded once active, 0 lag!
             }
           }
         });
@@ -1182,7 +1159,9 @@
         return;
       }
       document.querySelectorAll('.live-scaled-iframe[data-src]').forEach(iframe => {
-        lazyIframeObserver.observe(iframe);
+        if (!iframe.src || iframe.src.endsWith('about:blank')) {
+          lazyIframeObserver.observe(iframe);
+        }
       });
     }
 
@@ -1195,7 +1174,7 @@
         const skeleton = frame.querySelector('.phone-skeleton');
         if (skeleton) {
           skeleton.style.opacity = '0';
-          setTimeout(() => { skeleton.style.display = 'none'; }, 200);
+          setTimeout(() => { skeleton.style.display = 'none'; }, 150);
         }
       }
     }
@@ -1230,10 +1209,6 @@
       const cards = document.querySelectorAll('.card-phone-unit');
       if (!cards.length) return;
 
-      // Calculate the 3rd row dynamically based on columns:
-      // Mobile (2 cols): 3rd row ends at 6th card (index 5)
-      // Tablet (3 cols): 3rd row ends at 9th card (index 8)
-      // Desktop (4 cols): 3rd row ends at 12th card (index 11)
       let targetIndex = 5;
       if (window.innerWidth >= 1024 && cards.length > 11) {
         targetIndex = 11;
@@ -1287,6 +1262,21 @@
       setupThreeRowScrollPopup();
       setupWhatsAppInput();
 
+      // Progressive idle warmup for cards 3-7 so user experiences zero wait while keeping main thread free
+      const idleWarmup = window.requestIdleCallback || function(cb) { setTimeout(cb, 600); };
+      idleWarmup(() => {
+        let stagger = 300;
+        document.querySelectorAll('.live-scaled-iframe[data-src]').forEach(iframe => {
+          setTimeout(() => {
+            if (iframe && iframe.dataset.src && (!iframe.src || iframe.src.indexOf('about:blank') !== -1)) {
+              iframe.src = iframe.dataset.src;
+              if (lazyIframeObserver) lazyIframeObserver.unobserve(iframe);
+            }
+          }, stagger);
+          stagger += 350;
+        });
+      });
+
       // Clicking on phone mockup frame opens preview
       document.querySelectorAll('.card-phone-unit').forEach(card => {
         const frame = card.querySelector('.phone-mockup-frame');
@@ -1306,28 +1296,6 @@
         }
       });
     });
-
-    // Color filtering
-    
-    // Catalog Filtering for remaining 38+ templates
-    function filterCatalog(category) {
-      document.querySelectorAll('.cat-tab').forEach(t => {
-        t.className = "cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer";
-      });
-      const activeTab = document.getElementById('catTab-' + category);
-      if (activeTab) {
-        activeTab.className = "cat-tab px-3 py-1.5 rounded-xl text-xs font-black bg-slate-900 text-white shadow-xs flex-shrink-0 cursor-pointer";
-      }
-
-      document.querySelectorAll('.catalog-item').forEach(item => {
-        const itemCat = item.getAttribute('data-cat');
-        if (category === 'all' || itemCat === category || (category === 'course' && itemCat === 'saas')) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-    }
 
     function filterColor(color) {
       document.querySelectorAll('.color-btn').forEach(b => {

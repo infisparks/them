@@ -110,8 +110,11 @@ def render_top_card(theme_key, index):
     d = THEME_DATA[theme_key]
     badge_bg = "bg-white/95 text-amber-900 border-amber-400" if "white" in theme_key else "bg-black/85 text-gold-400 border-gold-400/40"
     
-    # First 4 are loaded eager, next 3 are lazy
-    loading_attr = 'loading="eager"' if index < 4 else 'loading="lazy"'
+    # Top 2 load immediately; remaining 5 use data-src for zero-lag streaming
+    if index < 2:
+        iframe_tag = f'<iframe src="./{theme_key}/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="eager"></iframe>'
+    else:
+        iframe_tag = f'<iframe src="about:blank" data-src="./{theme_key}/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="lazy"></iframe>'
     
     return f'''        <!-- #{index+1}: {d["title"]} ({theme_key}) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
@@ -125,7 +128,7 @@ def render_top_card(theme_key, index):
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./{theme_key}/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" {loading_attr}></iframe>
+              {iframe_tag}
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="{badge_bg} border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   {d["badge"]}
