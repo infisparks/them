@@ -1,0 +1,15 @@
+name = "digitalthem"
+main = "worker.js"
+compatibility_date = "2024-09-01"
+
+[vars]
+FIREBASE_DB_URL = "https://awdeveloper-f2b8a-default-rtdb.firebaseio.com"
+FIREBASE_SECRET = "Yo5r6sDdNUjBGXdN4xHHsI2wJpW0trjxFzcYjf5r"
+RAZORPAY_KEY_ID = "rzp_live_TXvv4nCnkVjFWm"
+RAZORPAY_KEY_SECRET = "XtzQBL84oexfAFHDPOHSrXc4"
+RAZORPAY_WEBHOOK_SECRET = "XtzQBL84oexfAFHDPOHSrXc4"
+EVO_BASE_URL = "https://evo.infisparks.in"
+EVO_API_KEY = "vR39h6avY69g7kAU3YQbS6V6XEvudson"
+EVO_INSTANCE = "mudassir"
+ADMIN_WHATSAPP = "919958399157"
+PORTAL_URL = "https://them.infisparks.com/purchase"

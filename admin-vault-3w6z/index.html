@@ -150,6 +150,11 @@
           </div>
         </div>
         <div class="flex items-center space-x-2 sm:space-x-3">
+          <button onclick="openWorkerModal()" class="text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 flex items-center gap-1.5 px-3 py-1.5 rounded-lg shadow-2xs">
+            <i class="fa-solid fa-bolt text-amber-600"></i>
+            <span class="hidden sm:inline">Cloudflare &amp; Razorpay</span>
+            <span class="sm:hidden">Worker</span>
+          </button>
           <a href="../index.html" target="_blank" class="text-xs font-semibold text-gray-600 hover:text-indigo-600 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 hover:bg-gray-50">
             <span>Live Store</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
@@ -458,6 +463,65 @@ https://digital-them-store.infispark.in/purchase/index.html
     </main>
   </div>
 
+  <!-- Cloudflare Worker & Razorpay Setup Modal -->
+  <div id="workerSetupModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="relative w-full max-w-3xl bg-white rounded-2xl p-5 sm:p-7 border border-gray-200 shadow-2xl text-left space-y-5 my-8">
+      <button onclick="closeWorkerModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div>
+        <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-900 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-1">
+          <i class="fa-solid fa-bolt text-amber-600"></i> Cloudflare Worker &amp; Razorpay Configuration
+        </div>
+        <h2 class="text-xl font-bold text-gray-900">Backend Automation &amp; Webhook Center</h2>
+        <p class="text-xs text-gray-500 mt-0.5">Manage live payments, Firebase lead capture, and instant WhatsApp delivery.</p>
+      </div>
+
+      <!-- Live Worker Status Pill -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div>
+          <span class="text-xs font-semibold text-gray-700">Cloudflare Worker Endpoint:</span>
+          <p class="font-mono text-xs text-indigo-700 font-bold break-all">https://digitalthem.infisparks.workers.dev</p>
+        </div>
+        <button onclick="testWorkerPing()" id="btnTestPing" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 px-3.5 rounded-lg flex items-center gap-1.5 self-start sm:self-auto shadow-xs">
+          <i class="fa-solid fa-signal text-xs"></i> <span>Test Worker Ping</span>
+        </button>
+      </div>
+      <div id="workerPingResult" class="hidden p-2.5 rounded-lg text-xs font-mono"></div>
+
+      <!-- Razorpay Webhook Instructions -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-bold text-gray-900 flex items-center gap-1.5">
+          <i class="fa-solid fa-webhook text-indigo-600"></i> Step-by-Step: Add Webhook in Razorpay Dashboard
+        </h3>
+        <div class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-3.5 text-xs text-gray-700 space-y-2">
+          <p><strong>1. Log in</strong> to your Razorpay Dashboard at <a href="https://dashboard.razorpay.com/" target="_blank" class="text-indigo-600 underline font-semibold">dashboard.razorpay.com</a></p>
+          <p><strong>2. Navigate</strong> to <strong>Settings</strong> &rarr; <strong>Webhooks</strong> &rarr; Click <strong>+ Add New Webhook</strong></p>
+          <p><strong>3. Webhook URL:</strong> <code class="bg-white px-2 py-0.5 rounded border border-gray-200 font-mono text-indigo-700 select-all font-bold">https://digitalthem.infisparks.workers.dev/api/razorpay-webhook</code></p>
+          <p><strong>4. Secret:</strong> <code class="bg-white px-2 py-0.5 rounded border border-gray-200 font-mono text-gray-800 select-all font-bold">XtzQBL84oexfAFHDPOHSrXc4</code></p>
+          <p><strong>5. Active Events to Check:</strong></p>
+          <div class="flex flex-wrap gap-2 pt-0.5">
+            <span class="bg-white border border-gray-200 px-2 py-0.5 rounded text-[11px] font-mono font-bold text-emerald-700">payment.captured</span>
+            <span class="bg-white border border-gray-200 px-2 py-0.5 rounded text-[11px] font-mono font-bold text-emerald-700">order.paid</span>
+          </div>
+          <p><strong>6. Click Save:</strong> Every successful payment will automatically verify, record in Firebase, and dispatch WhatsApp access links!</p>
+        </div>
+      </div>
+
+      <!-- Quick Copy Code -->
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <h3 class="text-xs font-bold text-gray-700">Cloudflare Worker Code (cloudflare-worker/worker.js)</h3>
+          <button onclick="copyWorkerCode()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+            <i class="fa-solid fa-copy"></i> <span id="copyWorkerCodeText">Copy Worker Code</span>
+          </button>
+        </div>
+        <textarea id="workerCodeDisplay" readonly rows="7" class="w-full bg-slate-900 text-slate-200 font-mono text-[11px] p-3 rounded-xl border border-slate-700 outline-none select-all"></textarea>
+      </div>
+    </div>
+  </div>
+
   <!-- Firebase Auth Module -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -486,6 +550,8 @@ https://digital-them-store.infispark.in/purchase/index.html
   <script>
     const AUTHORIZED_ADMIN_UID = "3W6z620us4UaJOIQtHhTlmeLcbd2";
     const RTDB_URL = "https://awdeveloper-f2b8a-default-rtdb.firebaseio.com";
+    const RTDB_SECRET = "Yo5r6sDdNUjBGXdN4xHHsI2wJpW0trjxFzcYjf5r";
+    const WORKER_URL = "https://digitalthem.infisparks.workers.dev";
 
     let allLicenses = [];
     let allLeads = [];
@@ -609,18 +675,20 @@ https://digital-them-store.infispark.in/purchase/index.html
     // Load Data from Firebase RTDB
     async function loadFirebaseData() {
       try {
+        const authParam = RTDB_SECRET ? `?auth=${encodeURIComponent(RTDB_SECRET)}` : '';
+
         // 1. Fetch Leads
-        const leadsRes = await fetch(`${RTDB_URL}/leads.json`);
+        const leadsRes = await fetch(`${RTDB_URL}/leads.json${authParam}`);
         const leadsData = await leadsRes.json();
         renderLeads(leadsData);
 
         // 2. Fetch Licenses
-        const licRes = await fetch(`${RTDB_URL}/licenses.json`);
+        const licRes = await fetch(`${RTDB_URL}/licenses.json${authParam}`);
         const licData = await licRes.json();
         renderLicenses(licData);
 
         // 3. Fetch Customization Orders ($100)
-        const custRes = await fetch(`${RTDB_URL}/customization_requests.json`);
+        const custRes = await fetch(`${RTDB_URL}/customization_requests.json${authParam}`);
         const custData = await custRes.json();
         renderCustomOrders(custData);
       } catch (err) {
@@ -752,7 +820,8 @@ https://digital-them-store.infispark.in/purchase/index.html
         nextStatus = 'In Progress';
       }
       try {
-        await fetch(`${RTDB_URL}/customization_requests/${orderId}/status.json`, {
+        const authParam = RTDB_SECRET ? `?auth=${encodeURIComponent(RTDB_SECRET)}` : '';
+        await fetch(`${RTDB_URL}/customization_requests/${orderId}/status.json${authParam}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(nextStatus)
@@ -825,7 +894,8 @@ Enjoy building high-converting landing pages! ⚡`;
 
       try {
         const safeKeyId = key.replace(/[^a-zA-Z0-9_-]/g, '_');
-        await fetch(`${RTDB_URL}/licenses/${safeKeyId}.json`, {
+        const authParam = RTDB_SECRET ? `?auth=${encodeURIComponent(RTDB_SECRET)}` : '';
+        await fetch(`${RTDB_URL}/licenses/${safeKeyId}.json${authParam}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(licenseObj)
@@ -855,7 +925,8 @@ Enjoy building high-converting landing pages! ⚡`;
     async function deleteLicense(id) {
       if (!confirm("Are you sure you want to revoke and delete this license? The customer will immediately lose access to source downloads.")) return;
       try {
-        await fetch(`${RTDB_URL}/licenses/${id}.json`, { method: "DELETE" });
+        const authParam = RTDB_SECRET ? `?auth=${encodeURIComponent(RTDB_SECRET)}` : '';
+        await fetch(`${RTDB_URL}/licenses/${id}.json${authParam}`, { method: "DELETE" });
         loadFirebaseData();
       } catch (err) {
         alert("Error deleting license: " + err.message);
@@ -873,6 +944,59 @@ Enjoy building high-converting landing pages! ⚡`;
       const text = document.getElementById('whatsappMsgPreview').value;
       navigator.clipboard.writeText(text);
       alert("Copied ready-to-send WhatsApp message to clipboard!");
+    }
+
+    // Worker Modal & Ping Test
+    function openWorkerModal() {
+      document.getElementById('workerSetupModal').classList.remove('hidden');
+      const sampleCode = `// InfiSparks Theme Store Cloudflare Worker
+// Full code is located in file: cloudflare-worker/worker.js
+// Deploy to: https://digitalthem.infisparks.workers.dev
+// Automatically captures leads, processes payments, generates licenses & dispatches WhatsApp messages.`;
+      const textarea = document.getElementById('workerCodeDisplay');
+      if (!textarea.value || textarea.value.length < 50) {
+        fetch('../cloudflare-worker/worker.js').then(r => r.text()).then(code => {
+          textarea.value = code;
+        }).catch(() => {
+          textarea.value = sampleCode;
+        });
+      }
+    }
+
+    function closeWorkerModal() {
+      document.getElementById('workerSetupModal').classList.add('hidden');
+    }
+
+    async function testWorkerPing() {
+      const btn = document.getElementById('btnTestPing');
+      const resBox = document.getElementById('workerPingResult');
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Pinging...`;
+      resBox.classList.remove('hidden');
+      resBox.className = "p-2.5 rounded-lg text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200";
+      resBox.innerText = "Connecting to https://digitalthem.infisparks.workers.dev/api/health ...";
+
+      try {
+        const res = await fetch(`${WORKER_URL}/api/health`);
+        const data = await res.json();
+        resBox.className = "p-2.5 rounded-lg text-xs font-mono bg-emerald-50 text-emerald-800 border border-emerald-200";
+        resBox.innerText = "✅ Worker Online & Ready!\n" + JSON.stringify(data, null, 2);
+      } catch (err) {
+        resBox.className = "p-2.5 rounded-lg text-xs font-mono bg-rose-50 text-rose-800 border border-rose-200";
+        resBox.innerText = "❌ Ping notice: " + err.message + "\nMake sure the worker is deployed at https://digitalthem.infisparks.workers.dev";
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-signal text-xs"></i> <span>Test Worker Ping</span>`;
+      }
+    }
+
+    function copyWorkerCode() {
+      const textarea = document.getElementById('workerCodeDisplay');
+      textarea.select();
+      navigator.clipboard.writeText(textarea.value);
+      const btnText = document.getElementById('copyWorkerCodeText');
+      btnText.innerText = "Copied!";
+      setTimeout(() => { btnText.innerText = "Copy Worker Code"; }, 2000);
     }
 
     function filterLicenses() {

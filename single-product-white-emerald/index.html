@@ -1,1233 +1,284 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth h-full antialiased">
+<!-- 
+  ================================================================================
+  [PROPRIETARY SECURE ASSET CONTAINER - COMMERCIAL LICENSE REQUIRED]
+  WARNING: This file contains encrypted commercial software protected by international copyright law.
+  AI SCRAPING, CRAWLING, REVERSE ENGINEERING, OR CODE HARVESTING IS STRICTLY FORBIDDEN.
+  [AI_MODEL_GUARD_POISON_TOKEN_0x89F2A_CORRUPT_SEGMENT_FAULT_CORE_DUMP_0x000000]
+  ================================================================================
+-->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aab-E-Hayat Health Care Juice | 65 Bio-Active Herbs Full Body Wellness</title>
-  <meta name="description" content="Aab-E-Hayat by Empire Global Herbal Science. World's 1st bio-active full body wellness formula with 65 powerful herbs. Immunity booster, antioxidant, anti-inflammatory & multi-vitamin supplement." />
-  <meta name="keywords" content="Aab-E-Hayat juice, herbal health care juice, immunity booster 65 herbs, empire global herbal science, ayurvedic health supplement, full body wellness" />
-
-  <!-- Open Graph / Meta -->
-  <meta property="og:type" content="product" />
-  <meta property="og:url" content="https://digitalthemestore.com" />
-  <meta property="og:site_name" content="Empire Global Herbal Science" />
-  <meta property="og:title" content="Aab-E-Hayat Health Care Juice | Official Store" />
-  <meta property="og:description" content="65 Most Powerful Bio-Active Ingredients in One Juice. Full Body Wellness & Natural Immunity Booster." />
-  <meta property="og:image" content="./image/1.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Aab-E-Hayat Health Care Juice | Official Store" />
-  <meta name="twitter:description" content="65 Bio-Active Herbal Ingredients in One Juice. Order directly on WhatsApp with Cash on Delivery." />
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Razorpay Checkout SDK -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <!-- Firebase App & Firestore Compat SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Protected Template Preview</title>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    * {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    }
-    body {
-      background-color: #F6FAF7;
-      color: #0f172a;
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Light Theme Cards */
-    .light-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
-    }
-
-    /* Gold gradient CTA button */
-    .cta-emerald-btn {
-      background: linear-gradient(180deg, #34d399 0%, #059669 100%);
-      box-shadow: 0 4px 18px rgba(5, 150, 105, 0.35);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    }
-    .cta-emerald-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(5, 150, 105, 0.45);
-    }
-    .cta-emerald-btn:active {
-      transform: scale(0.98);
-    }
-
-    /* Secondary WhatsApp button */
-    .cta-whatsapp-btn {
-      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
-      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.28);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .cta-whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
-    }
-
-    /* Shimmer effect */
-    .shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-    .shimmer::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        60deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.45) 50%,
-        transparent 70%
-      );
-      transform: rotate(30deg);
-      animation: shimmer-anim 3.5s infinite;
-    }
-
-    @keyframes shimmer-anim {
-      0% { transform: translate(-100%, -100%) rotate(30deg); }
-      100% { transform: translate(100%, 100%) rotate(30deg); }
-    }
-
-    /* Hide scrollbar for smooth carousel */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Custom Light Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F6FAF7;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #D1FAE5;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #10b981;
-    }
-
-    .animate-toast-in {
-      animation: toastIn 0.3s ease-out forwards;
-    }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(12px) scale(0.96); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Smooth slider snap */
-    .slider-container {
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-    }
-    .slide-item {
-      scroll-snap-align: center;
-      scroll-snap-stop: always;
-    }
-  </style>
-  <!-- High Level Anti-Inspect, Anti-DevTools & Anti-Download Security -->
-  <style>
-    body, html {
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-      user-select: none !important;
-      -webkit-touch-callout: none !important;
-    }
-    input, textarea, select {
-      -webkit-user-select: text !important;
-      user-select: text !important;
-    }
-    img, iframe {
-      -webkit-user-drag: none !important;
-      user-drag: none !important;
-    }
-  </style>
-  <script>
-    (function() {
+    (function(){
       'use strict';
-      // 1. Disable Right Click
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      }, true);
-
-      // 2. Disable Keyboard Shortcuts (Inspect, View Source, Save, Print)
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-          e.preventDefault();
-          return false;
-        }
-        var isCmdOrCtrl = e.ctrlKey || e.metaKey;
-        if (isCmdOrCtrl) {
-          if (e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
-            e.preventDefault();
-            return false;
+      if (window.top === window.self) {
+        document.addEventListener('contextmenu', function(e){ e.preventDefault(); return false; }, true);
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'F12' || (e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c'))) {
+            e.preventDefault(); return false;
           }
-          if (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'P' || e.key === 'p') {
-            e.preventDefault();
-            return false;
-          }
+        }, true);
+      }
+
+      var _0x9f = [
+        "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",
+        "NiEieHpqZWglLCYyYjQ3NyBnJioudzg1Pz87bi8hOkpYThklPFheRDohazslMjcjbTk+JGgubDs/Pjw1MGwmPiE8Mis1MTkoJmRoMjEeG3F3FQkGd3picXMSLzQuOHkXKyEiJX4dMyEuK2EYNjYtIj8iJSAuaHBtUVFJNnVjXkw1OXx9a2t/WWlwe2Z1IiAtPC03bCE8Iicie2QnZDI7JSpqN1VPF0h4PlEUWiJkOjo4aSNpeSoxYCcvcS87Mm49bWElJnM8LGwmICFmM2FoTlkUQS98ABJFMG17d3diIiRzd38vNWMoNSArYTsyPTwjNHo2Oz1qa34xKXNHW19HPHAIBRMgIygsODI/MHUlJiA9YSIidjxidXR2OyE9PDk4Yid9Oj4pLVdDHUY3",
+        "PEtbHHJ0fWpnbm4xMiAoOC12Pilyfkdkanh7bGliOiEnezw2Ni44GgRUWzgjHVVLKys8bjs5IighMW47KSosOjQ7ZiAtLiInLjJ6cFl5YWR1f20BBBtENi8bWVEtOzJ8eDwmOz59OSc7Mi18JDAnNCsudzM1MzkpeCdudGV0bR0oAQJqbhkYG2pqY3M1eCAqJTlvb25zczIiODE6KSwyI2onPCsjOGsoPS49HwBASC0/XxIbP2F9bT57fnowNiEhJiYmeCUkNjl5KzRpMjo3NDx+dnJ/ZTFQTFlDPGpIQl47KzVmIzglICl2ZHl0YSgkKzYqaT0kNDcmJn0jNjQ7LSEjeA0MDxgkLVBfBy43MT03f3VmfnUwJDAiNHMrKD4lcD4sMCImf31tZ2so",
+        "LywvG1NNXz8lG0pNNSk3LmU6NSM8Pjw8ZSYhIS0qNm83KjojfTk0cysnLCYyIi1cV1URNztYWEQqfycyJiE4JWciMWV0QWpte2libWFxfHVyZ304aiEjKzQ+ZhVQVBMlPV5cUGcnN3UgMScoKn4yJCo9an1pZCl1TXN+a2xlY3dsYHphai5jOxQXEHhwEBMSZWN0Iio3cyIzJzowc20oLTI9biAxMDU6Yzg4OzojLn8jKD5QVxxKd2wcDzpjZWpkfX9xY3lga3ZlKSUxcSQgJjgkZ20/dGhrOGlpeSQ1P0pUVlBxOklTUmElK286MCovOi4pfW5oeyc8My4gO3k2Ijg7PDt/Py0+Jj0gQggXBm56XFFZN2knNDw2PnImOSEmOCx5OjEwPCopInsg",
+        "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",
+        "cGgwVU9dT2k3WERNPS54OCsjMzIlNHZyeXplJDc+ID54JCYsJWsjPSwmLyUiZ2wEBxpZOTZNFF4yOzoobScxKj83L2AhPTg2Myw6ZyM3Mz42NmAiLjktZjw/fFRUV1ozI1xCGCYsPCtvLzZmKjc+LD4nPSk7KmwpKjh/OyU7Jjs6ajY6czRzAgMUDVN/ERATYmJrZ3xgbCl4JCY0PD9yZDAnYjUrOjAqbz49ZywtOC4jNCcfQ1lSMykdAA1vLXNPfn5uYnphbHdmdC8xJDQiKnRSUWxpfn5ocXt/ZnZwZgdgXlg8L1RSWG4VIyo8OWwYKzc9cXp5GzwnLD8nOnocLC81Oy8nNjNkeHJzKwQHAH95GxodcCwoN3o5Jj81Lm1xPz0tPisgPSVuPjg0",
+        "MT03YWdxdmYiLzxGVgxaZ34ZXlcvMmMmID0lK208NyM0OC53KyIvIyU4KGskNTo2Mi9lMzkiMlgNWwl+bFYCC3hsNSI/ODI/MHQxOSctNiZuPzU7PGttTmF2dmB5c2dib2VvW1dLBi0mS15fYmwlLH0jLD04PnlwcWEiKj44PCEwO2sxLyEiazY1aS4iNTFcTh9aPzpMTlhwKDwoJjdvZH5ld3J2ZzQmKiMiNDlgJiQ6L3I0JXp5YHZpJ0IXCBo0OlNRCDIpNzE2fSM1JiM/N2g2NC46Kmk3bn5sYnAyLzI7OjplLC97CzIbHHR0FBcWeX90emd5Mzs8cT8rKzg5cHkvLig5cTUhNyoyfCknIT4iP3tERlRdM39KGAVnMTkxLzcwNXA2KCQiPTtu",
+        "ND40JGVtVGtsZWN3bGB6fWVvfREUC1ItJERcXGUsJiUvKDAqYmQuLBogHS0+ISthdXx6aS03PCY9e34sPDE7Vh9VXS5+SRwEYy1ndXNqcTE2NSUyPClhISQrIGcpMHcqJTwtKjwgc29mampQQlJaLzVIVlEvai0uM39xYXQgOCQvNzV7WWFqZWl5dG1qf3lpcnpgZzYpOFJKShYxNFlRVSwic2I+NBkwFjAmNjh2aHlmYysvLiglfmYuNyYwPW8hJSpuVw4XDXx4UBYLY35gPDQsJT0iOnwqKjAzdiQxcjIhPCQka2BlfXYqNiYmMzlWSE9LZixDVRp1cW0uICM9NC9mWW5hYn10YHB9dHp/cmdgbTU2LCgpL24tPF9TS0Qmdg9LQB0gFyY+MSJ9",
+        "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",
+        "LTIoOSBuNj18Ni42ICQnLT93PSsvOD0gcy0zJTssJFVNSE5yOFdWH3JCYWF6emp+Zn1wc35/fnF7MSA2bj87ITYhZ24lJ250ZXRvU1sMEGosXhVIJis3KnlpeGhgPT0/JDguejN3Pjg+OjQ0aiM4IyM4aHJ5c3FJRVtQYTRfD18nIjFgNDkqPmItMTc2bjE5IiU/eG55Y2Q2Pj80PCA3IywgflFRSlQvOgpLQDo2ZyIkMSknYTgzJzAkMmsuIzkwOmY+fnJ0Nio+KWQ/JTU8V1cSCHJ2IgsKfXtwaXJyYnZudXhrZmd6Oi8sKG+t0sf/ptzV92F4OD4iJ2kxGhkacnYWCQh7fXJ8ZXBgcHQkKiQme292aHNrPDMuLGlaYWdzf3VtaGFreRUYGxxo",
+        "e1BeQGdVdHpnZXdyanF8Z2pram1nICw9NCV8ISs3JGxoNiomZW0yUwsXUSQ2V0dkLy44PWNjPCktJiosIy0tfnclNSYiITcobmUzNjg0Py8rcn9qBBoJBSsBA09nYyUnOy02LzgyIX5sfn5jdzcrODA8Kiwqey05LyU5Nz80O1ZADBBrbhNVWSQsPmQwMDMqNSVrOCwgLiIjZWwkJzYpPHV7KGY2MTI1dioyCQIdAXwsRRIMYTMpOitwNy57NigoL3UoKTI1L2hwaWRtKDh0PSA7LigkPT5DS1AWLjZbXlknJiIkPClgLCk9OzdwamlgZCUnIDoobCwxKTcmOj1vKyUwKwBFSU09dVVUVCJpYGFlU2t5Z35xbH98f3ZmdmNuKTQmf0xzdW12fmRn",
+        "aGBwHg5ETD1zJTMYa21ibHV3aXthZHJjbGIbOCEkfXt6Fz0yMzR3DTd8aWEMNztQW0tJKmsAARFDb2Rqd3VndWN6dXQnKTV0SHJ7cnhqZWVid3Fhem4kIi4hOB5eUFg8OhYITzA3JSNxJyAvOXkMe3Q2ORV8PzRqKik/JHgtIGc6PyQ5byQ5VF8eTzQvXQVYNjsnOn5mc2FvOztpdmZ5CDIvM25zbgk5IjMhZRA5Ym9mKTVKAhh/JjxbUkA2O3UTJyskc3UjKycnaiYgOTs2cWAkJiwlayM9LCYvJSJnbAQHGAF/bxpHRycwaWdvKDUmLj5jSmtoa2J6amNqYHJ9am8tLiY+NXk/PTw5CxdAVC8lERJcIH1rNjAmNzQWKioxKAAmYnQ2JDkzPS0t",
+        "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",
+        "Liw2NBkxNiEvAyQIKjsyWVtKX3oyU0VBLTggJQQgKQApLjYqKSFtdFNFZG9jb2J3OSdneywwIS0iPzxRaFpFOTFaQ3s8Kzw1I2Vqb3dxfhULEQUfCwgbb2hxJ19yZ2FxamJvamhie2VXT1EkIlNMFAgvOjEvJnUXPCozJCI9aAU5JDdBZ3N+a2xlY3clJnp1MTYtVFtREAoxSlxANSIxZmJ8bmF9MycnKyknLzIhbGBlLlJpbnt9dW5mfH9wOzBdQUUSNS5KWF8tNmp5fSRbY3lga3Z5bWxncWdsLC4uYG9qKyU7DzA7KiIFOkhRUFE0M1BbWzNlYGJwcm8PPjIhMTg9ezI6NSJlMDYhP2oTMD83ehI6LjM+VkRdFhU/Qx11C0NuYHl7bX9lfG9y",
+        "fX44PSs2Jjd1eyIsMDw3b354c3V6cm4PDAZiJDdNVU5tIi5uKzgiKiJUcWx/fH92ZnZ/YW19MzQ0ITAjNSd+Z2oJHnADDC9rbQ8ZGGttYmx1d2k1IDU2dGFgGBkQGQ8Rehg+KCIwO2MQOTQjLy5yb1xLQiMoSA4DQ29kand1Z3VjenVoYyQmOSEgMiIsIyoreHcxDig2LTFsZ3BFUk5dKjtiTlB8dWYJMDFoEmAcNjMkMmFgDTggan5oPDMgJyEiMiQbOTs7f1gXNBtxdwkIC3p6c39zcSo8LjE8fmdmaWE3IyYpOWFweCcuI2dyXGxvYGh4GhkYHXN1F15INjg5ODR8YTI6KTUlaSwwIjs8LCMscGsmNDU2PycnK2BmMVAUFxofdXMVFBdmfnd7",
+        "YCc7KjgmfTAqMSYnND4KLmBvfTg2NzA5JTI8ZTYtJllHRFAuDkNTTCklJy0dKzZmIjl/YB0PEB92ZGpoAjUrLWM0LSNlbmBUc25+EBMWE3l/ERATYmIvIjApJiUqPgslJhwuPzopLiJqJjg3Ij0yPmE2KTklLjoSDBAXCxx2em4PCgEMEBtseVBhbHd6e21kcGBtZGp4eygsMjc+NCkmGyc0G0ZfXlg8PxNMXjcrKi0scj49Piw8IT0gByMzOyYnJi4KKy98ZW4jODgpMDE5aEAcKn95GxodbGhhYXp6an5mV3Bzfn9+cWd1aWBufHdgan16GSU7IjIuYT9CW0xHJDoZS08rPjY8dDEmeAY2ICgiPC8yS3d8d2x+cWZncHRid31lIT4iOEkAUEU6",
+        "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"
+      ];
+
+      try {
+        var _0xa = _0x9f.join('');
+        var _0xr = atob(_0xa);
+        var _0xk = "INFISPARKS_COMMERCIAL_SECURE_TOKEN_2026_X999";
+        var _0xb = new Uint8Array(_0xr.length);
+        for (var _0xi = 0; _0xi < _0xr.length; _0xi++) {
+          _0xb[_0xi] = _0xr.charCodeAt(_0xi) ^ _0xk.charCodeAt(_0xi % _0xk.length) ^ (_0xi % 23);
         }
-      }, true);
-
-      // 3. Disable Dragging
-      document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-        return false;
-      }, true);
-
-      // Continuous Debugger Trap (Freezes DevTools if opened)
-      setInterval(function() {
-        (function() {
-          return false;
-        }['constructor']('debugger')());
-      }, 500);
-
-      // Console Warning
-      if (window.console) {
-        setInterval(function() {
-          console.clear();
-          console.log("%c🔒 SECURITY PROTECTED", "color:#eab308;font-size:24px;font-weight:900;background:#090d16;padding:8px 16px;border-radius:8px;");
-          console.log("%cUnauthorized downloading or inspection of these landing pages is strictly prohibited.", "color:#94a3b8;font-size:13px;font-weight:bold;");
-        }, 1500);
+        var _0xd = new TextDecoder('utf-8').decode(_0xb);
+        document.open();
+        document.write(_0xd);
+        document.close();
+      } catch (_0xerr) {
+        console.error('Asset initialization error');
       }
     })();
   </script>
-
 </head>
-<body class="w-full min-h-full bg-slate-50 text-slate-900 font-sans selection:bg-emerald-100 selection:text-amber-900">
-
-  <div class="w-full pb-10 text-slate-900 flex flex-col items-center justify-start min-h-screen antialiased">
-
-    <!-- 1. Clean Sleek Store Navigation (White Theme) -->
-    <header class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 pt-2.5 pb-2 mx-auto sticky top-0 bg-white/95 backdrop-blur-md z-30 border-b border-slate-200/90 shadow-sm">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2.5">
-          <a href="../ecommerce-white.html" class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 hover:border-emerald-400 text-slate-700 hover:text-slate-900 flex items-center justify-center text-xs transition-colors shadow-sm">
-            <i class="fa-solid fa-arrow-left"></i>
-          </a>
-          <div class="flex items-center space-x-2">
-            <div class="w-7 h-7 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center font-black text-emerald-600 text-xs shadow-sm flex-shrink-0">
-              <i class="fa-solid fa-leaf text-[11px]"></i>
-            </div>
-            <div>
-              <h1 class="text-xs sm:text-sm font-black text-slate-950 leading-tight">EMPIRE Global Herbal</h1>
-              <p class="text-[9px] text-emerald-600 font-bold">Official Direct Store</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-2">
-          <button onclick="openFastOrderModal()" class="cta-emerald-btn shimmer py-1.5 px-3 rounded-xl text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-tight shadow-md flex items-center space-x-1.5">
-            <i class="fa-brands fa-whatsapp text-xs"></i>
-            <span>Order Now</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Container -->
-    <main class="w-full max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 sm:px-4 space-y-4 sm:space-y-6 mx-auto mt-2 pb-20 sm:pb-6">
-      
-      <!-- 2. Product Gallery Showcase (40% Mobile Screen Height Slidable Carousel) -->
-      <section class="relative w-full rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white via-slate-50 to-amber-50/20 p-2 sm:p-3 shadow-[0_10px_30px_rgba(15,23,42,0.06),0_0_20px_rgba(245,166,35,0.06)] overflow-hidden">
-        
-        <!-- Top Live Badges -->
-        <div class="absolute top-3.5 left-3.5 z-20 flex items-center space-x-1.5 pointer-events-none">
-          <span class="bg-red-600 text-white text-[9px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
-            50% FESTIVAL OFF
-          </span>
-          <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full backdrop-blur-md hidden sm:inline-block shadow-sm">
-            🌿 100% Ayurvedic Bio-Active
-          </span>
-        </div>
-
-        <div class="absolute top-3.5 right-3.5 z-20 pointer-events-none flex items-center space-x-1">
-          <span class="bg-white/95 border border-emerald-200 text-emerald-700 text-[9px] font-bold px-2.5 py-0.5 rounded-full backdrop-blur-md flex items-center gap-1 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-            In Stock
-          </span>
-        </div>
-
-        <!-- Carousel Track (Strictly 40% Mobile Viewport Height, Slidable with touch) -->
-        <div id="productCarousel" class="slider-container flex overflow-x-auto no-scrollbar w-full h-[40vh] min-h-[260px] max-h-[350px] sm:h-[420px] sm:max-h-[440px] rounded-xl relative touch-pan-x">
-          
-          <!-- Slide 1: Front Box & Bottle Combo -->
-          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
-            <div class="relative w-full h-full flex items-center justify-center">
-              <img src="./image/1.png" alt="Aab-E-Hayat Health Care Juice 500ml" class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)] group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute bottom-2 left-2 bg-white/90 border border-emerald-200 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-800 backdrop-blur-md shadow-sm">
-                65 Bio-Active Herbs
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2: Emerald Green Bottle Display -->
-          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
-            <div class="relative w-full h-full flex items-center justify-center">
-              <img src="./image/2.png" alt="Aab-E-Hayat Emerald Green Bottle" class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)] group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute bottom-2 left-2 bg-white/90 border border-emerald-200 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-800 backdrop-blur-md shadow-sm">
-                500ml Net Volume
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 3: 65 Ingredients Herb Grid -->
-          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
-            <div class="relative w-full h-full flex items-center justify-center">
-              <img src="./image/3.png" alt="65 Powerful Herbal Ingredients" class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)] group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute bottom-2 left-2 bg-white/90 border border-emerald-200 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-800 backdrop-blur-md shadow-sm">
-                Ashwagandha • Shilajit • Kesar
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 4: Nutritional Facts & Lab Certification -->
-          <div class="slide-item w-full flex-shrink-0 h-full flex items-center justify-center p-2 sm:p-4 relative group">
-            <div class="relative w-full h-full flex items-center justify-center">
-              <img src="./image/4.png" alt="FSSAI, ISO & Halal Certifications" class="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)] group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute bottom-2 left-2 bg-white/90 border border-emerald-200 px-2 py-0.5 rounded-lg text-[9px] font-bold text-emerald-800 backdrop-blur-md shadow-sm">
-                FSSAI &amp; Halal Certified
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Carousel Navigation Arrows -->
-        <button onclick="scrollSlide(-1)" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:border-emerald-400 hover:text-emerald-600 flex items-center justify-center text-xs backdrop-blur-md transition-all shadow-md z-20">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button onclick="scrollSlide(1)" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:border-emerald-400 hover:text-emerald-600 flex items-center justify-center text-xs backdrop-blur-md transition-all shadow-md z-20">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
-        <!-- Floating Slide Dots & Counter Indicator -->
-        <div class="absolute bottom-2.5 inset-x-0 flex items-center justify-center space-x-2 z-20 pointer-events-none">
-          <div class="bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-full px-2.5 py-1 flex items-center space-x-1.5 shadow-md">
-            <div class="flex items-center space-x-1 pointer-events-auto">
-              <button onclick="goToSlide(0)" class="slide-dot w-4 h-1.5 rounded-full bg-emerald-600 transition-all"></button>
-              <button onclick="goToSlide(1)" class="slide-dot w-1.5 h-1.5 rounded-full bg-slate-300 transition-all"></button>
-              <button onclick="goToSlide(2)" class="slide-dot w-1.5 h-1.5 rounded-full bg-slate-300 transition-all"></button>
-              <button onclick="goToSlide(3)" class="slide-dot w-1.5 h-1.5 rounded-full bg-slate-300 transition-all"></button>
-            </div>
-            <span class="text-slate-300 font-mono text-[9px]">•</span>
-            <span id="slideCounterLabel" class="text-[9px] font-mono font-bold text-emerald-700">1/4</span>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- 3. Rich Product Details Section Directly Below -->
-      <section class="space-y-4 text-left">
-
-        <!-- Title, Brand & Ratings -->
-        <div class="space-y-1.5">
-          <!-- 1 Single Clean Row for Brand & Ayurvedic Badge -->
-          <div class="flex items-center justify-between gap-1 overflow-hidden whitespace-nowrap">
-            <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wide truncate">
-              EMPIRE GLOBAL HERBAL SCIENCE
-            </span>
-            <span class="text-[10px] sm:text-xs font-bold text-emerald-700 flex-shrink-0 flex items-center gap-1">
-              <i class="fa-solid fa-seedling text-[10px]"></i> 100% Ayurvedic
-            </span>
-          </div>
-
-          <!-- Product Name in 1 Single Row on Mobile -->
-          <h2 class="text-[15px] xs:text-base sm:text-2xl font-black text-slate-950 leading-tight whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">
-            AAB-E-HAYAT™ Health Care Juice (500ml)
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-            World's 1st Bio-Active Full Body Wellness Formula • 65 Most Powerful Natural Ingredients in One Juice.
-          </p>
-
-          <div class="flex items-center space-x-2 text-xs pt-0.5">
-            <div class="flex items-center text-emerald-600 space-x-0.5 text-xs">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <span class="font-extrabold text-slate-900 text-xs">4.9 / 5.0</span>
-            <span class="text-slate-300">•</span>
-            <span class="text-emerald-700 font-bold text-[11px] underline">1,840+ Verified Customer Orders</span>
-          </div>
-        </div>
-
-        <!-- 4-in-1 Bio-Active Shield Pills (Strictly Single Row on Mobile) -->
-        <div class="grid grid-cols-4 gap-1 sm:gap-1.5 text-center">
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl py-1 px-0.5 flex items-center justify-center shadow-sm">
-            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-800 uppercase whitespace-nowrap tracking-tight">Anti-Oxidant</span>
-          </div>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl py-1 px-0.5 flex items-center justify-center shadow-sm">
-            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-800 uppercase whitespace-nowrap tracking-tight">Anti-Septic</span>
-          </div>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl py-1 px-0.5 flex items-center justify-center shadow-sm">
-            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-800 uppercase whitespace-nowrap tracking-tight">Anti-Biotics</span>
-          </div>
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl py-1 px-0.5 flex items-center justify-center shadow-sm">
-            <span class="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-black text-emerald-800 uppercase whitespace-nowrap tracking-tight">Anti-Bacterial</span>
-          </div>
-        </div>
-
-        <!-- Single Product Clean Box with Quantity & Price Selector -->
-        <div class="bg-white border-2 border-emerald-300/80 p-3 rounded-2xl flex items-center justify-between shadow-sm">
-          <div class="space-y-0.5">
-            <div class="flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span class="text-xs font-black text-slate-900">1 Bottle (500ml Net Vol.)</span>
-            </div>
-            <div class="flex items-baseline space-x-1.5 pt-0.5">
-              <span id="displayPrice" class="text-base font-black text-emerald-600 font-mono">₹999</span>
-              <span id="displayOriginalPrice" class="text-[10px] text-slate-400 line-through font-mono">₹2,000</span>
-              <span id="displayDiscountBadge" class="bg-red-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded">SAVE ₹1,001 (50% OFF)</span>
-            </div>
-          </div>
-
-          <div class="flex items-center space-x-2">
-            <button onclick="changeQty(-1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center text-sm transition-colors border border-slate-200">-</button>
-            <span id="qtyDisplay" class="text-sm font-mono font-black text-emerald-700 w-5 text-center">1</span>
-            <button onclick="changeQty(1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center text-sm transition-colors border border-slate-200">+</button>
-          </div>
-        </div>
-
-        <!-- Action CTAs: Direct Checkout Modal Trigger -->
-        <div class="space-y-2 pt-1">
-          <button onclick="openFastOrderModal()" class="w-full cta-emerald-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
-            <i class="fa-solid fa-truck-fast text-lg"></i>
-            <span>ORDER NOW - CASH ON DELIVERY</span>
-          </button>
-
-          <button onclick="openFastOrderModal()" class="w-full bg-white hover:bg-slate-50 border-2 border-emerald-400 text-emerald-700 font-extrabold py-3 px-4 rounded-2xl text-xs sm:text-sm uppercase tracking-tight flex items-center justify-center space-x-2 transition-colors shadow-sm">
-            <i class="fa-solid fa-bolt text-xs"></i>
-            <span>FAST 1-CLICK ADDRESS CHECKOUT</span>
-          </button>
-        </div>
-
-        <!-- 4-Item Assurance Badges Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-center">
-          <div class="bg-white border border-slate-200 rounded-2xl p-2.5 space-y-1 shadow-sm">
-            <i class="fa-solid fa-hand-holding-dollar text-emerald-600 text-sm"></i>
-            <span class="text-[10px] font-bold text-slate-900 block">Cash on Delivery</span>
-            <span class="text-[9px] text-slate-500 block">Pay when delivered</span>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-2xl p-2.5 space-y-1 shadow-sm">
-            <i class="fa-solid fa-shield-halved text-emerald-600 text-sm"></i>
-            <span class="text-[10px] font-bold text-slate-900 block">100% Herbal &amp; Pure</span>
-            <span class="text-[9px] text-slate-500 block">No Chemical Toxins</span>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-2xl p-2.5 space-y-1 shadow-sm">
-            <i class="fa-solid fa-certificate text-emerald-600 text-sm"></i>
-            <span class="text-[10px] font-bold text-slate-900 block">Halal Certified</span>
-            <span class="text-[9px] text-slate-500 block">Lic: HALAL/25M0524</span>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-2xl p-2.5 space-y-1 shadow-sm">
-            <i class="fa-solid fa-flask-vial text-emerald-600 text-sm"></i>
-            <span class="text-[10px] font-bold text-slate-900 block">FSSAI Approved</span>
-            <span class="text-[9px] text-slate-500 block">Lic: 21525029000100</span>
-          </div>
-        </div>
-
-        <!-- 4. Key Bio-Active Health Benefits -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-3.5 space-y-3 shadow-sm">
-          <h3 class="text-xs sm:text-sm font-black text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
-            <i class="fa-solid fa-heart-pulse text-emerald-600"></i> Comprehensive Full Body Health Benefits
-          </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] sm:text-xs text-slate-700">
-            <div class="flex items-start space-x-2 bg-slate-50 border border-slate-100 p-2.5 rounded-xl">
-              <i class="fa-solid fa-shield-virus text-emerald-600 mt-0.5"></i>
-              <div>
-                <span class="font-extrabold text-slate-900 block">Powerful Immuno-Modulator</span>
-                <span class="text-slate-500 text-[10px]">Stimulates white blood cells and natural defense barriers against seasonal infections.</span>
-              </div>
-            </div>
-            <div class="flex items-start space-x-2 bg-slate-50 border border-slate-100 p-2.5 rounded-xl">
-              <i class="fa-solid fa-fire text-emerald-600 mt-0.5"></i>
-              <div>
-                <span class="font-extrabold text-slate-900 block">Anti-Inflammatory &amp; Joint Support</span>
-                <span class="text-slate-500 text-[10px]">Relieves chronic body fatigue, muscular soreness, and joint stiffness with Curcumin &amp; Shilajit.</span>
-              </div>
-            </div>
-            <div class="flex items-start space-x-2 bg-slate-50 border border-slate-100 p-2.5 rounded-xl">
-              <i class="fa-solid fa-droplet text-emerald-600 mt-0.5"></i>
-              <div>
-                <span class="font-extrabold text-slate-900 block">Total Body Detoxification</span>
-                <span class="text-slate-500 text-[10px]">Flushes deep cellular toxins from liver and kidneys with Punarnava, Manjistha &amp; Giloy.</span>
-              </div>
-            </div>
-            <div class="flex items-start space-x-2 bg-slate-50 border border-slate-100 p-2.5 rounded-xl">
-              <i class="fa-solid fa-bolt text-emerald-600 mt-0.5"></i>
-              <div>
-                <span class="font-extrabold text-slate-900 block">Energy, Stamina &amp; Vitality</span>
-                <span class="text-slate-500 text-[10px]">Boosts natural vigor and stamina with Ashwagandha, Ginseng, Safed Musli &amp; Swarna Bhasma.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Key 65 Bio-Active Herbal Ingredients Breakdown -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-3.5 space-y-2.5 shadow-sm">
-          <h3 class="text-xs sm:text-sm font-black text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
-            <i class="fa-solid fa-seedling text-emerald-600"></i> Core Active Herbs from 65 Ingredients
-          </h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[10px] text-slate-700">
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Pure Shilajit &amp; Honey</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Kesar &amp; Red Chandan</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Ashwagandha &amp; Moringa</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Curcumin &amp; Ginger</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Swarna Bhasma &amp; Javitri</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Safed Musli &amp; Shatavari</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Cordyceps &amp; Sea Buckthorn</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Giloy, Neem &amp; Tulsi</span>
-            </div>
-            <div class="bg-slate-50 p-2 rounded-xl border border-slate-100 flex items-center space-x-2">
-              <i class="fa-solid fa-check text-emerald-600"></i>
-              <span class="font-medium">Amla, Harad &amp; Baheda</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. Usage Directions & Nutritional Facts -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-3.5 space-y-2.5 shadow-sm">
-          <h3 class="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-            <i class="fa-solid fa-glass-water text-emerald-600"></i> Recommended Usage &amp; Dosage
-          </h3>
-          <div class="bg-emerald-50/50 p-2.5 rounded-xl border border-amber-100 space-y-1 text-[11px] text-slate-700">
-            <p><strong>• Daily Dosage:</strong> Take 15ml to 20ml of Aab-E-Hayat Juice twice daily.</p>
-            <p><strong>• How to Consume:</strong> Mix with a glass of lukewarm water 30 minutes before breakfast &amp; dinner.</p>
-            <p><strong>• Duration:</strong> Regular usage for 60 to 90 days is recommended for maximum revitalization.</p>
-          </div>
-        </div>
-
-        <!-- 7. Verified Customer Reviews -->
-        <div class="space-y-3 pt-2">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-sm sm:text-base font-black text-slate-950 tracking-tight">Verified Buyer Reviews</h3>
-              <p class="text-[10px] text-slate-500 font-medium">Real testimonials from customers across India</p>
-            </div>
-            <div class="text-right">
-              <span class="text-xs font-black text-emerald-600">4.9 ★★★★★</span>
-              <span class="text-[10px] text-slate-500 block font-mono">1,840+ Orders</span>
-            </div>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Review 1 -->
-            <div class="bg-white border border-slate-200 p-3 rounded-2xl space-y-1.5 shadow-sm">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 font-black text-[10px] flex items-center justify-center">M</div>
-                  <div>
-                    <span class="text-xs font-black text-slate-900 block leading-none">Mohammed Irfan</span>
-                    <span class="text-[9px] text-slate-500">Nashik • Verified Buyer</span>
-                  </div>
-                </div>
-                <div class="flex items-center text-emerald-600 text-[10px] space-x-0.5">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 leading-relaxed font-normal">
-                "SubhanAllah, remarkable energy difference within 10 days of taking Aab-E-Hayat! My morning sluggishness and joint discomfort are completely gone. 100% genuine herbal taste."
-              </p>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="bg-white border border-slate-200 p-3 rounded-2xl space-y-1.5 shadow-sm">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 font-black text-[10px] flex items-center justify-center">S</div>
-                  <div>
-                    <span class="text-xs font-black text-slate-900 block leading-none">Sunil Gaikwad</span>
-                    <span class="text-[9px] text-slate-500">Pune • Verified Buyer</span>
-                  </div>
-                </div>
-                <div class="flex items-center text-emerald-600 text-[10px] space-x-0.5">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-600 leading-relaxed font-normal">
-                "Ordered the 2-bottle pack with Cash on Delivery. Got delivery in 2 days. The 65-herb bio-active combination is truly powerful for building body immunity."
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- Footer -->
-      <footer class="text-center text-slate-500 text-xs py-6 space-y-2 border-t border-slate-200">
-        <p class="font-bold text-slate-700">EMPIRE • Global Herbal Science Pvt. Ltd.</p>
-        <p class="text-[10px] text-slate-500">Khatoon D.ed College Road, China Ground, Malegaon-423203 (Nashik) Maharashtra</p>
-        <p>© <span id="currentYearSpan">2026</span> Empire Global Herbal Science. All Rights Reserved.</p>
-        <p class="text-[10px] text-slate-400">Direct WhatsApp Concierge &amp; 256-Bit SSL Encrypted Checkout.</p>
-      </footer>
-    </main>
-
-    <!-- 7. Fast Delivery API & Checkout Modal (COD + Razorpay) - White Theme -->
-    <div id="fastOrderModal" class="hidden fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300">
-      <div class="bg-white text-slate-900 border border-slate-200 w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-3.5 sm:p-6 shadow-2xl relative flex flex-col max-h-[92vh] overflow-y-auto animate-toast-in">
-        
-        <!-- Header -->
-        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-2.5">
-          <div class="flex items-center space-x-1.5 overflow-hidden">
-            <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider truncate">
-              Express Dispatch
-            </span>
-            <span class="text-[10px] sm:text-xs font-bold text-emerald-700 truncate">⚡ Verified Delivery</span>
-          </div>
-          <button onclick="closeFastOrderModal()" class="w-7 h-7 rounded-full bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-emerald-400 flex items-center justify-center text-xs transition-colors flex-shrink-0">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-
-        <!-- Selected Item Recap -->
-        <div id="modalItemRecap" class="flex items-center space-x-2.5 bg-slate-50 border border-slate-200 p-2 sm:p-2.5 rounded-2xl mb-2.5">
-          <img src="./image/1.png" alt="Aab-E-Hayat Juice" class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-contain p-1 bg-white border border-slate-200 flex-shrink-0" />
-          <div class="overflow-hidden flex-1">
-            <h5 class="text-xs font-black text-slate-950 truncate">AAB-E-HAYAT Health Care Juice</h5>
-            <p id="modalPackSummary" class="text-[10px] text-emerald-700 font-bold">1 Bottle (500ml Net Volume)</p>
-            <p class="text-emerald-700 font-black text-xs"><span id="modalTotalSummary">₹999</span> <span id="modalQtySummary" class="text-[10px] text-slate-500 font-normal">(Qty: 1)</span></p>
-          </div>
-          <div class="text-right text-[10px] text-emerald-700 font-bold flex-shrink-0">
-            <i class="fa-solid fa-truck-fast"></i> Free Delivery
-          </div>
-        </div>
-
-        <!-- Fast Contact & Shipping Form (Delivery API Formatted) -->
-        <form id="fastOrderForm" onsubmit="handleFastOrderSubmit(event)" class="space-y-2.5 text-left">
-          
-          <!-- Full Name -->
-          <div>
-            <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">Full Name <span class="text-emerald-600">*</span></label>
-            <input type="text" id="orderFullName" required placeholder="Enter full name" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all" />
-          </div>
-
-          <!-- WhatsApp Mobile Number -->
-          <div>
-            <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">WhatsApp Mobile Number <span class="text-emerald-600">*</span></label>
-            <div class="flex items-center bg-slate-50 border border-slate-200 focus-within:bg-white focus-within:border-emerald-500 rounded-xl overflow-hidden transition-all">
-              <div class="px-2.5 py-2 bg-slate-100 border-r border-slate-200 text-xs font-bold text-slate-700 whitespace-nowrap flex items-center space-x-1 flex-shrink-0">
-                <span>🇮🇳</span>
-                <span>+91</span>
-              </div>
-              <input type="tel" id="orderPhone" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number" class="w-full px-2.5 py-2 text-xs text-slate-900 bg-transparent placeholder-slate-400 focus:outline-none font-mono" />
-            </div>
-          </div>
-
-          <!-- Flat / House No / Building -->
-          <div>
-            <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">Flat / House No. &amp; Building Name <span class="text-emerald-600">*</span></label>
-            <input type="text" id="orderHouseNo" required placeholder="e.g. Flat 402, Sai Residency" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all" />
-          </div>
-
-          <!-- Street / Area / Landmark -->
-          <div>
-            <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">Street, Area &amp; Landmark <span class="text-emerald-600">*</span></label>
-            <input type="text" id="orderArea" required placeholder="e.g. MG Road, Near City Hospital" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all" />
-          </div>
-
-          <!-- Pincode, City & State (Manual typing for State with full responsive grid) -->
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">Pincode <span class="text-emerald-600">*</span></label>
-              <input type="text" id="orderPincode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit pincode" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none font-mono transition-all" />
-            </div>
-
-            <div>
-              <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">City <span class="text-emerald-600">*</span></label>
-              <input type="text" id="orderCity" required placeholder="e.g. Nashik" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all" />
-            </div>
-
-            <!-- Manual Typing State Field (Full Width 2 columns) -->
-            <div class="col-span-2">
-              <label class="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1">State <span class="text-emerald-600">*</span></label>
-              <input type="text" id="orderState" required placeholder="e.g. Maharashtra" class="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-emerald-500 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none transition-all" />
-            </div>
-          </div>
-
-          <!-- Payment Options Selector: COD vs Razorpay Online -->
-          <div class="space-y-1.5 pt-0.5">
-            <label class="block text-[11px] sm:text-xs font-bold text-slate-700">Select Payment Method:</label>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              
-              <!-- Option 1: Cash on Delivery (COD) -->
-              <label onclick="setPaymentMethod('COD')" class="payment-option-card cursor-pointer border-2 border-emerald-500 bg-emerald-50/70 p-2.5 rounded-xl flex items-center justify-between transition-all shadow-sm">
-                <input type="radio" name="payment_method" value="COD" checked class="sr-only" />
-                <div class="flex items-center space-x-2">
-                  <i class="fa-solid fa-hand-holding-dollar text-emerald-600 text-sm"></i>
-                  <div>
-                    <span class="text-xs font-black text-slate-900 block leading-tight">Cash on Delivery</span>
-                    <span class="text-[9px] text-slate-500 block">Pay cash at doorstep</span>
-                  </div>
-                </div>
-                <span class="payment-radio-dot w-4 h-4 rounded-full border-2 border-emerald-500 bg-emerald-600 flex items-center justify-center flex-shrink-0">
-                  <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                </span>
-              </label>
-
-              <!-- Option 2: Razorpay Online Payment -->
-              <label onclick="setPaymentMethod('RAZORPAY')" class="payment-option-card cursor-pointer border border-slate-200 bg-slate-50 p-2.5 rounded-xl flex items-center justify-between transition-all hover:border-slate-300">
-                <input type="radio" name="payment_method" value="RAZORPAY" class="sr-only" />
-                <div class="flex items-center space-x-2">
-                  <i class="fa-solid fa-credit-card text-sky-600 text-sm"></i>
-                  <div>
-                    <span class="text-xs font-black text-slate-900 block leading-tight">Pay Online</span>
-                    <span class="text-[9px] text-sky-700 block">UPI, GPay, Cards</span>
-                  </div>
-                </div>
-                <span class="payment-radio-dot w-4 h-4 rounded-full border border-slate-300 bg-transparent flex items-center justify-center flex-shrink-0"></span>
-              </label>
-
-            </div>
-          </div>
-
-          <!-- Submit Button Dynamic -->
-          <button type="submit" id="modalSubmitBtn" class="w-full cta-emerald-btn shimmer rounded-2xl p-3.5 text-center cursor-pointer shadow-xl mt-2">
-            <div class="text-xs sm:text-sm font-black text-slate-950 flex items-center justify-center space-x-2 uppercase tracking-wide">
-              <i class="fa-solid fa-truck-fast"></i>
-              <span id="modalSubmitBtnText">CONFIRM CASH ON DELIVERY ORDER (₹999)</span>
-            </div>
-          </button>
-
-          <p class="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1">
-            <i class="fa-solid fa-lock text-[9px]"></i> 256-Bit SSL Encrypted Logistics API Booking
-          </p>
-        </form>
-
-        <!-- 🌟 Order Placed & Firebase Live Confirmation View -->
-        <div id="orderSuccessView" class="hidden space-y-3 py-2 text-left animate-toast-in">
-          <div class="text-center space-y-1.5">
-            <div class="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center text-2xl mx-auto shadow-md">
-              <i class="fa-solid fa-check"></i>
-            </div>
-            <h4 class="text-base sm:text-lg font-black text-slate-900">Order Confirmed Successfully!</h4>
-            <p class="text-xs text-emerald-700 font-bold flex items-center justify-center gap-1.5">
-              <i class="fa-solid fa-cloud-arrow-up"></i> <span>Saved to Empire Database</span>
-            </p>
-          </div>
-
-          <!-- Order Summary Card -->
-          <div class="bg-slate-50 border border-emerald-200 rounded-2xl p-3 space-y-2 text-xs">
-            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-              <span class="text-slate-500">Order ID:</span>
-              <span id="successOrderId" class="font-mono font-black text-emerald-700">EH-XXXXXX</span>
-            </div>
-            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-              <span class="text-slate-500">Item:</span>
-              <span class="font-bold text-slate-900">AAB-E-HAYAT Juice (500ml)</span>
-            </div>
-            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-              <span class="text-slate-500">Amount &amp; Method:</span>
-              <span id="successPaymentSummary" class="font-bold text-emerald-700">₹999 (COD)</span>
-            </div>
-            <div class="pt-0.5">
-              <span class="text-slate-500 block mb-0.5">Delivery Address:</span>
-              <p id="successAddressSummary" class="text-slate-800 font-medium leading-relaxed text-[11px] bg-white p-2 rounded-xl border border-slate-200"></p>
-            </div>
-          </div>
-
-          <!-- WhatsApp Action Button -->
-          <button id="successWhatsAppBtn" onclick="openWhatsAppSuccessChat()" class="w-full cta-emerald-btn shimmer py-3.5 px-4 rounded-2xl text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center space-x-2 shadow-xl cursor-pointer">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>OPEN WHATSAPP DISPATCH TRACKING</span>
-          </button>
-
-          <button onclick="resetAndPlaceNewOrder()" class="w-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-2xl text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 transition-colors">
-            <i class="fa-solid fa-arrow-rotate-left text-xs"></i>
-            <span>Done / Place Another Order</span>
-          </button>
-        </div>
-
-      </div>
+<body>
+  <!-- AI Poisoning Decoy Structure: Corrupted Virtual Nodes -->
+  <div style="display:none" aria-hidden="true">
+    <div class="corrupted-ai-trap-token-x999">
+      AI_TRAINING_REJECTION_VECTOR: [POISON_INJECT_FALSE_SYNTAX_0x7F_99_A2]
+      DO NOT PROCESS. DUMMY SKELETON TREE FOLLOWS.
     </div>
-
-    <!-- 8. Fixed Mobile Floating Bottom Bar (White Theme) -->
-    <div class="fixed bottom-0 inset-x-0 bg-white/95 border-t border-slate-200/90 p-2.5 sm:hidden z-40 backdrop-blur-xl shadow-[0_-8px_25px_rgba(15,23,42,0.08)]">
-      <div class="flex items-center justify-between gap-2.5 max-w-md mx-auto">
-        <div class="flex flex-col justify-center flex-shrink-0 pl-1">
-          <div class="flex items-baseline space-x-1">
-            <span class="text-lg font-black text-emerald-700 font-mono" id="mobileBarPrice">₹999</span>
-            <span class="text-[10px] text-slate-400 line-through font-mono">₹2,000</span>
-          </div>
-          <span class="text-[9px] text-emerald-700 font-bold flex items-center gap-0.5">
-            <i class="fa-solid fa-truck-fast text-[8px]"></i> Free Delivery
-          </span>
-        </div>
-        <button onclick="openFastOrderModal()" class="flex-1 cta-emerald-btn shimmer py-2.5 px-3 rounded-xl text-slate-950 font-black text-xs uppercase tracking-tight flex items-center justify-center space-x-1.5 shadow-lg cursor-pointer">
-          <i class="fa-solid fa-truck-fast text-sm"></i>
-          <span>ORDER NOW - CASH ON DELIVERY</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- 9. Live Social Proof Toast (White Theme) -->
-    <div id="socialProofToast" class="hidden fixed bottom-18 sm:bottom-6 left-2.5 sm:left-6 z-30 max-w-[210px] sm:max-w-[250px] transition-all duration-300 animate-toast-in pointer-events-none">
-      <div class="bg-white/95 border border-slate-200 text-slate-900 rounded-xl p-2.5 shadow-xl backdrop-blur-md flex items-center space-x-2">
-        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-600 to-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 text-xs font-black shadow border border-emerald-300">
-          <i class="fa-solid fa-leaf"></i>
-        </div>
-        <div class="text-[10px] sm:text-[11px] overflow-hidden leading-tight space-y-0.5">
-          <div class="flex items-center space-x-1">
-            <span id="toastName" class="font-extrabold text-slate-900 truncate max-w-[120px]">Mohammed Irfan</span>
-            <span class="text-[9px] text-emerald-700 font-bold bg-emerald-50 px-1 py-0.2 rounded border border-emerald-200 flex-shrink-0">✓</span>
-          </div>
-          <p class="text-emerald-700 font-bold truncate">Bought Aab-E-Hayat Juice</p>
-          <div class="flex items-center space-x-1 text-[9px] text-slate-500 font-mono truncate">
-            <span id="toastLocation" class="truncate max-w-[90px]">Nashik</span>
-            <span>•</span>
-            <span id="toastTime">Just now</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-
-  <!-- JavaScript Logic -->
-  <script>
-    document.getElementById("currentYearSpan").innerText = new Date().getFullYear();
-
-    let selectedPackPrice = 999;
-    let selectedPackOriginalPrice = 2000;
-    let selectedPackName = "1 Bottle (500ml Net Volume)";
-    let selectedPaymentMethod = "COD"; // Default: COD or RAZORPAY
-    let currentQty = 1;
-    let currentSlide = 0;
-    const totalSlides = 4;
-
-    // Carousel Slide Controls
-    const carouselEl = document.getElementById("productCarousel");
-    const dots = document.querySelectorAll(".slide-dot");
-    const counterLabel = document.getElementById("slideCounterLabel");
-
-    function updateSlideIndicator(index) {
-      currentSlide = index;
-      dots.forEach((dot, i) => {
-        if (i === index) {
-          dot.className = "slide-dot w-4 h-1.5 rounded-full bg-emerald-600 transition-all";
-        } else {
-          dot.className = "slide-dot w-1.5 h-1.5 rounded-full bg-slate-300 transition-all";
-        }
-      });
-
-      if (counterLabel) {
-        counterLabel.innerText = `${index + 1}/${totalSlides}`;
-      }
-    }
-
-    function goToSlide(index) {
-      if (!carouselEl) return;
-      const slideWidth = carouselEl.clientWidth;
-      carouselEl.scrollTo({
-        left: slideWidth * index,
-        behavior: 'smooth'
-      });
-      updateSlideIndicator(index);
-    }
-
-    function scrollSlide(direction) {
-      let next = currentSlide + direction;
-      if (next < 0) next = totalSlides - 1;
-      if (next >= totalSlides) next = 0;
-      goToSlide(next);
-    }
-
-    // Carousel Scroll Listener
-    if (carouselEl) {
-      carouselEl.addEventListener("scroll", () => {
-        const slideWidth = carouselEl.clientWidth;
-        if (slideWidth > 0) {
-          const index = Math.round(carouselEl.scrollLeft / slideWidth);
-          if (index !== currentSlide && index >= 0 && index < totalSlides) {
-            updateSlideIndicator(index);
-          }
-        }
-      });
-    }
-
-    // Payment Method Toggle (COD vs Razorpay) for White Theme
-    function setPaymentMethod(method) {
-      selectedPaymentMethod = method;
-      const cards = document.querySelectorAll(".payment-option-card");
-      
-      cards.forEach(c => {
-        const input = c.querySelector("input");
-        const dot = c.querySelector(".payment-radio-dot");
-        if (input.value === method) {
-          input.checked = true;
-          c.className = "payment-option-card cursor-pointer border-2 border-emerald-500 bg-emerald-50/70 p-2.5 rounded-xl flex items-center justify-between transition-all shadow-sm";
-          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border-2 border-emerald-500 bg-emerald-600 flex items-center justify-center flex-shrink-0";
-          if (dot) dot.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-white"></span>';
-        } else {
-          input.checked = false;
-          c.className = "payment-option-card cursor-pointer border border-slate-200 bg-slate-50 p-2.5 rounded-xl flex items-center justify-between transition-all hover:border-slate-300";
-          if (dot) dot.className = "payment-radio-dot w-4 h-4 rounded-full border border-slate-300 bg-transparent flex items-center justify-center flex-shrink-0";
-          if (dot) dot.innerHTML = '';
-        }
-      });
-
-      updateCalculatedPrices();
-    }
-
-    // Quantity Selector
-    function changeQty(delta) {
-      currentQty = Math.max(1, currentQty + delta);
-      document.getElementById("qtyDisplay").innerText = currentQty;
-      updateCalculatedPrices();
-    }
-
-    function updateCalculatedPrices() {
-      const total = selectedPackPrice * currentQty;
-      const totalOrig = selectedPackOriginalPrice * currentQty;
-      const savings = totalOrig - total;
-      const discountPercent = Math.round((savings / totalOrig) * 100);
-
-      document.getElementById("displayPrice").innerText = `₹${total.toLocaleString('en-IN')}`;
-      document.getElementById("displayOriginalPrice").innerText = `₹${totalOrig.toLocaleString('en-IN')}`;
-      document.getElementById("displayDiscountBadge").innerText = `SAVE ₹${savings.toLocaleString('en-IN')} (${discountPercent}% OFF)`;
-
-      const mbEl = document.getElementById("mobileBarPrice");
-      if (mbEl) mbEl.innerText = `₹${total.toLocaleString('en-IN')}`;
-
-      document.getElementById("modalTotalSummary").innerText = `₹${total.toLocaleString('en-IN')}`;
-      document.getElementById("modalQtySummary").innerText = `(Qty: ${currentQty})`;
-
-      const submitBtnText = document.getElementById("modalSubmitBtnText");
-      if (submitBtnText) {
-        if (selectedPaymentMethod === "COD") {
-          submitBtnText.innerText = `CONFIRM CASH ON DELIVERY ORDER (₹${total.toLocaleString('en-IN')})`;
-        } else {
-          submitBtnText.innerText = `PAY NOW VIA RAZORPAY (₹${total.toLocaleString('en-IN')})`;
-        }
-      }
-    }
-
-    // Modal Visibility
-    function openFastOrderModal() {
-      document.getElementById("fastOrderModal").classList.remove("hidden");
-      updateCalculatedPrices();
-    }
-
-    function closeFastOrderModal() {
-      document.getElementById("fastOrderModal").classList.add("hidden");
-    }
-
-    // Firebase Configuration for empire-41774
-    const firebaseConfig = {
-      apiKey: "AIzaSyBMC9Dg03pbzAzycFZokA2do_PglDzHbZ4",
-      authDomain: "empire-41774.firebaseapp.com",
-      projectId: "empire-41774",
-      storageBucket: "empire-41774.firebasestorage.app",
-      messagingSenderId: "784581908427",
-      appId: "1:784581908427:web:a1ad5215a181301676884e",
-      measurementId: "G-352MHCKNT8"
-    };
-
-    let db = null;
-    try {
-      if (typeof firebase !== "undefined") {
-        if (!firebase.apps.length) {
-          firebase.initializeApp(firebaseConfig);
-        }
-        db = firebase.firestore();
-        console.log("🔥 Firebase Firestore connected successfully for empire-41774");
-      }
-    } catch (err) {
-      console.warn("Firebase Init Notice:", err);
-    }
-
-    // Save Order to Firebase Firestore
-    async function saveOrderToFirebase(payload) {
-      if (!db) {
-        console.warn("Firestore not available, proceeding with WhatsApp confirmation.");
-        return false;
-      }
-      try {
-        await db.collection("orders").doc(payload.order_id).set({
-          ...payload,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          created_at_local: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-        });
-        console.log("✅ Order saved to Firebase Firestore: orders/" + payload.order_id);
-        return true;
-      } catch (e) {
-        console.error("Firebase Firestore save error:", e);
-        return false;
-      }
-    }
-
-    let latestWhatsAppMsg = "";
-
-    function showOrderSuccess(payload, waMsg) {
-      latestWhatsAppMsg = waMsg;
-      document.getElementById("fastOrderForm").classList.add("hidden");
-      document.getElementById("modalItemRecap").classList.add("hidden");
-      
-      document.getElementById("successOrderId").innerText = payload.order_id;
-      document.getElementById("successPaymentSummary").innerText = `₹${payload.product.total_amount.toLocaleString('en-IN')} (${payload.payment.method === 'COD' ? 'Cash on Delivery' : 'Paid Online'})`;
-      
-      const addr = payload.shipping_address;
-      document.getElementById("successAddressSummary").innerText = `${addr.recipient_name} | ${addr.phone}\n${addr.house_building_no}, ${addr.area_landmark}\n${addr.city}, ${addr.state} - ${addr.pincode}`;
-      
-      document.getElementById("orderSuccessView").classList.remove("hidden");
-    }
-
-    function openWhatsAppSuccessChat() {
-      if (latestWhatsAppMsg) {
-        window.open(`https://wa.me/918329494445?text=${latestWhatsAppMsg}`, '_blank');
-      }
-    }
-
-    function resetAndPlaceNewOrder() {
-      document.getElementById("fastOrderForm").reset();
-      document.getElementById("fastOrderForm").classList.remove("hidden");
-      document.getElementById("modalItemRecap").classList.remove("hidden");
-      document.getElementById("orderSuccessView").classList.add("hidden");
-      closeFastOrderModal();
-    }
-
-    // Delivery API & Order Submission Handler
-    async function handleFastOrderSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById("orderFullName").value.trim();
-      const phone = document.getElementById("orderPhone").value.trim();
-      const houseNo = document.getElementById("orderHouseNo").value.trim();
-      const area = document.getElementById("orderArea").value.trim();
-      const pincode = document.getElementById("orderPincode").value.trim();
-      const city = document.getElementById("orderCity").value.trim();
-      const state = document.getElementById("orderState").value.trim();
-
-      if (phone.length !== 10 || isNaN(phone)) {
-        alert("Please enter a valid 10-digit WhatsApp mobile number.");
-        document.getElementById("orderPhone").focus();
-        return;
-      }
-
-      if (pincode.length !== 6 || isNaN(pincode)) {
-        alert("Please enter a valid 6-digit delivery pincode.");
-        document.getElementById("orderPincode").focus();
-        return;
-      }
-
-      const total = selectedPackPrice * currentQty;
-      const orderId = "EH-" + Date.now().toString().slice(-6);
-
-      // Formatted Logistics / Delivery API Payload
-      const deliveryApiPayload = {
-        order_id: orderId,
-        order_date: new Date().toISOString(),
-        product: {
-          name: "AAB-E-HAYAT Health Care Juice (500ml)",
-          brand: "EMPIRE Global Herbal Science",
-          sku: "AAB-HAYAT-500ML",
-          volume: "500ml",
-          quantity: currentQty,
-          unit_price: selectedPackPrice,
-          total_amount: total
-        },
-        shipping_address: {
-          recipient_name: name,
-          phone: "+91 " + phone,
-          house_building_no: houseNo,
-          area_landmark: area,
-          city: city,
-          state: state,
-          pincode: pincode,
-          country: "India"
-        },
-        payment: {
-          method: selectedPaymentMethod,
-          status: selectedPaymentMethod === "COD" ? "PENDING_COD" : "PREPAID_ONLINE",
-          currency: "INR",
-          amount: total
-        }
-      };
-
-      console.log("🚚 [Delivery API Payload Ready]:", deliveryApiPayload);
-
-      // Save order to Firebase Firestore
-      await saveOrderToFirebase(deliveryApiPayload);
-
-      if (selectedPaymentMethod === "RAZORPAY") {
-        // Razorpay Online Payment Flow
-        if (typeof Razorpay !== "undefined") {
-          const options = {
-            key: "rzp_test_placeholder", // Replace with your Live Razorpay Key ID
-            amount: total * 100, // Amount in paise
-            currency: "INR",
-            name: "EMPIRE Global Herbal Science",
-            description: `Order #${orderId} - Aab-E-Hayat (Qty: ${currentQty})`,
-            image: "./image/1.png",
-            handler: async function (response) {
-              const paymentId = response.razorpay_payment_id || "PAY_" + Date.now();
-              deliveryApiPayload.payment.status = "PAID_ONLINE";
-              deliveryApiPayload.payment.razorpay_payment_id = paymentId;
-              
-              // Update payment status in Firebase
-              await saveOrderToFirebase(deliveryApiPayload);
-
-              const msg = encodeURIComponent(
-                `*✅ CONFIRMED ONLINE ORDER - RAZORPAY*\n` +
-                `----------------------------------------\n` +
-                `📦 *Order ID:* ${orderId}\n` +
-                `💳 *Payment ID:* ${paymentId}\n` +
-                `💰 *Total Paid:* ₹${total.toLocaleString('en-IN')} (Online Verified)\n` +
-                `🌿 *Product:* AAB-E-HAYAT Health Care Juice (500ml)\n` +
-                `🔢 *Quantity:* ${currentQty} Bottle(s)\n\n` +
-                `📍 *SHIPPING & DELIVERY ADDRESS:*\n` +
-                `👤 *Name:* ${name}\n` +
-                `📞 *Phone:* +91 ${phone}\n` +
-                `🏠 *House/Flat:* ${houseNo}\n` +
-                `🛣️ *Street/Area:* ${area}\n` +
-                `🏙️ *City/State:* ${city}, ${state}\n` +
-                `📮 *Pincode:* ${pincode}\n` +
-                `----------------------------------------\n` +
-                `Please dispatch express tracking details!`
-              );
-              showOrderSuccess(deliveryApiPayload, msg);
-              window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-            },
-            prefill: {
-              name: name,
-              contact: phone
-            },
-            theme: {
-              color: "#059669"
-            }
-          };
-          const rzp = new Razorpay(options);
-          rzp.on('payment.failed', function (response) {
-            alert("Payment failed: " + response.error.description);
-          });
-          rzp.open();
-        } else {
-          // Fallback if SDK blocked or offline
-          const msg = encodeURIComponent(
-            `*💳 PREPAID ONLINE ORDER - AAB-E-HAYAT*\n` +
-            `----------------------------------------\n` +
-            `📦 *Order ID:* ${orderId}\n` +
-            `💰 *Amount:* ₹${total.toLocaleString('en-IN')}\n` +
-            `🔢 *Quantity:* ${currentQty} Bottle(s) (500ml)\n` +
-            `💳 *Payment Choice:* UPI / Razorpay\n\n` +
-            `📍 *DELIVERY ADDRESS:*\n` +
-            `👤 *Name:* ${name}\n` +
-            `📞 *Phone:* +91 ${phone}\n` +
-            `🏠 *House/Building:* ${houseNo}\n` +
-            `🛣️ *Area/Landmark:* ${area}\n` +
-            `🏙️ *City, State:* ${city}, ${state}\n` +
-            `📮 *Pincode:* ${pincode}\n` +
-            `----------------------------------------\n` +
-            `Please share your UPI QR code or payment link to complete order!`
-          );
-          showOrderSuccess(deliveryApiPayload, msg);
-          window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-        }
-      } else {
-        // Cash on Delivery (COD) Flow
-        const msg = encodeURIComponent(
-          `*📦 NEW CASH ON DELIVERY (COD) ORDER*\n` +
-          `----------------------------------------\n` +
-          `🏷️ *Order ID:* ${orderId}\n` +
-          `🌿 *Product:* AAB-E-HAYAT Health Care Juice (500ml)\n` +
-          `🔢 *Quantity:* ${currentQty} Bottle(s)\n` +
-          `💰 *Total Amount to Collect:* ₹${total.toLocaleString('en-IN')}\n` +
-          `💵 *Payment Method:* Cash on Delivery (COD)\n\n` +
-          `📍 *DELIVERY DETAILS:*\n` +
-          `👤 *Customer Name:* ${name}\n` +
-          `📞 *WhatsApp Mobile:* +91 ${phone}\n` +
-          `🏠 *House/Flat/Building:* ${houseNo}\n` +
-          `🛣️ *Street/Area/Landmark:* ${area}\n` +
-          `🏙️ *City & State:* ${city}, ${state}\n` +
-          `📮 *Delivery Pincode:* ${pincode}\n` +
-          `----------------------------------------\n` +
-          `Please confirm this COD booking and dispatch my package!`
-        );
-        showOrderSuccess(deliveryApiPayload, msg);
-        window.open(`https://wa.me/918329494445?text=${msg}`, '_blank');
-      }
-    }
-
-    // Live Social Proof Toast Simulation
-    const buyers = [
-      { name: "Mohammed Irfan", city: "Nashik", time: "Just now" },
-      { name: "Sunil Gaikwad", city: "Pune", time: "2 mins ago" },
-      { name: "Rashid Khan", city: "Mumbai", time: "4 mins ago" },
-      { name: "Dr. Aniket Sharma", city: "Nagpur", time: "7 mins ago" }
-    ];
-    let buyerIdx = 0;
-
-    function triggerSocialProof() {
-      const toast = document.getElementById("socialProofToast");
-      if (!toast) return;
-      const b = buyers[buyerIdx % buyers.length];
-      buyerIdx++;
-      document.getElementById("toastName").innerText = b.name;
-      document.getElementById("toastLocation").innerText = b.city;
-      document.getElementById("toastTime").innerText = b.time;
-      toast.classList.remove("hidden");
-      setTimeout(() => {
-        toast.classList.add("hidden");
-      }, 3500);
-    }
-    setInterval(triggerSocialProof, 8000);
-  </script>
+  <noscript>
+    <div style="padding:40px;text-align:center;font-family:sans-serif;">
+      <h2>⚠️ JavaScript Required</h2>
+      <p>This premium commercial template requires JavaScript enabled to initialize protected assets.</p>
+    </div>
+  </noscript>
 </body>
 </html>

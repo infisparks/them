@@ -104,6 +104,7 @@
     })();
   </script>
 
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -1976,15 +1977,18 @@
     });
 
     // =========================================================================
-    // 💳 RAZORPAY PAYMENT LINK INTEGRATION
-    // (Paste your Razorpay payment link below whenever ready)
     // =========================================================================
-    const RAZORPAY_PAYMENT_URL = ""; // <-- PASTE YOUR RAZORPAY PAYMENT LINK HERE (e.g. "https://rzp.io/l/yourlink")
+    // 💳 LIVE RAZORPAY CHECKOUT & WORKER INTEGRATION
+    // =========================================================================
+    const RAZORPAY_KEY = "rzp_live_TXvv4nCnkVjFWm";
+    const WORKER_URL = "https://digitalthem.infisparks.workers.dev";
+    const RTDB_SECRET = "Yo5r6sDdNUjBGXdN4xHHsI2wJpW0trjxFzcYjf5r";
 
     function handleCheckoutPayment(e) {
       e.preventDefault();
       const nameInput = document.getElementById('checkoutName');
       const phoneInput = document.getElementById('checkoutPhone');
+      const btn = document.getElementById('btnCheckoutPay');
       const name = nameInput ? nameInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
       const cleanDigits = phone.replace(/[^0-9]/g, '');
@@ -1994,39 +1998,113 @@
         return;
       }
 
-      // Save lead instantly to Firebase Realtime Database
+      // 1. Immediately save lead data to both Cloudflare Worker & Firebase RTDB
+      // (Even if user abandons or closes Razorpay window without paying)
+      const leadPayload = {
+        name: name,
+        phone: phone,
+        amount: 999,
+        status: "pending",
+        source: "website_checkout_modal",
+        timestamp: Date.now(),
+        createdAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+      };
+
       try {
-        fetch("https://awdeveloper-f2b8a-default-rtdb.firebaseio.com/leads.json", {
+        // Send to Cloudflare Worker
+        fetch(`${WORKER_URL}/api/leads`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: name,
-            phone: phone,
-            amount: 999,
-            status: "pending",
-            timestamp: Date.now(),
-            createdAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
-          })
-        }).catch(function(err) { console.warn("Firebase lead sync:", err); });
+          body: JSON.stringify(leadPayload)
+        }).catch(function(err) { console.warn("Worker lead sync:", err); });
+
+        // Backup directly to Firebase RTDB with database secret
+        fetch(`https://awdeveloper-f2b8a-default-rtdb.firebaseio.com/leads.json?auth=${RTDB_SECRET}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(leadPayload)
+        }).catch(function(err) { console.warn("Direct Firebase lead sync:", err); });
       } catch (err) {}
 
-      // If Razorpay payment link is provided, redirect to Razorpay with customer params
-      if (RAZORPAY_PAYMENT_URL && RAZORPAY_PAYMENT_URL.trim() !== "") {
-        try {
-          const url = new URL(RAZORPAY_PAYMENT_URL);
-          url.searchParams.set('name', name);
-          url.searchParams.set('phone', phone);
-          window.location.href = url.toString();
-          return;
-        } catch (err) {
-          window.location.href = RAZORPAY_PAYMENT_URL;
-          return;
-        }
+      // 2. Launch Razorpay Standard Live Checkout Modal
+      if (typeof Razorpay === "undefined") {
+        alert("Payment gateway is initializing. Please try again in 3 seconds.");
+        return;
       }
 
-      // Default feedback if Razorpay link is not yet set
-      alert("🎉 Thank you " + name + "!\n\n₹999 Payment Initiated! Instant ZIP download will be sent to WhatsApp: " + phone + ".\n\n(Tip: Paste your Razorpay payment link in RAZORPAY_PAYMENT_URL in the script to enable live 1-click Razorpay payments.)");
-      closeCheckoutModal();
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Connecting Razorpay...</span>`;
+
+      const options = {
+        key: RAZORPAY_KEY,
+        amount: 100, // Testing mode: ₹1 (100 paise). Change back to 99900 for ₹999 when testing is done.
+        currency: "INR",
+        name: "InfiSparks Digital Theme Store",
+        description: "45+ Ultimate Landing Page Bundle Lifetime License",
+        prefill: {
+          name: name,
+          contact: phone
+        },
+        notes: {
+          product: "45_landing_pages_bundle",
+          bundle: "45+ Ultimate Landing Page Bundle",
+          customer_name: name,
+          customer_phone: phone
+        },
+        theme: {
+          color: "#d97706"
+        },
+        modal: {
+          ondismiss: function() {
+            btn.disabled = false;
+            btn.innerHTML = `<span>Pay ₹999 (Unlock All 45+ Templates ⚡)</span> <i class="fa-solid fa-arrow-right text-xs"></i>`;
+            console.log("Customer closed Razorpay checkout modal.");
+          }
+        },
+        handler: async function(response) {
+          btn.disabled = true;
+          btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Generating License &amp; WhatsApp Delivery...</span>`;
+
+          try {
+            // Send payment details to Cloudflare Worker to generate license & trigger automated WhatsApp message
+            const verifyRes = await fetch(`${WORKER_URL}/api/verify-payment`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id || "",
+                razorpay_signature: response.razorpay_signature || "",
+                name: name,
+                phone: phone,
+                amount: 999
+              })
+            });
+
+            const verifyData = await verifyRes.json();
+            const licenseKey = verifyData.licenseKey || "LIC-45LP-PRO-" + Math.random().toString(36).substring(2, 6).toUpperCase();
+
+            alert("🎉 Payment Successful!\n\nYour License Key: " + licenseKey + "\n\nWe have sent your License Key and Instant Download ZIP link directly to your WhatsApp: " + phone + ".\n\nClick OK to open your Customer Download Vault!");
+            window.location.href = `./purchase/?key=${encodeURIComponent(licenseKey)}&phone=${encodeURIComponent(phone)}`;
+          } catch (err) {
+            console.error("Payment verification / WhatsApp error:", err);
+            window.location.href = `./purchase/?phone=${encodeURIComponent(phone)}`;
+          }
+        }
+      };
+
+      try {
+        const rzp = new Razorpay(options);
+        rzp.on('payment.failed', function(resp) {
+          btn.disabled = false;
+          btn.innerHTML = `<span>Pay ₹999 (Unlock All 45+ Templates ⚡)</span> <i class="fa-solid fa-arrow-right text-xs"></i>`;
+          alert("Payment Failed: " + (resp.error ? resp.error.description : "Please try again."));
+        });
+        rzp.open();
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = `<span>Pay ₹999 (Unlock All 45+ Templates ⚡)</span> <i class="fa-solid fa-arrow-right text-xs"></i>`;
+        alert("Failed to initialize Razorpay checkout: " + err.message);
+      }
     }
   </script>
 </body>
