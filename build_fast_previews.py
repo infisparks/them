@@ -5,7 +5,7 @@ from re_encrypt import encrypt_payload, build_protected_html
 
 CLEAN_DIR = ".clean_templates_source"
 
-# Top 2 courses static HTML for course-white-gold preview
+# 4 Courses static HTML for course-white-gold preview (fills 2 full rows without empty bottom space)
 COURSE_STATIC_HTML = '''
           <!-- Course 1: Full-Stack Next.js 15 -->
           <div class="course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between transition-all duration-300 group">
@@ -78,6 +78,78 @@ COURSE_STATIC_HTML = '''
               </button>
             </div>
           </div>
+
+          <!-- Course 3: Freelancing & International Agency Blueprint -->
+          <div class="course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between transition-all duration-300 group">
+            <div class="space-y-2">
+              <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-100 border border-amber-200/80">
+                <img src="image/6.png" alt="Freelancing &amp; Agency Blueprint" class="w-full h-full object-cover" />
+                <div class="absolute top-1.5 left-1.5 flex items-center gap-1 z-10">
+                  <span class="text-[7.5px] sm:text-[9px] uppercase font-black bg-sky-600 text-white px-1.5 py-0.5 rounded shadow-xs">CAREER GROWTH</span>
+                </div>
+                <div class="absolute bottom-1.5 right-1.5 z-10">
+                  <span class="text-[8px] sm:text-[9px] font-mono font-bold text-slate-950 bg-amber-400/90 px-1.5 py-0.5 rounded border border-amber-500/50">10 Hours</span>
+                </div>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[9px] uppercase font-bold text-amber-700">Agency Scaling</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2">Freelancing &amp; International Agency Blueprint</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-amber-500 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono font-bold">4.9</span>
+                <span class="text-slate-400 font-mono">(390)</span>
+              </div>
+            </div>
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-amber-600 font-sans">₹899</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans">₹2,999</span>
+                </div>
+              </div>
+              <button class="w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs">
+                <i class="fa-solid fa-bolt text-[9px]"></i>
+                <span>ENROLL</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Course 4: High-Converting Sales Funnels & Ads Engineering -->
+          <div class="course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between transition-all duration-300 group">
+            <div class="space-y-2">
+              <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-100 border border-amber-200/80">
+                <img src="image/4.png" alt="Sales Funnels &amp; Ads Engineering" class="w-full h-full object-cover" />
+                <div class="absolute top-1.5 left-1.5 flex items-center gap-1 z-10">
+                  <span class="text-[7.5px] sm:text-[9px] uppercase font-black bg-rose-600 text-white px-1.5 py-0.5 rounded shadow-xs">HOT SELLER</span>
+                </div>
+                <div class="absolute bottom-1.5 right-1.5 z-10">
+                  <span class="text-[8px] sm:text-[9px] font-mono font-bold text-slate-950 bg-amber-400/90 px-1.5 py-0.5 rounded border border-amber-500/50">16 Hours</span>
+                </div>
+              </div>
+              <div>
+                <span class="text-[8px] sm:text-[9px] uppercase font-bold text-amber-700">Funnel &amp; CRO</span>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2">High-Converting Sales Funnels &amp; Ads Engineering</h4>
+              </div>
+              <div class="flex items-center space-x-1 text-amber-500 text-[8px] sm:text-[10px]">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="text-slate-500 font-mono font-bold">4.9</span>
+                <span class="text-slate-400 font-mono">(610)</span>
+              </div>
+            </div>
+            <div class="space-y-2 pt-1 border-t border-slate-100">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-xs sm:text-base font-black text-amber-600 font-sans">₹1,999</span>
+                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans">₹5,999</span>
+                </div>
+              </div>
+              <button class="w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs">
+                <i class="fa-solid fa-bolt text-[9px]"></i>
+                <span>ENROLL</span>
+              </button>
+            </div>
+          </div>
 '''
 
 CUTOFF_CONFIG = {
@@ -86,8 +158,8 @@ CUTOFF_CONFIG = {
         "closer": "</div></body></html>"
     },
     "funnel-dark-gold": {
-        "cut_line": 421,
-        "closer": "</main></body></html>"
+        "cut_line": 480,
+        "closer": "</div></section></main></body></html>"
     },
     "realstate-dark-gold": {
         "cut_line": 386,
@@ -98,11 +170,11 @@ CUTOFF_CONFIG = {
         "closer": "</main></body></html>"
     },
     "funnel-white-gold": {
-        "cut_line": 410,
-        "closer": "</main></body></html>"
+        "cut_line": 455,
+        "closer": "</div></section></main></body></html>"
     },
     "ecommerce-dark-gold": {
-        "cut_line": 426,
+        "cut_line": 490,
         "closer": "</div></section></main></body></html>"
     },
     "course-white-gold": {
