@@ -446,7 +446,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./portfolio-dark-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Personal Portfolio Template" loading="eager"></iframe>
+              <iframe src="./portfolio-dark-gold/preview.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Personal Portfolio Template" loading="eager"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Portfolio
@@ -481,7 +481,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="./funnel-dark-gold/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Sales Funnel Template" loading="eager"></iframe>
+              <iframe src="./funnel-dark-gold/preview.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="Sales Funnel Template" loading="eager"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Sales Funnel
@@ -516,7 +516,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="about:blank" data-src="./realstate-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Real Estate Landing Page Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./realstate-dark-gold/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Real Estate Landing Page Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Real Estate
@@ -551,7 +551,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="about:blank" data-src="./single-product-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product E-Commerce Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./single-product-white-gold/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Single Product E-Commerce Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Single Product
@@ -586,7 +586,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="about:blank" data-src="./funnel-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="B2B Sales Funnel Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./funnel-white-gold/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="B2B Sales Funnel Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Sales Funnel
@@ -621,7 +621,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="about:blank" data-src="./ecommerce-dark-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="E-Commerce Store Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./ecommerce-dark-gold/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="E-Commerce Store Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-black/85 text-gold-400 border-gold-400/40 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   E-Commerce
@@ -656,7 +656,7 @@
                   <div class="skeleton-line w-3/4 mx-auto"></div>
                 </div>
               </div>
-              <iframe src="about:blank" data-src="./course-white-gold/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Online Course Template" loading="lazy"></iframe>
+              <iframe src="about:blank" data-src="./course-white-gold/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="Online Course Template" loading="lazy"></iframe>
               <div class="absolute top-1.5 left-1.5 z-20">
                 <span class="bg-white/95 text-amber-900 border-amber-400 border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
                   Course / EdTech
@@ -1296,6 +1296,27 @@
         }
       });
     });
+
+    
+    // Catalog Filtering for remaining 38+ templates
+    function filterCatalog(category) {
+      document.querySelectorAll('.cat-tab').forEach(t => {
+        t.className = "cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer";
+      });
+      const activeTab = document.getElementById('catTab-' + category);
+      if (activeTab) {
+        activeTab.className = "cat-tab px-3 py-1.5 rounded-xl text-xs font-black bg-slate-900 text-white shadow-xs flex-shrink-0 cursor-pointer";
+      }
+
+      document.querySelectorAll('.catalog-item').forEach(item => {
+        const itemCat = item.getAttribute('data-cat');
+        if (category === 'all' || itemCat === category || (category === 'course' && itemCat === 'saas')) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
 
     function filterColor(color) {
       document.querySelectorAll('.color-btn').forEach(b => {

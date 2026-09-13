@@ -112,9 +112,9 @@ def render_top_card(theme_key, index):
     
     # Top 2 load immediately; remaining 5 use data-src for zero-lag streaming
     if index < 2:
-        iframe_tag = f'<iframe src="./{theme_key}/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="eager"></iframe>'
+        iframe_tag = f'<iframe src="./{theme_key}/preview.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="eager"></iframe>'
     else:
-        iframe_tag = f'<iframe src="about:blank" data-src="./{theme_key}/index.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="lazy"></iframe>'
+        iframe_tag = f'<iframe src="about:blank" data-src="./{theme_key}/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="lazy"></iframe>'
     
     return f'''        <!-- #{index+1}: {d["title"]} ({theme_key}) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-gold-300/80">
