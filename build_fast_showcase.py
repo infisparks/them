@@ -149,7 +149,7 @@ def render_top_card(theme_key, index):
         </div>'''
 
 def render_unlock_card():
-    return '''        <!-- #8: VIP LOCK CARD (+38 MORE TEMPLATES UNLOCKED FREE) -->
+    return '''        <!-- #8: VIP LOCK CARD (40+ MORE TEMPLATES - BUY & GET ALL TEMPLATES) -->
         <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between border-2 border-dashed border-amber-400/90 bg-gradient-to-br from-amber-500/15 via-slate-900 to-black text-white relative overflow-hidden shadow-xl group">
           
           <div class="space-y-2">
@@ -163,7 +163,7 @@ def render_unlock_card():
               <!-- Top Badge -->
               <div class="pt-2 z-10">
                 <span class="inline-flex items-center gap-1 bg-amber-500/20 border border-amber-400/60 text-amber-300 text-[8px] sm:text-[9.5px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
-                  <i class="fa-solid fa-crown text-amber-400 text-[9px]"></i> +38 More Included
+                  <i class="fa-solid fa-crown text-amber-400 text-[9px]"></i> 40+ More Included
                 </span>
               </div>
 
@@ -174,10 +174,10 @@ def render_unlock_card():
                 </div>
                 <div>
                   <h4 class="text-xs sm:text-sm font-black text-white leading-tight">
-                    Unlock All 45+ Templates
+                    40+ More Templates
                   </h4>
                   <p class="text-[8.5px] sm:text-[9.5px] text-amber-200/90 font-medium mt-0.5">
-                    1-Time ₹999 Payment • No Monthly Fees
+                    Buy &amp; Get All Templates (₹999)
                   </p>
                 </div>
 
@@ -190,7 +190,7 @@ def render_unlock_card():
                     <i class="fa-solid fa-circle-check text-[7.5px] text-emerald-400"></i> Full Clean HTML, Tailwind &amp; CSS
                   </div>
                   <div class="flex items-center gap-1">
-                    <i class="fa-solid fa-circle-check text-[7.5px] text-emerald-400"></i> Commercial Unlimited License
+                    <i class="fa-solid fa-circle-check text-[7.5px] text-emerald-400"></i> Instant All Templates ZIP
                   </div>
                 </div>
               </div>
@@ -198,7 +198,7 @@ def render_unlock_card():
               <!-- CTA Inside Phone Screen -->
               <div class="w-full z-10 pt-1">
                 <button onclick="openCheckoutModal()" class="w-full py-2 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                  <span>Unlock Everything (₹999)</span>
+                  <span>Buy &amp; Get All Templates (₹999)</span>
                   <i class="fa-solid fa-bolt text-[10px]"></i>
                 </button>
               </div>
@@ -207,10 +207,10 @@ def render_unlock_card():
             <!-- Card Bottom Info -->
             <div class="px-0.5">
               <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate flex items-center gap-1">
-                <span class="text-amber-600">⚡</span> +38 More Premium Templates
+                <span class="text-amber-600">⚡</span> 40+ More Templates
               </h3>
               <p class="text-[8.5px] sm:text-[10px] text-slate-500 truncate">
-                Get All 45 Themes In One Instant ZIP Download
+                Buy &amp; Get All Templates — Instant Access
               </p>
             </div>
           </div>
@@ -219,7 +219,7 @@ def render_unlock_card():
           <div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
             <button onclick="openCheckoutModal()" class="flex-1 py-1.5 px-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-amber-400 text-[10px] sm:text-[11px] font-black flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer">
               <i class="fa-solid fa-key text-[9px]"></i>
-              <span>Buy ₹999 &amp; Unlock All 45+</span>
+              <span>Buy &amp; Get All Templates (₹999)</span>
             </button>
           </div>
         </div>'''
@@ -265,8 +265,6 @@ def render_showcase_section():
     top_cards.append(render_unlock_card())
     grid_html = "\n\n".join(top_cards)
 
-    catalog_html = render_catalog_items()
-
     return f'''    <!-- ========================================== -->
     <!-- SECTION 1: TOP 7 LIVE MOBILE PREVIEWS + VIP UNLOCK CARD -->
     <!-- ========================================== -->
@@ -279,7 +277,7 @@ def render_showcase_section():
           </h2>
         </div>
         <span class="text-[9.5px] sm:text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-0.5 rounded-full">
-          7 Live Previews • 38+ More In Bundle
+          7 Live Previews • 40+ More (Buy &amp; Get All Templates)
         </span>
       </div>
 
@@ -303,15 +301,15 @@ def render_showcase_section():
         <div class="space-y-3 max-w-2xl">
           <div class="inline-flex items-center gap-2 text-amber-300 bg-amber-500/20 border border-amber-400/60 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
             <i class="fa-solid fa-crown text-amber-400"></i>
-            <span>+38 More Templates Included (45+ Total In Bundle)</span>
+            <span>40+ More Templates — Buy &amp; Get All Templates</span>
           </div>
 
           <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            Buy Today for Just <span class="text-amber-400">₹999</span> &amp; Get All 45+ Templates Free
+            40+ More Templates Included — <span class="text-amber-400">Buy &amp; Get All Templates</span> for Just ₹999
           </h3>
 
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            You just saw the top 7 interactive screens above. When you order right now, you instantly unlock the complete collection of <strong>45+ production-ready landing pages</strong> with 100% clean, unencrypted source code:
+            No heavy loading or endless preview lag. You have seen the top 7 live interactive templates above. Buy now and directly get all <strong>45+ production-ready landing pages</strong> in one complete, instant download:
           </p>
 
           <!-- Direct Category Counts Grid -->
@@ -319,7 +317,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">🛒</span>
               <div>
-                <strong class="text-white block font-black">10+ E-Commerce</strong>
+                <strong class="text-white block font-black">10+ E-Commerce Templates</strong>
                 <span class="text-[10px] text-slate-400">Luxury, Fashion &amp; DTC</span>
               </div>
             </div>
@@ -327,7 +325,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">⚡</span>
               <div>
-                <strong class="text-white block font-black">9+ Sales Funnels</strong>
+                <strong class="text-white block font-black">9+ Sales Funnel Templates</strong>
                 <span class="text-[10px] text-slate-400">Meta Ads &amp; High-Ticket</span>
               </div>
             </div>
@@ -335,7 +333,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">🎯</span>
               <div>
-                <strong class="text-white block font-black">8+ Single Product</strong>
+                <strong class="text-white block font-black">8+ Single Product Templates</strong>
                 <span class="text-[10px] text-slate-400">Gadgets, Kitchen &amp; Home</span>
               </div>
             </div>
@@ -343,7 +341,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">💼</span>
               <div>
-                <strong class="text-white block font-black">7+ Portfolios</strong>
+                <strong class="text-white block font-black">7+ Portfolio Templates</strong>
                 <span class="text-[10px] text-slate-400">Architects, Devs &amp; Agencies</span>
               </div>
             </div>
@@ -351,7 +349,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">🎓</span>
               <div>
-                <strong class="text-white block font-black">6+ Online Courses</strong>
+                <strong class="text-white block font-black">6+ Online Course Templates</strong>
                 <span class="text-[10px] text-slate-400">Bootcamps &amp; AI Academies</span>
               </div>
             </div>
@@ -359,7 +357,7 @@ def render_showcase_section():
             <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
               <span class="text-base">🤖</span>
               <div>
-                <strong class="text-white block font-black">5+ SaaS &amp; AI</strong>
+                <strong class="text-white block font-black">5+ SaaS &amp; AI Templates</strong>
                 <span class="text-[10px] text-slate-400">Terminal, ROI &amp; Pricing</span>
               </div>
             </div>
@@ -369,7 +367,7 @@ def render_showcase_section():
         <!-- Right: Action Box & Checkout Button -->
         <div class="w-full lg:w-auto flex-shrink-0 bg-white/10 border border-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-center space-y-3 min-w-[280px]">
           <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">
-            ⚡ Instant WhatsApp Delivery
+            ⚡ Instant Access &amp; WhatsApp Delivery
           </div>
           <div class="flex items-baseline justify-center gap-2">
             <span class="text-sm text-slate-400 line-through">₹29,999</span>
@@ -378,7 +376,7 @@ def render_showcase_section():
           </div>
 
           <button onclick="openCheckoutModal()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight shadow-xl hover:shadow-amber-500/30 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <span>Buy Now &amp; Unlock All 45+</span>
+            <span>Buy &amp; Get All Templates (₹999)</span>
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </button>
 
@@ -426,27 +424,31 @@ def update_file(filepath):
         content = content.replace("function filterColor(color) {", js_func + "\n    function filterColor(color) {")
 
     # Update top filter buttons to clean navigation
-    top_pills_old = r'(<div class="flex items-center justify-start sm:justify-center space-x-1 sm:space-x-1\.5 overflow-x-auto no-scrollbar py-0\.5 text-\[10px\] sm:text-xs">)[\s\S]*?(</div>\s*</section>)'
-    top_pills_new = '''<div class="flex items-center justify-start sm:justify-center space-x-1 sm:space-x-1.5 overflow-x-auto no-scrollbar py-0.5 text-[10px] sm:text-xs">
-      <a href="#live-screens" class="py-1 px-2.5 rounded-lg bg-gold-500 text-slate-950 font-black shadow-xs flex-shrink-0 flex items-center gap-1">
-        <i class="fa-solid fa-mobile-screen"></i> 7 Top Live Previews
-      </a>
-      <a href="#full-catalog" class="py-1 px-2.5 rounded-lg bg-white border border-amber-300 text-amber-900 hover:bg-amber-50 font-extrabold flex-shrink-0 flex items-center gap-1">
-        <i class="fa-solid fa-layer-group text-amber-500"></i> +38 More In Bundle
-      </a>
-      <button onclick="openCheckoutModal()" class="py-1 px-2.5 rounded-lg bg-white border border-slate-200 text-emerald-800 hover:bg-emerald-50 font-bold flex-shrink-0 flex items-center gap-1 cursor-pointer">
-        <i class="fa-solid fa-tag text-emerald-600"></i> Get Everything ₹999
+    top_pills_old = r'(<!-- Color Filter Strip \(Horizontal Scrollable\) -->[\s\S]*?</div>\s*</section>)'
+    top_pills_new = '''<!-- Clean Feature Strip -->
+    <div class="flex items-center justify-center gap-1.5 sm:gap-2 overflow-x-auto w-full max-w-3xl mx-auto pb-0.5 no-scrollbar text-[10px] sm:text-xs font-bold">
+      <span class="py-1 px-2.5 rounded-lg bg-amber-500 text-slate-950 font-black shadow-xs flex-shrink-0 flex items-center gap-1">
+        <i class="fa-solid fa-mobile-screen"></i> 7 Live Interactive Previews
+      </span>
+      <span class="py-1 px-2.5 rounded-lg bg-white border border-amber-300 text-amber-900 font-extrabold flex-shrink-0 flex items-center gap-1">
+        <i class="fa-solid fa-crown text-amber-500"></i> 40+ More Templates Included
+      </span>
+      <button onclick="openCheckoutModal()" class="py-1 px-2.5 rounded-lg bg-slate-900 text-amber-400 hover:bg-slate-800 font-black flex-shrink-0 flex items-center gap-1 cursor-pointer transition-colors">
+        <i class="fa-solid fa-bolt text-amber-400"></i> Buy &amp; Get All Templates (₹999)
       </button>
-      <a href="https://wa.me/919958399157?text=Hi%2C%20I%20want%20custom%20landing%20page%20design" target="_blank" class="py-1 px-2.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 font-bold flex-shrink-0 flex items-center gap-1">
-        <i class="fa-brands fa-whatsapp text-emerald-500"></i> Custom Pages
-      </a>
     </div>
   </section>'''
     content = re.sub(top_pills_old, top_pills_new, content)
 
+    # Also update subtitle text
+    content = content.replace(
+        "Scroll live mobile screens below. Gold editions on top with instant preview &amp; code download.",
+        "Explore the top 7 live interactive previews below. 40+ more templates unlocked instantly with the complete ₹999 bundle."
+    )
+
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"Updated {filepath} with fast 7-preview showcase + 38 unlock catalog!")
+    print(f"Updated {filepath} with fast 7-preview showcase + 40+ direct count unlock banner!")
 
 def main():
     update_file("index.html")
