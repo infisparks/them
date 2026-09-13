@@ -1,293 +1,303 @@
 import re
 
 THEME_DATA = {
-    # Gold Themes
+    # =========================================================================
+    # GOLD THEMES
+    # =========================================================================
     "portfolio-dark-gold": {
-        "title": "Senior Software Architect & Consultant",
-        "subtitle": "Skills Radar, Code Demos & Hire Funnel",
+        "title": "Personal Portfolio Template",
+        "subtitle": "Developer, Consultant & Architect Profile",
         "badge": "Portfolio",
-        "btn": "Personal Portfolio - Senior Architect"
+        "btn": "Personal Portfolio Template"
     },
     "funnel-dark-gold": {
-        "title": "Meta Ads & Performance Agency Sales Funnel",
-        "subtitle": "High-Ticket VSL, 12 Video Proofs & Lead Booking",
-        "badge": "Meta Ads",
-        "btn": "Performance Agency - Meta Ads Funnel"
+        "title": "Sales Funnel Template",
+        "subtitle": "Meta Ads & Performance Agency Lander",
+        "badge": "Sales Funnel",
+        "btn": "Meta Ads Sales Funnel Template"
     },
     "realstate-dark-gold": {
-        "title": "Luxury Real Estate & Penthouse Villas",
-        "subtitle": "Floor Plans, 3D Virtual Tour & Mortgage Calc",
+        "title": "Real Estate Landing Page Template",
+        "subtitle": "Luxury Properties, Penthouse & Sky Villas",
         "badge": "Real Estate",
-        "btn": "Luxury Real Estate - Sky Villas"
-    },
-    "course-white-gold": {
-        "title": "Tech Architect & AI Masterclass Platform",
-        "subtitle": "2-in-1 Cards, Video Proofs & Curriculum",
-        "badge": "EdTech",
-        "btn": "Tech Architect - AI Masterclass"
-    },
-    "ecommerce-dark-gold": {
-        "title": "Luxury Watches & High-End Jewelry Store",
-        "subtitle": "Ajax Cart Drawer, 360° Zoom & Fast Checkout",
-        "badge": "E-Commerce",
-        "btn": "Luxury Jewelry - Dark Gold Boutique"
+        "btn": "Real Estate Landing Page Template"
     },
     "single-product-white-gold": {
-        "title": "Ergonomic Workspace & DTC Setup Lander",
-        "subtitle": "Conversion Buy Box, Feature Grid & Proofs",
-        "badge": "DTC Product",
-        "btn": "Ergonomic Desk - DTC Product Lander"
-    },
-    "saas-dark-gold": {
-        "title": "Enterprise AI Platform & Micro-SaaS Lander",
-        "subtitle": "Interactive Terminal, Pricing & ROI Calc",
-        "badge": "AI & SaaS",
-        "btn": "Enterprise AI - Micro-SaaS Lander"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Ergonomic Workspace & DTC Product Lander",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
     "funnel-white-gold": {
-        "title": "B2B Growth Agency & Retainer Acquisition",
-        "subtitle": "Audit Booking, Case Studies & High-Ticket Pitch",
-        "badge": "B2B Funnel",
-        "btn": "B2B Growth Agency - High-Ticket Pitch"
+        "title": "B2B Sales Funnel Template",
+        "subtitle": "Growth Agency & High-Ticket Retainers",
+        "badge": "Sales Funnel",
+        "btn": "B2B Sales Funnel Template"
+    },
+    "ecommerce-dark-gold": {
+        "title": "E-Commerce Store Template",
+        "subtitle": "Luxury Watches & High-End Jewelry",
+        "badge": "E-Commerce",
+        "btn": "Luxury E-Commerce Store Template"
+    },
+    "course-white-gold": {
+        "title": "Online Course Template",
+        "subtitle": "Tech Academy & AI Masterclass Platform",
+        "badge": "Course / EdTech",
+        "btn": "Online Course & Academy Template"
+    },
+    "saas-dark-gold": {
+        "title": "SaaS Landing Page Template",
+        "subtitle": "Enterprise AI & Software Platform",
+        "badge": "SaaS Platform",
+        "btn": "SaaS Landing Page Template"
     },
     "ecommerce-white-gold": {
-        "title": "Designer Fashion & Minimalist Boutique",
-        "subtitle": "Editorial Lookbook, Size Guide & Sticky Cart",
-        "badge": "Fashion Store",
-        "btn": "Designer Fashion - Minimalist Boutique"
+        "title": "Fashion E-Commerce Template",
+        "subtitle": "Designer Apparel & Minimalist Boutique",
+        "badge": "E-Commerce",
+        "btn": "Fashion E-Commerce Template"
     },
     "portfolio-white-gold": {
-        "title": "Architecture & Modern Interior Studio",
-        "subtitle": "High-Res Bento Gallery & VIP Client Booking",
-        "badge": "Studio Bento",
-        "btn": "Interior Design - Studio Architecture"
+        "title": "Agency Portfolio Template",
+        "subtitle": "Architecture & Modern Interior Studio",
+        "badge": "Portfolio",
+        "btn": "Agency Portfolio Template"
     },
     "single-product-dark-gold": {
-        "title": "Smart Ring & Luxury Wearable DTC Lander",
-        "subtitle": "Biometric Sensors, Titanium & Instant Buy",
-        "badge": "Wearable Tech",
-        "btn": "Smart Ring - Luxury Wearable Tech"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Smart Ring & Luxury Wearable Gadget",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
 
-    # Emerald Themes
+    # =========================================================================
+    # EMERALD & GREEN THEMES
+    # =========================================================================
     "funnel-dark-emerald": {
-        "title": "Fintech & Wealth Advisory Sales Funnel",
-        "subtitle": "High-Net-Worth Lead Form & Trust Proofs",
-        "badge": "Fintech Funnel",
-        "btn": "Fintech & Wealth Advisory Funnel"
+        "title": "Fintech Sales Funnel Template",
+        "subtitle": "Wealth Advisory & High-Ticket Investment",
+        "badge": "Sales Funnel",
+        "btn": "Fintech Sales Funnel Template"
     },
     "funnel-white-emerald": {
-        "title": "Health & Wellness Clinic Patient Funnel",
-        "subtitle": "Doctor Booking, Testimonials & WhatsApp CTA",
-        "badge": "Medical Clinic",
-        "btn": "Health Clinic - Patient Acquisition"
+        "title": "Healthcare Sales Funnel Template",
+        "subtitle": "Clinic & Doctor Appointment Booking",
+        "badge": "Sales Funnel",
+        "btn": "Healthcare Sales Funnel Template"
     },
     "course-dark-green": {
-        "title": "Full-Stack Coding & DevOps Bootcamp",
-        "subtitle": "Syllabus Roadmap, Terminal & Live Cohort",
-        "badge": "Dev Bootcamp",
-        "btn": "Full-Stack Dev & DevOps Bootcamp"
+        "title": "Coding Bootcamp Template",
+        "subtitle": "Full-Stack Dev & DevOps Learning Platform",
+        "badge": "Online Course",
+        "btn": "Coding Bootcamp Template"
     },
     "course-white-green": {
-        "title": "Organic Agri & Clean-Tech Academy",
-        "subtitle": "Video Modules, Certifications & Enrollment",
-        "badge": "Green Academy",
-        "btn": "Organic Agriculture & Clean-Tech"
+        "title": "Online Course Template",
+        "subtitle": "Organic Agriculture & Clean-Tech Academy",
+        "badge": "Online Course",
+        "btn": "Online Course Template"
     },
     "ecommerce-dark-emerald": {
-        "title": "Organic Skincare & Herbal Cosmetics",
-        "subtitle": "Ingredient Spotlight & Bundle Discounts",
-        "badge": "Skincare Store",
-        "btn": "Herbal Cosmetics - Organic Skincare"
+        "title": "Skincare E-Commerce Template",
+        "subtitle": "Organic Cosmetics & Herbal Beauty Store",
+        "badge": "E-Commerce",
+        "btn": "Organic Skincare E-Commerce Template"
     },
     "ecommerce-white-emerald": {
-        "title": "Eco-Friendly Bamboo Home Goods Store",
-        "subtitle": "Sustainability Badges & Verified Reviews",
-        "badge": "Eco Store",
-        "btn": "Eco Home Goods - Bamboo Essentials"
+        "title": "E-Commerce Store Template",
+        "subtitle": "Eco-Friendly Bamboo Home Goods & DTC",
+        "badge": "E-Commerce",
+        "btn": "Eco E-Commerce Store Template"
     },
     "portfolio-dark-emerald": {
-        "title": "Cybersecurity & Pentesting Consultant",
-        "subtitle": "CVE Audits, Terminal Demos & Hire Form",
-        "badge": "Cyber Security",
-        "btn": "Cybersecurity & Penetration Testing"
+        "title": "Cybersecurity Portfolio Template",
+        "subtitle": "Security Auditor & Pentesting Consultant",
+        "badge": "Portfolio",
+        "btn": "Cybersecurity Portfolio Template"
     },
     "portfolio-white-emerald": {
-        "title": "Landscape Architect & Sustainable Planner",
-        "subtitle": "Green Blueprint Showcase & Consultation",
-        "badge": "Landscape Bio",
-        "btn": "Sustainable Landscape & Architect"
+        "title": "Creative Portfolio Template",
+        "subtitle": "Landscape Architect & Sustainable Planner",
+        "badge": "Portfolio",
+        "btn": "Creative Portfolio Template"
     },
     "single-product-dark-emerald": {
-        "title": "Cold-Pressed Smart Juicer Appliance",
-        "subtitle": "Macro Nutrition Specs & 1-Click Buy Box",
-        "badge": "Smart Kitchen",
-        "btn": "Cold-Pressed Smart Juicer Lander"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Cold-Pressed Smart Kitchen Appliance",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
     "single-product-white-emerald": {
-        "title": "Hydroponic Indoor Smart Garden System",
-        "subtitle": "IoT App Controls & Organic Harvest Proofs",
-        "badge": "Smart Garden",
-        "btn": "Hydroponic Indoor Smart Garden"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Hydroponic Indoor Smart Garden System",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
 
-    # Purple Themes
+    # =========================================================================
+    # PURPLE THEMES
+    # =========================================================================
     "funnel-dark-purple": {
-        "title": "Crypto & Web3 Token Pre-Sale Funnel",
-        "subtitle": "Tokenomics, Roadmap & Investor KYC Flow",
-        "badge": "Web3 & Crypto",
-        "btn": "Web3 Token Pre-Sale & Launchpad"
+        "title": "Web3 & Crypto Funnel Template",
+        "subtitle": "Token Pre-Sale & Launchpad Platform",
+        "badge": "Sales Funnel",
+        "btn": "Crypto Sales Funnel Template"
     },
     "funnel-white-purple": {
-        "title": "Creative Agency & Brand Studio Pitch",
-        "subtitle": "Showreel Hero, Client Logos & Discovery Call",
-        "badge": "Brand Agency",
-        "btn": "Creative Agency - Studio Pitch Funnel"
+        "title": "Creative Agency Funnel Template",
+        "subtitle": "Branding Studio & Client Discovery Call",
+        "badge": "Sales Funnel",
+        "btn": "Creative Agency Funnel Template"
     },
     "course-white-purple": {
-        "title": "UI/UX Design & Figma Mastery Bootcamp",
-        "subtitle": "Design Systems, Reviews & Mentorship",
-        "badge": "UI/UX Course",
-        "btn": "UI/UX & Figma Design System Mastery"
+        "title": "UI/UX Course Template",
+        "subtitle": "Figma Design Systems & Mentorship",
+        "badge": "Online Course",
+        "btn": "UI/UX Design Course Template"
     },
     "ecommerce-dark-purple": {
-        "title": "Gaming Peripherals & Pro RGB Hardware",
-        "subtitle": "Specs Comparison & 1-Click Fast Cart",
-        "badge": "Gaming Store",
-        "btn": "Gaming Peripherals & Pro Hardware"
+        "title": "Gaming E-Commerce Template",
+        "subtitle": "Pro Gaming Gear & RGB PC Peripherals",
+        "badge": "E-Commerce",
+        "btn": "Gaming E-Commerce Template"
     },
     "ecommerce-white-purple": {
-        "title": "Artisan Perfumes & Luxury Fragrance",
-        "subtitle": "Scent Notes Matrix & Discovery Sample Kit",
-        "badge": "Perfume House",
-        "btn": "Artisan Perfumes - Luxury Fragrance"
+        "title": "Perfume E-Commerce Template",
+        "subtitle": "Artisan Luxury Fragrance & Scent House",
+        "badge": "E-Commerce",
+        "btn": "Luxury Perfume E-Commerce Template"
     },
     "portfolio-dark-purple": {
-        "title": "Motion Graphics Director & 3D VFX Artist",
-        "subtitle": "Full-Screen 60fps Showreel & Project Quotes",
-        "badge": "VFX Showreel",
-        "btn": "3D VFX & Motion Graphics Director"
+        "title": "Video & 3D Portfolio Template",
+        "subtitle": "Motion Graphics & VFX Director Showreel",
+        "badge": "Portfolio",
+        "btn": "Motion Graphics Portfolio Template"
     },
     "portfolio-white-purple": {
-        "title": "Fashion Stylist & Editorial Art Director",
-        "subtitle": "Magazine Gallery, Runway & VIP Booking",
-        "badge": "Fashion Stylist",
-        "btn": "Fashion Stylist - Editorial Director"
+        "title": "Fashion Stylist Portfolio Template",
+        "subtitle": "Editorial Art Director & Fashion Bio",
+        "badge": "Portfolio",
+        "btn": "Fashion Stylist Portfolio Template"
     },
     "single-product-dark-purple": {
-        "title": "Audiophile Studio Wireless Headphones",
-        "subtitle": "Frequency Graph, Hi-Res Audio & Buy Box",
-        "badge": "Pro Audio",
-        "btn": "Audiophile Studio Headphones Lander"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Studio Wireless Audiophile Headphones",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
     "single-product-white-purple": {
-        "title": "Smart Circadian Sunrise Sleep Lamp",
-        "subtitle": "Sleep Science, App Rhythm & 30-Day Trial",
-        "badge": "Sleep Wellness",
-        "btn": "Circadian Sleep Lamp - DTC Wellness"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Circadian Sunrise Smart Sleep Lamp",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
 
-    # Blue Themes
+    # =========================================================================
+    # BLUE THEMES
+    # =========================================================================
     "funnel-white-blue": {
-        "title": "Dental & Implant Clinic Patient Funnel",
-        "subtitle": "Doctor Profiles & Online Appointment Booking",
-        "badge": "Dental Practice",
-        "btn": "Dental Clinic - Patient Acquisition"
+        "title": "Dental Clinic Funnel Template",
+        "subtitle": "Medical Practice Patient Acquisition",
+        "badge": "Sales Funnel",
+        "btn": "Dental Clinic Funnel Template"
     },
     "course-white-blue": {
-        "title": "Cloud Computing & AWS Architect Course",
-        "subtitle": "Hands-On Labs, Practice Exams & Cert Pass",
-        "badge": "Cloud Course",
-        "btn": "AWS Solutions Architect Certification"
+        "title": "Cloud Certification Course Template",
+        "subtitle": "AWS Solutions Architect Video Training",
+        "badge": "Online Course",
+        "btn": "Cloud Course Template"
     },
     "ecommerce-white-blue": {
-        "title": "Medical Equipment & Orthopedic Supplies",
-        "subtitle": "FDA Compliance & Bulk Clinic Discounts",
-        "badge": "Medical Supply",
-        "btn": "Medical Supplies - Clinic Equipment"
+        "title": "Medical Supply E-Commerce Template",
+        "subtitle": "Clinical Equipment & Healthcare Store",
+        "badge": "E-Commerce",
+        "btn": "Medical Supply E-Commerce Template"
     },
     "portfolio-white-blue": {
-        "title": "Corporate Law Firm & Legal Strategist",
-        "subtitle": "Practice Areas, Verdicts & Retainer Form",
-        "badge": "Legal Partner",
-        "btn": "Corporate Law - Legal Advisory Bio"
+        "title": "Lawyer & Attorney Portfolio Template",
+        "subtitle": "Corporate Legal Firm & Retainer Booking",
+        "badge": "Portfolio",
+        "btn": "Lawyer Portfolio Template"
     },
     "single-product-white-blue": {
-        "title": "Alkaline Multi-Stage Water Purifier",
-        "subtitle": "Mineral Tech, Water Test & Install Order",
-        "badge": "Home Purifier",
-        "btn": "Alkaline Water Purifier - Home Tech"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Alkaline Multi-Stage Home Water Purifier",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
 
-    # Classic Themes
+    # =========================================================================
+    # CLASSIC THEMES
+    # =========================================================================
     "funnel-dark": {
-        "title": "Private Equity & M&A Deal Advisory",
-        "subtitle": "Deal Room Access, Pitch Deck & NDA Gate",
-        "badge": "Private Equity",
-        "btn": "Private Equity - M&A Deal Advisory"
+        "title": "Private Equity Funnel Template",
+        "subtitle": "M&A Advisory & Investor Deal Room Pitch",
+        "badge": "Sales Funnel",
+        "btn": "Private Equity Funnel Template"
     },
     "funnel-white": {
-        "title": "Executive Business Coaching Mastermind",
-        "subtitle": "1-on-1 CEO Application & High-Ticket VSL",
-        "badge": "CEO Coaching",
-        "btn": "Executive Coaching - Mastermind Funnel"
+        "title": "Coaching & Mastermind Funnel Template",
+        "subtitle": "Executive 1-on-1 Mentorship & VSL Lander",
+        "badge": "Sales Funnel",
+        "btn": "Coaching Funnel Template"
     },
     "course-dark": {
-        "title": "Quant Trading & Algo Finance Academy",
-        "subtitle": "Backtesting Demos, Python Scripts & Alpha",
-        "badge": "Quant Finance",
-        "btn": "Quant Trading - Algorithmic Finance"
+        "title": "Trading & Finance Course Template",
+        "subtitle": "Quantitative Trading & Algo Finance",
+        "badge": "Online Course",
+        "btn": "Trading Course Template"
     },
     "ecommerce-dark": {
-        "title": "Handcrafted Leather Goods & Luggage",
-        "subtitle": "Heritage Craft, Monogram & Lifetime Proof",
-        "badge": "Leather Goods",
-        "btn": "Handcrafted Leather - Travel Luggage"
+        "title": "Leather Goods E-Commerce Template",
+        "subtitle": "Handcrafted Leather Luggage & Accessories",
+        "badge": "E-Commerce",
+        "btn": "Leather Goods E-Commerce Template"
     },
     "ecommerce-white": {
-        "title": "Italian Acetate Minimalist Eyewear",
-        "subtitle": "Virtual 3D Try-On & Prescription Order",
-        "badge": "Eyewear DTC",
-        "btn": "Minimalist Eyewear - Acetate Glasses"
+        "title": "Eyewear E-Commerce Template",
+        "subtitle": "Italian Acetate Sunglasses & Frames Store",
+        "badge": "E-Commerce",
+        "btn": "Eyewear E-Commerce Template"
     },
     "portfolio-dark": {
-        "title": "Cinematographer & Commercial Director",
-        "subtitle": "4K Video Wall, Brand Ads & Booking Agency",
-        "badge": "Cinematography",
-        "btn": "Commercial Director - 4K Film Portfolio"
+        "title": "Filmmaker Portfolio Template",
+        "subtitle": "Commercial Cinematographer & Director Wall",
+        "badge": "Portfolio",
+        "btn": "Filmmaker Portfolio Template"
     },
     "portfolio-white": {
-        "title": "Chartered Accountant & Corporate Tax Pro",
-        "subtitle": "Audit Services, Tax Plans & Calendar Booking",
-        "badge": "Chartered Tax",
-        "btn": "Chartered Accountant - Tax Strategist"
+        "title": "Consultant Portfolio Template",
+        "subtitle": "Chartered Accountant & Corporate Tax Strategist",
+        "badge": "Portfolio",
+        "btn": "Consultant Portfolio Template"
     },
     "single-product-dark": {
-        "title": "Automatic Mechanical Luxury Timepiece",
-        "subtitle": "Sapphire Crystal, Skeleton Dial & Buy Now",
-        "badge": "Luxury Watch",
-        "btn": "Mechanical Timepiece - Luxury Horology"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Automatic Mechanical Luxury Watch",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     },
     "single-product-white": {
-        "title": "Ceramic Pour-Over French Press Brewer",
-        "subtitle": "Brew Ratio Calculator & Barista Bundle Box",
-        "badge": "Artisan Coffee",
-        "btn": "Ceramic French Press - Coffee Lander"
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Ceramic Pour-Over French Press Brewer",
+        "badge": "Single Product",
+        "btn": "Single Product E-Commerce Template"
     }
 }
 
 GOLD_ORDER = [
-    "portfolio-dark-gold",          # #1 Portfolio
-    "funnel-dark-gold",             # #2 Meta Ads
-    "realstate-dark-gold",          # #3 Luxury Real Estate
-    "single-product-white-gold",    # #4 Ergonomic Workspace DTC (User requested)
-    "funnel-white-gold",            # #5 B2B Growth Agency (User requested)
-    "ecommerce-dark-gold",          # #6 Luxury Watches & Jewelry (User requested)
-    "course-white-gold",            # #7 Tech Architect & AI Masterclass
-    "saas-dark-gold",               # #8 Enterprise AI Platform & SaaS
-    "ecommerce-white-gold",         # #9 Designer Fashion Boutique
-    "portfolio-white-gold",         # #10 Architecture Studio
-    "single-product-dark-gold"      # #11 Smart Ring DTC
+    "portfolio-dark-gold",          # #1 Portfolio Template
+    "funnel-dark-gold",             # #2 Sales Funnel Template
+    "realstate-dark-gold",          # #3 Real Estate Template
+    "single-product-white-gold",    # #4 Single Product E-Commerce Template
+    "funnel-white-gold",            # #5 B2B Sales Funnel Template
+    "ecommerce-dark-gold",          # #6 E-Commerce Store Template
+    "course-white-gold",            # #7 Online Course Template
+    "saas-dark-gold",               # #8 SaaS Landing Page Template
+    "ecommerce-white-gold",         # #9 Fashion E-Commerce Template
+    "portfolio-white-gold",         # #10 Agency Portfolio Template
+    "single-product-dark-gold"      # #11 Single Product E-Commerce Template
 ]
 
 EMERALD_ORDER = [
@@ -339,7 +349,6 @@ def render_card(theme_key, is_hero_row=False, is_purchase_page=False):
     d = THEME_DATA[theme_key]
     prefix = "../" if is_purchase_page else "./"
     
-    # Hero row (top 4) loads eager with direct src; rest load lazy with data-src
     if is_hero_row:
         iframe_tag = f'<iframe src="{prefix}{theme_key}/index.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="eager"></iframe>'
     else:
@@ -397,7 +406,6 @@ def update_html(filepath):
 
     # 1. Update Gold Section
     gold_grid = generate_section_grid(GOLD_ORDER, has_hero_eager=True)
-    gold_pattern = r'(<div class="mb-6 template-group" id="group-gold">.*?<div class="grid[^>]*>).*?(</div>\s*</div>\s*<!-- =+ -->\s*<!-- SECTION 2: EMERALD)'
     content = re.sub(
         r'(<div class="mb-6 template-group" id="group-gold">[\s\S]*?<div class="grid[^>]*>)([\s\S]*?)(</div>\s*</div>\s*<!-- =+ -->\s*<!-- SECTION 2: EMERALD)',
         r'\1\n' + gold_grid + r'\n      \3',
@@ -438,7 +446,7 @@ def update_html(filepath):
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"Updated {filepath} successfully with perfect names and structure!")
+    print(f"Updated {filepath} with explicit Template names!")
 
 def main():
     update_html("index.html")
