@@ -290,77 +290,104 @@ def render_showcase_section():
     </div>
 
     <!-- ========================================== -->
-    <!-- SECTION 2: THE REMAINING 38+ TEMPLATES CATALOG (ZERO-LAG CATALOG) -->
+    <!-- SECTION 2: DIRECT COUNT & 1-CLICK BUNDLE UNLOCK (ZERO PREVIEWS, ZERO LAG) -->
     <!-- ========================================== -->
-    <div class="mb-10 bg-slate-50/80 rounded-3xl p-3 sm:p-6 border border-slate-200/80 shadow-xs" id="full-catalog">
+    <div class="mb-10 bg-gradient-to-b from-slate-900 via-slate-950 to-black rounded-3xl p-5 sm:p-8 border border-amber-400/40 shadow-2xl text-white text-center sm:text-left relative overflow-hidden" id="bundle-unlock">
       
-      <!-- Catalog Header & Value Proposition -->
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5 border-b border-slate-200 pb-4">
-        <div>
-          <div class="inline-flex items-center gap-1.5 text-amber-700 bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider mb-1">
-            <span>📦 Full Bundle Content Breakdown</span>
+      <!-- Subtle Background Glow -->
+      <div class="absolute -top-20 -right-20 w-60 h-60 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+        
+        <!-- Left: Huge Count & Category Breakdown -->
+        <div class="space-y-3 max-w-2xl">
+          <div class="inline-flex items-center gap-2 text-amber-300 bg-amber-500/20 border border-amber-400/60 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+            <i class="fa-solid fa-crown text-amber-400"></i>
+            <span>+38 More Templates Included (45+ Total In Bundle)</span>
           </div>
-          <h3 class="text-base sm:text-2xl font-black text-slate-950 tracking-tight">
-            All 38+ Remaining Industry Templates Included Free
+
+          <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+            Buy Today for Just <span class="text-amber-400">₹999</span> &amp; Get All 45+ Templates Free
           </h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
-            When you purchase the <strong>₹999 Lifetime Bundle</strong>, you get instant download access to all 45+ source code packages:
+
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            You just saw the top 7 interactive screens above. When you order right now, you instantly unlock the complete collection of <strong>45+ production-ready landing pages</strong> with 100% clean, unencrypted source code:
           </p>
-        </div>
 
-        <!-- 1-Click Buy Button -->
-        <button onclick="openCheckoutModal()" class="self-start md:self-auto py-2.5 px-5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap">
-          <i class="fa-solid fa-unlock-keyhole"></i>
-          <span>Get All 45+ Templates (₹999)</span>
-        </button>
-      </div>
+          <!-- Direct Category Counts Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 text-[11px] sm:text-xs">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">🛒</span>
+              <div>
+                <strong class="text-white block font-black">10+ E-Commerce</strong>
+                <span class="text-[10px] text-slate-400">Luxury, Fashion &amp; DTC</span>
+              </div>
+            </div>
 
-      <!-- Category Filter Tabs (Zero-Lag JavaScript) -->
-      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-3 mb-4">
-        <button onclick="filterCatalog('all')" id="catTab-all" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-black bg-slate-900 text-white shadow-xs flex-shrink-0 cursor-pointer">
-          All 38+ Remaining
-        </button>
-        <button onclick="filterCatalog('funnel')" id="catTab-funnel" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer">
-          ⚡ Sales Funnels (8)
-        </button>
-        <button onclick="filterCatalog('ecom')" id="catTab-ecom" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer">
-          🛒 E-Commerce (7)
-        </button>
-        <button onclick="filterCatalog('single')" id="catTab-single" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer">
-          🎯 Single Product DTC (8)
-        </button>
-        <button onclick="filterCatalog('portfolio')" id="catTab-portfolio" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer">
-          💼 Portfolios (7)
-        </button>
-        <button onclick="filterCatalog('course')" id="catTab-course" class="cat-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-amber-400 flex-shrink-0 cursor-pointer">
-          🎓 Courses &amp; SaaS (8)
-        </button>
-      </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">⚡</span>
+              <div>
+                <strong class="text-white block font-black">9+ Sales Funnels</strong>
+                <span class="text-[10px] text-slate-400">Meta Ads &amp; High-Ticket</span>
+              </div>
+            </div>
 
-      <!-- Zero-Lag Catalog Grid (2 Columns on Mobile, 3 on Tablet, 4 on Desktop) -->
-      <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
-{catalog_html}
-      </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">🎯</span>
+              <div>
+                <strong class="text-white block font-black">8+ Single Product</strong>
+                <span class="text-[10px] text-slate-400">Gadgets, Kitchen &amp; Home</span>
+              </div>
+            </div>
 
-      <!-- Big Bottom Value Banner -->
-      <div class="mt-6 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950 p-4 sm:p-6 text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4 border border-amber-400/30 shadow-xl">
-        <div class="space-y-1">
-          <div class="inline-flex items-center gap-1.5 text-amber-400 text-xs font-extrabold uppercase tracking-wider">
-            <i class="fa-solid fa-shield-halved"></i> 100% Commercial Source Code Ownership
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">💼</span>
+              <div>
+                <strong class="text-white block font-black">7+ Portfolios</strong>
+                <span class="text-[10px] text-slate-400">Architects, Devs &amp; Agencies</span>
+              </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">🎓</span>
+              <div>
+                <strong class="text-white block font-black">6+ Online Courses</strong>
+                <span class="text-[10px] text-slate-400">Bootcamps &amp; AI Academies</span>
+              </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 rounded-xl p-2.5 text-left flex items-center gap-2">
+              <span class="text-base">🤖</span>
+              <div>
+                <strong class="text-white block font-black">5+ SaaS &amp; AI</strong>
+                <span class="text-[10px] text-slate-400">Terminal, ROI &amp; Pricing</span>
+              </div>
+            </div>
           </div>
-          <h4 class="text-sm sm:text-lg font-black text-white">
-            Everything Unlocks Instantly For Just ₹999 Today
-          </h4>
-          <p class="text-xs text-slate-300 max-w-xl">
-            Clean, unencrypted ZIP files with HTML, Tailwind CSS, JavaScript and images included. Use for your own business or build client websites.
+        </div>
+
+        <!-- Right: Action Box & Checkout Button -->
+        <div class="w-full lg:w-auto flex-shrink-0 bg-white/10 border border-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-center space-y-3 min-w-[280px]">
+          <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">
+            ⚡ Instant WhatsApp Delivery
+          </div>
+          <div class="flex items-baseline justify-center gap-2">
+            <span class="text-sm text-slate-400 line-through">₹29,999</span>
+            <span class="text-3xl sm:text-4xl font-black text-amber-400">₹999</span>
+            <span class="text-[10px] font-extrabold bg-emerald-500/30 text-emerald-300 border border-emerald-400/50 px-2 py-0.5 rounded-md">Save 97%</span>
+          </div>
+
+          <button onclick="openCheckoutModal()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight shadow-xl hover:shadow-amber-500/30 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>Buy Now &amp; Unlock All 45+</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+
+          <p class="text-[10px] text-slate-400">
+            🔒 Commercial License • Unlimited Client Sites
           </p>
         </div>
-        <button onclick="openCheckoutModal()" class="w-full sm:w-auto py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight shadow-lg hover:shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer flex-shrink-0">
-          <span>Get Instant Access (₹999)</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
-        </button>
-      </div>
 
+      </div>
     </div>'''
 
 def update_file(filepath):
