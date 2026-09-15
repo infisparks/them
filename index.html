@@ -946,16 +946,128 @@
   </section>
 
   <!-- 5. Footer -->
-  <footer class="border-t border-slate-200 py-6 bg-white text-slate-500 text-xs text-center space-y-1.5">
-    <p class="font-extrabold text-slate-900">Digital Theme Store • 45+ Landing Page Bundle</p>
-    <p class="text-[11px] text-slate-600">
-      Need a custom landing page for your business? 
-      <a href="https://wa.me/919958399157?text=Hi%2C%20I%20want%20to%20get%20a%20custom%20premium%20landing%20page%20designed%20for%20my%20business%20to%20get%20more%20clients." target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 font-bold inline-flex items-center gap-1">
-        <i class="fa-brands fa-whatsapp"></i> Chat with us on WhatsApp
-      </a>
-    </p>
-    <p class="text-[10px] text-slate-400">&copy; 2026 Digital Theme Store. All rights reserved.</p>
+  <footer class="border-t border-slate-200 py-8 bg-white text-slate-500 text-xs text-center space-y-3">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p class="font-extrabold text-slate-900 text-sm">Digital Theme Store • 45+ Landing Page Bundle</p>
+      <p class="text-[11px] text-slate-600">
+        Need a custom landing page for your business? 
+        <a href="https://wa.me/919958399157?text=Hi%2C%20I%20want%20to%20get%20a%20custom%20premium%20landing%20page%20designed%20for%20my%20business%20to%20get%20more%20clients." target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 font-bold inline-flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i> Chat with us on WhatsApp (+91 9958399157)
+        </a>
+      </p>
+
+      <!-- Razorpay Compliance Policy Links -->
+      <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-slate-600">
+        <button onclick="openPolicyModal('terms')" class="hover:text-amber-600 hover:underline cursor-pointer">Terms & Conditions</button>
+        <span class="text-slate-300">•</span>
+        <button onclick="openPolicyModal('privacy')" class="hover:text-amber-600 hover:underline cursor-pointer">Privacy Policy</button>
+        <span class="text-slate-300">•</span>
+        <button onclick="openPolicyModal('refund')" class="hover:text-amber-600 hover:underline cursor-pointer">Refund & Cancellation</button>
+        <span class="text-slate-300">•</span>
+        <button onclick="openPolicyModal('shipping')" class="hover:text-amber-600 hover:underline cursor-pointer">Shipping & Delivery</button>
+        <span class="text-slate-300">•</span>
+        <button onclick="openPolicyModal('contact')" class="hover:text-amber-600 hover:underline cursor-pointer">Contact Us</button>
+      </div>
+
+      <p class="text-[10px] text-slate-400 pt-1">&copy; 2026 Digital Theme Store. All rights reserved. Instant Digital Product Delivery.</p>
+    </div>
   </footer>
+
+  <!-- Razorpay Compliance Legal Policies Modal -->
+  <div id="policyModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] overflow-hidden text-left">
+      <!-- Header -->
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <h3 id="policyModalTitle" class="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-amber-500"></i>
+          <span>Legal & Compliance Policies</span>
+        </h3>
+        <button onclick="closePolicyModal()" class="w-8 h-8 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-500 flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Policy Tabs -->
+      <div class="flex items-center gap-1.5 p-2 bg-slate-100 border-b border-slate-200 overflow-x-auto text-xs no-scrollbar">
+        <button id="policyTab-terms" onclick="switchPolicyTab('terms')" class="px-3 py-1.5 rounded-lg font-bold transition-all bg-white text-slate-900 shadow-xs flex-shrink-0">Terms & Conditions</button>
+        <button id="policyTab-privacy" onclick="switchPolicyTab('privacy')" class="px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-900 flex-shrink-0">Privacy Policy</button>
+        <button id="policyTab-refund" onclick="switchPolicyTab('refund')" class="px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-900 flex-shrink-0">Refund & Cancellation</button>
+        <button id="policyTab-shipping" onclick="switchPolicyTab('shipping')" class="px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-900 flex-shrink-0">Shipping & Delivery</button>
+        <button id="policyTab-contact" onclick="switchPolicyTab('contact')" class="px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-900 flex-shrink-0">Contact Us</button>
+      </div>
+
+      <!-- Policy Content Body -->
+      <div class="p-5 sm:p-6 overflow-y-auto text-xs text-slate-700 leading-relaxed space-y-4">
+        <!-- 1. Terms & Conditions -->
+        <div id="policySec-terms" class="policy-section space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">1. Terms and Conditions</h4>
+          <p>Welcome to <strong>Digital Theme Store</strong> (operated via <code>https://them-delta.vercel.app/</code>). By purchasing and downloading our 45+ Landing Page Bundle, you agree to comply with the following terms:</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+            <li><strong>Commercial License:</strong> You receive a lifetime commercial license to use, customize, and deploy all templates for your own personal business or for client projects.</li>
+            <li><strong>Restrictions:</strong> You may not directly redistribute, resell, or publicly host the uncompiled source code ZIP package as a standalone template store.</li>
+            <li><strong>Digital Asset Provision:</strong> All templates are provided as clean HTML5, CSS, and modern JavaScript files ready for deployment on any web hosting platform (Vercel, Netlify, Cloudflare, AWS, or cPanel).</li>
+            <li><strong>Pricing:</strong> Access to the full 45+ template bundle is charged at a one-time fee of ₹999 (all taxes inclusive). No recurring charges or monthly subscriptions.</li>
+          </ul>
+        </div>
+
+        <!-- 2. Privacy Policy -->
+        <div id="policySec-privacy" class="policy-section hidden space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">2. Privacy Policy</h4>
+          <p>We value your privacy. This policy explains what information we collect when you make a purchase:</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+            <li><strong>Information Collected:</strong> We only collect your Full Name, WhatsApp/Phone Number, and Payment Transaction ID to fulfill and verify your order.</li>
+            <li><strong>Payment Security:</strong> Payment information (UPI, credit/debit card, netbanking) is processed securely directly by <strong>Razorpay</strong> over 256-bit SSL encryption. We do not store or see your card/banking credentials.</li>
+            <li><strong>Usage of Data:</strong> Your phone number is exclusively used to deliver your instant ZIP source code download link and critical order receipt updates via WhatsApp.</li>
+            <li><strong>No Third-Party Sharing:</strong> We do not sell, rent, or trade your personal data to any third-party marketing services.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Refund & Cancellation -->
+        <div id="policySec-refund" class="policy-section hidden space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">3. Refund and Cancellation Policy</h4>
+          <p>Because the <strong>45+ Landing Page Bundle</strong> is an instantly delivered digital asset containing full downloadable source code:</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+            <li><strong>Instant Access:</strong> Upon successful Razorpay payment, download access to the complete source code and ZIP bundle is unlocked immediately on screen and dispatched to WhatsApp.</li>
+            <li><strong>Corrupted or Defective Files:</strong> If you encounter any technical defect or difficulty extracting the archive files, our support team will replace and resend fresh direct download links within 24 hours.</li>
+            <li><strong>Refund Eligibility:</strong> If our support team is unable to resolve your file access issue within 7 business days, you will be issued a 100% full refund back to your original payment source via Razorpay.</li>
+            <li><strong>Cancellation:</strong> Orders once completed cannot be cancelled once digital download links have been generated and dispatched.</li>
+          </ul>
+        </div>
+
+        <!-- 4. Shipping & Delivery -->
+        <div id="policySec-shipping" class="policy-section hidden space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">4. Shipping and Delivery Policy</h4>
+          <p>We provide <strong>Instant Electronic Digital Delivery</strong> for all products:</p>
+          <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
+            <li><strong>Delivery Mode:</strong> 100% Digital Download. No physical goods or parcel shipping is required.</li>
+            <li><strong>Delivery Timeline:</strong> Instant (0 to 5 minutes) immediately upon payment confirmation.</li>
+            <li><strong>Delivery Channels:</strong> (1) Instant live download redirect on the confirmation screen, and (2) Automated WhatsApp delivery to the number provided at checkout.</li>
+            <li><strong>Delivery Charges:</strong> Free (₹0.00) electronic delivery worldwide.</li>
+          </ul>
+        </div>
+
+        <!-- 5. Contact Us -->
+        <div id="policySec-contact" class="policy-section hidden space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">5. Contact Us & Customer Support</h4>
+          <p>For any queries, licensing questions, or assistance with your template bundle:</p>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2 text-slate-800">
+            <p><strong>Business / Operating Entity:</strong> Digital Theme Store</p>
+            <p><strong>Website:</strong> <a href="https://them-delta.vercel.app/" class="text-indigo-600 underline">https://them-delta.vercel.app/</a></p>
+            <p><strong>WhatsApp Support:</strong> <a href="https://wa.me/919958399157" target="_blank" class="text-emerald-600 font-bold underline">+91 9958399157</a></p>
+            <p><strong>Support Hours:</strong> Monday – Saturday (10:00 AM – 7:00 PM IST)</p>
+            <p><strong>Response Time:</strong> Within 1 to 2 hours for active orders.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer close -->
+      <div class="p-3 border-t border-slate-200 bg-slate-50 flex justify-end">
+        <button onclick="closePolicyModal()" class="px-4 py-1.5 rounded-lg font-bold bg-slate-900 text-white text-xs hover:bg-slate-800 transition-colors">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Live Preview Modal -->
   <div id="previewModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex flex-col p-2 sm:p-4">
@@ -1366,6 +1478,36 @@
       }
     }
 
+    // Legal Policy Modal Controllers
+    function openPolicyModal(tabKey) {
+      document.getElementById('policyModal').classList.remove('hidden');
+      if (tabKey) switchPolicyTab(tabKey);
+    }
+    function closePolicyModal() {
+      document.getElementById('policyModal').classList.add('hidden');
+    }
+    function switchPolicyTab(tabKey) {
+      const tabs = ['terms', 'privacy', 'refund', 'shipping', 'contact'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('policyTab-' + t);
+        const sec = document.getElementById('policySec-' + t);
+        if (btn) {
+          if (t === tabKey) {
+            btn.className = "px-3 py-1.5 rounded-lg font-bold transition-all bg-white text-slate-900 shadow-xs flex-shrink-0";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-lg font-bold transition-all text-slate-600 hover:text-slate-900 flex-shrink-0";
+          }
+        }
+        if (sec) {
+          if (t === tabKey) {
+            sec.classList.remove('hidden');
+          } else {
+            sec.classList.add('hidden');
+          }
+        }
+      });
+    }
+
     // Checkout Modal
     function openCheckoutModal() {
       document.getElementById('checkoutModal').classList.remove('hidden');
@@ -1383,6 +1525,10 @@
       const previewModal = document.getElementById('previewModal');
       if (previewModal && !previewModal.classList.contains('hidden') && e.target === previewModal) {
         closePreviewModal();
+      }
+      const policyModal = document.getElementById('policyModal');
+      if (policyModal && !policyModal.classList.contains('hidden') && e.target === policyModal) {
+        closePolicyModal();
       }
     });
 
