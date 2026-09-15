@@ -3,7 +3,7 @@
 ## Overview
 This Cloudflare Worker (`https://digitalthem.infisparks.workers.dev`) handles:
 1. **Instant Lead Capture**: Automatically saves customer leads directly into Firebase Realtime Database (even if checkout is cancelled or payment is abandoned).
-2. **Standard Razorpay Checkout**: Connects live with Key ID `rzp_live_TXvv4nCnkVjFWm`.
+2. **Standard Razorpay Checkout**: Connects live with Key ID `rzp_live_TbySDUVsA57Ndi`.
 3. **Automated License Generation**: Generates unique `LIC-45LP-XXXX-XXXX` license keys upon payment verification.
 4. **WhatsApp Automation**: Dispatches instant WhatsApp messages via Evolution API (`https://evo.infisparks.in`) to the customer with their license key and direct download link.
 5. **Admin Sales Alert**: Instantly alerts admin WhatsApp (`+91 99583 99157`) on every sale.
@@ -29,7 +29,7 @@ This Cloudflare Worker (`https://digitalthem.infisparks.workers.dev`) handles:
 3. Click **+ Add New Webhook**.
 4. Fill in the webhook form:
    - **Webhook URL:** `https://digitalthem.infisparks.workers.dev/api/razorpay-webhook`
-   - **Secret:** `XtzQBL84oexfAFHDPOHSrXc4`
+   - **Secret:** `epCcF2GzdKH4OCH5snsO3oY0`
    - **Alert Email:** Your email for webhook health notices
 5. Under **Active Events**, check the following checkboxes:
    - ✅ `payment.captured`

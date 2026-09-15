@@ -19,9 +19,9 @@ const CONFIG = {
   FIREBASE_SECRET: "Yo5r6sDdNUjBGXdN4xHHsI2wJpW0trjxFzcYjf5r",
 
   // Razorpay
-  RAZORPAY_KEY_ID: "rzp_live_TXvv4nCnkVjFWm",
-  RAZORPAY_KEY_SECRET: "XtzQBL84oexfAFHDPOHSrXc4",
-  RAZORPAY_WEBHOOK_SECRET: "XtzQBL84oexfAFHDPOHSrXc4",
+  RAZORPAY_KEY_ID: "rzp_live_TbySDUVsA57Ndi",
+  RAZORPAY_KEY_SECRET: "epCcF2GzdKH4OCH5snsO3oY0",
+  RAZORPAY_WEBHOOK_SECRET: "epCcF2GzdKH4OCH5snsO3oY0",
 
   // Evolution WhatsApp API
   EVO_BASE_URL: "https://evo.infisparks.in",

@@ -610,7 +610,7 @@ portal_script = '''
       };
 
       const options = {
-        key: "rzp_live_ILgsfZCZoFIKMb",
+        key: "rzp_live_TbySDUVsA57Ndi",
         amount: 8499 * 100, // paise
         currency: "INR",
         name: "Digital Theme Store",
