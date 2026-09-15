@@ -5,80 +5,151 @@ from re_encrypt import encrypt_payload, build_protected_html
 
 CLEAN_DIR = ".clean_templates_source"
 
-# 4 Courses static HTML for course-white-gold preview (fills 2 full rows without empty bottom space)
-COURSE_STATIC_HTML = '''
-          <!-- Course 1: Full-Stack Next.js 15 -->
-          <div class="course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between transition-all duration-300 group">
+def build_course_cards(theme_key):
+    courses = [
+        {
+            "title": "Full-Stack Next.js 15 & Supabase Masterclass",
+            "cat": "Full-Stack Dev",
+            "img": "image/1.png",
+            "badge": "BEST SELLER",
+            "duration": "18.5 Hours",
+            "rating": "4.9",
+            "reviews": "480",
+            "price": "₹1,499",
+            "origPrice": "₹4,999"
+        },
+        {
+            "title": "AI Web Automation & Custom Scrapers",
+            "cat": "AI & Automation",
+            "img": "image/2.png",
+            "badge": "TRENDING",
+            "duration": "14 Hours",
+            "rating": "4.8",
+            "reviews": "520",
+            "price": "₹1,299",
+            "origPrice": "₹3,999"
+        },
+        {
+            "title": "Cloud DevOps & Architecture Blueprint",
+            "cat": "Cloud & Infra",
+            "img": "image/6.png",
+            "badge": "CAREER GROWTH",
+            "duration": "10 Hours",
+            "rating": "4.9",
+            "reviews": "390",
+            "price": "₹899",
+            "origPrice": "₹2,999"
+        },
+        {
+            "title": "High-Converting Sales Funnels Engineering",
+            "cat": "Funnel & CRO",
+            "img": "image/4.png",
+            "badge": "HOT SELLER",
+            "duration": "16 Hours",
+            "rating": "4.9",
+            "reviews": "610",
+            "price": "₹1,999",
+            "origPrice": "₹5,999"
+        }
+    ]
+
+    is_dark = "dark" in theme_key
+    
+    if "blue" in theme_key:
+        card_cls = "course-card white-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between border border-slate-200"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-indigo-600 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-indigo-600 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-indigo-600 text-white"
+        img_border = "border border-slate-200"
+    elif "purple" in theme_key:
+        card_cls = "course-card white-purple-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between border border-purple-200"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-purple-600 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-purple-600 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-purple-600 text-white"
+        img_border = "border border-purple-200"
+    elif "green" in theme_key and not is_dark:
+        card_cls = "course-card white-green-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between border border-emerald-200"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-emerald-600 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-emerald-600 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-emerald-600 text-white"
+        img_border = "border border-emerald-200"
+    elif "green" in theme_key and is_dark:
+        card_cls = "course-card bg-zinc-950/90 border border-emerald-950/80 rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-lg flex flex-col justify-between"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-100 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-emerald-400 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-emerald-400 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-500 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-emerald-600 text-white"
+        img_border = "border border-emerald-950/80"
+    elif is_dark:
+        card_cls = "course-card bg-zinc-950/90 border border-zinc-800/90 rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-lg flex flex-col justify-between"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-100 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-amber-400 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-amber-400 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-500 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-amber-500 text-slate-950"
+        img_border = "border border-zinc-800/80"
+    else: # white gold
+        card_cls = "course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between border border-amber-200/80"
+        title_cls = "text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2"
+        cat_cls = "text-[8px] sm:text-[9px] uppercase font-bold text-amber-700 font-mono"
+        price_cls = "text-xs sm:text-base font-black text-amber-600 font-sans"
+        orig_cls = "text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans"
+        btn_cls = "w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs"
+        badge_bg = "bg-amber-500 text-slate-950"
+        img_border = "border border-amber-200/80"
+
+    cards_html = []
+    for c in courses:
+        card = f"""
+          <div class="{card_cls}">
             <div class="space-y-2">
-              <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-100 border border-amber-200/80">
-                <img src="image/1.png" alt="Full-Stack Next.js 15" class="w-full h-full object-cover" />
+              <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-900 {img_border}">
+                <img src="{c["img"]}" alt="{c["title"]}" class="w-full h-full object-cover" />
                 <div class="absolute top-1.5 left-1.5 flex items-center gap-1 z-10">
-                  <span class="text-[7.5px] sm:text-[9px] uppercase font-black bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded shadow-xs">BEST SELLER</span>
+                  <span class="text-[7.5px] sm:text-[9px] uppercase font-black {badge_bg} px-1.5 py-0.5 rounded shadow-xs">{c["badge"]}</span>
                 </div>
                 <div class="absolute bottom-1.5 right-1.5 z-10">
-                  <span class="text-[8px] sm:text-[9px] font-mono font-bold text-slate-950 bg-amber-400/90 px-1.5 py-0.5 rounded border border-amber-500/50">18.5 Hours</span>
+                  <span class="text-[8px] sm:text-[9px] font-mono font-bold text-white bg-slate-950/80 px-1.5 py-0.5 rounded border border-white/20">{c["duration"]}</span>
                 </div>
               </div>
               <div>
-                <span class="text-[8px] sm:text-[9px] uppercase font-bold text-amber-700">Full-Stack Dev</span>
-                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2">Full-Stack Next.js 15 &amp; Supabase Masterclass</h4>
+                <span class="{cat_cls}">{c["cat"]}</span>
+                <h4 class="{title_cls}">{c["title"]}</h4>
               </div>
               <div class="flex items-center space-x-1 text-amber-500 text-[8px] sm:text-[10px]">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <span class="text-slate-500 font-mono font-bold">4.9</span>
-                <span class="text-slate-400 font-mono">(480)</span>
+                <span class="font-mono font-bold">{c["rating"]}</span>
+                <span class="text-slate-400 font-mono">({c["reviews"]})</span>
               </div>
             </div>
-            <div class="space-y-2 pt-1 border-t border-slate-100">
+            <div class="space-y-2 pt-1 border-t border-slate-100/10">
               <div class="flex items-baseline justify-between">
                 <div>
-                  <span class="text-xs sm:text-base font-black text-amber-600 font-sans">₹1,499</span>
-                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans">₹4,999</span>
+                  <span class="{price_cls}">{c["price"]}</span>
+                  <span class="{orig_cls}">{c["origPrice"]}</span>
                 </div>
               </div>
-              <button class="w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs">
+              <button class="{btn_cls}">
                 <i class="fa-solid fa-bolt text-[9px]"></i>
                 <span>ENROLL</span>
               </button>
             </div>
           </div>
-
-          <!-- Course 2: AI Web Automation -->
-          <div class="course-card white-gold-card rounded-2xl p-2 sm:p-3.5 text-left space-y-2 shadow-xs flex flex-col justify-between transition-all duration-300 group">
-            <div class="space-y-2">
-              <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-100 border border-amber-200/80">
-                <img src="image/2.png" alt="AI Automation Masterclass" class="w-full h-full object-cover" />
-                <div class="absolute top-1.5 left-1.5 flex items-center gap-1 z-10">
-                  <span class="text-[7.5px] sm:text-[9px] uppercase font-black bg-emerald-600 text-white px-1.5 py-0.5 rounded shadow-xs">TRENDING</span>
-                </div>
-                <div class="absolute bottom-1.5 right-1.5 z-10">
-                  <span class="text-[8px] sm:text-[9px] font-mono font-bold text-slate-950 bg-amber-400/90 px-1.5 py-0.5 rounded border border-amber-500/50">14 Hours</span>
-                </div>
-              </div>
-              <div>
-                <span class="text-[8px] sm:text-[9px] uppercase font-bold text-amber-700">AI &amp; Automation</span>
-                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight line-clamp-2">AI Web Automation &amp; Custom Scrapers Mastery</h4>
-              </div>
-              <div class="flex items-center space-x-1 text-amber-500 text-[8px] sm:text-[10px]">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                <span class="text-slate-500 font-mono font-bold">4.8</span>
-                <span class="text-slate-400 font-mono">(520)</span>
-              </div>
-            </div>
-            <div class="space-y-2 pt-1 border-t border-slate-100">
-              <div class="flex items-baseline justify-between">
-                <div>
-                  <span class="text-xs sm:text-base font-black text-amber-600 font-sans">₹1,299</span>
-                  <span class="text-[9px] sm:text-xs text-slate-400 line-through ml-1 font-sans">₹3,999</span>
-                </div>
-              </div>
-              <button class="w-full py-1.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-tight flex items-center justify-center space-x-1 shadow-xs">
-                <i class="fa-solid fa-bolt text-[9px]"></i>
-                <span>ENROLL</span>
-              </button>
-            </div>
-          </div>
-'''
+        """
+        cards_html.append(card)
+    return "\n".join(cards_html)
 
 CURATED_CUTOFFS = {
     "portfolio-dark-gold": {
@@ -104,10 +175,6 @@ CURATED_CUTOFFS = {
     "ecommerce-dark-gold": {
         "cut_line": 490,
         "closer": "</div></section></main></body></html>"
-    },
-    "course-white-gold": {
-        "cut_line": 426,
-        "closer": COURSE_STATIC_HTML + "</div></section></main></body></html>"
     }
 }
 
@@ -129,8 +196,16 @@ def generate_preview(theme_key):
         soup = BeautifulSoup(cut_content, "html.parser")
         clean_preview_html = str(soup)
     else:
-        # Generic hero preview extraction for all other templates
         soup = BeautifulSoup(content, "html.parser")
+        
+        # If this is a course template, populate #courseGrid with rich static cards
+        if "course-" in theme_key:
+            course_grid = soup.find(id="courseGrid")
+            if course_grid:
+                course_cards_html = build_course_cards(theme_key)
+                cards_soup = BeautifulSoup(course_cards_html, "html.parser")
+                course_grid.append(cards_soup)
+
         sections = soup.find_all("section")
         if len(sections) > 2:
             for s in sections[2:]:
@@ -139,6 +214,22 @@ def generate_preview(theme_key):
             f.decompose()
         for mod in soup.find_all("div", id=lambda x: x and ("modal" in x.lower() or "auth" in x.lower() or "checkout" in x.lower())):
             mod.decompose()
+        clean_preview_html = str(soup)
+
+    # Special check for course-white-gold (curated cut)
+    if theme_key == "course-white-gold":
+        soup = BeautifulSoup(content, "html.parser")
+        course_grid = soup.find(id="courseGrid")
+        if course_grid:
+            course_cards_html = build_course_cards(theme_key)
+            cards_soup = BeautifulSoup(course_cards_html, "html.parser")
+            course_grid.append(cards_soup)
+        sections = soup.find_all("section")
+        if len(sections) > 2:
+            for s in sections[2:]:
+                s.decompose()
+        for f in soup.find_all(["footer"]):
+            f.decompose()
         clean_preview_html = str(soup)
 
     # Encrypt preview HTML using exact commercial encryption
@@ -152,7 +243,7 @@ def generate_preview(theme_key):
     orig_size = os.path.getsize(src_file)
     prev_size = len(clean_preview_html)
     enc_size = len(encrypted_preview_html)
-    print(f"[{theme_key}] Generated encrypted preview: clean {orig_size}B -> cut {prev_size}B -> enc {enc_size}B ({(1 - enc_size/orig_size)*100:.1f}% reduction)")
+    print(f"[{theme_key}] Generated encrypted preview: clean {orig_size}B -> cut {prev_size}B -> enc {enc_size}B")
 
 def main():
     themes = [d for d in os.listdir(CLEAN_DIR) if os.path.isdir(os.path.join(CLEAN_DIR, d))]
