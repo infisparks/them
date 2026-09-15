@@ -1080,6 +1080,11 @@ portal_script = '''
           color: "#4f46e5"
         },
         handler: async function (response) {
+          // Meta Pixel: Track Purchase and Lead ONLY upon confirmed payment success
+          if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', { value: 3999, currency: 'INR', content_name: 'Template Customization Package' });
+            fbq('track', 'Lead', { value: 3999, currency: 'INR', content_name: 'Template Customization Package' });
+          }
           orderData.status = "Paid / In Progress";
           orderData.paymentId = response.razorpay_payment_id || ("PAY-" + Date.now());
           await saveCustomizationOrder(orderData);

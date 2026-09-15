@@ -16,6 +16,24 @@
   <meta property="og:image" content="./saas-dark-gold/image/saas_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1360354709638514');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1360354709638514&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- Fonts & Icons (Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2752,6 +2770,11 @@
           color: "#4f46e5"
         },
         handler: async function (response) {
+          // Meta Pixel: Track Purchase and Lead ONLY upon confirmed payment success
+          if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', { value: 3999, currency: 'INR', content_name: 'Template Customization Package' });
+            fbq('track', 'Lead', { value: 3999, currency: 'INR', content_name: 'Template Customization Package' });
+          }
           orderData.status = "Paid / In Progress";
           orderData.paymentId = response.razorpay_payment_id || ("PAY-" + Date.now());
           await saveCustomizationOrder(orderData);
@@ -3122,6 +3145,12 @@
           }
         },
         handler: async function(response) {
+          // Meta Pixel: Track Purchase and Lead ONLY upon confirmed payment success
+          if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', { value: 399, currency: 'INR', content_name: '45+ Landing Pages Bundle' });
+            fbq('track', 'Lead', { value: 399, currency: 'INR', content_name: '45+ Landing Pages Bundle' });
+          }
+
           btn.disabled = true;
           btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Generating License &amp; WhatsApp Delivery...</span>`;
 
