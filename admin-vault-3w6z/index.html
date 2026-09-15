@@ -195,7 +195,7 @@
         </div>
         <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
           <div>
-            <p class="text-xs font-medium text-gray-500">Customization ($100)</p>
+            <p class="text-xs font-medium text-gray-500">Customization (₹3,999)</p>
             <h3 id="statCustomOrders" class="text-2xl font-bold text-purple-700 mt-1">--</h3>
           </div>
           <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-lg">
@@ -205,7 +205,7 @@
         <div class="bg-white rounded-xl p-4 border border-[#E5E7EB] shadow-xs flex items-center justify-between">
           <div>
             <p class="text-xs font-medium text-gray-500">Store Bundle Offer</p>
-            <h3 class="text-2xl font-bold text-gray-900 mt-1">₹999 <span class="text-xs font-semibold text-emerald-600">Lifetime</span></h3>
+            <h3 class="text-2xl font-bold text-gray-900 mt-1">₹399 <span class="text-xs font-semibold text-emerald-600">Lifetime</span></h3>
           </div>
           <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
             <i class="fa-solid fa-layer-group"></i>
@@ -354,7 +354,7 @@ https://digital-them-store.infispark.in/purchase/index.html
               <span class="w-2 h-2 rounded-full bg-amber-500"></span>
               <span>Live Checkout Inquiries &amp; Leads</span>
             </h2>
-            <p class="text-xs text-gray-500">Submitted directly by visitors from the ₹999 checkout form.</p>
+            <p class="text-xs text-gray-500">Submitted directly by visitors from the ₹399 checkout form.</p>
           </div>
           <button onclick="loadFirebaseData()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 self-start sm:self-auto">
             <i class="fa-solid fa-rotate text-[10px]"></i> Refresh Leads
@@ -423,13 +423,13 @@ https://digital-them-store.infispark.in/purchase/index.html
         </div>
       </div>
 
-      <!-- Section: Customization & Deployment Orders ($100 / ₹8,499) -->
+      <!-- Section: Customization & Deployment Orders (₹3,999) -->
       <div class="bg-white rounded-xl border border-[#E5E7EB] shadow-xs overflow-hidden">
         <div class="p-4 border-b border-[#E5E7EB] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 class="text-sm font-bold text-gray-900 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-purple-600"></span>
-              <span>Template Customization &amp; Deployment Orders ($100 / ₹8,499)</span>
+              <span>Template Customization &amp; Deployment Orders (₹3,999)</span>
             </h2>
             <p class="text-xs text-gray-500">Submitted by customers requesting full customization &amp; custom domain deployment.</p>
           </div>
@@ -687,7 +687,7 @@ https://digital-them-store.infispark.in/purchase/index.html
         const licData = await licRes.json();
         renderLicenses(licData);
 
-        // 3. Fetch Customization Orders ($100)
+        // 3. Fetch Customization Orders (₹3,999)
         const custRes = await fetch(`${RTDB_URL}/customization_requests.json${authParam}`);
         const custData = await custRes.json();
         renderCustomOrders(custData);
@@ -778,7 +778,7 @@ https://digital-them-store.infispark.in/purchase/index.html
 
       tbody.innerHTML = list.map(item => {
         const cleanPhone = (item.phone || '').replace(/[^0-9]/g, '');
-        const chatMsg = encodeURIComponent(`Hello ${item.name || 'there'}! Regarding your $100 template customization request for "${item.template || 'template'}" and domain requirements "${item.requirements || ''}". We are ready to begin!`);
+        const chatMsg = encodeURIComponent(`Hello ${item.name || 'there'}! Regarding your ₹3,999 full template customization & database setup request for "${item.template || 'template'}" and domain requirements "${item.requirements || ''}". Our dedicated team is ready to begin!`);
         const statusVal = item.status || 'New Request';
         return `
           <tr class="hover:bg-gray-50/80 transition-colors">
@@ -789,7 +789,7 @@ https://digital-them-store.infispark.in/purchase/index.html
             </td>
             <td class="py-3 px-4 font-bold text-indigo-700">${escapeHtml(item.template || '-')}</td>
             <td class="py-3 px-4 max-w-xs text-gray-700 text-[11px] leading-relaxed break-words">${escapeHtml(item.requirements || '-')}</td>
-            <td class="py-3 px-4 font-black text-emerald-600">${escapeHtml(item.amount || '$100 (₹8,499)')}</td>
+            <td class="py-3 px-4 font-black text-emerald-600">${escapeHtml(item.amount || '₹3,999')}</td>
             <td class="py-3 px-4">
               <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold ${
                 statusVal.includes('Completed') ? 'bg-emerald-100 text-emerald-800' :

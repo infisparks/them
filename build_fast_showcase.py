@@ -180,7 +180,7 @@ def render_unlock_card():
                     40+ More Templates
                   </h4>
                   <p class="text-[8.5px] sm:text-[9.5px] text-amber-200/90 font-medium mt-0.5">
-                    Buy &amp; Get All Templates (₹999)
+                    Buy &amp; Get All Templates (₹399)
                   </p>
                 </div>
 
@@ -201,7 +201,7 @@ def render_unlock_card():
               <!-- CTA Inside Phone Screen -->
               <div class="w-full z-10 pt-1">
                 <button onclick="openCheckoutModal()" class="w-full py-2 px-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] sm:text-xs uppercase tracking-tight shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                  <span>Buy &amp; Get All Templates (₹999)</span>
+                  <span>Buy &amp; Get All Templates (₹399)</span>
                   <i class="fa-solid fa-bolt text-[10px]"></i>
                 </button>
               </div>
@@ -222,7 +222,7 @@ def render_unlock_card():
           <div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
             <button onclick="openCheckoutModal()" class="flex-1 py-1.5 px-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-amber-400 text-[10px] sm:text-[11px] font-black flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer">
               <i class="fa-solid fa-key text-[9px]"></i>
-              <span>Buy &amp; Get All Templates (₹999)</span>
+              <span>Buy &amp; Get All Templates (₹399)</span>
             </button>
           </div>
         </div>'''
@@ -254,7 +254,7 @@ def render_catalog_items():
             <button onclick="openPreviewModal('{item["key"]}/index.html', '{item["title"]}')" class="flex-1 py-1 px-2 rounded-lg bg-slate-100 hover:bg-amber-100 text-slate-800 hover:text-amber-900 text-[10px] font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer">
               <i class="fa-solid fa-eye text-[8.5px]"></i> Preview
             </button>
-            <button onclick="openCheckoutModal()" class="py-1 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-[10px] font-black flex items-center justify-center gap-1 transition-colors cursor-pointer" title="Unlock With ₹999 Bundle">
+            <button onclick="openCheckoutModal()" class="py-1 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-[10px] font-black flex items-center justify-center gap-1 transition-colors cursor-pointer" title="Unlock With ₹399 Bundle">
               <i class="fa-solid fa-download text-[8.5px]"></i>
             </button>
           </div>
@@ -308,7 +308,7 @@ def render_showcase_section():
           </div>
 
           <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight">
-            40+ More Templates Included — <span class="text-amber-400">Buy &amp; Get All Templates</span> for Just ₹999
+            40+ More Templates Included — <span class="text-amber-400">Buy &amp; Get All Templates</span> for Just ₹399
           </h3>
 
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -374,12 +374,12 @@ def render_showcase_section():
           </div>
           <div class="flex items-baseline justify-center gap-2">
             <span class="text-sm text-slate-400 line-through">₹29,999</span>
-            <span class="text-3xl sm:text-4xl font-black text-amber-400">₹999</span>
+            <span class="text-3xl sm:text-4xl font-black text-amber-400">₹399</span>
             <span class="text-[10px] font-extrabold bg-emerald-500/30 text-emerald-300 border border-emerald-400/50 px-2 py-0.5 rounded-md">Save 97%</span>
           </div>
 
           <button onclick="openCheckoutModal()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-tight shadow-xl hover:shadow-amber-500/30 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <span>Buy &amp; Get All Templates (₹999)</span>
+            <span>Buy &amp; Get All Templates (₹399)</span>
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </button>
 
@@ -437,7 +437,7 @@ def update_file(filepath):
         <i class="fa-solid fa-crown text-amber-500"></i> 40+ More Templates Included
       </span>
       <button onclick="openCheckoutModal()" class="py-1 px-2.5 rounded-lg bg-slate-900 text-amber-400 hover:bg-slate-800 font-black flex-shrink-0 flex items-center gap-1 cursor-pointer transition-colors">
-        <i class="fa-solid fa-bolt text-amber-400"></i> Buy &amp; Get All Templates (₹999)
+        <i class="fa-solid fa-bolt text-amber-400"></i> Buy &amp; Get All Templates (₹399)
       </button>
     </div>
   </section>'''
@@ -446,7 +446,7 @@ def update_file(filepath):
     # Also update subtitle text
     content = content.replace(
         "Scroll live mobile screens below. Gold editions on top with instant preview &amp; code download.",
-        "Explore the top 7 live interactive previews below. 40+ more templates unlocked instantly with the complete ₹999 bundle."
+        "Explore the top 7 live interactive previews below. 40+ more templates unlocked instantly with the complete ₹399 bundle."
     )
 
     with open(filepath, "w", encoding="utf-8") as f:

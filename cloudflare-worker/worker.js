@@ -32,7 +32,7 @@ const CONFIG = {
   ADMIN_WHATSAPP: "919958399157",
 
   // Portal URL
-  PORTAL_URL: "https://them.infisparks.com/purchase"
+  PORTAL_URL: "https://them-delta.vercel.app/purchase"
 };
 
 // Standard CORS headers allowing requests from any origin
@@ -165,7 +165,7 @@ function createAdminWhatsAppAlert(name, phone, amount, paymentId, licenseKey) {
 
 👤 *Customer:* ${name || "Anonymous"}
 📱 *WhatsApp:* +${cleanPhoneNumber(phone)}
-💵 *Amount:* ₹${amount || 999}
+💵 *Amount:* ₹${amount || 399}
 💳 *Payment ID:* ${paymentId || "N/A"}
 🔑 *License Key:* \`${licenseKey}\`
 📅 *Time:* ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`;
@@ -207,7 +207,7 @@ export default {
         const body = await request.json();
         const name = body.name || "Anonymous";
         const phone = cleanPhoneNumber(body.phone);
-        const amount = body.amount || 999;
+        const amount = body.amount || 399;
         const status = body.status || "pending";
 
         const leadRecord = {
@@ -245,7 +245,7 @@ export default {
           razorpay_signature,
           name,
           phone,
-          amount = 999,
+          amount = 399,
         } = body;
 
         const cleanPhone = cleanPhoneNumber(phone);
@@ -274,7 +274,7 @@ export default {
             cleanPhone: cleanPhone,
             paymentId: razorpay_payment_id,
             orderId: razorpay_order_id || "",
-            amount: Number(amount) || 999,
+            amount: Number(amount) || 399,
             tier: "Commercial Lifetime License",
             status: "active",
             verified: true,
@@ -291,7 +291,7 @@ export default {
             name: name || "Customer",
             phone: phone || "",
             cleanPhone: cleanPhone,
-            amount: Number(amount) || 999,
+            amount: Number(amount) || 399,
             status: "paid",
             paymentId: razorpay_payment_id,
             licenseKey: licenseKey,
@@ -362,6 +362,7 @@ export default {
             description.toLowerCase().includes("landing") ||
             description.toLowerCase().includes("theme") ||
             notes.product === "45_landing_pages_bundle" ||
+            amountPaise === 39900 ||
             amountPaise === 99900 ||
             amountPaise === 100;
 
@@ -378,7 +379,7 @@ export default {
 
           const contact = payment.contact || notes.phone || notes.customer_phone || "";
           const name = notes.name || notes.customer_name || "Valued Customer";
-          const amount = amountPaise ? amountPaise / 100 : 999;
+          const amount = amountPaise ? amountPaise / 100 : 399;
           const cleanPhone = cleanPhoneNumber(contact);
 
           // Check if already processed

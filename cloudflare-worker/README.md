@@ -51,7 +51,7 @@ This Cloudflare Worker (`https://digitalthem.infisparks.workers.dev`) handles:
 
 ## 4. WhatsApp Customer Delivery Template
 
-When a customer pays ₹999, they immediately receive:
+When a customer pays ₹399, they immediately receive:
 ```
 🎉 *Payment Confirmed! Access Your 45+ Landing Page Bundle*
 
@@ -62,7 +62,7 @@ Thank you for purchasing the *45+ Ultimate Landing Page Bundle*! 🚀
 `LIC-45LP-XXXX-XXXX`
 
 📥 *Click to Unlock & Download Complete Source Codes:*
-https://them.infisparks.com/purchase/?key=LIC-45LP-XXXX-XXXX&phone=919876543210
+https://them-delta.vercel.app/purchase/?key=LIC-45LP-XXXX-XXXX&phone=919876543210
 
 ✨ *What You Received:*
 ✅ Full lifetime access to all 45+ production landing pages

@@ -127,21 +127,21 @@ customization_modal = '''
           <i class="fa-solid fa-crown text-amber-500"></i> VIP Service
         </div>
         <h3 class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-          Template Customization &amp; Domain Deployment
+          Template Customization, Database &amp; Admin Panel Setup
         </h3>
         <p class="text-xs text-slate-500">
-          Get your template customized to your exact requirements and deployed live with your domain connection.
+          Full business customization, database connection with Admin Panel, free hosting, free cloud storage &amp; custom domain connection by our dedicated support team.
         </p>
       </div>
 
-      <div class="mt-4 p-3 rounded-xl bg-indigo-50/70 border border-indigo-100 flex items-center justify-between text-xs">
+      <div class="mt-4 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-200 flex items-center justify-between text-xs">
         <div>
-          <span class="text-slate-500 font-medium">Service Package:</span>
-          <span class="font-black text-slate-900 ml-1">Full Customization + Free Domain Deployment</span>
+          <span class="text-slate-500 font-medium">VIP Package:</span>
+          <span class="font-black text-slate-900 ml-1 block sm:inline">Full Customization + Database + Admin Panel + Hosting &amp; Domain Connection</span>
         </div>
-        <div class="text-right">
-          <span class="text-base font-black text-indigo-700">$100</span>
-          <span class="text-[10px] text-slate-500 block font-semibold">(₹8,499 INR)</span>
+        <div class="text-right flex-shrink-0 ml-2">
+          <span class="text-lg font-black text-indigo-700">₹3,999</span>
+          <span class="text-[10px] text-emerald-700 block font-bold">All-Inclusive</span>
         </div>
       </div>
 
@@ -169,13 +169,13 @@ customization_modal = '''
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Custom Domain &amp; Requirement Notes <span class="text-rose-500">*</span></label>
-          <textarea id="custOrderRequirements" required rows="3" placeholder="Enter your domain name (e.g. mybrand.com), branding colors, text changes or any specific requirements..." class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl p-2.5 text-xs text-slate-900 outline-none transition-all"></textarea>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Custom Domain &amp; Business Requirements <span class="text-rose-500">*</span></label>
+          <textarea id="custOrderRequirements" required rows="3" placeholder="Enter your domain name to connect (e.g. yourbrand.com), brand colors, copy, database fields, and admin panel requirements..." class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl p-2.5 text-xs text-slate-900 outline-none transition-all"></textarea>
         </div>
 
         <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-900 flex items-center gap-2">
           <i class="fa-solid fa-shield-halved text-amber-600 text-sm flex-shrink-0"></i>
-          <span>Secure Razorpay / UPI checkout for <strong>$100 (~₹8,499)</strong>. Your request is registered directly into our Admin Dashboard for instant priority fulfillment!</span>
+          <span>Secure Razorpay / UPI checkout for <strong>₹3,999</strong>. Includes Full Customization, Database + Admin Panel, Free Hosting &amp; Cloud Storage, Domain Connection + Dedicated Support!</span>
         </div>
 
         <div class="flex items-center gap-2 pt-1">
@@ -184,7 +184,7 @@ customization_modal = '''
           </button>
           <button type="submit" id="btnSubmitCustomization" class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-xs sm:text-sm font-black py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
             <i class="fa-solid fa-credit-card text-xs"></i>
-            <span>Pay $100 with Razorpay</span>
+            <span>Pay ₹3,999 with Razorpay</span>
           </button>
         </div>
       </form>
@@ -222,8 +222,8 @@ new_header = '''
         </div>
         <button onclick="openCustomizationModal()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-[9.5px] sm:text-xs font-black py-1 px-1.5 sm:px-3 rounded-lg flex items-center gap-1 transition-colors">
           <i class="fa-solid fa-wand-magic-sparkles text-[9px] sm:text-[10px] text-indigo-600"></i>
-          <span class="hidden sm:inline">Customization ($100)</span>
-          <span class="sm:hidden font-bold">$100 Custom</span>
+          <span class="hidden sm:inline">Customization (₹3,999)</span>
+          <span class="sm:hidden font-bold">₹3,999 Custom</span>
         </button>
         <a href="../downloads/complete-45-landing-pages-bundle.zip" download class="btn-gold-main text-[9.5px] sm:text-xs py-1 px-1.5 sm:px-3.5 rounded-lg flex items-center space-x-1 shadow-xs">
           <i class="fa-solid fa-file-zipper text-[9px] sm:text-[10px]"></i>
@@ -246,7 +246,7 @@ new_hero = '''
     <!-- Verified License Rights Box -->
     <div id="verifiedLicenseCard" class="bg-white border-2 border-amber-300 rounded-2xl p-3 sm:p-5 text-left shadow-md space-y-2.5 relative overflow-hidden">
       <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] sm:text-[10px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-2xs">
-        Official Single-User Commercial License • ₹29,999 Value Unlocked (₹999)
+        Official Single-User Commercial License • ₹29,999 Value Unlocked (₹399)
       </div>
       
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pr-28 sm:pr-0">
@@ -284,37 +284,40 @@ new_hero = '''
       </div>
     </div>
 
-    <!-- VIP Customization & Deployment Support Banner ($100 / ₹8,499) -->
+    <!-- VIP Customization & Deployment Support Banner (₹3,999) -->
     <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white rounded-2xl p-4 sm:p-5 shadow-lg border-2 border-indigo-400/50 relative overflow-hidden text-left">
       <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 text-[9px] sm:text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow">
-        ⭐ VIP Service Offer
+        ⭐ VIP Business Upgrade
       </div>
 
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="space-y-1.5 max-w-2xl pr-12 md:pr-0">
           <div class="inline-flex items-center gap-1.5 bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full">
             <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
-            <span>Full Template Customization Available</span>
+            <span>Full Customization &amp; Database Package</span>
           </div>
           <h3 class="text-base sm:text-lg font-black tracking-tight text-white flex items-center gap-2 flex-wrap">
-            <span>Get Full Customization Support in Just $100</span>
-            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs px-2 py-0.5 rounded-md font-extrabold">(~₹8,499)</span>
+            <span>Get Full Customization &amp; Database Setup in Just ₹3,999</span>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs px-2 py-0.5 rounded-md font-extrabold">(All-Inclusive)</span>
           </h3>
           <p class="text-xs sm:text-[13px] text-slate-300 leading-relaxed">
-            Template customization available + <strong>Free Deployment with Domain Connection!</strong> We adapt any template to your brand colors, logo, copy &amp; connect it live to your custom domain.
+            Full template customization tailored to your business needs + <strong>Database Connection with Admin Panel Included!</strong> We provide <strong>Free Hosting &amp; Free Cloud Storage</strong> and connect your custom domain live. Our dedicated support team handles everything for you!
           </p>
-          <div class="flex flex-wrap items-center gap-2 pt-1 text-[10px] sm:text-[11px] font-semibold text-slate-300">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> 1-on-1 Dedicated Developer</span>
-            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Free Deployment &amp; Domain Connection</span>
-            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> 24–48h Turnaround</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1 text-[10px] sm:text-[11px] font-semibold text-slate-300">
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> 1-on-1 Dedicated Support Team</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Full Customization according to Business</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Full Database Connection + Admin Panel</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Free Hosting &amp; Free Cloud Storage</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> Custom Domain Connection (We connect it)</span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-400"></i> 24–48h Priority Turnaround</span>
           </div>
         </div>
 
         <div class="flex-shrink-0 flex items-center">
           <button onclick="openCustomizationModal()" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] cursor-pointer">
             <i class="fa-solid fa-rocket text-indigo-950"></i>
-            <span>Request Customization ($100)</span>
+            <span>Request Customization (₹3,999)</span>
           </button>
         </div>
       </div>
@@ -602,8 +605,8 @@ portal_script = '''
         email: email,
         template: template,
         requirements: requirements,
-        amount: "$100 (₹8,499)",
-        amountInr: 8499,
+        amount: "₹3,999",
+        amountInr: 3999,
         licenseKey: currentCustomerLicense ? (currentCustomerLicense.key || '') : '',
         createdAt: new Date().toISOString(),
         status: "Pending Payment"
@@ -611,10 +614,10 @@ portal_script = '''
 
       const options = {
         key: "rzp_live_TbySDUVsA57Ndi",
-        amount: 8499 * 100, // paise
+        amount: 3999 * 100, // paise
         currency: "INR",
         name: "Digital Theme Store",
-        description: "Template Customization & Free Domain Deployment ($100)",
+        description: "Template Customization, Database & Admin Panel Setup (₹3,999)",
         prefill: {
           name: name,
           email: email,
@@ -631,7 +634,7 @@ portal_script = '''
         modal: {
           ondismiss: async function() {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay $100 with Razorpay</span>';
+            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay ₹3,999 with Razorpay</span>';
           }
         }
       };
@@ -645,16 +648,16 @@ portal_script = '''
             await saveCustomizationOrder(orderData);
             alert("Razorpay: " + (resp.error ? resp.error.description : "Payment failed"));
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay $100 with Razorpay</span>';
+            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay ₹3,999 with Razorpay</span>';
           });
           rzp.open();
         } else {
-          orderData.status = "Direct Inquiry ($100)";
+          orderData.status = "Direct Inquiry (₹3,999)";
           await saveCustomizationOrder(orderData);
         }
       } catch (err) {
         console.warn("Razorpay fallback:", err);
-        orderData.status = "Direct Inquiry ($100)";
+        orderData.status = "Direct Inquiry (₹3,999)";
         await saveCustomizationOrder(orderData);
       }
     }
@@ -669,7 +672,7 @@ portal_script = '''
         });
         closeCustomizationModal();
         alert('🎉 Customization Request Confirmed! Our senior team will contact you on WhatsApp (' + orderData.phone + ') within 1 hour to start your template customization & domain connection.');
-        const text = encodeURIComponent('Hello, I just booked $100 Customization & Domain Connection for template: ' + orderData.template + '. My name is ' + orderData.name + '.');
+        const text = encodeURIComponent('Hello, I just booked ₹3,999 Full Customization, Database & Domain Setup for template: ' + orderData.template + '. My name is ' + orderData.name + '.');
         window.open('https://wa.me/919951231231?text=' + text, '_blank');
       } catch (err) {
         console.error("Error saving customization order:", err);
