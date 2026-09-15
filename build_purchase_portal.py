@@ -1,4 +1,414 @@
-import os, re
+import os, re, json
+
+# All 44 Theme Data definitions with categories & color tagging
+THEME_DATA = {
+    # =========================================================================
+    # GOLD THEMES (11)
+    # =========================================================================
+    "portfolio-dark-gold": {
+        "title": "Personal Portfolio Template",
+        "subtitle": "Developer, Consultant & Architect Profile",
+        "badge": "Portfolio",
+        "color": "gold"
+    },
+    "funnel-dark-gold": {
+        "title": "Sales Funnel Template",
+        "subtitle": "Meta Ads & Performance Agency Lander",
+        "badge": "Sales Funnel",
+        "color": "gold"
+    },
+    "realstate-dark-gold": {
+        "title": "Real Estate Landing Page Template",
+        "subtitle": "Luxury Properties, Penthouse & Sky Villas",
+        "badge": "Real Estate",
+        "color": "gold"
+    },
+    "single-product-white-gold": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Ergonomic Workspace & DTC Product Lander",
+        "badge": "Single Product",
+        "color": "gold"
+    },
+    "funnel-white-gold": {
+        "title": "B2B Sales Funnel Template",
+        "subtitle": "Growth Agency & High-Ticket Retainers",
+        "badge": "Sales Funnel",
+        "color": "gold"
+    },
+    "ecommerce-dark-gold": {
+        "title": "E-Commerce Store Template",
+        "subtitle": "Luxury Watches & High-End Jewelry",
+        "badge": "E-Commerce",
+        "color": "gold"
+    },
+    "course-white-gold": {
+        "title": "Online Course Template",
+        "subtitle": "Tech Academy & AI Masterclass Platform",
+        "badge": "Course / EdTech",
+        "color": "gold"
+    },
+    "saas-dark-gold": {
+        "title": "SaaS Landing Page Template",
+        "subtitle": "Enterprise AI & Software Platform",
+        "badge": "SaaS Platform",
+        "color": "gold"
+    },
+    "ecommerce-white-gold": {
+        "title": "Fashion E-Commerce Template",
+        "subtitle": "Designer Apparel & Minimalist Boutique",
+        "badge": "E-Commerce",
+        "color": "gold"
+    },
+    "portfolio-white-gold": {
+        "title": "Agency Portfolio Template",
+        "subtitle": "Architecture & Modern Interior Studio",
+        "badge": "Portfolio",
+        "color": "gold"
+    },
+    "single-product-dark-gold": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Smart Ring & Luxury Wearable Gadget",
+        "badge": "Single Product",
+        "color": "gold"
+    },
+
+    # =========================================================================
+    # EMERALD & GREEN THEMES (10)
+    # =========================================================================
+    "funnel-dark-emerald": {
+        "title": "Fintech Sales Funnel Template",
+        "subtitle": "Wealth Advisory & High-Ticket Investment",
+        "badge": "Sales Funnel",
+        "color": "emerald"
+    },
+    "funnel-white-emerald": {
+        "title": "Healthcare Sales Funnel Template",
+        "subtitle": "Clinic & Doctor Appointment Booking",
+        "badge": "Sales Funnel",
+        "color": "emerald"
+    },
+    "course-dark-green": {
+        "title": "Coding Bootcamp Template",
+        "subtitle": "Full-Stack Dev & DevOps Learning Platform",
+        "badge": "Online Course",
+        "color": "emerald"
+    },
+    "course-white-green": {
+        "title": "Online Course Template",
+        "subtitle": "Organic Agriculture & Clean-Tech Academy",
+        "badge": "Online Course",
+        "color": "emerald"
+    },
+    "ecommerce-dark-emerald": {
+        "title": "Skincare E-Commerce Template",
+        "subtitle": "Organic Cosmetics & Herbal Beauty Store",
+        "badge": "E-Commerce",
+        "color": "emerald"
+    },
+    "ecommerce-white-emerald": {
+        "title": "E-Commerce Store Template",
+        "subtitle": "Eco-Friendly Bamboo Home Goods & DTC",
+        "badge": "E-Commerce",
+        "color": "emerald"
+    },
+    "portfolio-dark-emerald": {
+        "title": "Cybersecurity Portfolio Template",
+        "subtitle": "Security Auditor & Pentesting Consultant",
+        "badge": "Portfolio",
+        "color": "emerald"
+    },
+    "portfolio-white-emerald": {
+        "title": "Creative Portfolio Template",
+        "subtitle": "Landscape Architect & Sustainable Planner",
+        "badge": "Portfolio",
+        "color": "emerald"
+    },
+    "single-product-dark-emerald": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Cold-Pressed Smart Kitchen Appliance",
+        "badge": "Single Product",
+        "color": "emerald"
+    },
+    "single-product-white-emerald": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Hydroponic Indoor Smart Garden System",
+        "badge": "Single Product",
+        "color": "emerald"
+    },
+
+    # =========================================================================
+    # PURPLE THEMES (9)
+    # =========================================================================
+    "funnel-dark-purple": {
+        "title": "Web3 & Crypto Funnel Template",
+        "subtitle": "Token Pre-Sale & Launchpad Platform",
+        "badge": "Sales Funnel",
+        "color": "purple"
+    },
+    "funnel-white-purple": {
+        "title": "Creative Agency Funnel Template",
+        "subtitle": "Branding Studio & Client Discovery Call",
+        "badge": "Sales Funnel",
+        "color": "purple"
+    },
+    "course-white-purple": {
+        "title": "UI/UX Course Template",
+        "subtitle": "Figma Design Systems & Mentorship",
+        "badge": "Online Course",
+        "color": "purple"
+    },
+    "ecommerce-dark-purple": {
+        "title": "Gaming E-Commerce Template",
+        "subtitle": "Pro Gaming Gear & RGB PC Peripherals",
+        "badge": "E-Commerce",
+        "color": "purple"
+    },
+    "ecommerce-white-purple": {
+        "title": "Perfume E-Commerce Template",
+        "subtitle": "Artisan Luxury Fragrance & Scent House",
+        "badge": "E-Commerce",
+        "color": "purple"
+    },
+    "portfolio-dark-purple": {
+        "title": "Video & 3D Portfolio Template",
+        "subtitle": "Motion Graphics & VFX Director Showreel",
+        "badge": "Portfolio",
+        "color": "purple"
+    },
+    "portfolio-white-purple": {
+        "title": "Fashion Stylist Portfolio Template",
+        "subtitle": "Editorial Art Director & Fashion Bio",
+        "badge": "Portfolio",
+        "color": "purple"
+    },
+    "single-product-dark-purple": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Studio Wireless Audiophile Headphones",
+        "badge": "Single Product",
+        "color": "purple"
+    },
+    "single-product-white-purple": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Circadian Sunrise Smart Sleep Lamp",
+        "badge": "Single Product",
+        "color": "purple"
+    },
+
+    # =========================================================================
+    # BLUE THEMES (5)
+    # =========================================================================
+    "funnel-white-blue": {
+        "title": "Dental Clinic Funnel Template",
+        "subtitle": "Medical Practice Patient Acquisition",
+        "badge": "Sales Funnel",
+        "color": "blue"
+    },
+    "course-white-blue": {
+        "title": "Cloud Certification Course Template",
+        "subtitle": "AWS Solutions Architect Video Training",
+        "badge": "Online Course",
+        "color": "blue"
+    },
+    "ecommerce-white-blue": {
+        "title": "Medical Supply E-Commerce Template",
+        "subtitle": "Clinical Equipment & Healthcare Store",
+        "badge": "E-Commerce",
+        "color": "blue"
+    },
+    "portfolio-white-blue": {
+        "title": "Lawyer & Attorney Portfolio Template",
+        "subtitle": "Corporate Legal Firm & Retainer Booking",
+        "badge": "Portfolio",
+        "color": "blue"
+    },
+    "single-product-white-blue": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Alkaline Multi-Stage Home Water Purifier",
+        "badge": "Single Product",
+        "color": "blue"
+    },
+
+    # =========================================================================
+    # CLASSIC THEMES (9)
+    # =========================================================================
+    "funnel-dark": {
+        "title": "Private Equity Funnel Template",
+        "subtitle": "M&A Advisory & Investor Deal Room Pitch",
+        "badge": "Sales Funnel",
+        "color": "classic"
+    },
+    "funnel-white": {
+        "title": "Coaching & Mastermind Funnel Template",
+        "subtitle": "Executive 1-on-1 Mentorship & VSL Lander",
+        "badge": "Sales Funnel",
+        "color": "classic"
+    },
+    "course-dark": {
+        "title": "Trading & Finance Course Template",
+        "subtitle": "Quantitative Trading & Algo Finance",
+        "badge": "Online Course",
+        "color": "classic"
+    },
+    "ecommerce-dark": {
+        "title": "Leather Goods E-Commerce Template",
+        "subtitle": "Handcrafted Leather Luggage & Accessories",
+        "badge": "E-Commerce",
+        "color": "classic"
+    },
+    "ecommerce-white": {
+        "title": "Eyewear E-Commerce Template",
+        "subtitle": "Italian Acetate Sunglasses & Frames Store",
+        "badge": "E-Commerce",
+        "color": "classic"
+    },
+    "portfolio-dark": {
+        "title": "Filmmaker Portfolio Template",
+        "subtitle": "Commercial Cinematographer & Director Wall",
+        "badge": "Portfolio",
+        "color": "classic"
+    },
+    "portfolio-white": {
+        "title": "Consultant Portfolio Template",
+        "subtitle": "Chartered Accountant & Corporate Tax Strategist",
+        "badge": "Portfolio",
+        "color": "classic"
+    },
+    "single-product-dark": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Automatic Mechanical Luxury Watch",
+        "badge": "Single Product",
+        "color": "classic"
+    },
+    "single-product-white": {
+        "title": "Single Product E-Commerce Template",
+        "subtitle": "Ceramic Pour-Over French Press Brewer",
+        "badge": "Single Product",
+        "color": "classic"
+    }
+}
+
+ORDERED_KEYS = [
+    # Gold (11)
+    "portfolio-dark-gold",
+    "funnel-dark-gold",
+    "realstate-dark-gold",
+    "single-product-white-gold",
+    "funnel-white-gold",
+    "ecommerce-dark-gold",
+    "course-white-gold",
+    "saas-dark-gold",
+    "ecommerce-white-gold",
+    "portfolio-white-gold",
+    "single-product-dark-gold",
+
+    # Emerald (10)
+    "funnel-dark-emerald",
+    "funnel-white-emerald",
+    "course-dark-green",
+    "course-white-green",
+    "ecommerce-dark-emerald",
+    "ecommerce-white-emerald",
+    "portfolio-dark-emerald",
+    "portfolio-white-emerald",
+    "single-product-dark-emerald",
+    "single-product-white-emerald",
+
+    # Purple (9)
+    "funnel-dark-purple",
+    "funnel-white-purple",
+    "course-white-purple",
+    "ecommerce-dark-purple",
+    "ecommerce-white-purple",
+    "portfolio-dark-purple",
+    "portfolio-white-purple",
+    "single-product-dark-purple",
+    "single-product-white-purple",
+
+    # Blue (5)
+    "funnel-white-blue",
+    "course-white-blue",
+    "ecommerce-white-blue",
+    "portfolio-white-blue",
+    "single-product-white-blue",
+
+    # Classic (9)
+    "funnel-dark",
+    "funnel-white",
+    "course-dark",
+    "ecommerce-dark",
+    "ecommerce-white",
+    "portfolio-dark",
+    "portfolio-white",
+    "single-product-dark",
+    "single-product-white"
+]
+
+def render_portal_card(key, idx):
+    d = THEME_DATA[key]
+    color = d["color"]
+    is_white = "white" in key
+    
+    if color == "gold":
+        badge_style = "bg-white/95 text-amber-900 border-amber-400" if is_white else "bg-black/85 text-gold-400 border-gold-400/40"
+        card_border = "border-gold-300/80 hover:border-gold-500"
+    elif color == "emerald":
+        badge_style = "bg-white/95 text-emerald-900 border-emerald-400" if is_white else "bg-black/85 text-emerald-400 border-emerald-400/40"
+        card_border = "border-emerald-200/80 hover:border-emerald-400"
+    elif color == "purple":
+        badge_style = "bg-white/95 text-purple-900 border-purple-400" if is_white else "bg-black/85 text-purple-400 border-purple-400/40"
+        card_border = "border-purple-200/80 hover:border-purple-400"
+    elif color == "blue":
+        badge_style = "bg-white/95 text-blue-900 border-blue-400" if is_white else "bg-black/85 text-blue-400 border-blue-400/40"
+        card_border = "border-blue-200/80 hover:border-blue-400"
+    else:
+        badge_style = "bg-white/95 text-slate-900 border-slate-300" if is_white else "bg-black/85 text-slate-200 border-slate-700"
+        card_border = "border-slate-200 hover:border-slate-400"
+
+    # Eager load first 4 cards for instant visual punch, lazy load the rest
+    if idx < 4:
+        iframe_tag = f'<iframe src="../{key}/preview.html" class="live-scaled-iframe hero-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="eager"></iframe>'
+    else:
+        iframe_tag = f'<iframe src="about:blank" data-src="../{key}/preview.html" class="live-scaled-iframe" onload="handleIframeLoaded(this)" title="{d["title"]}" loading="lazy"></iframe>'
+
+    zip_url = f'../downloads/{key}.zip'
+
+    return f'''        <!-- #{idx+1}: {d["title"]} ({key}) -->
+        <div class="card-phone-unit rounded-2xl p-1.5 sm:p-3 text-left flex flex-col justify-between {card_border} transition-all shadow-2xs" data-color="{color}">
+          <div class="space-y-1.5">
+            <div class="phone-mockup-frame group">
+              <div class="phone-notch"></div>
+              <div class="phone-skeleton">
+                <div class="skeleton-spinner"></div>
+                <div class="w-16 space-y-1.5">
+                  <div class="skeleton-line w-full"></div>
+                  <div class="skeleton-line w-3/4 mx-auto"></div>
+                </div>
+              </div>
+              {iframe_tag}
+              <div class="absolute top-1.5 left-1.5 z-20">
+                <span class="{badge_style} border text-[7.5px] sm:text-[9px] font-black px-1.5 py-0.2 rounded shadow">
+                  {d["badge"]}
+                </span>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-[11px] sm:text-xs font-black text-slate-900 truncate">{d["title"]}</h3>
+              <p class="text-[8.5px] sm:text-[10px] text-slate-500 truncate">{d["subtitle"]}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
+            <a href="{zip_url}" download class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[9.5px] sm:text-[11px] font-black py-1.5 px-1.5 rounded-lg flex items-center justify-center gap-1 shadow-xs transition-colors">
+              <i class="fa-solid fa-download text-[9px]"></i>
+              <span>Download ZIP</span>
+            </a>
+            <button onclick="openPreviewModal('../{key}/index.html', '{d["title"]}')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-bold py-1.5 px-2 rounded-lg" title="Live Preview">
+              <i class="fa-solid fa-eye text-[8.5px]"></i>
+            </button>
+            <a href="../{key}/index.html" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-bold py-1.5 px-2 rounded-lg" title="Open in New Tab">
+              ↗
+            </a>
+          </div>
+        </div>'''
 
 with open('index.source.html', 'r', encoding='utf-8') as f:
     source = f.read()
@@ -8,46 +418,20 @@ processed = re.sub(r'href="\./', 'href="../', source)
 processed = re.sub(r'src="\./', 'src="../', processed)
 processed = re.sub(r'data-src="\./', 'data-src="../', processed)
 
-# 2. Fix openPreviewModal calls so they reference '../'
-processed = re.sub(r'openPreviewModal\(\'([^\']+)\'', r"openPreviewModal('../\1'", processed)
-
-# 2b. Add Razorpay Checkout script to head
+# 2. Add Razorpay Checkout script to head
 processed = processed.replace('</head>', '  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>\n</head>')
 
-# 3. Replace card action bars: Preview button becomes Download ZIP button + Live Demo
-def replace_card_footer(match):
-    full = match.group(0)
-    m_url = re.search(r'openPreviewModal\(\'([^\']+)\',\s*\'([^\']+)\'\)', full)
-    if not m_url:
-        return full
-    path = m_url.group(1)
-    title = m_url.group(2)
-    clean_folder = path.replace('../', '').split('/')[0]
-    zip_url = f'../downloads/{clean_folder}.zip'
-
-    return f'''<div class="flex items-center gap-1 pt-1.5 border-t border-slate-100 mt-1">
-            <a href="{zip_url}" download class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[9.5px] sm:text-[11px] font-black py-1.5 px-1.5 rounded-lg flex items-center justify-center gap-1 shadow-xs transition-colors">
-              <i class="fa-solid fa-download text-[9px]"></i>
-              <span>Download ZIP</span>
-            </a>
-            <button onclick="openPreviewModal('{path}', '{title}')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-bold py-1.5 px-2 rounded-lg" title="Live Preview">
-              <i class="fa-solid fa-eye text-[8.5px]"></i>
-            </button>
-            <a href="{path}" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[9.5px] sm:text-[11px] font-bold py-1.5 px-2 rounded-lg" title="Open in New Tab">
-              ↗
-            </a>
-          </div>
-        </div>'''
-
-processed = re.sub(r'<div class="flex items-center gap-1 pt-1\.5 border-t border-slate-100 mt-1">.*?</div>\s*</div>\s*(?=<!--|<div class="card-phone-unit|\n\s*</div>)', replace_card_footer, processed, flags=re.DOTALL)
-
-# 4. Title & Header adjustments
+# 3. Title & Header adjustments
+processed = processed.replace(
+    '<title>45+ Ultimate Landing Page Bundle | Just ₹399 (Live Mobile Screens)</title>',
+    '<title>Customer License Vault &amp; Downloads | 45+ Ultimate Landing Page Bundle</title>'
+)
 processed = processed.replace(
     '<title>45+ Ultimate Landing Page Bundle | Just ₹999 (Live Mobile Screens)</title>',
     '<title>Customer License Vault &amp; Downloads | 45+ Ultimate Landing Page Bundle</title>'
 )
 
-# 5. Verification Modal HTML
+# 4. Modals HTML
 verification_modal = '''
   <!-- License Verification Gate Modal -->
   <div id="licenseGateModal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
@@ -114,7 +498,6 @@ verification_modal = '''
   </div>
 '''
 
-# 5b. Customization Request & Razorpay Modal HTML
 customization_modal = '''
   <div id="customizationModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
     <div class="relative w-full max-w-lg bg-white rounded-3xl p-5 sm:p-7 border border-indigo-200 shadow-2xl text-left my-8">
@@ -192,45 +575,45 @@ customization_modal = '''
   </div>
 '''
 
-# 6. Header replacement
+# 5. Header replacement
 new_header = '''
   <!-- 1. Customer Portal Header -->
   <header class="sticky top-0 z-40 backdrop-blur-xl bg-white/95 border-b border-gold-500/20 shadow-2xs">
-    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 h-12 sm:h-14 flex items-center justify-between gap-1.5 sm:gap-4">
-      <a href="#" class="flex items-center space-x-1.5 sm:space-x-2 group flex-shrink-0">
-        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-gold-400 to-amber-600 p-0.5 shadow-sm flex items-center justify-center">
-          <div class="w-full h-full bg-white rounded-[6px] flex items-center justify-center">
-            <i class="fa-solid fa-crown text-gold-600 text-xs sm:text-sm"></i>
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 h-12 sm:h-14 flex items-center justify-between gap-1 sm:gap-4">
+      <a href="#" class="flex items-center space-x-1 sm:space-x-2 group flex-shrink-0">
+        <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-gold-400 to-amber-600 p-0.5 shadow-sm flex items-center justify-center">
+          <div class="w-full h-full bg-white rounded-[5px] sm:rounded-[6px] flex items-center justify-center">
+            <i class="fa-solid fa-crown text-gold-600 text-[10px] sm:text-sm"></i>
           </div>
         </div>
         <div class="flex flex-col text-left">
           <span class="text-xs sm:text-sm font-black tracking-tight text-slate-900 leading-none">
             DigitalTheme<span class="text-gold-600">.Store</span>
           </span>
-          <span class="text-[7.5px] sm:text-[9px] text-emerald-700 font-bold uppercase tracking-wider flex items-center gap-0.5 sm:gap-1">
-            <i class="fa-solid fa-shield-check text-[7.5px] sm:text-[8px]"></i> Licensed Vault
+          <span class="text-[7px] sm:text-[9px] text-emerald-700 font-bold uppercase tracking-wider flex items-center gap-0.5 sm:gap-1">
+            <i class="fa-solid fa-shield-check text-[7px] sm:text-[8px]"></i> Licensed Vault
           </span>
         </div>
       </a>
 
-      <div class="flex items-center space-x-1 sm:space-x-2.5 flex-shrink-0">
+      <div class="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
         <!-- Customer Badge (Visible on desktop only to avoid mobile cramping) -->
         <div id="customerHeaderBadge" class="hidden md:flex items-center gap-1.5 bg-amber-50 border border-amber-300/80 px-2 py-0.5 rounded-lg text-xs">
           <i class="fa-solid fa-user-check text-amber-600 text-xs"></i>
           <span id="headerCustomerName" class="font-black text-slate-900 truncate max-w-[100px]">Customer</span>
           <span id="headerCustomerKey" class="font-mono text-[10px] font-bold text-amber-800 bg-amber-200/60 px-1 py-0.2 rounded">KEY</span>
         </div>
-        <button onclick="openCustomizationModal()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-[9.5px] sm:text-xs font-black py-1 px-1.5 sm:px-3 rounded-lg flex items-center gap-1 transition-colors">
-          <i class="fa-solid fa-wand-magic-sparkles text-[9px] sm:text-[10px] text-indigo-600"></i>
+        <button onclick="openCustomizationModal()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-[9px] sm:text-xs font-black py-1 px-1.5 sm:px-3 rounded-lg flex items-center gap-1 transition-colors">
+          <i class="fa-solid fa-wand-magic-sparkles text-[8.5px] sm:text-[10px] text-indigo-600"></i>
           <span class="hidden sm:inline">Customization (₹3,999)</span>
           <span class="sm:hidden font-bold">₹3,999 Custom</span>
         </button>
-        <a href="../downloads/complete-45-landing-pages-bundle.zip" download class="btn-gold-main text-[9.5px] sm:text-xs py-1 px-1.5 sm:px-3.5 rounded-lg flex items-center space-x-1 shadow-xs">
-          <i class="fa-solid fa-file-zipper text-[9px] sm:text-[10px]"></i>
+        <a href="../downloads/complete-45-landing-pages-bundle.zip" download class="btn-gold-main text-[9px] sm:text-xs py-1 px-1.5 sm:px-3 rounded-lg flex items-center space-x-1 shadow-xs">
+          <i class="fa-solid fa-file-zipper text-[8.5px] sm:text-[10px]"></i>
           <span class="hidden sm:inline">Bundle ZIP (128 MB)</span>
           <span class="sm:hidden font-black">All ZIP</span>
         </a>
-        <button onclick="lockPortalSession()" class="text-slate-400 hover:text-rose-600 text-xs p-1 sm:p-1.5 rounded-lg hover:bg-slate-100" title="Lock / Change License">
+        <button onclick="lockPortalSession()" class="text-slate-400 hover:text-rose-600 text-xs p-1 rounded-lg hover:bg-slate-100" title="Lock / Change License">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </button>
       </div>
@@ -238,35 +621,37 @@ new_header = '''
   </header>
 '''
 
-# 7. Hero & Verified Banner
+# 6. Hero & Verified Banner
 new_hero = '''
   <!-- 2. Customer Hero Banner & License Rights -->
-  <section class="pt-3 pb-2 sm:pt-4 sm:pb-3 px-3 sm:px-6 max-w-7xl mx-auto text-center space-y-3">
+  <section class="pt-2 pb-2 sm:pt-4 sm:pb-3 px-2.5 sm:px-6 max-w-7xl mx-auto text-center space-y-3">
     
     <!-- Verified License Rights Box -->
-    <div id="verifiedLicenseCard" class="bg-white border-2 border-amber-300 rounded-2xl p-3 sm:p-5 text-left shadow-md space-y-2.5 relative overflow-hidden">
-      <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] sm:text-[10px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-2xs">
-        Official Single-User Commercial License • ₹29,999 Value Unlocked (₹399)
+    <div id="verifiedLicenseCard" class="bg-white border-2 border-amber-300 rounded-2xl sm:rounded-3xl p-3 sm:p-5 text-left shadow-md space-y-3 relative overflow-hidden">
+      <!-- Ribbon (In-flow on mobile so it never overlaps, absolute on desktop) -->
+      <div class="sm:absolute sm:top-0 sm:right-0 -mx-3 -mt-3 mb-1 sm:m-0 bg-gradient-to-r sm:bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] sm:text-[10px] uppercase py-1.5 px-2.5 sm:px-3 text-center sm:text-left sm:rounded-bl-xl tracking-wider shadow-2xs flex items-center justify-center sm:justify-start gap-1">
+        <i class="fa-solid fa-crown text-[8.5px]"></i>
+        <span>Official Single-User Commercial License • ₹29,999 Value (₹399)</span>
       </div>
       
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pr-28 sm:pr-0">
-        <div class="flex items-center gap-2.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5 min-w-0">
           <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg flex-shrink-0">
             <i class="fa-solid fa-certificate"></i>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 id="licenseCardName" class="text-sm sm:text-base font-black text-slate-950">Licensed Customer</h2>
-              <span id="licenseCardBadge" class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full">ACTIVE</span>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h2 id="licenseCardName" class="text-sm sm:text-base font-black text-slate-950 truncate max-w-[200px] sm:max-w-none">Licensed Customer</h2>
+              <span id="licenseCardBadge" class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full flex-shrink-0">ACTIVE</span>
             </div>
-            <p class="text-[11px] text-slate-500 font-mono">
+            <p class="text-[11px] text-slate-500 font-mono truncate">
               WhatsApp: <span id="licenseCardPhone" class="font-bold text-slate-800">--</span> • Key: <span id="licenseCardKey" class="font-bold text-amber-700">--</span>
             </p>
           </div>
         </div>
 
-        <div class="flex items-center gap-2">
-          <a href="../downloads/complete-45-landing-pages-bundle.zip" download class="btn-gold-main text-xs sm:text-sm font-black py-2.5 px-4 rounded-xl shadow flex items-center gap-2 flex-shrink-0">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <a href="../downloads/complete-45-landing-pages-bundle.zip" download class="w-full sm:w-auto btn-gold-main text-xs sm:text-sm font-black py-2.5 px-4 rounded-xl shadow flex items-center justify-center gap-2 flex-shrink-0">
             <i class="fa-solid fa-cloud-arrow-down text-sm"></i>
             <span>Download All 45+ Themes (Full ZIP)</span>
           </a>
@@ -279,20 +664,23 @@ new_hero = '''
         <div class="text-[11px] leading-relaxed">
           <strong class="font-black text-slate-900">LEGAL NOTICE &amp; NON-RESALE COVENANT:</strong>
           This license grants the registered phone holder lifetime permission to use, customize, and publish these 45+ landing pages for unlimited personal and client projects. 
-          <span class="text-rose-700 font-extrabold">Re-selling, sub-licensing, sharing, or publishing the raw source code files in digital stores or repositories is strictly prohibited and subject to DMCA copyright enforcement.</span>
+          <span class="text-rose-700 font-extrabold">Re-selling, sub-licensing, sharing, or publishing raw source code is strictly prohibited.</span>
         </div>
       </div>
     </div>
 
     <!-- VIP Customization & Deployment Support Banner (₹3,999) -->
-    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white rounded-2xl p-4 sm:p-5 shadow-lg border-2 border-indigo-400/50 relative overflow-hidden text-left">
+    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 shadow-lg border-2 border-indigo-400/50 relative overflow-hidden text-left space-y-2.5">
       <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 text-[9px] sm:text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow">
-        ⭐ VIP Business Upgrade
+      
+      <!-- Ribbon (In-flow on mobile so it never overlaps, absolute on desktop) -->
+      <div class="sm:absolute sm:top-0 sm:right-0 -mx-3.5 -mt-3.5 mb-1 sm:m-0 bg-gradient-to-r sm:bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 text-[9px] sm:text-[10px] font-black py-1.5 px-3 text-center sm:text-left sm:rounded-bl-xl uppercase tracking-wider shadow flex items-center justify-center sm:justify-start gap-1">
+        <i class="fa-solid fa-star text-[8.5px]"></i>
+        <span>VIP Business Upgrade</span>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div class="space-y-1.5 max-w-2xl pr-12 md:pr-0">
+        <div class="space-y-1.5 max-w-2xl">
           <div class="inline-flex items-center gap-1.5 bg-indigo-500/25 border border-indigo-400/40 text-indigo-200 text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full">
             <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
             <span>Full Customization &amp; Database Package</span>
@@ -314,7 +702,7 @@ new_hero = '''
           </div>
         </div>
 
-        <div class="flex-shrink-0 flex items-center">
+        <div class="flex-shrink-0 flex items-center w-full sm:w-auto">
           <button onclick="openCustomizationModal()" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] cursor-pointer">
             <i class="fa-solid fa-rocket text-indigo-950"></i>
             <span>Request Customization (₹3,999)</span>
@@ -329,7 +717,7 @@ new_hero = '''
         All 45+
       </button>
       <button onclick="filterColor('gold')" id="filter-gold" class="color-btn py-1 px-2.5 rounded-lg bg-white border border-gold-400 text-gold-900 hover:bg-gold-50 font-black flex-shrink-0">
-        🏆 Top Featured (12)
+        🏆 Top Featured (11)
       </button>
       <button onclick="filterColor('emerald')" id="filter-emerald" class="color-btn py-1 px-2.5 rounded-lg bg-white border border-slate-200 text-emerald-800 hover:bg-emerald-50 flex-shrink-0">
         💚 Emerald (10)
@@ -341,32 +729,97 @@ new_hero = '''
         💙 Blue (5)
       </button>
       <button onclick="filterColor('classic')" id="filter-classic" class="color-btn py-1 px-2.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 flex-shrink-0">
-        🖤 Classic (10)
+        🖤 Classic (9)
       </button>
     </div>
   </section>
 '''
 
-# 8. Replace Header and Hero in html
+# 7. Render ALL 44 Cards in the Main Section
+cards_html_list = []
+for idx, key in enumerate(ORDERED_KEYS):
+    cards_html_list.append(render_portal_card(key, idx))
+all_cards_grid = "\n\n".join(cards_html_list)
+
+new_main = f'''  <!-- 3. MAIN LICENSED VAULT: ALL 45+ UNLOCKED TEMPLATES -->
+  <main class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 pb-12">
+    <div class="mb-4 flex items-center justify-between px-1">
+      <div class="flex items-center space-x-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm animate-pulse"></span>
+        <h2 class="text-xs sm:text-base font-black uppercase tracking-wider text-slate-900">
+          All 45+ Unlocked Templates &amp; Source Codes
+        </h2>
+      </div>
+      <span class="text-[9.5px] sm:text-[11px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-300 px-2.5 py-0.5 rounded-full">
+        45+ Templates Unlocked
+      </span>
+    </div>
+
+    <!-- 2 In 1 Row on Mobile, 4 In 1 Row on Desktop -->
+    <div id="templatesGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5">
+{all_cards_grid}
+    </div>
+  </main>
+'''
+
+# 8. Replace Header, Hero and Main in html
 processed = re.sub(r'<!-- 1\. Ultra-Compact Top Sticky Header -->.*?<!-- 2\. Mobile Top 30% Compact Banner & Hook', new_header + '\n  <!-- 2. Mobile Top 30% Compact Banner & Hook', processed, flags=re.DOTALL)
 processed = re.sub(r'<!-- 2\. Mobile Top 30% Compact Banner & Hook.*?<!-- 3\. MAIN LIVE SHOWCASE', new_hero + '\n  <!-- 3. MAIN LIVE SHOWCASE', processed, flags=re.DOTALL)
+processed = re.sub(r'<!-- 3\. MAIN LIVE SHOWCASE.*?<!-- 4\. Pricing / Bundle Checkout Banner', new_main + '\n  <!-- 4. Pricing / Bundle Checkout Banner', processed, flags=re.DOTALL)
 
-# 9. Insert Verification Modal and Customization Modal right after <body>
+# Remove any pricing banner or footer checkout banner in purchase portal
+processed = re.sub(r'<!-- 4\. Pricing / Bundle Checkout Banner.*?<!-- 5\. Trust & FAQ', '<!-- 5. Trust & FAQ', processed, flags=re.DOTALL)
+
+# Insert Verification Modal and Customization Modal right after <body>
 processed = processed.replace(
     '<body class="bg-stone-50 text-slate-900 min-h-screen bg-light-pattern relative selection:bg-gold-400 selection:text-black pb-16 sm:pb-0">',
     '<body class="bg-stone-50 text-slate-900 min-h-screen bg-light-pattern relative selection:bg-gold-400 selection:text-black pb-16 sm:pb-0">\n' + verification_modal + '\n' + customization_modal
 )
 
-# 10. Remove the checkout modal and mobile floating CTA completely
+# Remove checkout modal and mobile floating CTA
 processed = re.sub(r'<!-- Instant Checkout Modal.*?<!-- Javascript Logic for scaling phone iframes', '<!-- Javascript Logic for scaling phone iframes', processed, flags=re.DOTALL)
 
-# 11. Portal Script with Firebase RTDB
+# 9. Portal Script with Firebase RTDB + Color Filtering
 portal_script = '''
     // =========================================================================
     // 🔑 FIREBASE REALTIME DATABASE LICENSE VERIFICATION LOGIC
     // =========================================================================
     const RTDB_URL = "https://awdeveloper-f2b8a-default-rtdb.firebaseio.com";
     let currentCustomerLicense = null;
+
+    // Filter Color Categories
+    function filterColor(color) {
+      document.querySelectorAll('.color-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-gold-500', 'text-slate-950', 'bg-emerald-600', 'text-white', 'bg-purple-600', 'bg-blue-600', 'bg-slate-900');
+        btn.classList.add('bg-white', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById('filter-' + color);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.classList.remove('bg-white', 'text-slate-700');
+        if (color === 'gold' || color === 'all') {
+          activeBtn.classList.add('bg-gold-500', 'text-slate-950');
+        } else if (color === 'emerald') {
+          activeBtn.classList.add('bg-emerald-600', 'text-white');
+        } else if (color === 'purple') {
+          activeBtn.classList.add('bg-purple-600', 'text-white');
+        } else if (color === 'blue') {
+          activeBtn.classList.add('bg-blue-600', 'text-white');
+        } else {
+          activeBtn.classList.add('bg-slate-900', 'text-white');
+        }
+      }
+
+      const cards = document.querySelectorAll('.card-phone-unit');
+      cards.forEach(card => {
+        const cardColor = card.getAttribute('data-color') || '';
+        if (color === 'all' || cardColor === color) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
 
     // Check verification status on load (URL params or localStorage)
     async function checkLicenseStatus() {
@@ -686,7 +1139,7 @@ portal_script = '''
     });
 '''
 
-# 12. Replace the script section in processed
+# 10. Replace the script section in processed
 processed = processed.replace(
     '<!-- Javascript Logic for scaling phone iframes and interactivity -->\n  <script>',
     '<!-- Javascript Logic for scaling phone iframes and interactivity -->\n  <script>\n' + portal_script
@@ -718,4 +1171,4 @@ os.makedirs('purchase', exist_ok=True)
 with open('purchase/index.html', 'w', encoding='utf-8') as f:
     f.write(processed)
 
-print('Generated purchase/index.html cleanly. Size:', len(processed))
+print('Successfully generated purchase/index.html with ALL 44+ templates unlocked. Size:', len(processed))
