@@ -363,8 +363,7 @@ export default {
             description.toLowerCase().includes("theme") ||
             notes.product === "45_landing_pages_bundle" ||
             amountPaise === 39900 ||
-            amountPaise === 99900 ||
-            amountPaise === 100;
+            amountPaise === 99900;
 
           if (!isLandingPageBundle) {
             console.log(`[Razorpay Webhook ⏭️] Payment ${paymentId} belongs to another website on this account. Safely ignored.`);
