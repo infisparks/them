@@ -499,8 +499,9 @@ verification_modal = '''
 '''
 
 customization_modal = '''
+  <!-- 1-Click VIP Customization Checkout Modal -->
   <div id="customizationModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-    <div class="relative w-full max-w-lg bg-white rounded-3xl p-5 sm:p-7 border border-indigo-200 shadow-2xl text-left my-8">
+    <div class="relative w-full max-w-md bg-white rounded-3xl p-5 sm:p-6 border border-indigo-200 shadow-2xl text-left my-8 space-y-4">
       <button onclick="closeCustomizationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors">
         <i class="fa-solid fa-xmark text-sm"></i>
       </button>
@@ -509,68 +510,60 @@ customization_modal = '''
         <div class="inline-flex items-center gap-1.5 bg-indigo-50 border border-indigo-200 text-indigo-700 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
           <i class="fa-solid fa-crown text-amber-500"></i> VIP Service
         </div>
-        <h3 class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-          Template Customization, Database &amp; Admin Panel Setup
+        <h3 class="text-lg font-black text-slate-900 tracking-tight">
+          Template Customization &amp; Database Setup
         </h3>
         <p class="text-xs text-slate-500">
-          Full business customization, database connection with Admin Panel, free hosting, free cloud storage &amp; custom domain connection by our dedicated support team.
+          Full business customization, database connection with Admin Panel, free hosting, free cloud storage &amp; custom domain connection.
         </p>
       </div>
 
-      <div class="mt-4 p-3.5 rounded-xl bg-indigo-50/80 border border-indigo-200 flex items-center justify-between text-xs">
+      <!-- Package Pricing Box -->
+      <div class="p-3.5 rounded-2xl bg-indigo-50/80 border border-indigo-200 flex items-center justify-between text-xs">
         <div>
-          <span class="text-slate-500 font-medium">VIP Package:</span>
-          <span class="font-black text-slate-900 ml-1 block sm:inline">Full Customization + Database + Admin Panel + Hosting &amp; Domain Connection</span>
+          <span class="text-slate-500 font-medium block">All-In-One Package:</span>
+          <span class="font-black text-slate-900 text-xs">Full Customization + Database + Hosting</span>
         </div>
         <div class="text-right flex-shrink-0 ml-2">
-          <span class="text-lg font-black text-indigo-700">₹3,999</span>
-          <span class="text-[10px] text-emerald-700 block font-bold">All-Inclusive</span>
+          <span class="text-xl font-black text-indigo-700">₹3,999</span>
+          <span class="text-[9.5px] text-emerald-700 block font-bold">1-Time Fee</span>
         </div>
       </div>
 
-      <form id="customizationOrderForm" onsubmit="handleCustomizationSubmit(event)" class="space-y-3.5 mt-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Your Full Name <span class="text-rose-500">*</span></label>
-            <input type="text" id="custOrderName" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-3 py-2 text-xs text-slate-900 font-semibold outline-none transition-all" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Number <span class="text-rose-500">*</span></label>
-            <input type="tel" id="custOrderPhone" required placeholder="+91 9876543210" class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-3 py-2 text-xs text-slate-900 font-mono font-semibold outline-none transition-all" />
-          </div>
+      <!-- Auto-Fetched Customer Profile Box -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-2">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-slate-500 font-medium">Customer Name:</span>
+          <span id="custAutoName" class="font-bold text-slate-900">--</span>
         </div>
+        <div class="flex items-center justify-between text-xs border-t border-slate-200/60 pt-1.5">
+          <span class="text-slate-500 font-medium">WhatsApp Number:</span>
+          <span id="custAutoPhone" class="font-bold text-indigo-700 font-mono">--</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs border-t border-slate-200/60 pt-1.5 gap-1">
+          <span class="text-slate-500 font-medium">License Key:</span>
+          <span id="custAutoKey" class="font-mono text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded font-bold text-[11px] select-all break-all self-start sm:self-auto">--</span>
+        </div>
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Email Address <span class="text-rose-500">*</span></label>
-            <input type="email" id="custOrderEmail" required placeholder="name@yourdomain.com" class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-3 py-2 text-xs text-slate-900 outline-none transition-all" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Target Template <span class="text-rose-500">*</span></label>
-            <input type="text" id="custOrderTemplate" required placeholder="e.g. Meta Ads Landing Page / Bento Portfolio" class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl px-3 py-2 text-xs text-slate-900 outline-none transition-all" />
-          </div>
+      <!-- Informational Feature Checklist -->
+      <div class="p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 space-y-1.5">
+        <div class="flex items-start gap-1.5">
+          <i class="fa-solid fa-circle-check text-emerald-600 text-xs mt-0.5 flex-shrink-0"></i>
+          <span><strong>Direct WhatsApp Setup:</strong> No forms needed! Right after checkout, our dedicated support team will contact your WhatsApp to get your custom domain &amp; requirements.</span>
         </div>
+      </div>
 
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Custom Domain &amp; Business Requirements <span class="text-rose-500">*</span></label>
-          <textarea id="custOrderRequirements" required rows="3" placeholder="Enter your domain name to connect (e.g. yourbrand.com), brand colors, copy, database fields, and admin panel requirements..." class="w-full bg-slate-50 border border-slate-200 focus:border-indigo-600 focus:bg-white rounded-xl p-2.5 text-xs text-slate-900 outline-none transition-all"></textarea>
-        </div>
-
-        <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-900 flex items-center gap-2">
-          <i class="fa-solid fa-shield-halved text-amber-600 text-sm flex-shrink-0"></i>
-          <span>Secure Razorpay / UPI checkout for <strong>₹3,999</strong>. Includes Full Customization, Database + Admin Panel, Free Hosting &amp; Cloud Storage, Domain Connection + Dedicated Support!</span>
-        </div>
-
-        <div class="flex items-center gap-2 pt-1">
-          <button type="button" onclick="closeCustomizationModal()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold py-3 rounded-xl transition-colors">
-            Cancel
-          </button>
-          <button type="submit" id="btnSubmitCustomization" class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-xs sm:text-sm font-black py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <i class="fa-solid fa-credit-card text-xs"></i>
-            <span>Pay ₹3,999 with Razorpay</span>
-          </button>
-        </div>
-      </form>
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 pt-1">
+        <button type="button" onclick="closeCustomizationModal()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold py-3.5 rounded-xl transition-colors">
+          Cancel
+        </button>
+        <button type="button" id="btnSubmitCustomization" onclick="startCustomizationPayment()" class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-xs sm:text-sm font-black py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-bolt text-amber-300"></i>
+          <span>Pay ₹3,999 with Razorpay</span>
+        </button>
+      </div>
     </div>
   </div>
 '''
@@ -635,18 +628,22 @@ new_hero = '''
       </div>
       
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="flex items-center gap-2.5 min-w-0">
-          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg flex-shrink-0">
+        <div class="flex items-start sm:items-center gap-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg flex-shrink-0 mt-0.5 sm:mt-0">
             <i class="fa-solid fa-certificate"></i>
           </div>
-          <div class="min-w-0">
+          <div class="min-w-0 space-y-0.5">
             <div class="flex items-center gap-2 flex-wrap">
-              <h2 id="licenseCardName" class="text-sm sm:text-base font-black text-slate-950 truncate max-w-[200px] sm:max-w-none">Licensed Customer</h2>
+              <h2 id="licenseCardName" class="text-sm sm:text-base font-black text-slate-950">Licensed Customer</h2>
               <span id="licenseCardBadge" class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full flex-shrink-0">ACTIVE</span>
             </div>
-            <p class="text-[11px] text-slate-500 font-mono truncate">
-              WhatsApp: <span id="licenseCardPhone" class="font-bold text-slate-800">--</span> • Key: <span id="licenseCardKey" class="font-bold text-amber-700">--</span>
+            <p class="text-[11px] text-slate-600 font-mono">
+              WhatsApp: <span id="licenseCardPhone" class="font-bold text-slate-900">--</span>
             </p>
+            <div class="flex items-center gap-1.5 pt-0.5 flex-wrap">
+              <span class="text-[11px] text-slate-500 font-mono">License Key:</span>
+              <span id="licenseCardKey" class="font-mono font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-md text-[11px] sm:text-xs select-all break-all">--</span>
+            </div>
           </div>
         </div>
 
@@ -1023,16 +1020,26 @@ portal_script = '''
     });
 
     // =========================================================================
-    // 🛠️ CUSTOMIZATION & DEPLOYMENT REQUEST WITH RAZORPAY
+    // 🛠️ 1-CLICK CUSTOMIZATION & DEPLOYMENT REQUEST WITH RAZORPAY
     // =========================================================================
-    function openCustomizationModal(defaultTemplate) {
+    function openCustomizationModal() {
+      let name = 'Licensed Customer';
+      let phone = '';
+      let key = 'LIC-ACTIVE';
+
       if (currentCustomerLicense) {
-        if (currentCustomerLicense.name) document.getElementById('custOrderName').value = currentCustomerLicense.name;
-        if (currentCustomerLicense.phone) document.getElementById('custOrderPhone').value = currentCustomerLicense.phone;
+        name = currentCustomerLicense.name || name;
+        phone = currentCustomerLicense.phone || phone;
+        key = currentCustomerLicense.key || key;
       }
-      if (defaultTemplate) {
-        document.getElementById('custOrderTemplate').value = defaultTemplate;
-      }
+
+      const nameEl = document.getElementById('custAutoName');
+      const phoneEl = document.getElementById('custAutoPhone');
+      const keyEl = document.getElementById('custAutoKey');
+      if (nameEl) nameEl.innerText = name;
+      if (phoneEl) phoneEl.innerText = phone || 'Registered WhatsApp';
+      if (keyEl) keyEl.innerText = key;
+
       document.getElementById('customizationModal').classList.remove('hidden');
     }
 
@@ -1040,27 +1047,21 @@ portal_script = '''
       document.getElementById('customizationModal').classList.add('hidden');
     }
 
-    async function handleCustomizationSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('custOrderName').value.trim();
-      const phone = document.getElementById('custOrderPhone').value.trim();
-      const email = document.getElementById('custOrderEmail').value.trim();
-      const template = document.getElementById('custOrderTemplate').value.trim();
-      const requirements = document.getElementById('custOrderRequirements').value.trim();
+    async function startCustomizationPayment() {
       const btn = document.getElementById('btnSubmitCustomization');
-
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Initializing Razorpay...';
+
+      const name = currentCustomerLicense ? (currentCustomerLicense.name || 'Licensed Customer') : 'Licensed Customer';
+      const phone = currentCustomerLicense ? (currentCustomerLicense.phone || '') : '';
+      const key = currentCustomerLicense ? (currentCustomerLicense.key || '') : '';
 
       const orderData = {
         name: name,
         phone: phone,
-        email: email,
-        template: template,
-        requirements: requirements,
         amount: "₹3,999",
         amountInr: 3999,
-        licenseKey: currentCustomerLicense ? (currentCustomerLicense.key || '') : '',
+        licenseKey: key,
         createdAt: new Date().toISOString(),
         status: "Pending Payment"
       };
@@ -1073,7 +1074,6 @@ portal_script = '''
         description: "Template Customization, Database & Admin Panel Setup (₹3,999)",
         prefill: {
           name: name,
-          email: email,
           contact: phone.replace(/[^0-9]/g, '')
         },
         theme: {
@@ -1087,7 +1087,7 @@ portal_script = '''
         modal: {
           ondismiss: async function() {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay ₹3,999 with Razorpay</span>';
+            btn.innerHTML = '<i class="fa-solid fa-bolt text-amber-300"></i> <span>Pay ₹3,999 with Razorpay</span>';
           }
         }
       };
@@ -1101,7 +1101,7 @@ portal_script = '''
             await saveCustomizationOrder(orderData);
             alert("Razorpay: " + (resp.error ? resp.error.description : "Payment failed"));
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-credit-card text-xs"></i> <span>Pay ₹3,999 with Razorpay</span>';
+            btn.innerHTML = '<i class="fa-solid fa-bolt text-amber-300"></i> <span>Pay ₹3,999 with Razorpay</span>';
           });
           rzp.open();
         } else {
@@ -1125,7 +1125,7 @@ portal_script = '''
         });
         closeCustomizationModal();
         alert('🎉 Customization Request Confirmed! Our senior team will contact you on WhatsApp (' + orderData.phone + ') within 1 hour to start your template customization & domain connection.');
-        const text = encodeURIComponent('Hello, I just booked ₹3,999 Full Customization, Database & Domain Setup for template: ' + orderData.template + '. My name is ' + orderData.name + '.');
+        const text = encodeURIComponent('Hello, I just booked ₹3,999 Full Customization & Database Setup. My name is ' + orderData.name + ' (License: ' + orderData.licenseKey + ').');
         window.open('https://wa.me/919951231231?text=' + text, '_blank');
       } catch (err) {
         console.error("Error saving customization order:", err);
