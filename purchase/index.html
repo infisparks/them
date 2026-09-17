@@ -273,13 +273,13 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 375px;
+      width: 376px;
       height: var(--phone-iframe-height, 790px);
       border: none;
       transform-origin: top left;
       transform: scale(var(--phone-scale, 0.46));
       pointer-events: none; /* Prevents touch/scroll capture for smooth 60fps scrolling */
-      background: #ffffff;
+      background: transparent;
       z-index: 20;
       opacity: 0;
       transition: opacity 0.2s ease;
@@ -2890,7 +2890,8 @@
       const frameWidth = firstFrame.clientWidth;
       const frameHeight = firstFrame.clientHeight;
       if (frameWidth <= 0) return;
-      const scale = (frameWidth / 375).toFixed(4);
+      // Slight +0.8px margin ensures full edge-to-edge coverage without subpixel rounding white lines
+      const scale = ((frameWidth + 0.8) / 375).toFixed(4);
       const heightVal = Math.round(frameHeight / scale) + 'px';
 
       document.documentElement.style.setProperty('--phone-scale', scale);
